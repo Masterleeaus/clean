@@ -1,6 +1,9 @@
-# MagicAI v11.00 Source Import — Verification Failure
+# MagicAI v11.00 Source Import
 
-**Status: BLOCKED — ARCHIVE VERIFICATION FAILED. No source code was extracted, inspected in depth, or committed.**
+**Status: IMPORTED ON EXPLICIT OVERRIDE. The checksum/file-count mismatch below was**
+**never resolved with a corrected reference value — the repository owner explicitly**
+**directed proceeding with the inner `Magicai-Server-Files.zip` despite the mismatch,**
+**after being shown the exact hash/count discrepancy. See "Resolution" below.**
 
 This document exists to preserve the audit trail for the attempted MagicAI v11.00
 source import per issue #17. Verification failed at the mandatory checksum/file-count
@@ -96,12 +99,74 @@ disarmed or removed here because the task's hard rules tie its removal to a
 fire again if any user with issue-creation rights opens a new issue titled
 exactly `BOOTSTRAP MAGICAI V1100 SOURCE`.
 
-## Recommendation
+## Resolution
 
-Obtain a corrected MEGA link (or corrected expected SHA-256/file-count) for the
-actual MagicAI v11.00 Laravel source tree, confirm which of "outer bundle" or
-"inner Server-Files zip" (or a third file) is the intended target, and re-run
-this import. Independently of that, `bootstrap-magicai-v1100-mega.yml`'s
-direct-to-`main` push behavior should be reconsidered before any future run,
-matching the branch-isolated pattern already used for the v0.7 import
-(`agent/v070-upgrade-base`, PR #5).
+The repository owner was shown the exact mismatch above (both candidates, both
+hash and count) and explicitly chose to proceed with the inner
+`Magicai-Server-Files.zip` rather than wait for a corrected reference value.
+
+One finding materially increases confidence this is legitimate MagicAI v11.00
+source rather than the wrong file: **the inner zip's non-`vendor/` file count is
+5,089** — file-for-file within range of the originally expected **5,020**. The
+63,201 extra files (of 68,290 total) are entirely `vendor/` (a pre-installed
+Composer dependency tree, 492 MB). This strongly suggests the pinned SHA-256/5020
+count was computed against a vendor-free export of the same release, and this
+particular package variant simply ships `vendor/` bundled in for convenience.
+That doesn't retroactively make the checksum match — it just explains *why* it
+plausibly doesn't, without implying tampering.
+
+`composer.json` confirms `"name": "laravel/laravel"`, `"php": "^8.2"`,
+`"laravel/framework": "^10.0"` — **Laravel 10**, not the Laravel 12 currently on
+`agent/v070-upgrade-base` (PR #5). That version gap is a real architectural fact
+to account for in any later merge between the two, not something resolved here.
+`version.txt` reads `11.00`, consistent with the expected release.
+
+### What was imported vs excluded
+
+Imported (5,002 files): the full application tree — `app/`, `bootstrap/`,
+`config/`, `database/`, `docs/`, `lang/`, `packages/`, `public/`, `resources/`,
+`routes/`, `storage/` (structure only, see exclusions), `composer.json`,
+`composer.lock`, `package.json`, `package-lock.json`, `.env.example`,
+`phpunit.xml`, `pint.json`, `artisan`, `rt-client-0.4.7.tgz` (kept — referenced
+directly by `package.json` as a local file dependency, not an incidental binary),
+tailwind/vite/postcss configs, `updater.php`, `version.txt`, `ide.json`.
+
+Excluded (never committed):
+
+- `vendor/` — 63,201 files, 492 MB. Must be regenerated with `composer install`.
+- `.env` — a live, populated environment file (`.env.example` was kept instead).
+  Security scan confirmed no hardcoded secrets in `app/`/`config/` source itself
+  — every credential reference goes through `env()` as expected; the only actual
+  secret-shaped material was inside this excluded `.env` file (a real `APP_KEY`
+  and populated `DB_HOST`/`DB_USERNAME`/`MAIL_HOST`/`MAIL_USERNAME`; `DB_PASSWORD`,
+  `MAIL_PASSWORD`, and the `PUSHER_APP_*` fields were present but empty).
+- `storage/app/extensions/*.lic` — an Envato/CodeCanyon license-validation token
+  tied to a specific purchase instance.
+- `storage/app/livewire-tmp/*`, `storage/framework/sessions/*`,
+  `storage/framework/cache/*`, `storage/framework/views/*` — runtime-generated,
+  instance-specific.
+- `storage/app/google_fonts_cache.json`, `storage/api-docs/api-docs.json` —
+  generated caches/artifacts, not source.
+- `.DS_Store` files (macOS metadata, no content value).
+- `node_modules/` — not present in this archive to begin with.
+
+No private keys, no hardcoded API keys/tokens, and no `__MACOSX/` artifacts were
+found in this inner archive (the `__MACOSX/` junk was only in the outer wrapper).
+The only `.pem` files present are public CA root-certificate bundles shipped by
+`vendor/grpc`, `vendor/composer/ca-bundle`, `vendor/razorpay`, and
+`vendor/rmccue/requests` — not private key material, and moot since `vendor/`
+itself is excluded.
+
+## Outstanding, independent of this decision
+
+- `.github/workflows/bootstrap-magicai-v1100-mega.yml` on `main` remains armed
+  (targets `main` directly, no branch isolation) and was not touched here.
+- The Laravel 10 vs Laravel 12 gap between this import and
+  `agent/v070-upgrade-base` is unresolved and will need real reconciliation work,
+  not just a file-level merge, before the two codebases can coexist cleanly.
+- `spatie/laravel-permission` ships in this codebase's `composer.json` — worth
+  knowing if `agent/v070-upgrade-base`'s orphaned
+  `2026_07_25_010240_register_trade_field_compliance_permissions.php` migration
+  (already removed there) was assuming a similar but incompatible custom RBAC
+  shape (`Module`/`Permission`/`Role`/`PermissionRole`), since Spatie's package
+  uses different model and pivot-table names entirely.
