@@ -13,5 +13,5 @@ it('stores Vault values encrypted', function (): void {
 
     expect($source)->toContain('Crypt::encryptString')
         ->and($source)->toContain('Crypt::decryptString')
-        ->and($source)->not->toContain("'value' => \$value");
+        ->and($source)->not->toContain("'value' => $value");
 });

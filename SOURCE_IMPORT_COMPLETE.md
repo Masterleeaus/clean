@@ -5,7 +5,7 @@
 - SHA-256: `4a64ad4b2d0b141aeb3dd91fe19c618c0caeb2fedcea7820ced8694ea62bf6ed`
 - Imported archive files: `1128`
 - Target branch: `agent/v070-upgrade-base`
-- Bootstrap run: <https://github.com/Masterleeaus/clean/actions/runs/30467540662>
+- Bootstrap run: <https://github.com/Masterleeaus/clean/actions/runs/30467889282>
 
 The source was checksum-verified, ZIP-tested and inspected for generated dependencies, runtime environment files and private-key material before extraction.
 
