@@ -77,9 +77,10 @@ function titanZeroFeatureFlagIssues(string $root): array
     }
 
     $appConfig = (string) @file_get_contents($root . '/config/app.php');
-    $importsTitanZeroProvider = str_contains($appConfig, 'use App\\Providers\\TitanZeroServiceProvider;');
-    $registersTitanZeroProvider = str_contains($appConfig, 'TitanZeroServiceProvider::class');
-    if (! $importsTitanZeroProvider || ! $registersTitanZeroProvider) {
+    $usesImportedProvider = str_contains($appConfig, 'use App\\Providers\\TitanZeroServiceProvider;')
+        && str_contains($appConfig, 'TitanZeroServiceProvider::class');
+    $usesFullyQualifiedProvider = str_contains($appConfig, 'App\\Providers\\TitanZeroServiceProvider::class');
+    if (! $usesImportedProvider && ! $usesFullyQualifiedProvider) {
         $issues[] = 'config/app.php does not register TitanZeroServiceProvider.';
     }
     if (str_contains($appConfig, 'App\\Domains\\WorkCore\\WorkCoreServiceProvider::class')) {
