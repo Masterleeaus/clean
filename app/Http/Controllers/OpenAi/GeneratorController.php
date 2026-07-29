@@ -11,7 +11,6 @@ use App\Extensions\AIChatPro\System\Connectors\Models\AIChatProConnector;
 use App\Extensions\AiChatProImageChat\System\Services\AIChatImageService;
 use App\Extensions\AIChatProMemory\System\Models\UserChatInstruction;
 use App\Extensions\AIChatProSkills\System\Models\Skill;
-use App\Extensions\Crm\System\Services\CrmAssistantChatService;
 use App\Extensions\ModelCouncil\System\Services\ModelCouncilService;
 use App\Extensions\SocialMedia\System\Models\SocialMediaPostDailyMetric;
 use App\Extensions\SocialMediaAgent\System\Models\SocialMediaAgent;
@@ -87,7 +86,7 @@ class GeneratorController extends Controller
 
         // If the template type is chat, then we will build a chat streamed output or other ai template streamed output
         return match ($template_type) {
-            'chatbot', 'vision', 'chatPro', 'chatPro-image', 'socialMediaAgent', 'crmAssistant' => $this->buildChatStreamedOutput($request),
+            'chatbot', 'vision', 'chatPro', 'chatPro-image', 'socialMediaAgent' => $this->buildChatStreamedOutput($request),
             'chatPro-council'         => $this->buildCouncilStreamedOutput($request),
             'chatPro-council-summary' => $this->buildCouncilSummaryStreamedOutput($request),
             default                   => $this->buildOtherStreamedOutput($request),
@@ -283,7 +282,6 @@ class GeneratorController extends Controller
             'chat_id'             => $chat_id,
             'chat_type'           => $request->get('template_type'),
             'agent_id'            => $request->integer('chat_open_ai_agent_id') ?: null,
-            'crm_scope'           => $request->get('crm_scope') ?: 'all',
             'images'              => $request->get('images', null),
             'pdfname'             => $request->get('pdfname', null),
             'pdfpath'             => $request->get('pdfpath', null),
@@ -448,10 +446,6 @@ class GeneratorController extends Controller
 
             $history = $this->appendSocialMediaAgentContext($history, $chatParams, $systemRole);
         }
-
-        if (($chatParams['chat_type'] ?? null) === 'crmAssistant') {
-            $history = $this->appendCrmAssistantContext($history, $chatParams, $systemRole);
-        }
         $history = $this->addFileOrInstructionsToHistory($history, $category, $chat_id, $chatParams['prompt'], $systemRole);
         $history = $this->checkBrandVoice($chatParams['chat_brand_voice'], $chatParams['brand_voice_prod'], $history);
         $history = $this->checkSkills($chatParams['skill_ids'] ?? null, $history, $systemRole, $chatParams);
@@ -464,23 +458,6 @@ class GeneratorController extends Controller
         );
 
         return $this->addCurrentPromptToHistory($history, $chatParams, $systemRole);
-    }
-
-    private function appendCrmAssistantContext(array $history, array $chatParams, string $systemRole): array
-    {
-        if (! MarketplaceHelper::isRegistered('crm') || ! Auth::check()) {
-            return $history;
-        }
-
-        $history[] = [
-            'role'    => $systemRole,
-            'content' => app(CrmAssistantChatService::class)->systemPrompt(
-                (int) Auth::id(),
-                (string) ($chatParams['crm_scope'] ?? 'all')
-            ),
-        ];
-
-        return $history;
     }
 
     private function appendSocialMediaAgentContext(array $history, array $chatParams, string $systemRole): array

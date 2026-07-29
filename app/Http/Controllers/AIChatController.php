@@ -141,7 +141,7 @@ class AIChatController extends Controller
         $categoryId = $validated['category_id'] ?? null;
         $folderId = $validated['folder_id'] ?? null;
 
-        $isChatProContext = in_array($websiteUrl, ['chatpro', 'chatpro-temp', 'chatPro', 'chatpro-image', 'social-media-agent', 'crm-assistant'], true);
+        $isChatProContext = in_array($websiteUrl, ['chatpro', 'chatpro-temp', 'chatPro', 'chatpro-image', 'social-media-agent'], true);
         $foldersEnabled = $isChatProContext && MarketplaceHelper::isRegistered('ai-chat-pro-folders');
 
         $selectColumns = ['id', 'title', 'created_at', 'is_pinned', 'updated_at', 'reference_url', 'doc_name', 'website_url'];
@@ -541,10 +541,6 @@ class AIChatController extends Controller
             $chatView = 'social-media-agent::chat.includes.chat_area_container';
         }
 
-        if ($website_url === 'crm-assistant' && MarketplaceHelper::isRegistered('crm')) {
-            $chatView = 'crm::assistant.includes.chat_area_container';
-        }
-
         $html = view($chatView, compact(
             'chat',
             'category',
@@ -619,7 +615,7 @@ class AIChatController extends Controller
         $chat = new UserOpenaiChat;
         $website_url = $request->website_url ?? null;
 
-        if (in_array($website_url, ['social-media-agent', 'chatpro-image', 'crm-assistant'], true)) {
+        if (in_array($website_url, ['social-media-agent', 'chatpro-image'], true)) {
             $chat->chat_type = $website_url;
         }
 
@@ -627,7 +623,7 @@ class AIChatController extends Controller
         $chat->team_id = $user?->team_id;
         $chat->chatbot_id = $category->chatbot_id;
         $chat->openai_chat_category_id = $category?->id;
-        $chat->title = $chat->chat_type === 'crm-assistant' ? __('CRM Assistant') : $category->name . ' Chat';
+        $chat->title = $category->name . ' Chat';
         $chat->total_credits = 0;
         $chat->total_words = 0;
         $chat->thread_id = $thread['id'] ?? null;
@@ -657,10 +653,6 @@ class AIChatController extends Controller
             if ($category->first_message !== null) {
                 $output = $category->first_message;
             }
-        }
-
-        if ($chat->chat_type === 'crm-assistant') {
-            $output = __('Hi! I am your CRM Assistant. Ask me anything about your contacts, deals, tasks and invoices — or tell me what to create, update or delete.');
         }
 
         $message->output = $output;
@@ -729,10 +721,6 @@ class AIChatController extends Controller
 
         if (in_array($website_url, ['social-media-agent']) && MarketplaceHelper::isRegistered('social-media-agent')) {
             $chatView = 'social-media-agent::chat.includes.chat_area_container';
-        }
-
-        if ($website_url === 'crm-assistant' && MarketplaceHelper::isRegistered('crm')) {
-            $chatView = 'crm::assistant.includes.chat_area_container';
         }
 
         $elevenlabsAgentId = null;
@@ -1085,10 +1073,6 @@ class AIChatController extends Controller
 
         if ($websiteUrl === 'social-media-agent') {
             return $query->where('chat_type', 'social-media-agent');
-        }
-
-        if ($websiteUrl === 'crm-assistant') {
-            return $query->where('chat_type', 'crm-assistant');
         }
 
         // Normal chat: exclude extension-specific chat types

@@ -15,7 +15,6 @@ use App\Extensions\AIAgentGmail\System\AIAgentGmailServiceProvider;
 use App\Extensions\AIAgentOutlook\System\AIAgentOutlookServiceProvider;
 use App\Extensions\AIAgentSlackChannel\System\AIAgentSlackChannelServiceProvider;
 use App\Extensions\AIAgentToolChatbot\System\AIAgentToolChatbotServiceProvider;
-use App\Extensions\AIAgentToolCrm\System\AIAgentToolCrmServiceProvider;
 use App\Extensions\AIAgentToolMarketingBot\System\AIAgentToolMarketingBotServiceProvider;
 use App\Extensions\AIAgentToolSocialMediaAgent\System\AIAgentToolSocialMediaAgentServiceProvider;
 use App\Extensions\AIAgentWhatsappChannel\System\AIAgentWhatsappChannelServiceProvider;
@@ -77,7 +76,6 @@ use App\Extensions\ContentManager\System\ContentManagerServiceProvider;
 use App\Extensions\CreativeSuite\System\CreativeSuiteServiceProvider;
 use App\Extensions\CreativeSuiteAITemplate\System\CreativeSuiteAITemplateServiceProvider;
 use App\Extensions\CreativeSuiteAnnotations\System\CreativeSuiteAnnotationsServiceProvider;
-use App\Extensions\Crm\System\CrmServiceProvider;
 use App\Extensions\Cryptomus\System\CryptomusServiceProvider;
 use App\Extensions\DemoExtension\System\DemoExtensionServiceProvider;
 use App\Extensions\DiscountManager\System\DiscountManagerServiceProvider;
@@ -246,7 +244,6 @@ class MarketplaceServiceProvider extends ServiceProvider
         'ai-agent-tool-social-media'    => AIAgentToolSocialMediaAgentServiceProvider::class,
         'ai-agent-tool-marketing-bot'   => AIAgentToolMarketingBotServiceProvider::class,
         'ai-agent-tool-chatbot'         => AIAgentToolChatbotServiceProvider::class,
-        'ai-agent-tool-crm'             => AIAgentToolCrmServiceProvider::class,
         'ai-agent-gmail'                => AIAgentGmailServiceProvider::class,
         'ai-agent-outlook'              => AIAgentOutlookServiceProvider::class,
         'ai-chat-pro-gmail'             => AIChatProGmailServiceProvider::class,
@@ -254,7 +251,6 @@ class MarketplaceServiceProvider extends ServiceProvider
         'ai-chat-pro-notion'            => AIChatProNotionServiceProvider::class,
         'ai-chat-pro-google-drive'      => AIChatProGoogleDriveServiceProvider::class,
         'ai-chat-pro-google-calendar'   => AIChatProGoogleCalendarServiceProvider::class,
-        'crm'                           => CrmServiceProvider::class,
     ];
 
     public function register(): void

@@ -216,10 +216,6 @@ class CommonController extends Controller
             if ($fileType === 'other' && $contentManagerActive) {
                 $existingPath = $absoluteDir . '/' . $name;
                 if (file_exists($existingPath)) {
-                    if (! validateUploadedFile($existingPath, $extension)) {
-                        continue;
-                    }
-
                     $publicPath = '/' . $relativePath . '/' . $name;
                     $uploadedFile = new File($existingPath);
                     $this->checkOtherStorage($uploadedFile, $publicPath);
@@ -245,15 +241,14 @@ class CommonController extends Controller
                 }
 
                 $publicPath = '/' . $relativePath . '/' . $uniqueName;
+                $uploadedFile = new File($absolutePath);
+                $this->checkOtherStorage($uploadedFile, $publicPath);
 
-                if (! validateUploadedFile($absolutePath, $extension)) {
-                    @unlink($absolutePath);
+                if (! validateUploadedFile(public_path($publicPath), $extension)) {
+                    Storage::disk('public')->delete($publicPath);
 
                     continue;
                 }
-
-                $uploadedFile = new File($absolutePath);
-                $this->checkOtherStorage($uploadedFile, $publicPath);
 
                 if ($fileType === 'images') {
                     $images[] = $publicPath;
@@ -279,25 +274,16 @@ class CommonController extends Controller
         ]);
     }
 
-    private function checkOtherStorage(File $uploadedFile, string &$path): void
+    private function checkOtherStorage($uploadedFile, &$path): void
     {
         try {
             $disk = SettingTwo::getCache()->ai_image_storage;
 
-            if (! in_array($disk, ['s3', 'r2'], true)) {
-                return;
+            if (in_array($disk, ['s3', 'r2'])) {
+                $awsPath = Storage::disk($disk)->putFile('', $uploadedFile);
+                unlink($uploadedFile->getPathname());
+                $path = Storage::disk($disk)->url($awsPath);
             }
-
-            $awsPath = Storage::disk($disk)->putFileAs('', $uploadedFile, $uploadedFile->getFilename());
-
-            if ($awsPath === false) {
-                Log::error("Cloud upload failed on disk [{$disk}] for {$uploadedFile->getPathname()}");
-
-                return;
-            }
-
-            @unlink($uploadedFile->getPathname());
-            $path = Storage::disk($disk)->url($awsPath);
         } catch (Exception $e) {
             Log::error($e->getMessage());
         }

@@ -9,7 +9,6 @@ export default {
 		'./app/Extensions/**/*.blade.php',
 		'./public/themes/default/assets/js/panel/openai_chat.js',
 		'./app/Extensions/SocialMediaAutomation/resources/assets/**/*.{js,jsx}',
-		'./packages/magicai/**/*.blade.php',
 	],
 	darkMode: [ 'class', '.theme-dark' ],
 	theme: {

@@ -82,7 +82,7 @@
                     style="background-image: url('{{ !empty($chat->category?->image) ? custom_theme_url($chat->category?->image, true) : url(custom_theme_url('/assets/img/auth/default-avatar.png')) }}')"
                 ></span>
                 <span class="lqd-chat-sender-name sr-only">
-                    {{ $chat?->chat_type === 'crm-assistant' ? __('CRM Assistant') : __($chat?->category?->name ?? 'AI Assistant') }}
+                    {{ __($chat?->category?->name ?? 'AI Assistant') }}
                 </span>
             </div>
             <div class="chat-content-container group relative max-w-[calc(100%-64px)] rounded-[2em] bg-clay text-heading-foreground dark:bg-white/[2%]">

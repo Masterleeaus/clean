@@ -111,9 +111,6 @@
 					{!! $labelIcon !!}
 				@endif
 				{{ $label }}
-				@if ($attributes->has('required'))
-					<span class="lqd-input-label-required text-red-500">*</span>
-				@endif
             </span>
 
             @if ($type === 'checkbox' || $type === 'radio')

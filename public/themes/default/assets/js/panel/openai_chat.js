@@ -632,70 +632,12 @@ function renderSkillCard(str) {
 }
 
 /**
- * The CRM assistant proposes DB writes with a `<<<ACTIONS>>>[...]<<<END_ACTIONS>>>`
- * block. Rewrite it into a markdown-it container so it renders as the Alpine
- * confirmation card instead of raw protocol text. Runs before rendering, so it
- * covers both live streaming and reloaded history in one place.
- *
- * @param {string} string
- * @returns {string}
- */
-function rewriteCrmAssistantActions(string) {
-	if (!string) return string;
-
-	// History is re-formatted from `contentEl.innerHTML`, where Blade has already
-	// escaped the markers, so both the raw and the entity-encoded form must match.
-	const OPEN = '(?:<<<ACTIONS>>>|&lt;&lt;&lt;ACTIONS&gt;&gt;&gt;)';
-	const CLOSE = '(?:<<<END_ACTIONS>>>|&lt;&lt;&lt;END_ACTIONS&gt;&gt;&gt;)';
-
-	if (!new RegExp(OPEN).test(string)) return string;
-
-	string = string.replace(new RegExp(OPEN + '([\\s\\S]*?)' + CLOSE, 'g'), (match, payload) => {
-		let actions;
-
-		try {
-			actions = JSON.parse(decodeHtmlEntities(payload).trim());
-		} catch (e) {
-			return '';
-		}
-
-		if (!Array.isArray(actions) || !actions.length) return '';
-
-		// base64url so the value stays safe inside markdown-it-attrs syntax
-		const encoded = window.btoa(unescape(encodeURIComponent(JSON.stringify(actions))))
-			.replace(/\+/g, '-')
-			.replace(/\//g, '_')
-			.replace(/=+$/, '');
-
-		return `\n\n::: crm-assistant-action-card {data-actions=${encoded} data-state=pending}\n:::\n\n`;
-	});
-
-	// Still streaming: hide the partial block so the raw markers never flash.
-	return string.replace(new RegExp(OPEN + '[\\s\\S]*$'), '');
-}
-
-/**
- * @param {string} string
- * @returns {string}
- */
-function decodeHtmlEntities(string) {
-	if (!string || string.indexOf('&') === -1) return string;
-
-	const el = document.createElement('textarea');
-	el.innerHTML = string;
-
-	return el.value;
-}
-
-/**
  * @param {string} string
  * @param {object} options
  * @param {boolean} options.readyForAnimation
  */
 function formatString(string, options = {}) {
 	if (!('markdownit' in window)) return;
-
-	string = rewriteCrmAssistantActions(string);
 
 	string = fixUnclosedMarkdownSyntax(string);
 
@@ -745,7 +687,6 @@ function formatString(string, options = {}) {
 			'social-media-agent-chat-post-card-images',
 			'social-media-agent-chat-post-card-content',
 			'social-media-agent-chat-post-card-foot',
-			'crm-assistant-action-card',
 			'lqd-chat-image-grid',
 			'smart-images',
 			'entity-highlights',
@@ -786,27 +727,6 @@ function formatString(string, options = {}) {
 							const token = tokens[idx];
 
 							let attributes = 'class="social-media-agent-chat-post-card" x-data="socialMediaAgentChatPostCard" @social-media-agent-post-updated.window="onPostUpdated" @social-media-agent-post-rejected.window="onPostRejected"';
-
-							if ( token.attrs && token.attrs.length ) {
-								token.attrs.forEach(([ key, val ]) => attributes += ` ${key}="${val}"`);
-							}
-
-							return '<div ' + attributes + '>\n';
-						} else {
-							// closing tag
-							return '</div>\n';
-						}
-					}
-				};
-			}
-
-			if ( container === 'crm-assistant-action-card' ) {
-				options = {
-					render: function (tokens, idx) {
-						if (tokens[idx].nesting === 1) {
-							const token = tokens[idx];
-
-							let attributes = 'class="crm-assistant-action-card" x-data="crmAssistantActionCard"';
 
 							if ( token.attrs && token.attrs.length ) {
 								token.attrs.forEach(([ key, val ]) => attributes += ` ${key}="${val}"`);
@@ -1513,7 +1433,7 @@ function onWordAnimationFinish(responseObj, el) {
 
 		switchGenerateButtonsStatus(aiResponses.every(res => res.responseStreaming));
 
-		if ( responseObj.bubbleEl.querySelector('.social-media-agent-chat-post-card, .crm-assistant-action-card') ) {
+		if ( responseObj.bubbleEl.querySelector('.social-media-agent-chat-post-card') ) {
 			responseObj.bubbleEl.querySelector('.lqd-chat-bubble-canvas-trigger')?.remove();
 			responseObj.bubbleEl.querySelectorAll('[data-copy-options],[data-copy-type]').forEach(el => el.remove());
 		}
@@ -1619,10 +1539,7 @@ function onAiResponse(responseObj) {
 	// When the response contains a social media post card, bypass the VDOM diff
 	// and use direct innerHTML so Alpine can properly initialize the component.
 	// The VDOM's cloneNode approach prevents Alpine from detecting new x-data elements.
-	const hasPostCard = formattedResponse && (
-		formattedResponse.includes('social-media-agent-chat-post-card') ||
-		formattedResponse.includes('crm-assistant-action-card')
-	);
+	const hasPostCard = formattedResponse && formattedResponse.includes('social-media-agent-chat-post-card');
 
 	if (hasPostCard && !responseObj.responseStreaming) {
 		contentEl.innerHTML = formattedResponse;
@@ -4056,7 +3973,7 @@ function initChat() {
 
 			throttledRefreshFsLightbox();
 
-			if ( contentEl.querySelector('.social-media-agent-chat-post-card, .crm-assistant-action-card') ) {
+			if ( contentEl.querySelector('.social-media-agent-chat-post-card') ) {
 				aiChatBubble.querySelector('.lqd-chat-bubble-canvas-trigger')?.remove();
 				aiChatBubble.querySelectorAll('[data-copy-options],[data-copy-type]').forEach(el => el.remove());
 			}
