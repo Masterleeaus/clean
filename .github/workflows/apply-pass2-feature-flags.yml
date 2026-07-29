@@ -1,4 +1,4 @@
-name: Apply Pass 2 Feature Flag Wiring
+name: Apply Pass 2 Provider Wiring
 
 on:
   pull_request:
@@ -22,18 +22,26 @@ jobs:
           ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
 
-      - name: Apply exact provider wiring patch
-        run: php tools/titan-zero-audit/apply-pass2-feature-flags.php
+      - name: Apply exact provider wiring patches
+        run: |
+          php tools/titan-zero-audit/apply-pass2-feature-flags.php
+          php tools/titan-zero-audit/apply-pass2-extension-catalog.php
 
-      - name: Verify PHP syntax and feature-flag contract
+      - name: Verify PHP syntax and provider contracts
         run: |
           php -l config/app.php
           php -l config/titan-zero.php
           php -l app/Providers/TitanZeroServiceProvider.php
+          php -l app/Providers/ExtensionServiceProvider.php
           php -l app/Support/TitanZero/TitanZeroFeatureFlags.php
+          php -l app/Support/Extensions/ExtensionManifest.php
+          php -l app/Support/Extensions/ExtensionCatalog.php
+          php -l app/Support/Extensions/ExtensionProviderResolver.php
+          php -l app/Support/Extensions/CatalogExtensionProviderResolver.php
           php -l app/Domains/Marketplace/MarketplaceServiceProvider.php
           php -l app/Extensions/Chatbot/System/ChatbotServiceProvider.php
           php tests/Feature/Bootstrap/TitanZeroFeatureFlagTest.php
+          php tests/Feature/Extensions/ExtensionProviderDiscoveryTest.php
 
       - name: Commit patched provider graph
         run: |
@@ -44,5 +52,5 @@ jobs:
           git config user.name "Titan Zero Pass 2 Bot"
           git config user.email "actions@users.noreply.github.com"
           git add config/app.php app/Domains/Marketplace/MarketplaceServiceProvider.php app/Extensions/Chatbot/System/ChatbotServiceProvider.php
-          git commit -m "feat: gate Titan Zero provider activation"
+          git commit -m "feat: add validated extension provider discovery"
           git push origin HEAD:${{ github.event.pull_request.head.ref }}
