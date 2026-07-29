@@ -49,7 +49,7 @@ jobs:
         run: php artisan config:clear
 
       - name: Run provider contract tests
-        run: vendor/bin/phpunit tests/Feature/Bootstrap/TitanZeroFeatureFlagTest.php tests/Feature/Extensions/ExtensionProviderDiscoveryTest.php tests/Feature/Console/TitanZeroProviderAuditCommandTest.php
+        run: vendor/bin/phpunit tests/Feature/Bootstrap/TitanZeroFeatureFlagTest.php tests/Feature/Bootstrap/RouteInspectionSafetyTest.php tests/Feature/Extensions/ExtensionProviderDiscoveryTest.php tests/Feature/Console/TitanZeroProviderAuditCommandTest.php
 
       - name: Boot with all Titan Zero cores disabled
         env:
