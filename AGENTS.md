@@ -1,57 +1,124 @@
 # Titan Zero Agent Working Agreement
 
-This repository contains licensed MagicAI source and must remain private.
+This repository contains licensed/private source and must remain private.
 
-## Active branch
+## Single coordination base
 
-All work covered by `TITAN_ZERO_UPGRADE_PLAN.md` must be performed on:
+The approved shared base is:
 
 ```text
-agent/gpt56-titan-zero-upgrade-workbench
+integration/current-main-reconciliation
 ```
+
+That branch is created from the latest verified `main`. Every active agent must create a new, focused `reconcile/<scope>` branch from it. Old agent branches are preserved as evidence only; they are not rebased or merged wholesale.
+
+Each agent must:
+
+1. freeze and push its old branch;
+2. compare it with the coordination base;
+3. identify work already present, unique work, conflicts and obsolete work;
+4. port only the unique, verified delta to a fresh reconciliation branch;
+5. open a draft PR targeting `integration/current-main-reconciliation`;
+6. record tests run, tests not run and rejected source.
 
 Do not commit upgrade work directly to `main`.
 
 ## Canonical ownership
 
-- MagicAI is the host SaaS, tenant shell and primary application runtime.
-- WorkCore at `app/Domains/WorkCore` is authoritative for operational business data and actions.
-- The canonical Interaction Engine belongs in `app/Domains/InteractionEngine` once convergence work begins.
-- The Titan Zero Chatbot remains at `app/Extensions/Chatbot` and owns chatbot presentation, channels, PWA/device adapters and generative UI integration.
-- Embedded chatbot WorkCore code is compatibility-only and must never shadow `App\Domains\WorkCore`.
-- Extension packages remain under `app/Extensions`; do not recreate extension code under parallel roots.
+### MagicAI host
+
+Owns platform authentication, users, company and membership lifecycle, active-company selection, subscriptions, platform billing, provider configuration, queues, notifications and the application shell.
+
+### WorkCore
+
+`app/Domains/WorkCore` is the sole authority for operational business records, business permissions, governed mutations, transactions, domain events, operational audit and server-side synchronisation contracts.
+
+The host supplies identity and tenant membership context. WorkCore validates and consumes that context for operational access; it does not become a second account or subscription authority.
+
+### Interaction Engine
+
+Owns interaction definitions, sessions, transitions, clarification, confidence, evidence, abstention, approval preparation and wizard execution. It may prepare or dispatch governed commands, but it may not mutate operational records outside WorkCore actions.
+
+The package source exists under `packages/titanzero/interaction-engine`, but activation must not be claimed until root dependency registration, provider activation, Laravel boot and route tests pass.
+
+### Titan Zero intelligence
+
+Owns intent, planning, orchestration, delegation, model/tool selection, governance and memory coordination. Confidence never grants permission. AI may propose actions only through the governed Interaction Engine and WorkCore action boundary.
+
+### Chatbot and PWA
+
+`app/Extensions/Chatbot` owns presentation, conversations, channels, generative UI, device storage, local drafts, offline state, outbox and synchronisation UX. It must not own canonical operational data or host identity.
+
+Embedded PHP WorkCore copies are compatibility/reference material and must never shadow `App\Domains\WorkCore`.
+
+### Titan Money and payment surfaces
+
+Operational finance, settlement and reconciliation remain governed WorkCore capabilities. MagicAI subscription and platform billing remain separate. Payment providers and UI surfaces may observe or initiate payment flows but may not become invoice or ledger authority.
+
+### Extensions
+
+Extensions add optional capabilities. They must not replace identity, tenancy, permissions, messaging authority, WorkCore authority or the credential vault.
+
+## Governed operational mutation path
+
+```text
+Surface or channel
+→ host authentication and tenant membership
+→ Titan Zero / Interaction Engine proposal
+→ WorkCore BusinessActionDispatcher
+→ tenant + actor context check
+→ entitlement check
+→ permission check
+→ explicit confirmation when required
+→ idempotency reservation/replay
+→ transactional handler
+→ domain events + audit
+→ result + outbox/synchronisation
+```
+
+No UI, chatbot, AI agent, PWA adapter, integration or extension may bypass this path for operational mutations.
 
 ## Non-negotiable rules
 
-1. Preserve tenant, user, device and correlation identifiers through HTTP, queues, offline storage, synchronisation and domain events.
-2. Never cache credentials, provider secrets or sensitive API responses in service-worker Cache Storage.
-3. Never automatically delete unsynchronised device records.
-4. Never activate all imported extensions at once. Use manifest validation and progressive qualification.
-5. Do not introduce permanent `source`, `integration`, `merge`, `legacy-copy` or donor-code folders.
-6. Do not delete apparently unused code until routes, providers, events, dynamic resolution, scheduled jobs, queues, migrations and JavaScript imports have been traced.
-7. Keep compatibility shims explicit, documented and covered by tests.
-8. Use failing tests before repairs. Run the smallest relevant test set after each change.
-9. Keep commits scoped to one task from `TITAN_ZERO_UPGRADE_PLAN.md`.
-10. Do not merge to `main` without backend, frontend, extension-health and tenant-isolation evidence.
+1. Preserve tenant, actor, device, correlation and causation identifiers through HTTP, queues, offline storage, sync and domain events.
+2. Treat company/tenant identity and user/actor identity as different concepts.
+3. Never cache credentials, provider secrets or sensitive API responses in service-worker Cache Storage.
+4. Never automatically delete unsynchronised device records.
+5. Never activate all imported extensions at once; use validated manifests and progressive qualification.
+6. Do not introduce permanent parallel application, WorkCore, identity, tenant or permission systems.
+7. Do not delete apparently unused code until routes, providers, events, dynamic resolution, scheduled jobs, queues, migrations and frontend imports have been traced.
+8. Keep compatibility shims explicit, documented and covered by tests.
+9. Use failing tests before behavioural repairs and run the smallest relevant test set after each change.
+10. Record unavailable validation honestly as `not run`.
+11. Do not merge to the coordination base without authority, tenancy, security and regression evidence.
+12. Only the integration coordinator merges reconciliation PRs.
+
+## Shared-file locks
+
+Coordinator approval is required before changing shared bootstrap surfaces such as:
+
+- `composer.json` and lockfiles;
+- `package.json` and lockfiles;
+- `config/app.php`, `config/titan-zero.php` and provider registries;
+- `routes/*`;
+- `database/migrations/*`;
+- `.github/workflows/*`;
+- global capability, extension and navigation registries;
+- service-worker entry points.
 
 ## Required validation hierarchy
 
 ```text
-PHP syntax → Composer validation → architecture tests → focused Pest tests
-→ Laravel boot/route checks → npm build → Playwright browser tests
-→ extension health audit → release verification
+PHP syntax → Composer validation → architecture tests → focused tests
+→ Laravel boot/provider/route checks → frontend build → browser/offline tests
+→ extension health → tenant-isolation/security checks → release verification
 ```
 
-## Build Web Apps boundary
+## Current documentation
 
-Build Web Apps work must extend the existing Blade, React, Alpine and Vite structure. Do not create a separate frontend application. Preserve the persistent chat bar, operational workspace, responsive mobile/tablet/desktop shell and WorkCore capability-driven navigation.
+- Coordination and upgrade plan: `docs/plans/CURRENT_UPGRADE_PLAN.md`
+- Authority map: `docs/architecture/TITAN_ZERO_AUTHORITY_MAP.md`
+- Trust and action model: `docs/architecture/TENANCY_TRUST_AND_ACTION_EXECUTION.md`
+- Documentation index: `docs/README.md`
 
-## Source baseline
-
-The complete extracted source baseline used for this branch is commit:
-
-```text
-a76eee53af7b72b9f740adb3fa757b3f4d527bd6
-```
-
-The extension inventory is recorded in `EXTENSIONS_IMPORT_MANIFEST.json`.
+Historical plans are retained under `docs/archive/` and are not current implementation instructions.
