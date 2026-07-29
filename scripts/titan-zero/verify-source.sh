@@ -30,7 +30,8 @@ for path in Path('.').rglob('*.json'):
     if path.name.startswith('tsconfig') or '.vscode' in path.parts:
         continue
     try:
-        json.loads(path.read_text(encoding='utf-8'))
+        # Some legacy extension manifests are valid UTF-8 JSON prefixed by a BOM.
+        json.loads(path.read_text(encoding='utf-8-sig'))
     except UnicodeDecodeError:
         continue
     except Exception as exc:
