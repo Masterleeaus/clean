@@ -1,0 +1,8 @@
+Titan Mobile Donor Code — Verification Report
+================================================
+Source archive: Titan-Mobile-App-Builder-Donor-Code-Extraction-v2.zip
+Included non-empty files: 302
+Excluded zero-byte source files: 1
+- 02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_preloader.scss
+
+This archive was rebuilt with standard DEFLATE compression, 0644 file permissions, no directory-only records, and no zero-byte files.

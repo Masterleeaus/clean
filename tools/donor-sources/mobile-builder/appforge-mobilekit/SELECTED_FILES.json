@@ -1,0 +1,2639 @@
+[
+  {
+    "donor": "AppForge",
+    "source_path": "package.json",
+    "archive_path": "01_APPFORGE/build_and_dependency_reference/package.json",
+    "classification": "REFERENCE",
+    "reason": "Original build/dependency configuration; inspect and adapt, do not install unchanged.",
+    "bytes": 3350,
+    "sha256": "29f8d218fb93b588ff03001783bdf0114545f4572ff323ba98b6e77c260e319b"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "vite.config.ts",
+    "archive_path": "01_APPFORGE/build_and_dependency_reference/vite.config.ts",
+    "classification": "REFERENCE",
+    "reason": "Original build/dependency configuration; inspect and adapt, do not install unchanged.",
+    "bytes": 2129,
+    "sha256": "1f2abdfc34b82d4575bfb5e2cd7e57392cdb8b16acc46dcd57a0bc1884d27d98"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "tailwind.config.ts",
+    "archive_path": "01_APPFORGE/build_and_dependency_reference/tailwind.config.ts",
+    "classification": "REFERENCE",
+    "reason": "Original build/dependency configuration; inspect and adapt, do not install unchanged.",
+    "bytes": 4525,
+    "sha256": "a0f9cded48d7521c833159fbb305fb191589033c75b721be1af315141d7a572b"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "tsconfig.json",
+    "archive_path": "01_APPFORGE/build_and_dependency_reference/tsconfig.json",
+    "classification": "REFERENCE",
+    "reason": "Original build/dependency configuration; inspect and adapt, do not install unchanged.",
+    "bytes": 396,
+    "sha256": "406e63e666958bb699aae6562e561a0cec963ee3dfe771c644ace7d97304974f"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "tsconfig.app.json",
+    "archive_path": "01_APPFORGE/build_and_dependency_reference/tsconfig.app.json",
+    "classification": "REFERENCE",
+    "reason": "Original build/dependency configuration; inspect and adapt, do not install unchanged.",
+    "bytes": 635,
+    "sha256": "b358b1b595f2c31d2d4461046fa57ae416283072909bcfa13feb14d41124978c"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "tsconfig.node.json",
+    "archive_path": "01_APPFORGE/build_and_dependency_reference/tsconfig.node.json",
+    "classification": "REFERENCE",
+    "reason": "Original build/dependency configuration; inspect and adapt, do not install unchanged.",
+    "bytes": 481,
+    "sha256": "a96b9ba5e40d95b92adf56431fdf9cbe25b5c2557621f0666615bff6889dfc50"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "components.json",
+    "archive_path": "01_APPFORGE/build_and_dependency_reference/components.json",
+    "classification": "REFERENCE",
+    "reason": "Original build/dependency configuration; inspect and adapt, do not install unchanged.",
+    "bytes": 414,
+    "sha256": "9820835141c54e5b5dfbb68b3c3790db73c9ebfb967884ae3fccd058d698a1a6"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "capacitor.config.ts",
+    "archive_path": "01_APPFORGE/build_and_dependency_reference/capacitor.config.ts",
+    "classification": "REFERENCE",
+    "reason": "Original build/dependency configuration; inspect and adapt, do not install unchanged.",
+    "bytes": 319,
+    "sha256": "d76191a93b131130bfb1c87d942555713c7d765602986280c699060598e0e231"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "codemagic.yaml",
+    "archive_path": "01_APPFORGE/build_and_dependency_reference/codemagic.yaml",
+    "classification": "REFERENCE",
+    "reason": "Original build/dependency configuration; inspect and adapt, do not install unchanged.",
+    "bytes": 13302,
+    "sha256": "937c6e57ef82e4728f17ff637f05a80f3641b0b7249d7ea3cdf03ffe411b883e"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/builder/AIAssistant.tsx",
+    "archive_path": "01_APPFORGE/adapt_required/src/components/builder/AIAssistant.tsx",
+    "classification": "ADAPT",
+    "reason": "Useful assistant UI pattern but directly coupled to donor AI/Supabase authority.",
+    "bytes": 26430,
+    "sha256": "1d6e371078dd96bbdfec595cb527690e3c29b904c066b4f2fea8d78befdfaddd"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/builder/AppetizePreview.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/builder/AppetizePreview.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Builder, preview, branding, navigation, build-status, or asset UI candidate.",
+    "bytes": 8094,
+    "sha256": "1d266ac971849128c2fedecc1d9e6334b99c5dc0f8a15b3bd3f57b8b8e55fc67"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/builder/AppleIcon.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/builder/AppleIcon.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Builder, preview, branding, navigation, build-status, or asset UI candidate.",
+    "bytes": 724,
+    "sha256": "6edfc71049dc61dcb59843d9d09af0934d5229b3d2346e8ddfb716a0eb4f1777"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/builder/BuildComparison.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/builder/BuildComparison.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Builder, preview, branding, navigation, build-status, or asset UI candidate.",
+    "bytes": 16772,
+    "sha256": "1a95d3c93fe46926f1bdbe4c6bfeb25887aa664a72c501d0bbf0226c2996c6c6"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/builder/BuildDetailsDrawer.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/builder/BuildDetailsDrawer.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Builder, preview, branding, navigation, build-status, or asset UI candidate.",
+    "bytes": 15565,
+    "sha256": "8c792b2a472b1a00f6ad7ed42144e0b0adaccb67ef2add1e3263e93b9106bc71"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/builder/BuildHistory.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/builder/BuildHistory.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Builder, preview, branding, navigation, build-status, or asset UI candidate.",
+    "bytes": 19530,
+    "sha256": "edd77f616f6d2e778feebdddbeebc5efcb0163c996ea7bcc629c90aa23c71aa4"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/builder/BuildProgressAnimation.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/builder/BuildProgressAnimation.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Builder, preview, branding, navigation, build-status, or asset UI candidate.",
+    "bytes": 5704,
+    "sha256": "f1bd2c795267147f9b3f56ca7e3006edff64088f866a480e9419dd80f4081973"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/builder/BuildQueue.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/builder/BuildQueue.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Builder, preview, branding, navigation, build-status, or asset UI candidate.",
+    "bytes": 5756,
+    "sha256": "61ebd7225c9dc0a222688f10b3596efb06f8728df3df0be96a2535aaff5d11c0"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/builder/BuildStep.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/builder/BuildStep.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Builder, preview, branding, navigation, build-status, or asset UI candidate.",
+    "bytes": 89702,
+    "sha256": "843aef8e355f5161ed9c4fffc49146b6c82d1f5cc6fb86eb286e7277aa245a69"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/builder/BuilderProgress.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/builder/BuilderProgress.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Builder, preview, branding, navigation, build-status, or asset UI candidate.",
+    "bytes": 6063,
+    "sha256": "badedccf7740daaf533af31c79f60ec794cbbf70938367e28339fbabab16f4ef"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/builder/ConfigureStep.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/builder/ConfigureStep.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Builder, preview, branding, navigation, build-status, or asset UI candidate.",
+    "bytes": 36919,
+    "sha256": "15644f3e71e866f397e7432235172b3e1a4096e4aaf2be9f37f21cadacad65af"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/builder/DeviceComparisonMode.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/builder/DeviceComparisonMode.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Builder, preview, branding, navigation, build-status, or asset UI candidate.",
+    "bytes": 19771,
+    "sha256": "39734f6df5bba69e4122ed389422c01489ac5e7923b43bc1b5bdc76b076d40df"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/builder/DeviceRotationIndicator.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/builder/DeviceRotationIndicator.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Builder, preview, branding, navigation, build-status, or asset UI candidate.",
+    "bytes": 1696,
+    "sha256": "2b43f7eebbd0f42f166313bbfc839771138773ed2c76a27898e42effed08d247"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/builder/KeyboardShortcutsHelp.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/builder/KeyboardShortcutsHelp.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Builder, preview, branding, navigation, build-status, or asset UI candidate.",
+    "bytes": 1863,
+    "sha256": "3f09846c761bfb4b94c343dfedd2dac95ed26bc085aba38ea17c274928b8e22a"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/builder/PlatformCard.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/builder/PlatformCard.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Builder, preview, branding, navigation, build-status, or asset UI candidate.",
+    "bytes": 4622,
+    "sha256": "12b8fde248de6bce4b33849a6738fd2fbc31080a4786d03687ef76dbf1707172"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/builder/PreviewStep.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/builder/PreviewStep.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Builder, preview, branding, navigation, build-status, or asset UI candidate.",
+    "bytes": 71712,
+    "sha256": "c65db12596ac6233878e84a87130aa3d9b5a6ec0c5af296306ae2194c035f828"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/builder/PushNotificationSetup.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/builder/PushNotificationSetup.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Builder, preview, branding, navigation, build-status, or asset UI candidate.",
+    "bytes": 2669,
+    "sha256": "6e43253f0315a3a1d99e5b15038be21527211abd1e67247d32f53cf2b873b6e6"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/builder/QuickActions.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/builder/QuickActions.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Builder, preview, branding, navigation, build-status, or asset UI candidate.",
+    "bytes": 2795,
+    "sha256": "4145e642316a32bffd0400b897eb3dfe12eb5a3f4ab6382d5d6dd02df887ff49"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/builder/TemplatesGallery.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/builder/TemplatesGallery.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Builder, preview, branding, navigation, build-status, or asset UI candidate.",
+    "bytes": 28051,
+    "sha256": "3144bf0be8842f96c77875614bb42b466a02b073dc7d052bb1fbaf781de40148"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/builder/UrlInputStep.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/builder/UrlInputStep.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Builder, preview, branding, navigation, build-status, or asset UI candidate.",
+    "bytes": 19560,
+    "sha256": "a7a9467eea195ac2759c64d34cf915a8b8064ea15aa14eb88fedfe404d88cdca"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/builder/configure/AIBadge.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/builder/configure/AIBadge.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Builder, preview, branding, navigation, build-status, or asset UI candidate.",
+    "bytes": 265,
+    "sha256": "9defb3d102ac1f640d0ac61596db03ddae5aae3219a4862aae99910793ca8201"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/builder/configure/CollapsibleSection.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/builder/configure/CollapsibleSection.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Builder, preview, branding, navigation, build-status, or asset UI candidate.",
+    "bytes": 2280,
+    "sha256": "b86ffa4a9f7c44b054b6389a7f29db493b73c7fd1c6b9ddb5904a381f98af1d9"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/builder/configure/ColorPicker.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/builder/configure/ColorPicker.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Builder, preview, branding, navigation, build-status, or asset UI candidate.",
+    "bytes": 2073,
+    "sha256": "0121b46de382bafaa659d823358ad8b1736905fccd84cb27258a27e71d55817f"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/builder/configure/FeatureSelector.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/builder/configure/FeatureSelector.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Builder, preview, branding, navigation, build-status, or asset UI candidate.",
+    "bytes": 1892,
+    "sha256": "bfffc5e0a3557069fe995d88267cd2fd990f372a36851e8741bbbfd93c578b59"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/builder/configure/IconStyleSelector.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/builder/configure/IconStyleSelector.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Builder, preview, branding, navigation, build-status, or asset UI candidate.",
+    "bytes": 7682,
+    "sha256": "ba49a368664b981a2895f2a24531ee5e2e0cd4e7ecc47262203ef452471eb631"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/builder/configure/MiniPhonePreview.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/builder/configure/MiniPhonePreview.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Builder, preview, branding, navigation, build-status, or asset UI candidate.",
+    "bytes": 11196,
+    "sha256": "34a2ecb2243c7eb6b7cf7292139846be5eae00b6aa75030215c8dcf60cdedaaa"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/builder/configure/NavItemEditor.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/builder/configure/NavItemEditor.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Builder, preview, branding, navigation, build-status, or asset UI candidate.",
+    "bytes": 14150,
+    "sha256": "5d59df017909e080db7f80e620f74e1280d86d8eb78308ea1ce0dc90ab3e6ecc"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/builder/configure/NavigationStyleSelector.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/builder/configure/NavigationStyleSelector.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Builder, preview, branding, navigation, build-status, or asset UI candidate.",
+    "bytes": 18748,
+    "sha256": "d1a46cce57eef35b6f090f0667464a65eaec2f172ceb42649b8da8b88633fd93"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/builder/configure/PhoneMockup.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/builder/configure/PhoneMockup.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Builder, preview, branding, navigation, build-status, or asset UI candidate.",
+    "bytes": 18447,
+    "sha256": "41463138e11b25f05c156bde0037785d5046ca2e3e856e4755a36639b8c4f767"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/builder/configure/ProjectAssetsUploader.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/builder/configure/ProjectAssetsUploader.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Builder, preview, branding, navigation, build-status, or asset UI candidate.",
+    "bytes": 10170,
+    "sha256": "79034de87d70ace6acc5e1f31fd0f0576556db169839679b3b8b2870ebbd9dbb"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/builder/configure/ShimmerSkeleton.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/builder/configure/ShimmerSkeleton.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Builder, preview, branding, navigation, build-status, or asset UI candidate.",
+    "bytes": 383,
+    "sha256": "f9cab821f28f7bfff2d074e3465e0299f1b7cb8973f37188a8324a60f01f00e4"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/builder/configure/SplashScreenSelector.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/builder/configure/SplashScreenSelector.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Builder, preview, branding, navigation, build-status, or asset UI candidate.",
+    "bytes": 10149,
+    "sha256": "6eaf29ae01ef211710468dce461eb93ee8933b18cbfabc8a9aba4019b821d50a"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/builder/configure/TemplateItem.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/builder/configure/TemplateItem.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Builder, preview, branding, navigation, build-status, or asset UI candidate.",
+    "bytes": 3192,
+    "sha256": "c76df0ba8ef49e9535eebbe8934262feb0433d13eee7c601279b026892013684"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/builder/configure/TemplatePreview.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/builder/configure/TemplatePreview.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Builder, preview, branding, navigation, build-status, or asset UI candidate.",
+    "bytes": 3895,
+    "sha256": "83ea6a3456eb054cbe6373c01f029c6c1cf4bcb4aa92d24d3ca6716549f7efdc"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/builder/configure/index.ts",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/builder/configure/index.ts",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Builder, preview, branding, navigation, build-status, or asset UI candidate.",
+    "bytes": 1031,
+    "sha256": "ae91f2e26f199203dce7bcc71d289d5ca0cfc31a39e6d40fb27ccff6528fee5b"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/builder/configure/presetTemplates.ts",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/builder/configure/presetTemplates.ts",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Builder, preview, branding, navigation, build-status, or asset UI candidate.",
+    "bytes": 6036,
+    "sha256": "1e8696a46e729eec97224a35e153a4d0278f9dcce799fffcf7461ff76a78632a"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ui/accordion.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ui/accordion.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Reusable React UI primitive required by builder components.",
+    "bytes": 1976,
+    "sha256": "9587b5ca80cf0aa68bc2a4e6baacebbe07eab14e1c66c6b6420033aeca9219d1"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ui/alert-dialog.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ui/alert-dialog.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Reusable React UI primitive required by builder components.",
+    "bytes": 4313,
+    "sha256": "c8b01137c7552e63c9ccf2c38ef92e5417bd6616b6980d56d3015db027465283"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ui/alert.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ui/alert.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Reusable React UI primitive required by builder components.",
+    "bytes": 1546,
+    "sha256": "6352c232d36b2aeb20cce9692fecd98a472c8bb0b8c3f8a45446c433382e2da7"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ui/avatar.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ui/avatar.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Reusable React UI primitive required by builder components.",
+    "bytes": 1365,
+    "sha256": "4a8bc00e5514912c54d414e207266fa100906aec2754d590adcc8ccc46d4c5c9"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ui/badge.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ui/badge.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Reusable React UI primitive required by builder components.",
+    "bytes": 1179,
+    "sha256": "8e19e12d7dc0aa2749cbebcf558276451b0f44979d7fcc3d0eda47a46a33585a"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ui/button.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ui/button.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Reusable React UI primitive required by builder components.",
+    "bytes": 2277,
+    "sha256": "3df06f238bf658547940769f8aae0866218e0fa5642e46623da179d4504efc73"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ui/card.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ui/card.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Reusable React UI primitive required by builder components.",
+    "bytes": 1785,
+    "sha256": "bdfb74248321c52e89c2129d9d8088a56a3e33dd7850a7c9b0563a7b5ac937a0"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ui/chart.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ui/chart.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Reusable React UI primitive required by builder components.",
+    "bytes": 9987,
+    "sha256": "a759d32aa240fa6e929f204b04252e45d6ae458558eebd37dccf4ae9e05ab5e2"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ui/checkbox.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ui/checkbox.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Reusable React UI primitive required by builder components.",
+    "bytes": 1056,
+    "sha256": "9496a127f462c7abb6cbace0760241e716fb1408ef3419e20493f4de9cca10dc"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ui/collapsible.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ui/collapsible.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Reusable React UI primitive required by builder components.",
+    "bytes": 320,
+    "sha256": "fbe07841b794e0d7d08e87ddaaafadf1dc0c63ecc8389cd2c5b4a0a3f5500df1"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ui/content-skeleton.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ui/content-skeleton.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Reusable React UI primitive required by builder components.",
+    "bytes": 4385,
+    "sha256": "6712741f2e6c4877cfcda2484d4cdfbe10856c61219c585fcac90b5232fbbd78"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ui/dialog.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ui/dialog.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Reusable React UI primitive required by builder components.",
+    "bytes": 3761,
+    "sha256": "8e755711b3fd5e8d7339baea7627da546293fe2df1a88775729c2857e0de4b57"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ui/dropdown-menu.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ui/dropdown-menu.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Reusable React UI primitive required by builder components.",
+    "bytes": 7260,
+    "sha256": "b1ede0a4144b64853dc7ba62d184c09df479482eada86f936ce5b3d0b67a9a19"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ui/file-upload.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ui/file-upload.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Reusable React UI primitive required by builder components.",
+    "bytes": 13563,
+    "sha256": "b5faca9cb4e27bd00356d908fcba8960112c5ed6f2b5e6ef6e6c4c2cae03a568"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ui/form.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ui/form.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Reusable React UI primitive required by builder components.",
+    "bytes": 4014,
+    "sha256": "7f6f3b157f0c08880937ae41d5e61647703c7163c3d8444656de711fb0576faf"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ui/hover-card.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ui/hover-card.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Reusable React UI primitive required by builder components.",
+    "bytes": 1193,
+    "sha256": "8d606e166ef5f9bc4fc3efb1f6ce2f4bb376177a2c6fef16f67f87ad2d13d005"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ui/input.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ui/input.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Reusable React UI primitive required by builder components.",
+    "bytes": 799,
+    "sha256": "aacef8933fe99ab553e12a82c874a23c97e2b5602eb6f00018454fa0a8d4f7f2"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ui/label.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ui/label.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Reusable React UI primitive required by builder components.",
+    "bytes": 696,
+    "sha256": "d5dc9497cbb28a5401b864bd44a15f010c302584fbe8e07e015dbe443f103753"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ui/loading-spinner.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ui/loading-spinner.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Reusable React UI primitive required by builder components.",
+    "bytes": 1017,
+    "sha256": "4268328ad687335411f894f837253a3bd1d7437a40bec6be5c2eb5d8fa82c151"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ui/pagination-controls.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ui/pagination-controls.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Reusable React UI primitive required by builder components.",
+    "bytes": 3896,
+    "sha256": "a964db999bbc6fb2dd862efd9148e2213b103e8d3b1a9c1ab87e43889414e80d"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ui/password-strength-indicator.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ui/password-strength-indicator.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Reusable React UI primitive required by builder components.",
+    "bytes": 2693,
+    "sha256": "3a88025d3ebef1ff98357176a4acaaecead259a9bf8ea969b0d14823ef7f3079"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ui/popover.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ui/popover.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Reusable React UI primitive required by builder components.",
+    "bytes": 1239,
+    "sha256": "ee5f78ece57c9e8eb5f9b4186e2bb9ebe46b69b52f03f1edd9a601883bc64772"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ui/progress.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ui/progress.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Reusable React UI primitive required by builder components.",
+    "bytes": 765,
+    "sha256": "bdc4847f05de3aea1276966e0df9b4a293297f0ca7d7b430a1cb16cf5626728f"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ui/radio-group.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ui/radio-group.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Reusable React UI primitive required by builder components.",
+    "bytes": 1447,
+    "sha256": "995ec983735b204597f11ae5dd22ba0175dfc633da2ddecf222847bbca387adb"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ui/scroll-area.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ui/scroll-area.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Reusable React UI primitive required by builder components.",
+    "bytes": 1608,
+    "sha256": "998181a10164aa6e508210064ba61b2f772a92958d7bb2141867007f0ebd9783"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ui/select.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ui/select.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Reusable React UI primitive required by builder components.",
+    "bytes": 5575,
+    "sha256": "a2b62120a033b36c8d6c4a1693aa9231645fa69251740e15eacec24c1eea4d82"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ui/separator.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ui/separator.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Reusable React UI primitive required by builder components.",
+    "bytes": 698,
+    "sha256": "6c271e740c3d7b54947bb727383e5355788f0176b7b683c3bb970cad9883dded"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ui/sheet.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ui/sheet.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Reusable React UI primitive required by builder components.",
+    "bytes": 4197,
+    "sha256": "e7d726b34d0f3214f597a844c7f2c4fc869933f7433eddb74e7fd2eb92500be3"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ui/skeleton.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ui/skeleton.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Reusable React UI primitive required by builder components.",
+    "bytes": 234,
+    "sha256": "a229c310b9cbcb01ddd5e580865a6f14a19061aff7f6a97ef82a40b6a83583a4"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ui/slider.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ui/slider.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Reusable React UI primitive required by builder components.",
+    "bytes": 1065,
+    "sha256": "b81a683197551322cd8f13653bc955ad4c3bca6fe62376d33acb2bcd04361d02"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ui/sonner.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ui/sonner.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Reusable React UI primitive required by builder components.",
+    "bytes": 877,
+    "sha256": "720fa5658777a469a3096e2fbb59b8f3453c744aab53a35d9ad47c873177b4ca"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ui/switch.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ui/switch.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Reusable React UI primitive required by builder components.",
+    "bytes": 1147,
+    "sha256": "99cda942c2d215d8f25dd33ae06ed1278bcf912b262ed0e907b04f35881ac507"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ui/table.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ui/table.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Reusable React UI primitive required by builder components.",
+    "bytes": 2748,
+    "sha256": "6fff4369e6da4638ed5f8c656805926eeb86caf379735a13a93eaa21c89ce7ed"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ui/tabs.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ui/tabs.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Reusable React UI primitive required by builder components.",
+    "bytes": 1897,
+    "sha256": "b313d08a8c85e586a282b615cf30ce0b6ec1eca3ea92149b731f14b4082f4d71"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ui/textarea.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ui/textarea.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Reusable React UI primitive required by builder components.",
+    "bytes": 751,
+    "sha256": "2f5b24d28dc5c41817ca69653a396adcb2fe495200f8184777d086a62fc70461"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ui/toast.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ui/toast.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Reusable React UI primitive required by builder components.",
+    "bytes": 4798,
+    "sha256": "8f4db67ae4633904c3cccee6629a1061472bb23f5368e5b7e72a306cc494f9d3"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ui/toaster.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ui/toaster.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Reusable React UI primitive required by builder components.",
+    "bytes": 730,
+    "sha256": "600d661340ddc3ee7b5f9088684e1b3072cf60c9275b2f84bf4860dc29fe0fba"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ui/tooltip.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ui/tooltip.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Reusable React UI primitive required by builder components.",
+    "bytes": 1155,
+    "sha256": "bd9361649477cf9496f4b48415a2eafb9ae1ebca81af58a29b61b1516adc88c1"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/AppPreviewDialog.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/AppPreviewDialog.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Supports builder workspace, native capability integration, preview, theme, or asset handling.",
+    "bytes": 7403,
+    "sha256": "d517d5b3a64da0543e0dad6f2f7592c0540a31ccd45b40f545d706c431288700"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ImageOptimizationDialog.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ImageOptimizationDialog.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Supports builder workspace, native capability integration, preview, theme, or asset handling.",
+    "bytes": 14702,
+    "sha256": "c85571ec0c04d3431d1c23e57034e62e484689a0926cfc2e4b8608e4f1dc7f1a"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/QRDownloadDialog.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/QRDownloadDialog.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Supports builder workspace, native capability integration, preview, theme, or asset handling.",
+    "bytes": 3440,
+    "sha256": "10eeac4d5f00f9c881c8478f2ce6e705cc15db62fe0f5ee3d09c902bb674adc6"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/MobileBottomNav.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/MobileBottomNav.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Supports builder workspace, native capability integration, preview, theme, or asset handling.",
+    "bytes": 3837,
+    "sha256": "790c14d54111697681ee997d465760a7a903ffb0d2ae9f040500cc8ce99b969c"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/PageHeader.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/PageHeader.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Supports builder workspace, native capability integration, preview, theme, or asset handling.",
+    "bytes": 1687,
+    "sha256": "454a8fe19919927889b0fcacdca3fe3cbd18a19555dbaca306a4bba002a93470"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ThemeProvider.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ThemeProvider.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Supports builder workspace, native capability integration, preview, theme, or asset handling.",
+    "bytes": 989,
+    "sha256": "5443467a8bac560ef9fff621ded7d0abac158217d67250a29ca7ade82547edd8"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ThemeToggle.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ThemeToggle.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Supports builder workspace, native capability integration, preview, theme, or asset handling.",
+    "bytes": 1208,
+    "sha256": "054ce69a71884c078e81042eceea8b72ef6df24497ade03a850097c8627ff53c"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/ThemeAwareLogo.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/components/ThemeAwareLogo.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Supports builder workspace, native capability integration, preview, theme, or asset handling.",
+    "bytes": 1302,
+    "sha256": "daac00b022e43087880de7b4af579f9d9f49a97adadc4b8b91bea5c095c56ed5"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/pages/AppBuilder.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/pages/AppBuilder.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Supports builder workspace, native capability integration, preview, theme, or asset handling.",
+    "bytes": 5835,
+    "sha256": "1ca33aed09d326c9e0983e27c91a87d596ae9be2b046b1cfffd198a0e6ef2f28"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/pages/BuildHistory.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/pages/BuildHistory.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Supports builder workspace, native capability integration, preview, theme, or asset handling.",
+    "bytes": 23039,
+    "sha256": "3593c993d6f1c5b47bfda6ab44934d3e4465bc4df82146d07ad33869d426ee1d"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/pages/Install.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/pages/Install.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Supports builder workspace, native capability integration, preview, theme, or asset handling.",
+    "bytes": 14641,
+    "sha256": "1a6a2787220ef8c10ec3dd13c5bf69d37c14c0720ac13530c52f49b9835ecc78"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/pages/StyleGuide.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/pages/StyleGuide.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Supports builder workspace, native capability integration, preview, theme, or asset handling.",
+    "bytes": 29755,
+    "sha256": "9bbd757076b8193eaf86e52fdbc3418eab3fe7756c8c3df779d49da1399b88f0"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/config/platforms.ts",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/config/platforms.ts",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Supports builder workspace, native capability integration, preview, theme, or asset handling.",
+    "bytes": 3535,
+    "sha256": "b1999cfaaa8198bc7c5064e9862138a9236f556cbd3451d5db5105bf21263448"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/types/platforms.ts",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/types/platforms.ts",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Supports builder workspace, native capability integration, preview, theme, or asset handling.",
+    "bytes": 1166,
+    "sha256": "7a3d575b7dc3a2fe19cfe612bf547b8f5ddaef57b06c1c30ae4f0fdaee46f2ea"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/stores/useAppStore.ts",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/stores/useAppStore.ts",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Supports builder workspace, native capability integration, preview, theme, or asset handling.",
+    "bytes": 3239,
+    "sha256": "53f21c6a3f1dd35216921b2a78427fd434f8d77dd0d7461f062d24cb729348ed"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/stores/useThemeStore.ts",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/stores/useThemeStore.ts",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Supports builder workspace, native capability integration, preview, theme, or asset handling.",
+    "bytes": 1899,
+    "sha256": "031ef0d6719ee1f0b4f3dc36d51fe718a5e2aef1a4a0603760cbc8f432ba2dc9"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/stores/useUserPreferencesStore.ts",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/stores/useUserPreferencesStore.ts",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Supports builder workspace, native capability integration, preview, theme, or asset handling.",
+    "bytes": 3495,
+    "sha256": "0adb3f7da79bd78927521d73e2bbd2b14d04ad3c70e4ff699da75fc5c84ae06a"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/utils/buildTimeEstimate.ts",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/utils/buildTimeEstimate.ts",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Supports builder workspace, native capability integration, preview, theme, or asset handling.",
+    "bytes": 2388,
+    "sha256": "b867ff2015c17fa074b7a139cddfa54d936eeaab0262759db00b1fafa3136fcc"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/lib/image-optimization.ts",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/lib/image-optimization.ts",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Supports builder workspace, native capability integration, preview, theme, or asset handling.",
+    "bytes": 6557,
+    "sha256": "8508891d94ade8a0aa9436cefb0312d2d80239d1519a1f8fd0707dd140cb2d97"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/lib/android-binary-xml.ts",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/lib/android-binary-xml.ts",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Supports builder workspace, native capability integration, preview, theme, or asset handling.",
+    "bytes": 11069,
+    "sha256": "5f8a4d3cbaf9f4a981862981ad20d030a63735861c7f649e78192ac875dbb199"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/lib/utils.ts",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/lib/utils.ts",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Supports builder workspace, native capability integration, preview, theme, or asset handling.",
+    "bytes": 169,
+    "sha256": "d1f1e0d62cb8d8d1e04c26e14de842d8a151f75812d81b046c65b5d1fe8e4b27"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/hooks/use-mobile.tsx",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/hooks/use-mobile.tsx",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Supports builder workspace, native capability integration, preview, theme, or asset handling.",
+    "bytes": 576,
+    "sha256": "21eff740f9e5c965c7f0782925a7e8f67ddfcdf0f58b6613550f99c3e1c454e9"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/hooks/use-toast.ts",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/hooks/use-toast.ts",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Supports builder workspace, native capability integration, preview, theme, or asset handling.",
+    "bytes": 3935,
+    "sha256": "0602ac84d95719f2a27075ce60333db73128e09c0b07365dce7f9c77441c9d7c"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/hooks/useBuildQueue.ts",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/hooks/useBuildQueue.ts",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Supports builder workspace, native capability integration, preview, theme, or asset handling.",
+    "bytes": 2233,
+    "sha256": "1476640cb1ba3db96b5d8bf21ee8108d78979bb7120c52dd3fad9c3fda835c99"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/hooks/useBuilderKeyboardShortcuts.ts",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/hooks/useBuilderKeyboardShortcuts.ts",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Supports builder workspace, native capability integration, preview, theme, or asset handling.",
+    "bytes": 3024,
+    "sha256": "0d882653b7d3d028ccfc2765bb3625301210fd8cf2b7d992566236e36ae1c6a1"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/hooks/useCamera.ts",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/hooks/useCamera.ts",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Supports builder workspace, native capability integration, preview, theme, or asset handling.",
+    "bytes": 3405,
+    "sha256": "0ab784a87211c3db1cee2b56cec592fc562da1e49218d110224aeb740c44c1dc"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/hooks/useHaptics.ts",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/hooks/useHaptics.ts",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Supports builder workspace, native capability integration, preview, theme, or asset handling.",
+    "bytes": 2667,
+    "sha256": "ca27242d8350bd3b4b72bade79faf3559dd81826348b267ddc2c362c0122ef62"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/hooks/usePushNotifications.ts",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/hooks/usePushNotifications.ts",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Supports builder workspace, native capability integration, preview, theme, or asset handling.",
+    "bytes": 3305,
+    "sha256": "19f2f66468c50c8c95164e02369297567e0ff7aef57aa309a88f0d36f9c25124"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/hooks/useBrowserNotifications.ts",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/hooks/useBrowserNotifications.ts",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Supports builder workspace, native capability integration, preview, theme, or asset handling.",
+    "bytes": 1963,
+    "sha256": "7b555fcdfb678a1f520741c8da1365212aae91bcd965496a5331af8828d88c73"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/hooks/useNotificationSounds.ts",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/hooks/useNotificationSounds.ts",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Supports builder workspace, native capability integration, preview, theme, or asset handling.",
+    "bytes": 2959,
+    "sha256": "c1a1025fd6c99d373af4b55f644f5179f6642ac5e6f321b65a59f77cbda873fa"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/hooks/usePWAInstall.ts",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/hooks/usePWAInstall.ts",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Supports builder workspace, native capability integration, preview, theme, or asset handling.",
+    "bytes": 2232,
+    "sha256": "e135577a6006011697d42282cde1f9cbad0451b333228fdb44a9a36d69d46258"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/hooks/useBiometricAuth.ts",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/hooks/useBiometricAuth.ts",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Supports builder workspace, native capability integration, preview, theme, or asset handling.",
+    "bytes": 2894,
+    "sha256": "63b06ccc8f9398ffaec07a140733376bdb17620a4b410ac2c27abab639f3ec82"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/index.css",
+    "archive_path": "01_APPFORGE/reuse_candidates/src/index.css",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Supports builder workspace, native capability integration, preview, theme, or asset handling.",
+    "bytes": 6877,
+    "sha256": "964bb129c3c846f900bc1125c1f1c94441a217d03faddb9621b3c78326b07531"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/admin/CodemagicSetupWizard.tsx",
+    "archive_path": "01_APPFORGE/adapt_required/src/components/admin/CodemagicSetupWizard.tsx",
+    "classification": "ADAPT",
+    "reason": "Useful provider/settings/build pattern but coupled to donor backend, Supabase, or unsafe authority assumptions.",
+    "bytes": 26178,
+    "sha256": "76c8f654c14635a1f216d1685576ef78ca90d66fa55a48bc39ffaf7617e9067b"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/admin/BuildMonitoring.tsx",
+    "archive_path": "01_APPFORGE/adapt_required/src/components/admin/BuildMonitoring.tsx",
+    "classification": "ADAPT",
+    "reason": "Useful provider/settings/build pattern but coupled to donor backend, Supabase, or unsafe authority assumptions.",
+    "bytes": 8330,
+    "sha256": "567a68d091ce3c6124ebcf99038b61fc1af91028c2dffaf273a755e8937c1ed7"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/admin/ApiConfiguration.tsx",
+    "archive_path": "01_APPFORGE/adapt_required/src/components/admin/ApiConfiguration.tsx",
+    "classification": "ADAPT",
+    "reason": "Useful provider/settings/build pattern but coupled to donor backend, Supabase, or unsafe authority assumptions.",
+    "bytes": 11756,
+    "sha256": "5d056e746de579f032f4da76c689f57073bf77a26f6a448ff139dee818cdd506"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/admin/IntegrationsManager.tsx",
+    "archive_path": "01_APPFORGE/adapt_required/src/components/admin/IntegrationsManager.tsx",
+    "classification": "ADAPT",
+    "reason": "Useful provider/settings/build pattern but coupled to donor backend, Supabase, or unsafe authority assumptions.",
+    "bytes": 27768,
+    "sha256": "c02b8af9b42434b0b235d98fafab19427992a455e5ef748a7bd59995c5277737"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/components/admin/StorageSettings.tsx",
+    "archive_path": "01_APPFORGE/adapt_required/src/components/admin/StorageSettings.tsx",
+    "classification": "ADAPT",
+    "reason": "Useful provider/settings/build pattern but coupled to donor backend, Supabase, or unsafe authority assumptions.",
+    "bytes": 78564,
+    "sha256": "d3199fd6c3c41e23986db3866eb305fdf0787616d8eeb095f453810e880a1267"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/hooks/useStorage.ts",
+    "archive_path": "01_APPFORGE/adapt_required/src/hooks/useStorage.ts",
+    "classification": "ADAPT",
+    "reason": "Useful provider/settings/build pattern but coupled to donor backend, Supabase, or unsafe authority assumptions.",
+    "bytes": 6794,
+    "sha256": "bb79ce50c8eee3c0106a2d4466030f016c4793add71c7c2dc0c76fd9f370b174"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/hooks/useSystemSettings.ts",
+    "archive_path": "01_APPFORGE/adapt_required/src/hooks/useSystemSettings.ts",
+    "classification": "ADAPT",
+    "reason": "Useful provider/settings/build pattern but coupled to donor backend, Supabase, or unsafe authority assumptions.",
+    "bytes": 3062,
+    "sha256": "8ebf5a54a665335782c71d46f4d784675f793f77fee589851c9fc95801b4259a"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/hooks/useAdminData.ts",
+    "archive_path": "01_APPFORGE/adapt_required/src/hooks/useAdminData.ts",
+    "classification": "ADAPT",
+    "reason": "Useful provider/settings/build pattern but coupled to donor backend, Supabase, or unsafe authority assumptions.",
+    "bytes": 12456,
+    "sha256": "4285576abddf5fcdaa79bcdfb8e2590dbd968d5955e5318aa6ca7ec6bc7e8b77"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "src/lib/api/analyze-website.ts",
+    "archive_path": "01_APPFORGE/adapt_required/src/lib/api/analyze-website.ts",
+    "classification": "ADAPT",
+    "reason": "Useful provider/settings/build pattern but coupled to donor backend, Supabase, or unsafe authority assumptions.",
+    "bytes": 4152,
+    "sha256": "ce4ee25ed09be18c3e6fb41a06df81e4738bef16257bda31cab510f848fe795a"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "public/site.webmanifest",
+    "archive_path": "01_APPFORGE/build_and_dependency_reference/public/site.webmanifest",
+    "classification": "REFERENCE",
+    "reason": "PWA/icon reference asset; regenerate with Titan company branding.",
+    "bytes": 263,
+    "sha256": "7a9e07ce1f7386689917602ddc5a75750ad842e605ff764f67173529c181bf04"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "public/pwa-maskable-512x512.png",
+    "archive_path": "01_APPFORGE/build_and_dependency_reference/public/pwa-maskable-512x512.png",
+    "classification": "REFERENCE",
+    "reason": "PWA/icon reference asset; regenerate with Titan company branding.",
+    "bytes": 22746,
+    "sha256": "8fd75d3bedbbba70972536508f976058b58e5114755f5bca8387a7b0d732ac7c"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "public/pwa-512x512.png",
+    "archive_path": "01_APPFORGE/build_and_dependency_reference/public/pwa-512x512.png",
+    "classification": "REFERENCE",
+    "reason": "PWA/icon reference asset; regenerate with Titan company branding.",
+    "bytes": 22746,
+    "sha256": "8fd75d3bedbbba70972536508f976058b58e5114755f5bca8387a7b0d732ac7c"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "public/pwa-192x192.png",
+    "archive_path": "01_APPFORGE/build_and_dependency_reference/public/pwa-192x192.png",
+    "classification": "REFERENCE",
+    "reason": "PWA/icon reference asset; regenerate with Titan company branding.",
+    "bytes": 22746,
+    "sha256": "8fd75d3bedbbba70972536508f976058b58e5114755f5bca8387a7b0d732ac7c"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "public/android-chrome-192x192.png",
+    "archive_path": "01_APPFORGE/build_and_dependency_reference/public/android-chrome-192x192.png",
+    "classification": "REFERENCE",
+    "reason": "PWA/icon reference asset; regenerate with Titan company branding.",
+    "bytes": 4242,
+    "sha256": "c8e25af368b2bd34b36561b624fdd2f21fd104b21f376a9216ad00234bf2754a"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "public/android-chrome-512x512.png",
+    "archive_path": "01_APPFORGE/build_and_dependency_reference/public/android-chrome-512x512.png",
+    "classification": "REFERENCE",
+    "reason": "PWA/icon reference asset; regenerate with Titan company branding.",
+    "bytes": 22746,
+    "sha256": "8fd75d3bedbbba70972536508f976058b58e5114755f5bca8387a7b0d732ac7c"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "public/apple-touch-icon.png",
+    "archive_path": "01_APPFORGE/build_and_dependency_reference/public/apple-touch-icon.png",
+    "classification": "REFERENCE",
+    "reason": "PWA/icon reference asset; regenerate with Titan company branding.",
+    "bytes": 3772,
+    "sha256": "28cb5a45d5bb8a93569caf13aa89b81a56e92ca0f21f69af12c214abe4e1cad4"
+  },
+  {
+    "donor": "AppForge",
+    "source_path": "public/placeholder.svg",
+    "archive_path": "01_APPFORGE/build_and_dependency_reference/public/placeholder.svg",
+    "classification": "REFERENCE",
+    "reason": "PWA/icon reference asset; regenerate with Titan company branding.",
+    "bytes": 3253,
+    "sha256": "64badf7aabda0b9630b87020ffb6095cb858ccbcf66b355c2aa08b1063954d3b"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/app-components.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/app-components.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 34749,
+    "sha256": "a3cb0e8332702aadf3758651fa7b7f6bbc53c54190811287da716e12baed1469"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/app-pages.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/app-pages.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 18220,
+    "sha256": "4c83a7d8e12b1be99ece5558bfdde32c509a33ff27311bea6d72438382f600c6"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-accordion.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-accordion.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 17255,
+    "sha256": "8af906f7cf5eadbcf27b68ae04e30b259fa7f618860b011e6aa7d77da99b972a"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-action-sheet.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-action-sheet.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 24296,
+    "sha256": "f3af91e67dcab46c6db1a5e08d037dc1c30604c80a460a5991b01581657a60ca"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-adboxes.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-adboxes.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 10943,
+    "sha256": "62f6bcc747773aab96e7f998c9bf6734b74956ff497c9bbe49ae4865bf8f9669"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-add-to-home.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-add-to-home.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 13650,
+    "sha256": "def578113206fc2863140e995ebc15c60f2a5cc4266a8441a1cf113d52850df0"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-alert.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-alert.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 13304,
+    "sha256": "a00f58d5d6ab53f421dbf7a1e4d9afbdd95938ee0724cb430266aea0713b5a7e"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-animated-header.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-animated-header.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 16010,
+    "sha256": "a1ae4379b0c540387f616193783632e4c680f4e0209dc9e539a505d3ef4ba6c4"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-appbottommenu.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-appbottommenu.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 33454,
+    "sha256": "b9747c9003ca749ff310f4a414fe1575bddbeb69c63ff2ba4d7e319500aaeb39"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-appheader-tab.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-appheader-tab.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 18087,
+    "sha256": "ed7394166ea8893d25d1cb94259fadec2818bddd93499d16794e612fc32616b1"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-appheader.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-appheader.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 21233,
+    "sha256": "90865dbacc2b73594b3457788b8487b678d975a9aaea2a8029c04776e216a289"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-badge.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-badge.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 15237,
+    "sha256": "c78f60c74f33165c0039a26546e2c43e28febe25518edd8c3582d6cc47c9d209"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-button.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-button.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 32217,
+    "sha256": "6403b6935b3226f3da475467fe9be589b9bf0754cc36a21a17dca0558da5ba6d"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-card.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-card.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 21097,
+    "sha256": "67d33d47a72ef813e9356318dd7467820943710c192018632002c22ee7719012"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-carousel.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-carousel.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 13391,
+    "sha256": "e322b8aa91542b740513616655a3b9fb150c1f8c84b98330bb6bc7698276675d"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-checkbox.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-checkbox.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 12878,
+    "sha256": "e603477bcaf58da4df28a12ce5c3acd959c6d47651478ad187aa049ffe309cbc"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-chips.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-chips.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 18559,
+    "sha256": "6c93690d41b4766bffd8a9d63978ad4ab86ee6416aecf9fe3a24e50db63e2714"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-comment-boxes.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-comment-boxes.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 18294,
+    "sha256": "323cda836a138a31fea27a12522579e30f12f67655285efcc187960b9308df3d"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-contentbox.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-contentbox.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 12270,
+    "sha256": "277b6f1185d968052fa9624f33458dff8cf73aaee3c8414646bbe6ccca4fdd4c"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-cookies-box.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-cookies-box.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 10733,
+    "sha256": "9fa5fed34022ebed3e2e7c5e41e776aa1a9105d37e3dcb91932f34eb666c6354"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-dialog.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-dialog.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 22400,
+    "sha256": "07b23a094fd068577b18cb5c7258d31824da13012844668dc641f1d67076594d"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-divider.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-divider.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 11919,
+    "sha256": "aa0ee946bbac50fdbbe208a5b184ef16e7390e992c6fd07791895b6120236719"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-dropdown.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-dropdown.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 14402,
+    "sha256": "65c380a8df727f6aa4ff83c3bc79743fb615e15e61f71905a1a228b10fdf79bc"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-error-page.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-error-page.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 3080,
+    "sha256": "f70654a61d770a1ae2acc54103629ec6905cffc81d5fa5ad1cd29b3f78281e84"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-fab-button.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-fab-button.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 10093,
+    "sha256": "887240b8d664b83e8941137431c8aae9d91d724a9faf28d1488d8520ab4d1d27"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-form-validation.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-form-validation.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 17822,
+    "sha256": "d0ca62dcb5c2856cc74d07c5100f45ab52593a8ee1343ffc4a254831fe48fa8b"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-form-wizard.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-form-wizard.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 4961,
+    "sha256": "ed2d4a5e49b92ca07c6b9fce60f7d4fc219ab88563a9997c373604e44ecf2289"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-go-to-top.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-go-to-top.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 13488,
+    "sha256": "f501c297db655bed9c6b76b2996cfff8885357c7b7f4081971054eab42326c1c"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-grid.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-grid.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 13551,
+    "sha256": "385571c6e08a23c825df6d99bd53511f89c4747a9cbe288f458e7af5299bd9dc"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-icons.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-icons.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 14093,
+    "sha256": "e746f97b37c5a19f2e380784a41bc8614adbe0473bd1f3e628799e476d3cb6d6"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-images.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-images.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 15385,
+    "sha256": "f9cbcee6be1c09dfd1c869f9cfab8a7d67fee6b3877fa883cb1b959b37d350c7"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-inputs.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-inputs.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 27563,
+    "sha256": "d4ec06b9bd06ed95743a5398d59272132f4b0633796c3f2977c87b24d197b80e"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-listview.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-listview.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 21569,
+    "sha256": "2ba8870395b3781d6dd9780a4fd30f32c2d6eb1f270e19f6f6dabb202afb8ce8"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-modal.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-modal.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 28705,
+    "sha256": "b9992a400a30dc89265344ebdee37b2595a0f01707c710551fc840b3933a92c7"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-multi-listview.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-multi-listview.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 47582,
+    "sha256": "079bdf8d116878da4cab63a1d128eec384e19c2d1ecab49a23b11a6f8efd44b4"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-notification.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-notification.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 37806,
+    "sha256": "97f7dbd5953885802c950163b9994256c919aecc238d44d8c04207446d25e40a"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-offcanvas.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-offcanvas.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 15896,
+    "sha256": "8757353f962c005068c88a8d10637b250caac0bf8fb1f4d67edbd2e4998676bd"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-online-detection.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-online-detection.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 10309,
+    "sha256": "2945df81c7a6cb76ec42ef2aefe41724edf67ab314addde5fd304aab70a5772e"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-os-detection.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-os-detection.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 12292,
+    "sha256": "e0f90b11725a573cce76409615df0ea7ef55633f1d15bfcf17a8785b9d1c8cb2"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-pagination.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-pagination.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 13406,
+    "sha256": "b147fa2c051f06ef5fb82d30db98231ca0c5c5729e3cb9f1239ea4e28266bdb0"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-placeholders.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-placeholders.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 15904,
+    "sha256": "4e43c67029fef757ec701236c5ead14e394c161940300f6b948f07aa063bc0d2"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-preloader.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-preloader.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 16080,
+    "sha256": "dcac8062a61ab546f2e4271e22c60cef8fcef295795d0b601f8529bb8439eb13"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-progressbar.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-progressbar.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 15907,
+    "sha256": "8529c9e9b7598fce10ce13b0d384fd3352f46c8d6f2202ecc759df39164148c4"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-radio.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-radio.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 13559,
+    "sha256": "7d6e82a585cd5d89ff6563745c0f92a4636eb6cbc1b92be03df4d0fc0b1e992a"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-search.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-search.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 14887,
+    "sha256": "e4334d2196a898104d58eeac9d2a1014a7c14697f4c12afcf042011cc6b85c4b"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-stepper.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-stepper.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 18380,
+    "sha256": "9ea9ffd73257d9af16579e11bae5a2b0dbfb1892af75db224158ee7014e5184d"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-sticky-listview.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-sticky-listview.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 15056,
+    "sha256": "01e765462a760a92b9ceedd7d07a41d81fb66918e8bc238a5005183773d2ec88"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-stories.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-stories.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 21870,
+    "sha256": "61736ffe18a0d98b339c8f1c4a0fea3dc028ccdc067910db5f4b0ec479ff5366"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-table.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-table.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 14236,
+    "sha256": "f7e05ceeb4351b131c31c85e859a28af5f235f96968e80aedcacd6d52cc7b9fb"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-tabs.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-tabs.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 25373,
+    "sha256": "0112f4570f4f7abb06291f3d28ea297db29bb9b42dda77de96bc9e8d2b47e20d"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-timeline.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-timeline.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 17692,
+    "sha256": "9311976f38f25ff65d7a2dbcd65e2f6d719be7500ce6b7149c3d14ec03efeb90"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-toast.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-toast.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 19631,
+    "sha256": "35f987e90ca26381b7a4834f1563896cabe430caae6be7bbba05aab4bef4681b"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-toggle.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-toggle.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 11855,
+    "sha256": "1d367e94fd2583404f5f3cb9ef491c53986c6d06c3419a17a26abc3ee1ef0af8"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-tooltips.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-tooltips.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 12367,
+    "sha256": "c7283adead2e3f98d05f9c0bdec6e5e46dae5a8e96f75a3c67180bd59dfbc72a"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/component-typography.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/component-typography.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 13260,
+    "sha256": "878dc5143e3af66baf9d2a069a8022be1aee4770af6399644c3579061a59af73"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/index.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/index.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 18661,
+    "sha256": "8553e8c846fc9bc12ed72b26e15d92dc9a3bc82e38ef54b3ea23c62a915073c0"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/page-about.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/page-about.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 15730,
+    "sha256": "7a4c3ff1860d7d4beedeb747eac7102a80974eb37c94884bb142404aec4c8d91"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/page-blank.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/page-blank.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 9440,
+    "sha256": "0bfeb82a539722f67e61604f33d9b1f6c9855afe049d4b90c4a7ac6b41b67ea4"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/page-blogpost.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/page-blogpost.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 20721,
+    "sha256": "142f53eb7c54e4d6bc10ffd99d2e58d771806ff3e14906b62f13cb6f03be6061"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/page-cart.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/page-cart.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 16600,
+    "sha256": "c7787a2804b34716b707dcfc89c982547f4a33c334919ad0ad806ff6d035962d"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/page-chat.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/page-chat.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 8454,
+    "sha256": "45377520388585e743bfd23720e3492dbfd9877896318a4a44f850832530c3b1"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/page-contact.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/page-contact.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 13851,
+    "sha256": "f6ba1fa47a17386eb42bdfe6c5b0cff8f97a45c2b58134fbff978f6d4600cd67"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/page-faq.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/page-faq.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 13994,
+    "sha256": "6248374f759d563ec23b2b8ff0e0ca6e9132dc369357787d6ed07b66d51a8017"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/page-forgot-password.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/page-forgot-password.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 3207,
+    "sha256": "faaa8d4a3c04a46e03aa67621b548a6bcdb47014ebe65fafc9c326163b16bd0b"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/page-fullpage-slider.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/page-fullpage-slider.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 3897,
+    "sha256": "e6be4ba616d76eef7f63888fceba2e3fd8f178f53c7a7a6c4b603d460d7781ff"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/page-invoice.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/page-invoice.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 11471,
+    "sha256": "1f5d0d50f4ab5894b2da4d3f51a4239215c84ee8dc621deb6fa66bdfe8f9bf90"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/page-lockscreen.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/page-lockscreen.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 4455,
+    "sha256": "f14fec47029e5e7bf2d78a89e9ad7062e26141e1751d64675f300f8ed358e10e"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/page-login.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/page-login.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 3648,
+    "sha256": "9e9ea043496b58b8bafc2998b31aa7ba616b966cd866e83add5ad0e2e4b3f032"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/page-maintenance.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/page-maintenance.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 2780,
+    "sha256": "d62b044b4604d43ab75c8ca57458f9bb7f35c93a308b71c489907434efc9f8a6"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/page-product-page.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/page-product-page.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 19932,
+    "sha256": "fb627669cdedea3e3e88135f6262fc7502cb2b8c1997bd82172031b33ee759c8"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/page-profile.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/page-profile.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 26219,
+    "sha256": "c338e7cb56cf222b5001e1d0a6636b3193e886d133cbd0e9c639aed684a7ab53"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/page-register.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/page-register.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 4949,
+    "sha256": "3e74f51b0554f6337c9296fa5d4d35861398ed9107cb850f6b410536dd06a6b0"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/page-sms-verification.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/page-sms-verification.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 2982,
+    "sha256": "cbb1348333b02929d04c856c801807bc1f3460d4cac7108f92b15160198e7b09"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/page-under-construction.html",
+    "archive_path": "02_MOBILEKIT/reference_screens/page-under-construction.html",
+    "classification": "REFERENCE",
+    "reason": "Mobile screen/component layout reference; convert to Titan components rather than shipping unchanged.",
+    "bytes": 3051,
+    "sha256": "27ff5d20b719d3976266c49cc2497d608d622c0436c270af99d5751c6efc030e"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/_body.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/_body.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 885,
+    "sha256": "ecb972225ad2f3ad3264d2b6e1e9842dc5698972321b5e5f28c5a49832fa552b"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/_darkmode.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/_darkmode.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 22921,
+    "sha256": "27cdfdc968912dafd1b56d06e1ae1c689c5dc398bf7421d9f99a066d6c42f53f"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/_rtl.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/_rtl.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 16283,
+    "sha256": "1c26d3773fa3c104f6b6575f978293cdd981078daae9564a3aabce266dd61f31"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/_theme-settings.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/_theme-settings.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 1902,
+    "sha256": "586baac34e964cfa79be0f24939a804bf0d4a68bfeae92120b4b2f5c671dbc36"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/_ui-framework.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/_ui-framework.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 1470,
+    "sha256": "a37e0d012f63acc8497ffebfffedd89a7bbc684f796ad5d76d4997b4dd3ad2bd"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_accordion.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_accordion.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 3152,
+    "sha256": "1a89f275a87fa771a3aff82345ddac76236150e4dbc634ba2b55bd9e55fa93e3"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_actionsheet.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_actionsheet.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 3411,
+    "sha256": "1178bc58c2e184ce1aa9913e467d421b8368afda0de2ce40ed4582139d901077"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_adbox.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_adbox.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 818,
+    "sha256": "1569cde84f5bcc948cd685b4aefb8a8e45afcae75a1c817c2041efea00126723"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_add-to-home.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_add-to-home.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 2403,
+    "sha256": "67e30c9b167fc1271de90f682a1143649c32d9daed5f48e6c35aa53313b038bd"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_alert.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_alert.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 2587,
+    "sha256": "dd8888ca81d9e5b20098cf2dbe0787a48138d3013efacd382dc85500a1ed4103"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_badge.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_badge.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 1740,
+    "sha256": "9e1d4ef96e4933c8f0cbe17f618170a174707f10742bb9e20c85dca7ef5148e8"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_blog.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_blog.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 691,
+    "sha256": "96ff87108000b150e852bee5877f55ee0603eed61c650a1787ca570f1e06fde9"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_button.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_button.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 8783,
+    "sha256": "13dd1086e54f8ed62f53b7ac0aaa16ba582359ffcfae533db13c759e305e7e5a"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_card.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_card.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 2231,
+    "sha256": "566f00283062a4ce16b0e9c87f154490fe6f5ba32eebd8a21a4296b572e636aa"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_carousel.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_carousel.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 1308,
+    "sha256": "0901d7764e47d95ad2e412afd388aa6545c52f6ea705ab9d0dc8190ee4561e5d"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_checkbox-radio-toggle.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_checkbox-radio-toggle.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 3052,
+    "sha256": "b4088589cc00f837ec82434c71a150766e0e8bd078b36744eec734acc11b2c20"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_chips.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_chips.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 3126,
+    "sha256": "d3c221c43e70072d2ce76bf6d66bfb3b2fbf5a95405a0b4061eb766bd2345114"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_color-class.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_color-class.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 2953,
+    "sha256": "d73939e1a18ed6165c447ffcb1c7a76fd22d03bdda6c3746f3850b3c71ec5d0f"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_comment.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_comment.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 1825,
+    "sha256": "2a48c781db364df5bccbfb3920ac94dca39353afa5340e26836d6152494fbd37"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_dialog.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_dialog.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 2540,
+    "sha256": "d57c54e40f1c8808e5781d32a79c618d1ec5a93f5ac5c43edea04e0746f93f3a"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_divider.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_divider.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 459,
+    "sha256": "c5aab6fad243a495453c9a9e5a25654aa8daafcb3980c0cac4935a21d14e808b"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_dropdown.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_dropdown.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 1208,
+    "sha256": "a4cbb2bc869fc24c5252de0f43ff0f97e2da4952103da1df48f2e2852fddc766"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_e-commerce.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_e-commerce.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 1653,
+    "sha256": "756940de9317d5dba50bc7c5d452562ea1a70118246dc0d91a173e89d8bf83bc"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_error-page.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_error-page.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 904,
+    "sha256": "ae7c4ca6cf43f783d989cd3a4bb27b3e2b9c2e873a3e535856966bd6b09a66d6"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_fab-button.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_fab-button.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 3364,
+    "sha256": "bffb08d1bb6293faf2871e9d0c173082c6f90ef4cc6342d8f2786389e13d1dac"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_form-validation.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_form-validation.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 4109,
+    "sha256": "4ccc04aaf6ef09ba14ffa6830a4acd827d26f6c87d370fc34bd1569aed372fd6"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_form-wizard.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_form-wizard.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 1614,
+    "sha256": "c7befac45c548c487b1731211f5dea0776ea380320caf11e287cc5a4eb596219"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_go-to-top.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_go-to-top.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 477,
+    "sha256": "fb28f804e87b7d918fa3329a0ca8adbf816dd5898462e17cab514b22d1ccd6f5"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_grid.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_grid.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 4102,
+    "sha256": "5924c9530c73ef8e33edc48863b7194d00dcd6dff63fda29f521a21abd1f7924"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_icon.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_icon.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 815,
+    "sha256": "cf59120f8ef0fc931755742aa703f74d12da596491201d77661945f4cc5beda6"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_image.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_image.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 1268,
+    "sha256": "ecbe3758bcd92b15306cf813974a24f81fe9dfac92dd818ea412f79bd65d2696"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_inputs.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_inputs.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 6208,
+    "sha256": "87fcf946b0e0afd7989a8a9aa22e53f97321dbb92e32095045366f1f13440420"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_invoice.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_invoice.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 2827,
+    "sha256": "f361c47ea9ce14c709429586f48752717b56090e8b794a8f97efdba4befc6fca"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_listview.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_listview.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 7451,
+    "sha256": "71cab9819808f47bb8fcc2862381f02c39e8c50c95cbf7adfc82fe707520c24c"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_loader.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_loader.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 452,
+    "sha256": "c0171224a5ba42cdaa87a53551deab516792a0238f837eaba720d1a3c077b30b"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_login.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_login.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 591,
+    "sha256": "580d7e5e6be4e1b23bbbdafe9f5a67050272c898d09295d4e44d388475b359e4"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_messages.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_messages.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 2049,
+    "sha256": "18068e9d371b0c55217221ee9862b4f656818bd73ffcf92b470a3e7e113128ab"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_modal.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_modal.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 1254,
+    "sha256": "13f7d30c71f269ef0c30a968c9c21b69f1c87fddcdb4a1c28e7c184199a567db"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_notification.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_notification.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 4870,
+    "sha256": "26149a5066132ae0954934e2c416b7968716c926a237a74cb96ce0ea2c0f4769"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_offcanvas.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_offcanvas.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 1448,
+    "sha256": "a7e496e4a1d001179b21337aebe137e930ab3c96886b60ae25aaeafae4836dcd"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_online-detection.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_online-detection.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 75,
+    "sha256": "12db982038f7b073489ac0a54ae964295468399814c33f7d9a020ebeb76628a8"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_os-detection.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_os-detection.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 144,
+    "sha256": "45d828317bc82b3af59e42feceba43714bbcbab0be51dd0aa76f5edac4d1b20c"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_pagination.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_pagination.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 1073,
+    "sha256": "9e25b9297a0dbdf9ac90862186a3e659552a7676a2d05463488a978ac919fbc6"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_preloader.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_preloader.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_profile.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_profile.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 1001,
+    "sha256": "acd59fa95c3caa94defc10f01090af8de9103ee8b114d6691f300ed96697591c"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_progressbar.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_progressbar.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 1466,
+    "sha256": "7278cf59538cbf53cca3590273df0f36dad830d1c0fe81039dd8733364d62cb5"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_search.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_search.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 2194,
+    "sha256": "d7766cd0bef5f09b77c836468837db676cdaf600d3fa925d5fb3cd857f611a82"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_stepper.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_stepper.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 3040,
+    "sha256": "2443b107e628109098514391eaea0411bb044312673dfd900e3176bb96649b9f"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_stories.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_stories.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 4597,
+    "sha256": "3df0ddcacae54fdb158b70543e19479cfc25792ec18f76de2698010e8c513d68"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_table.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_table.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 928,
+    "sha256": "33dc4749ab1ded12e025e31bd3d309e574d9f699057d57430a1e01a71405c8a7"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_tabs.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_tabs.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 2008,
+    "sha256": "aca138f0d7ec393e082851b6e1122c741334672ba97e8e42d04cf7f0e88804e0"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_timeline.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_timeline.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 1286,
+    "sha256": "4be7755c16d323c921a888bc7818012ee2a6befff081849d25d6a0eaf1d88dcd"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_toast.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_toast.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 1839,
+    "sha256": "8003379d1e4c28d6f869813bfadfab4689238794c4f6437f97b6959b18eb0518"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_tooltip.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_tooltip.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 135,
+    "sha256": "05f8d76dbe51205dfed3252519faaebc692c06bfe067fd852799833ef1918134"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/framework/_typography.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/framework/_typography.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 1946,
+    "sha256": "8b2cc792b81d1a752014f520ffaa24ff4078ecd549929adcaa93eb6f693c675d"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/section/_bottomMenu.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/section/_bottomMenu.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 3175,
+    "sha256": "e5f32ec00cb2ec807f8bb43b93f4774b8a59cbfe81c52af1b912641b406b2640"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/section/_content.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/section/_content.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 1385,
+    "sha256": "046bdcafc89d0c85abc8d3c7e36258d9bc1964f0923c2c9b07c74f9f9c400963"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/section/_footer.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/section/_footer.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 1142,
+    "sha256": "861eafe9b52884b621f2110c7d7c40be9b15eaa7d39b02f6cdbc1f7e931a46aa"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/section/_header.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/section/_header.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 3350,
+    "sha256": "e50f46a6ee93ebd89a07e9efe51d73512c1a63431f0a55c4fd5cfcf38498eb90"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/section/_sidebar.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/section/_sidebar.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 3240,
+    "sha256": "f716c2a506b8e8e62c66a23558830d5ec0c702b2b99f4c6c4031ad3c70158c5c"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/sass/style.scss",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/sass/style.scss",
+    "classification": "REUSE_CANDIDATE",
+    "reason": "Mobile-first Sass component or layout pattern.",
+    "bytes": 1672,
+    "sha256": "debfc29be5ff81f5d26a8704c023c08072ac2ddfb13f2406678b25eb318f58c2"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/css/style.css",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/css/style.css",
+    "classification": "REFERENCE",
+    "reason": "Compiled/vendor reference used to reproduce screen samples; retain license and modernize before use.",
+    "bytes": 192817,
+    "sha256": "7791017c6ee04b2c98c0a5c0329d5042a9bdfa5564d8dce1a8bb7f00d1b099e7"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/css/inc/bootstrap/bootstrap.min.css",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/css/inc/bootstrap/bootstrap.min.css",
+    "classification": "REFERENCE",
+    "reason": "Compiled/vendor reference used to reproduce screen samples; retain license and modernize before use.",
+    "bytes": 163826,
+    "sha256": "8e23c3b3f22abb77e233c65f438c4190a773637c591d1fe15587bfddc6f81e6f"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/css/inc/splide/splide.min.css",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/css/inc/splide/splide.min.css",
+    "classification": "REFERENCE",
+    "reason": "Compiled/vendor reference used to reproduce screen samples; retain license and modernize before use.",
+    "bytes": 4140,
+    "sha256": "12acf0cde9105ca35b079104e27341413fb68164085916505c077cf58748abc3"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/js/lib/bootstrap.min.js",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/js/lib/bootstrap.min.js",
+    "classification": "REFERENCE",
+    "reason": "Compiled/vendor reference used to reproduce screen samples; retain license and modernize before use.",
+    "bytes": 78080,
+    "sha256": "286fc75be1e7b08b6e8f8c70b4b6f69bf77fcd9bec929694d122b44ecbb4858d"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/js/plugins/progressbar-js/progressbar.min.js",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/js/plugins/progressbar-js/progressbar.min.js",
+    "classification": "REFERENCE",
+    "reason": "Compiled/vendor reference used to reproduce screen samples; retain license and modernize before use.",
+    "bytes": 29989,
+    "sha256": "f6f49ef6ced3e330cec2059ffdd99b2384972eddd6a23e67d4189ab0aa557d6f"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/js/plugins/splide/splide.min.js",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/js/plugins/splide/splide.min.js",
+    "classification": "REFERENCE",
+    "reason": "Compiled/vendor reference used to reproduce screen samples; retain license and modernize before use.",
+    "bytes": 29040,
+    "sha256": "4a609c6dfff57a1865067c376468a736ee9f8d0578ef52c3063738c8c30986c9"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/js/base.js",
+    "archive_path": "02_MOBILEKIT/adapt_required/pwa_runtime/assets/js/base.js",
+    "classification": "ADAPT",
+    "reason": "Useful mobile/PWA behavior but uses legacy global DOM, innerHTML, localStorage, cache-first logic, or hard-coded manifest values.",
+    "bytes": 35308,
+    "sha256": "6c946755c338b3a1353a039277de43df7ad485a38b662cbd6b18e57f9ee64ee8"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/service-worker.js",
+    "archive_path": "02_MOBILEKIT/adapt_required/pwa_runtime/service-worker.js",
+    "classification": "ADAPT",
+    "reason": "Useful mobile/PWA behavior but uses legacy global DOM, innerHTML, localStorage, cache-first logic, or hard-coded manifest values.",
+    "bytes": 1470,
+    "sha256": "a7cd21361114f0965602963b816f59060d6c5fe75e0deece0918b7e209a0d6e8"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/__manifest.json",
+    "archive_path": "02_MOBILEKIT/adapt_required/pwa_runtime/__manifest.json",
+    "classification": "ADAPT",
+    "reason": "Useful mobile/PWA behavior but uses legacy global DOM, innerHTML, localStorage, cache-first logic, or hard-coded manifest values.",
+    "bytes": 1638,
+    "sha256": "87ddc7af85b4f696b059ebbabb05fb3b44e9f841afffb22a20835e38379498c8"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/img/icon/128x128.png",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/img/icon/128x128.png",
+    "classification": "REFERENCE",
+    "reason": "PWA icon size reference; replace with generated Titan/company assets.",
+    "bytes": 1938,
+    "sha256": "32c259cfea837eb797bde6ecd18e660ffc3605e9335842b5d07ebc0443771116"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/img/icon/144x144.png",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/img/icon/144x144.png",
+    "classification": "REFERENCE",
+    "reason": "PWA icon size reference; replace with generated Titan/company assets.",
+    "bytes": 2219,
+    "sha256": "0278e3bdad7885703ef115d1c2b39c4d32591ad405439bd126708332a574917d"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/img/icon/152x152.png",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/img/icon/152x152.png",
+    "classification": "REFERENCE",
+    "reason": "PWA icon size reference; replace with generated Titan/company assets.",
+    "bytes": 2247,
+    "sha256": "047a25592d3065172d65bb11b3c44cbc5888368f4cc033dbeac5110739fb1872"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/img/icon/192x192.png",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/img/icon/192x192.png",
+    "classification": "REFERENCE",
+    "reason": "PWA icon size reference; replace with generated Titan/company assets.",
+    "bytes": 2716,
+    "sha256": "1ab10ca9beed0813151df4d6d31e20c94750c69264246dd0a99ced5feaa6f3e3"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/img/icon/384x384.png",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/img/icon/384x384.png",
+    "classification": "REFERENCE",
+    "reason": "PWA icon size reference; replace with generated Titan/company assets.",
+    "bytes": 4624,
+    "sha256": "d98590f5c1feb49e826ea39a3964dfc92b391ab7c5cef08df9ba7966bd088241"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/img/icon/512x512.png",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/img/icon/512x512.png",
+    "classification": "REFERENCE",
+    "reason": "PWA icon size reference; replace with generated Titan/company assets.",
+    "bytes": 5829,
+    "sha256": "e8798131622e43598cd6f51cf04b3500056afefde7523826c49c831e660d0a42"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/img/icon/72x72.png",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/img/icon/72x72.png",
+    "classification": "REFERENCE",
+    "reason": "PWA icon size reference; replace with generated Titan/company assets.",
+    "bytes": 1500,
+    "sha256": "fd80003540dcd7888c5b07d39de6e740e36f68b217d2e1a7103b123984003bf4"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "HTML/assets/img/icon/96x96.png",
+    "archive_path": "02_MOBILEKIT/reuse_candidates/design_system/assets/img/icon/96x96.png",
+    "classification": "REFERENCE",
+    "reason": "PWA icon size reference; replace with generated Titan/company assets.",
+    "bytes": 1616,
+    "sha256": "855bfdbbb5aea8d102b07afec2b28ddd2cb9fb78526853afc85dc30e4334c3b9"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "Documentation/plugin licenses/Bootstrap/LICENSE.txt",
+    "archive_path": "02_MOBILEKIT/third_party_licenses/Bootstrap/LICENSE.txt",
+    "classification": "LICENSE",
+    "reason": "Original third-party license text retained with extracted vendor code.",
+    "bytes": 1130,
+    "sha256": "99ecc185cd080798a8766c178fe352aa0800e227846f34b38b3abd517330459b"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "Documentation/plugin licenses/Bootstrap Icons/LICENSE.txt",
+    "archive_path": "02_MOBILEKIT/third_party_licenses/Bootstrap Icons/LICENSE.txt",
+    "classification": "LICENSE",
+    "reason": "Original third-party license text retained with extracted vendor code.",
+    "bytes": 1092,
+    "sha256": "96b19bb96ee378e615f9ea6f823a679cb9aa9faa32fe5f60331985cffcbbe2d2"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "Documentation/plugin licenses/Ionicons/LICENSE.txt",
+    "archive_path": "02_MOBILEKIT/third_party_licenses/Ionicons/LICENSE.txt",
+    "classification": "LICENSE",
+    "reason": "Original third-party license text retained with extracted vendor code.",
+    "bytes": 1099,
+    "sha256": "c89dabc60b2e4e1a04b33bd7010b5a56bb4725ffe8c00d793a5ae009fbbfebd8"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "Documentation/plugin licenses/Popperjs/LICENSE.txt",
+    "archive_path": "02_MOBILEKIT/third_party_licenses/Popperjs/LICENSE.txt",
+    "classification": "LICENSE",
+    "reason": "Original third-party license text retained with extracted vendor code.",
+    "bytes": 1082,
+    "sha256": "bf67e2c9b7974543bb18ced3a0b37f53729aaff953b442dd89a3adaf90fd93e8"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "Documentation/plugin licenses/ProgressBar.js/LICENSE.txt",
+    "archive_path": "02_MOBILEKIT/third_party_licenses/ProgressBar.js/LICENSE.txt",
+    "classification": "LICENSE",
+    "reason": "Original third-party license text retained with extracted vendor code.",
+    "bytes": 1081,
+    "sha256": "a4aa82bf7423e04a9984117f984010717c35a7e8ef7151548ed3e5f1117f32d8"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "Documentation/plugin licenses/ServiceWorker Cookbook/LICENSE.txt",
+    "archive_path": "02_MOBILEKIT/third_party_licenses/ServiceWorker Cookbook/LICENSE.txt",
+    "classification": "LICENSE",
+    "reason": "Original third-party license text retained with extracted vendor code.",
+    "bytes": 1084,
+    "sha256": "76e059a2918842ec5e53cf7c98a7361a244531037d070a7f500141962956f2e2"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "Documentation/plugin licenses/Splide/LICENSE.txt",
+    "archive_path": "02_MOBILEKIT/third_party_licenses/Splide/LICENSE.txt",
+    "classification": "LICENSE",
+    "reason": "Original third-party license text retained with extracted vendor code.",
+    "bytes": 1081,
+    "sha256": "484a35bd0dc21edec48b45d1d96db95eaf523eea420d4aae6162a16c3af26c5c"
+  },
+  {
+    "donor": "MobileKit",
+    "source_path": "Documentation/plugin licenses/_Read_Me.txt",
+    "archive_path": "02_MOBILEKIT/third_party_licenses/_Read_Me.txt",
+    "classification": "LICENSE",
+    "reason": "Original third-party license text retained with extracted vendor code.",
+    "bytes": 299,
+    "sha256": "14a654be65ecc9d1495273b525330364d9d6c29c5b9b4b3fa6bbdf976ab44316"
+  }
+]

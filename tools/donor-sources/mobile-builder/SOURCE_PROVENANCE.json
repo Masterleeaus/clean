@@ -1,0 +1,21 @@
+{
+  "status": "quarantined-reference-only",
+  "sources": [
+    {
+      "archive": "Titan-Mobile-Donor-Code-VERIFIED.zip",
+      "contents": "selected AppForge and MobileKit code",
+      "verified_files": 303
+    },
+    {
+      "archive": "online-app-builder-from-website.zip",
+      "product": "SaaS Online App Builder from Website v2.9.4 PRO",
+      "included": [
+        "Vue source template/src",
+        "Flutter app template/lib",
+        "safe Flutter assets and metadata",
+        "selected project builder backend controllers"
+      ]
+    }
+  ],
+  "runtime_active": false
+}
