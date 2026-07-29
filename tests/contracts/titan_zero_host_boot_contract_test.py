@@ -75,6 +75,15 @@ class HostBootContractTest(unittest.TestCase):
         )
         self.assertGreaterEqual(len(tables), 10, 'expected the cumulative Interaction Engine schema')
 
+    def test_workcore_fulltext_migration_is_sqlite_safe(self) -> None:
+        migration = (
+            ROOT
+            / 'app/Domains/WorkCore/Database/Migrations/'
+            '2026_07_23_120058_create_tz_ai_knowledge_tables.php'
+        ).read_text()
+        self.assertIn("DB::connection()->getDriverName() !== 'sqlite'", migration)
+        self.assertIn("$table->fullText('content', 'ai_kchunk_content_ft')", migration)
+
 
 if __name__ == '__main__':
     unittest.main()
