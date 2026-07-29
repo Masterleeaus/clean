@@ -7,4 +7,11 @@ return [
     'chatbot_enabled' => env('TITAN_ZERO_CHATBOT_ENABLED', false),
     'interaction_engine_enabled' => env('TITAN_ZERO_INTERACTION_ENGINE_ENABLED', false),
     'extension_discovery_enabled' => env('TITAN_ZERO_EXTENSION_DISCOVERY_ENABLED', false),
+
+    'extensions' => [
+        'enabled' => array_values(array_filter(array_map(
+            static fn (string $slug): string => trim($slug),
+            explode(',', (string) env('TITAN_ZERO_ENABLED_EXTENSIONS', '')),
+        ))),
+    ],
 ];
