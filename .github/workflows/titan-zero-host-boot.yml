@@ -136,7 +136,7 @@ jobs:
           - Interaction Engine locked version: `${package_version}`
           - `composer.lock` SHA-256: `${lock_sha}`
           EOF
-          if git diff --quiet -- docs/passes/PASS1_CI_VERIFICATION.md; then
+          if [[ -z "$(git status --porcelain -- docs/passes/PASS1_CI_VERIFICATION.md)" ]]; then
             echo "Pass 1 verification receipt is current."
             exit 0
           fi
