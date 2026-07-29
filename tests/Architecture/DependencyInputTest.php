@@ -15,6 +15,18 @@ function titanZeroDependencyInputIssues(string $root): array
         return ['composer.json is not valid JSON.'];
     }
 
+    foreach (($composer['require'] ?? []) as $name => $constraint) {
+        if (! is_string($constraint)) {
+            continue;
+        }
+        if ($constraint === '@dev') {
+            $issues[] = "Unbound Composer constraint: {$name}=@dev";
+        }
+        if (preg_match('/^v?\d+\.\d+\.\d+$/', $constraint) === 1) {
+            $issues[] = "Exact Composer semver constraint: {$name}={$constraint}";
+        }
+    }
+
     foreach (($composer['repositories'] ?? []) as $repository) {
         if (($repository['type'] ?? null) !== 'path') {
             continue;
