@@ -1,0 +1,193 @@
+name: ChatGPT Run Tests
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'claude/**'
+      - 'agent/**'
+      - 'feature/**'
+
+concurrency:
+  group: chatgpt-test-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  test-availability:
+    name: Check Test Suite Availability
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: dom,curl,libxml,mbstring,zip,pcntl,pdo,sqlite,pdo_sqlite
+
+      - name: Check for Tests
+        run: |
+          mkdir -p test-results
+          echo "# Test Suite Status" > test-results/status.md
+
+          if [ -d "tests" ]; then
+            echo "✓ Tests directory found" >> test-results/status.md
+            test_count=$(find tests -name "*.php" | wc -l)
+            echo "  - PHP Test Files: $test_count" >> test-results/status.md
+          else
+            echo "⚠ No tests directory found" >> test-results/status.md
+          fi
+
+          if [ -f "phpunit.xml" ] || [ -f "phpunit.xml.dist" ]; then
+            echo "✓ PHPUnit configuration found" >> test-results/status.md
+          else
+            echo "⚠ No PHPUnit configuration found" >> test-results/status.md
+          fi
+
+          if [ -f "pest.xml" ] || [ -f "pest.xml.dist" ]; then
+            echo "✓ Pest configuration found" >> test-results/status.md
+          else
+            echo "⚠ No Pest configuration found" >> test-results/status.md
+          fi
+
+          echo "" >> test-results/status.md
+          echo "## Test Commands Available" >> test-results/status.md
+          echo '```bash' >> test-results/status.md
+          echo "php artisan test" >> test-results/status.md
+          echo "php artisan test --parallel" >> test-results/status.md
+          echo "php artisan test --filter=Architecture" >> test-results/status.md
+          echo '```' >> test-results/status.md
+
+          cat test-results/status.md
+
+      - name: Check Test Patterns
+        run: |
+          echo "## Test Patterns Found" >> test-results/status.md
+          echo "" >> test-results/status.md
+
+          if [ -d "tests" ]; then
+            echo "### Unit Tests" >> test-results/status.md
+            ls tests/Unit/*Test.php 2>/dev/null | head -5 | xargs -I {} basename {} >> test-results/status.md || echo "None found" >> test-results/status.md
+
+            echo "### Feature Tests" >> test-results/status.md
+            ls tests/Feature/*Test.php 2>/dev/null | head -5 | xargs -I {} basename {} >> test-results/status.md || echo "None found" >> test-results/status.md
+
+            echo "### Architecture Tests" >> test-results/status.md
+            find tests -name "*Architecture*" -o -name "*Arch*" 2>/dev/null | head -5 | xargs -I {} basename {} >> test-results/status.md || echo "None found" >> test-results/status.md
+          fi
+
+      - name: Upload Test Status
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-status-${{ github.run_id }}
+          path: test-results/
+          retention-days: 7
+
+      - name: Create Summary
+        run: |
+          cat >> $GITHUB_STEP_SUMMARY << 'EOF'
+          # Test Suite Status
+
+          - [x] Test discovery complete
+          - [ ] To run tests: `php artisan test`
+          - [ ] To run tests in parallel: `php artisan test --parallel`
+          - [ ] To run specific tests: `php artisan test --filter=YourTest`
+
+          See artifact: `test-status-${{ github.run_id }}`
+          EOF
+
+  test-readiness:
+    name: Test Configuration Readiness
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: sqlite,pdo_sqlite
+
+      - name: Check Database Configuration
+        run: |
+          mkdir -p test-results
+
+          echo "# Test Database Configuration" > test-results/database-config.md
+
+          if [ -f ".env.example" ]; then
+            echo "✓ .env.example found" >> test-results/database-config.md
+            echo "" >> test-results/database-config.md
+            echo "## Database Settings" >> test-results/database-config.md
+            grep -i "db_\|database" .env.example >> test-results/database-config.md || echo "None found" >> test-results/database-config.md
+          fi
+
+          if [ -f "phpunit.xml" ] || [ -f "phpunit.xml.dist" ]; then
+            echo "✓ PHPUnit configuration file exists" >> test-results/database-config.md
+          fi
+
+      - name: Check For Seeding Support
+        run: |
+          if [ -f "database/seeders/DatabaseSeeder.php" ]; then
+            echo "✓ Database seeder found" >> test-results/database-config.md
+            echo "  - Can seed test database before running tests" >> test-results/database-config.md
+          fi
+
+          if [ -f "database/factories" ] && [ -n "$(ls database/factories/ 2>/dev/null)" ]; then
+            echo "✓ Model factories found" >> test-results/database-config.md
+            echo "  - Can generate test data" >> test-results/database-config.md
+          fi
+
+      - name: Upload Config Status
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-config-${{ github.run_id }}
+          path: test-results/
+          retention-days: 7
+
+  test-structure:
+    name: Analyze Test Structure
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate Test Structure Report
+        run: |
+          mkdir -p test-results
+
+          echo "# Test Structure Analysis" > test-results/structure.md
+          echo "" >> test-results/structure.md
+          echo "Generated: $(date)" >> test-results/structure.md
+          echo "" >> test-results/structure.md
+
+          if [ -d "tests" ]; then
+            echo "## Test Directories" >> test-results/structure.md
+            find tests -maxdepth 1 -type d | tail -n +2 | while read dir; do
+              name=$(basename "$dir")
+              count=$(find "$dir" -name "*.php" | wc -l)
+              echo "- **$name**: $count test files" >> test-results/structure.md
+            done
+
+            echo "" >> test-results/structure.md
+            echo "## Test Files" >> test-results/structure.md
+            find tests -name "*.php" | head -10 | while read file; do
+              echo "- $(echo $file | sed 's|tests/||')" >> test-results/structure.md
+            done
+          else
+            echo "No tests directory found" >> test-results/structure.md
+          fi
+
+      - name: Upload Analysis
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-structure-${{ github.run_id }}
+          path: test-results/
+          retention-days: 7
