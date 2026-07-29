@@ -173,7 +173,7 @@ return [
     'cipher' => 'AES-256-CBC',
 
     /*
-    |--------------------------------------------------------------------------
+    |-------------------------------------------------------------------------
     | Maintenance Mode Driver
     |--------------------------------------------------------------------------
     |
@@ -238,6 +238,7 @@ return [
          */
         AppServiceProvider::class,
         App\Domains\WorkCore\WorkCoreServiceProvider::class,
+        App\Domains\TitanTrain\Infrastructure\Providers\TitanTrainServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         App\Providers\BroadcastServiceProvider::class,
         EventServiceProvider::class,
@@ -258,7 +259,7 @@ return [
     ],
 
     /*
-    |--------------------------------------------------------------------------
+    |-------------------------------------------------------------------------
     | Class Aliases
     |--------------------------------------------------------------------------
     |
