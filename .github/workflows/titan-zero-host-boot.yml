@@ -95,6 +95,7 @@ jobs:
           set -euo pipefail
           cp .env.example .env
           mkdir -p database storage/framework/{cache/data,sessions,testing,views} storage/logs bootstrap/cache
+          rm -f database/database.sqlite
           touch database/database.sqlite
 
       - name: Validate locked dependencies
@@ -105,6 +106,9 @@ jobs:
 
       - name: Boot Laravel host
         run: php artisan about
+
+      - name: Build clean test schema
+        run: php artisan migrate --force
 
       - name: Verify Interaction Engine routes
         run: php artisan route:list --path=interaction
@@ -130,6 +134,7 @@ jobs:
           - Composer validation: PASS
           - Locked dependency installation: PASS
           - Laravel `artisan about`: PASS
+          - Clean SQLite migration: PASS
           - Interaction Engine route discovery: PASS
           - `HostBootTest`: PASS
           - Static host contracts: PASS
