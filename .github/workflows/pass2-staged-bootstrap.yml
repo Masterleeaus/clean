@@ -102,7 +102,7 @@ jobs:
               cat /tmp/titan-about.log
               exit 1
             fi
-            if ! TITAN_ZERO_WORKCORE_ENABLED="$workcore" TITAN_ZERO_CHATBOT_ENABLED="$chatbot" php artisan route:list --except-vendor --no-ansi > /tmp/titan-routes.log 2>&1; then
+            if ! TITAN_ZERO_WORKCORE_ENABLED="$workcore" TITAN_ZERO_CHATBOT_ENABLED="$chatbot" php artisan route:list --except-vendor --no-ansi -vvv > /tmp/titan-routes.log 2>&1; then
               cat /tmp/titan-routes.log
               exit 1
             fi
