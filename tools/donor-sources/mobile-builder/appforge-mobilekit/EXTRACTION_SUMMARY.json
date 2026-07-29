@@ -1,0 +1,14 @@
+{
+  "total_files": 293,
+  "total_bytes": 2996292,
+  "by_donor": {
+    "AppForge": 133,
+    "MobileKit": 160
+  },
+  "by_classification": {
+    "REFERENCE": 105,
+    "ADAPT": 13,
+    "REUSE_CANDIDATE": 167,
+    "LICENSE": 8
+  }
+}
