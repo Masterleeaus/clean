@@ -1,596 +1,574 @@
-# Titan Zero Multi-Step Upgrade Plan
+# Titan Zero Integrated Platform Upgrade Plan
 
-## Purpose
+> **For agentic workers:** REQUIRED SUB-SKILL: use `superpowers:subagent-driven-development` or `superpowers:executing-plans` to implement this plan task-by-task. Track every step with the checkboxes below and stop at each review gate.
 
-This document is the root execution plan for upgrading the `clean` repository into the canonical Titan Zero Business Operating System workspace.
+**Goal:** Turn the imported MagicAI v10.91, WorkCore, Titan Zero Chatbot PWA, five-tier AI runtime, Interaction/Wizard Engine code and extension collection into one bootable, testable, tenant-safe and device-first Titan Zero application.
 
-The target architecture is:
+**Architecture:** MagicAI remains the host SaaS and UI shell. WorkCore under `app/Domains/WorkCore` is the authoritative operational domain. The chatbot remains a MagicAI extension under `app/Extensions/Chatbot`, while reusable Interaction Engine logic must converge into a bounded domain rather than remain duplicated inside the chatbot. Extensions are discovered through validated manifests and enabled progressively; they must not all boot unconditionally.
 
-```text
-MagicAI Host
-  -> Titan Zero orchestration
-  -> Five-Tier AI workforce
-  -> Interaction Engine
-  -> WorkCore application services
-  -> WorkCore domains
-  -> local/offline and cloud persistence
-```
+**Tech stack:** PHP 8.2, Laravel 10, Pest/PHPUnit 10, Livewire 3, Blade, Vite 7, React 19, Alpine.js, Tailwind CSS 3, IndexedDB/PWA service workers, queues, Laravel broadcasting, Composer and npm.
 
-WorkCore remains the only authoritative writer of operational business records. Titan Zero provides conversation, intent recognition, planning, delegation and generative UI. The Interaction Engine owns structured workflows, validation sequences, approvals and resumable execution.
+## Global constraints
 
-## Working Branch
-
-`chatgpt/titan-zero-upgrade-workspace`
-
-All upgrade work should be committed to this branch or to child branches created from it.
-
-## Core Source Inputs
-
-The workspace must account for these supplied systems:
-
-- MagicAI v10.91 + WorkCore merged Laravel base
-- Titan Zero Chatbot PWA Pass 12
-- Titan Zero Extension SDK v2
-- Base App System Extensions
-- AI System Extensions
-- Marketing and Creative Extensions
-- Titan BOS modules
-- AI-powered no-code mobile app builder
-- MobileKit mobile UI kit
-- Website-to-app builder
-- WorkCore architecture and extension specifications
-
-Do not merge donor applications wholesale. Extract reusable code, patterns, components and build infrastructure into Titan-owned modules.
+- Preserve the imported MagicAI v10.91 host application and database compatibility.
+- WorkCore is authoritative for customers, jobs, tasks, quotes, invoices, workforce, property operations and operational records.
+- Do not create permanent `source`, `integration`, `merge`, `legacy-copy` or parallel application directories.
+- Do not allow embedded chatbot WorkCore code to shadow `App\Domains\WorkCore`.
+- Use tenant, user and device identifiers on local records, sync operations, queues and authorization decisions.
+- Never cache secrets, API keys, sensitive API responses or unsynchronised private records in the service-worker cache.
+- Never delete unsynchronised device data automatically.
+- Preserve backward compatibility with existing MagicAI routes and extension registration until replacement tests pass.
+- Do not activate all imported extensions simultaneously. Every extension must pass manifest, provider, route, migration and dependency checks before enablement.
+- Use small, focused commits. Every implementation task must include a failing test, the minimal repair, passing validation and a review checkpoint.
+- `main` is not a work branch. All changes for this programme remain on `agent/gpt56-titan-zero-upgrade-workbench` until reviewed.
 
 ---
 
-# Phase 0 — Workspace and Safety Baseline
+## Baseline and source authority
 
-## Step 0.1 — Repository inventory
+### Verified branch baseline
 
-- Record framework and dependency versions.
-- Identify Laravel, PHP, JavaScript, TypeScript, PWA, native-wrapper and build-system roots.
-- List all modules, domains, service providers, routes, migrations and frontend entry points.
-- Produce checksums and file-count baselines.
-- Detect nested archives, generated assets, vendor folders and duplicate source trees.
+- [x] Working branch created: `agent/gpt56-titan-zero-upgrade-workbench`.
+- [x] Branch restored to verified source commit `a76eee53af7b72b9f740adb3fa757b3f4d527bd6`.
+- [x] MagicAI application source is present at repository root.
+- [x] WorkCore is present at `app/Domains/WorkCore`.
+- [x] Titan Zero Chatbot is present at `app/Extensions/Chatbot`.
+- [x] Extension import manifest is present at `EXTENSIONS_IMPORT_MANIFEST.json`.
+- [x] The manifest records 104 canonical extension directories.
 
-## Step 0.2 — Development safety
+### Current architectural observations
 
-- Keep `main` untouched.
-- Add or confirm `.editorconfig`, `.gitattributes`, `.gitignore` and environment templates.
-- Prevent secrets, API keys, local databases, user uploads and build artefacts from being committed.
-- Add architecture decision records under `docs/adr/`.
-- Add repeatable audit scripts under `tools/audit/`.
-
-## Exit criteria
-
-- Repository boots or its current boot failures are documented.
-- Baseline tests and build commands are known.
-- No supplied source remains unclassified.
+1. `composer.json` targets PHP `^8.2` and Laravel `^10.0`, with Pest and PHPUnit available.
+2. `package.json` uses Vite 7, React 19, Alpine.js, Tailwind CSS and the existing Blade asset pipeline.
+3. `config/app.php` registers `App\Domains\WorkCore\WorkCoreServiceProvider` directly.
+4. `app/Providers/ExtensionServiceProvider.php` currently lists only a chatbot provider and does not yet provide manifest-driven discovery.
+5. `app/Extensions/Chatbot/System/ChatbotServiceProvider.php` contains the PWA, generative UI, five-tier AI compatibility maps, WorkCore adapters, team chat and Titan AI providers. It is powerful but overloaded and must be decomposed without breaking the extension.
+6. The chatbot correctly prevents its embedded legacy WorkCore runtime from shadowing the canonical host WorkCore domain when the host provider exists.
+7. The extension import is a source inventory, not proof that all 104 extensions can boot together.
 
 ---
 
-# Phase 1 — Canonical Architecture
+# Programme sequence
 
-## Step 1.1 — Enforce ownership boundaries
+The programme is divided into nine independently reviewable passes. A pass is complete only when its acceptance gate passes.
 
-- MagicAI owns authentication, tenancy, billing, host administration and extension lifecycle.
-- Titan Zero owns context, reasoning, planning, delegation and UI orchestration.
-- Interaction Engine owns forms, wizards, approvals, checklists and workflow state.
-- WorkCore owns all operational entities, validation, permissions, transactions, audit and domain events.
-- PWA owns device presentation, local storage, offline execution and synchronisation UX.
+## Pass 1 — Reproducible baseline and repository health
 
-## Step 1.2 — Remove architectural bypasses
+**Outcome:** A developer can clone the branch, verify source provenance and run deterministic preflight checks without booting every extension.
 
-Find and replace:
+### Task 1.1: Record baseline inventory
 
-- AI classes writing directly to Eloquent models or SQL.
-- PWA routes writing directly to operational tables.
-- Controllers containing domain rules.
-- Duplicate customer, job, invoice, scheduling, tenancy or permission systems.
-- Temporary `integration`, `imported`, `legacy-copy`, `source`, `staging` or parallel-domain folders.
+**Files:**
+- Create: `tools/titan-zero-audit/baseline.php`
+- Create: `tests/Architecture/SourceBaselineTest.php`
+- Create: `docs/audits/source-baseline.md`
 
-## Step 1.3 — Add architecture tests
+**Produces:** A machine-readable inventory of required roots, extension manifests, duplicate namespaces, oversized files and missing local Composer path packages.
 
-Tests must fail when:
+- [ ] Write a failing Pest test asserting the existence of `artisan`, `composer.json`, `package.json`, `app/Domains/WorkCore/WorkCoreServiceProvider.php`, `app/Extensions/Chatbot/extension.json` and `EXTENSIONS_IMPORT_MANIFEST.json`.
+- [ ] Run `php artisan test tests/Architecture/SourceBaselineTest.php` and confirm it fails only for unimplemented inventory assertions.
+- [ ] Implement `tools/titan-zero-audit/baseline.php` using `RecursiveDirectoryIterator`; output JSON to `storage/app/audits/source-baseline.json` without modifying application files.
+- [ ] Add assertions comparing top-level `app/Extensions/*/extension.json` folders to the 104 canonical manifest entries.
+- [ ] Run `php tools/titan-zero-audit/baseline.php` and `php artisan test tests/Architecture/SourceBaselineTest.php`.
+- [ ] Commit: `chore: add reproducible source baseline audit`.
 
-- Titan or agents import persistence models directly.
-- Cross-domain writes bypass application services.
-- tenant context is absent.
-- an operational write omits audit or event emission.
+### Task 1.2: Validate dependency inputs before installation
 
-## Exit criteria
+**Files:**
+- Create: `tests/Architecture/DependencyInputTest.php`
+- Modify only after a failing test: `composer.json`, `package.json`
 
-A single dependency direction is enforced by tests.
+- [ ] Assert every Composer `path` repository exists and contains its own `composer.json`.
+- [ ] Assert `rt-client-0.4.7.tgz` exists before npm installation.
+- [ ] Run `composer validate --strict` and `npm pkg get scripts dependencies devDependencies`.
+- [ ] Repair malformed or missing local dependency references only when the required package is present elsewhere in the imported source.
+- [ ] Run `composer validate --strict` and the dependency input test again.
+- [ ] Commit: `fix: validate local dependency inputs`.
 
----
+**Pass 1 acceptance gate**
 
-# Phase 2 — WorkCore Completion
-
-## Step 2.1 — Domain audit
-
-Audit and normalise:
-
-- Foundation
-- CRM
-- Premises
-- Workforce
-- Scheduling
-- Operations
-- Inventory
-- Finance
-- Documents
-- Compliance
-- Knowledge
-
-For every domain verify entities, value objects, repositories, policies, commands, queries, events, migrations, factories, seeders, APIs and tests.
-
-## Step 2.2 — Canonical command/query API
-
-Standardise command envelopes with:
-
-- command ID
-- client-generated UUID
-- tenant/company/branch/workspace IDs
-- user, agent and device IDs
-- correlation and causation IDs
-- expected record version
-- idempotency key
-- payload schema version
-
-Standardise query envelopes, pagination, filtering and permission-aware projections.
-
-## Step 2.3 — Events, audit and outbox
-
-Every significant action must produce:
-
-- immutable domain event
-- audit record
-- synchronisation change entry
-- analytics projection input
-- notification opportunity
-- AI memory input where allowed
-
-Use an outbox pattern and idempotent consumers.
-
-## Exit criteria
-
-A complete job lifecycle is traceable from command to transaction, audit, event and response.
-
----
-
-# Phase 3 — Interaction Engine
-
-## Step 3.1 — Install as a first-class domain
-
-Wire the Interaction Engine into the Laravel host through canonical service providers, routes, configuration, migrations, policies, queues and tests.
-
-## Step 3.2 — Universal workflow schemas
-
-Create versioned workflows for:
-
-- customer creation
-- property creation
-- quote creation and approval
-- job booking
-- recurring service setup
-- worker assignment and dispatch
-- job start, pause and completion
-- invoicing and payment
-- inspections
-- incidents
-- stock requests
-- employee onboarding
-- document upload
-- conflict resolution
-
-Each workflow defines permissions, steps, conditions, validation, offline eligibility, approvals, cancellation, recovery and completion commands.
-
-## Step 3.3 — Shared workflow renderer
-
-The PWA must render schemas instead of maintaining separate hardcoded forms for every workflow.
-
-## Exit criteria
-
-A workflow can start online, continue offline when eligible, resume and commit through WorkCore.
-
----
-
-# Phase 4 — Extension Platform and Five-Tier AI
-
-## Step 4.1 — Canonical extension SDK
-
-Normalise all extensions around one manifest contract containing:
-
-- ID and semantic version
-- category
-- dependencies
-- permissions
-- service provider
-- routes
-- migrations
-- settings
-- install/uninstall behaviour
-- health checks
-- tests
-- UI, workflow, AI and WorkCore contributions
-- offline policy
-
-## Step 4.2 — Extension pack classification
-
-Classify every uploaded extension as:
-
-- complete
-- incomplete
-- duplicate
-- obsolete
-- unsafe
-- backend-only
-- UI-only
-- reusable library
-- valid feature extension
-
-Create install profiles for base, cleaning, field service, property management, marketing and enterprise deployments.
-
-## Step 4.3 — Five-Tier AI wiring
-
-Canonical hierarchy:
-
-1. Titan Zero orchestrator
-2. Managers
-3. Assistants and specialists
-4. Action agents
-5. Skills, tools and providers
-
-Map Uno, Duo and Trio terminology into this hierarchy without creating duplicate runtimes.
-
-## Step 4.4 — Typed WorkCore tools
-
-Every agent action must use registered WorkCore tools with input/output schemas, delegated permission, approval threshold, tenant scope, idempotency and audit requirements.
-
-## Exit criteria
-
-Every active agent is discoverable, permission-bound and unable to bypass WorkCore.
-
----
-
-# Phase 5 — Shared PWA Runtime
-
-## Step 5.1 — Offline runtime hardening
-
-Verify and repair:
-
-- web app manifest
-- service worker
-- safe cache strategy
-- IndexedDB repositories
-- encrypted vault
-- local outbox
-- retry policy
-- device identity
-- tenant isolation
-- attachment queue
-- conflict preservation
-- application update lifecycle
-- safe logout
-
-Never cache credentials or sensitive API responses. Never silently delete unsynchronised records.
-
-## Step 5.2 — Synchronisation protocol
-
-Use delta sync with:
-
-- client-generated UUIDs
-- expected versions
-- idempotent commands
-- conflict snapshots
-- audit events for merges
-- explicit manual conflict resolution when deterministic merging is unsafe
-
-## Step 5.3 — Local search and knowledge
-
-Create permission-filtered local indexes for customers, properties, jobs, invoices, assets, documents, knowledge and messages.
-
-## Exit criteria
-
-An eligible field workflow completes without network access and safely reconciles later.
-
----
-
-# Phase 6 — Titan Design System and Adaptive Shell
-
-## Step 6.1 — Design tokens
-
-Create one shared system for:
-
-- colour
-- typography
-- spacing
-- radius
-- elevation
-- motion
-- icons
-- density
-- breakpoints
-- accessibility
-- focus and keyboard behaviour
-- dark and light modes
-
-## Step 6.2 — Component library
-
-Build shared components for:
-
-- global header
-- command bar
-- app switcher
-- navigation rail
-- mobile bottom navigation
-- drawers and inspectors
-- customer, property, job, worker, route, quote and invoice cards
-- tables, lists, maps, calendars and timelines
-- dynamic forms, wizards and checklists
-- evidence, signature and document viewers
-- AI recommendations and approvals
-- sync, offline queue and conflict states
-- notifications, empty, loading and error states
-
-## Step 6.3 — Donor extraction
-
-From MobileKit, extract and modernise useful mobile patterns such as action sheets, touch navigation, headers, tabs, search, timelines, notifications, skeletons and wizards.
-
-From the no-code builder, extract component registry, screen schema, property inspector, preview and packaging patterns.
-
-From the website-to-app builder, extract native build, icon, splash, remote configuration and white-label automation patterns.
-
-Do not retain obsolete donor framework structure unless it provides unique required behaviour.
-
-## Step 6.4 — Adaptive shell
-
-One shell must compose differently for:
-
-- mobile: single column, bottom navigation, large touch targets, capture-first workflows
-- tablet: navigation rail, split workspace, contextual inspector and map/timeline panes
-- desktop: navigation rail, central workspace, right inspector, keyboard shortcuts and resizable panels
-
-## Exit criteria
-
-The same entity and route render appropriately on phone, tablet and desktop.
-
----
-
-# Phase 7 — Fourteen Titan Applications
-
-All applications use the shared shell, component registry, WorkCore APIs, Interaction Engine and PWA runtime.
-
-## Application registry
-
-1. Titan Zero — owner briefing, approvals, cross-domain exceptions and app health
-2. Titan Go — field work, jobs, navigation, capture, checklists and offline queue
-3. Titan Hub — customer portal, bookings, quotes, invoices, payments and messages
-4. Titan Dispatch — board, schedule, map, routes, availability and exceptions
-5. Titan Money — quotes, invoices, payments, expenses, refunds and ZeroPay
-6. Titan Teams — workforce, availability, timesheets, skills and certifications
-7. Titan Analytics — metrics, reports, trends, forecasts and anomalies
-8. Titan Front Desk — enquiries, reception, lead intake, booking and callbacks
-9. Titan Marketing — campaigns, segments, promotions, reviews, email and SMS
-10. Titan Social — social accounts, calendar, posts, approvals and inbox
-11. Titan Sprout — vertical, business, workflow and application builder
-12. Titan Locker — stock, equipment, suppliers, vehicle inventory and barcode capture
-13. Titan Office — documents, contracts, resources, schedules and signatures
-14. Titan Quality — inspections, incidents, evidence, compliance and quality scoring
-
-## App manifest contract
-
-Each app defines:
-
-- ID, label and icon
-- roles and permissions
-- routes and navigation
-- WorkCore domains and projections
-- available commands and workflows
-- AI capabilities
-- offline records
-- settings and notifications
-- mobile, tablet and desktop layouts
-
-## Delivery groups
-
-### Group A — Operational MVP
-
-- Titan Zero
-- Titan Go
-- Titan Dispatch
-- Titan Money
-- Titan Quality
-
-### Group B — People and customers
-
-- Titan Hub
-- Titan Teams
-- Titan Front Desk
-- Titan Office
-
-### Group C — Growth and intelligence
-
-- Titan Analytics
-- Titan Marketing
-- Titan Social
-
-### Group D — Expansion
-
-- Titan Locker
-- Titan Sprout
-
-## Exit criteria
-
-Every app is loaded through the registry and has live data, permissions, workflows, offline policy and responsive layouts.
-
----
-
-# Phase 8 — Titan Sprout Builder
-
-## Step 8.1 — Controlled no-code model
-
-Sprout must generate approved schemas, not unrestricted executable code.
-
-A screen schema contains:
-
-- layout
-- registered components
-- WorkCore data sources
-- Interaction Engine workflows
-- permissions
-- offline policy
-- responsive rules
-- navigation
-
-## Step 8.2 — Builder workspaces
-
-Provide:
-
-- Apps
-- Screens
-- Components
-- Data
-- Workflows
-- AI
-- Theme
-- Permissions
-- Offline
-- Preview
-- Publish
-
-## Step 8.3 — Vertical packaging
-
-Support creating and versioning industry packs that extend WorkCore rather than duplicating it.
-
-## Exit criteria
-
-A new cleaning or field-service screen can be composed and published without core-code modification.
-
----
-
-# Phase 9 — Native Packaging
-
-## Step 9.1 — Shared runtime first
-
-Keep business logic and UI source in the shared PWA.
-
-## Step 9.2 — Thin native wrappers
-
-Use Capacitor-style native bridges for:
-
-- secure storage
-- biometrics
-- camera
-- filesystem
-- push notifications
-- background tasks
-- deep links
-- share targets
-- barcode/QR scanning
-- geolocation
-
-Use SQLite or SQLCipher only in native wrappers where justified; use IndexedDB in the browser PWA.
-
-## Step 9.3 — Build outputs
-
-Produce:
-
-- Titan Go mobile app
-- Titan Hub customer app
-- full Titan Zero mobile container
-- tablet-optimised Dispatch installation
-- desktop installable PWA
-- white-label build pipeline
-
-## Exit criteria
-
-Native packages can be built without forking WorkCore logic or duplicating app code.
-
----
-
-# Phase 10 — Security, Quality and Release
-
-## Step 10.1 — Security review
-
-Test tenant leakage, object authorisation, agent escalation, secrets, XSS, CSRF, SQL injection, uploads, webhooks, queue poisoning, path traversal, sync replay and unsafe extension loading.
-
-## Step 10.2 — Performance review
-
-Measure cold/warm/offline boot, large lists, dispatch board, maps, attachment sync, low-memory phones, slow networks and queue throughput.
-
-## Step 10.3 — Test matrix
-
-Required layers:
-
-- unit
-- domain
-- architecture
-- API integration
-- workflow
-- extension
-- PWA
-- offline and conflict
-- mobile, tablet and desktop viewport
-- accessibility
-- end-to-end
-
-## Step 10.4 — Production package
-
-Deliver installation, upgrade, rollback, environment, queue, scheduler, native build, extension development and architecture documentation plus checksums and release notes.
-
-## Final acceptance workflow
-
-```text
-Create customer
- -> create property
- -> create quote
- -> approve quote
- -> book job
- -> dispatch worker
- -> complete offline checklist
- -> upload evidence
- -> synchronise
- -> generate invoice
- -> receive payment
- -> complete inspection
- -> show owner briefing
+```bash
+composer validate --strict
+php tools/titan-zero-audit/baseline.php
+php artisan test tests/Architecture/SourceBaselineTest.php tests/Architecture/DependencyInputTest.php
 ```
 
 ---
 
-# Recommended Execution Order
+## Pass 2 — Laravel boot and provider graph repair
 
-1. Repository and dependency inventory
-2. Architecture boundaries
-3. WorkCore domain and API repair
-4. Events, audit and outbox
-5. Interaction Engine integration
-6. Extension SDK normalisation
-7. Five-Tier AI and WorkCore tools
-8. PWA offline and sync runtime
-9. Design system and adaptive shell
-10. Operational five-app MVP
-11. Remaining nine applications
-12. Titan Sprout builder
-13. Native packaging
-14. Security, performance and release hardening
+**Outcome:** Laravel boots with WorkCore and the chatbot disabled, then with each enabled independently, without duplicate bindings or fatal class errors.
+
+### Task 2.1: Establish controlled feature flags
+
+**Files:**
+- Create: `config/titan-zero.php`
+- Create: `tests/Feature/Bootstrap/TitanZeroFeatureFlagTest.php`
+- Modify: `config/app.php`
+
+**Required flags:**
+
+```php
+return [
+    'workcore_enabled' => env('TITAN_ZERO_WORKCORE_ENABLED', true),
+    'chatbot_enabled' => env('TITAN_ZERO_CHATBOT_ENABLED', false),
+    'interaction_engine_enabled' => env('TITAN_ZERO_INTERACTION_ENGINE_ENABLED', false),
+    'extension_discovery_enabled' => env('TITAN_ZERO_EXTENSION_DISCOVERY_ENABLED', false),
+];
+```
+
+- [ ] Write tests for the four enablement combinations needed during staged repair.
+- [ ] Move direct provider activation behind explicit configuration without removing the existing provider classes.
+- [ ] Verify `php artisan about`, `php artisan config:clear` and `php artisan route:list` under each supported combination.
+- [ ] Commit: `feat: add staged Titan Zero boot flags`.
+
+### Task 2.2: Repair the extension provider graph
+
+**Files:**
+- Modify: `app/Providers/ExtensionServiceProvider.php`
+- Create: `app/Support/Extensions/ExtensionManifest.php`
+- Create: `app/Support/Extensions/ExtensionCatalog.php`
+- Create: `app/Support/Extensions/ExtensionProviderResolver.php`
+- Create: `tests/Feature/Extensions/ExtensionProviderDiscoveryTest.php`
+
+**Interfaces:**
+
+```php
+final readonly class ExtensionManifest
+{
+    public function __construct(
+        public string $directory,
+        public string $name,
+        public string $version,
+        public ?string $provider,
+        public bool $enabled,
+    ) {}
+}
+
+interface ExtensionProviderResolver
+{
+    /** @return list<class-string<\Illuminate\Support\ServiceProvider>> */
+    public function resolveEnabledProviders(): array;
+}
+```
+
+- [ ] Write failing tests for invalid JSON, absent provider classes, duplicate extension names, duplicate provider classes and disabled extensions.
+- [ ] Implement catalog scanning without executing extension code during discovery.
+- [ ] Register providers only after validation and only for explicitly enabled packages.
+- [ ] Keep a compatibility fallback for the existing chatbot registration until its dedicated test passes.
+- [ ] Commit: `feat: add validated extension provider discovery`.
+
+### Task 2.3: Add provider collision diagnostics
+
+**Files:**
+- Create: `app/Console/Commands/TitanZeroProviderAuditCommand.php`
+- Create: `tests/Feature/Console/TitanZeroProviderAuditCommandTest.php`
+
+- [ ] Detect duplicate route names, middleware aliases, container bindings, event listeners and migration class names before enabling an extension.
+- [ ] Output Green, Amber or Red status for each extension.
+- [ ] Ensure the command never mutates extension state.
+- [ ] Commit: `feat: add extension provider collision audit`.
+
+**Pass 2 acceptance gate**
+
+```bash
+php artisan about
+php artisan titan-zero:provider-audit
+php artisan route:list
+php artisan test tests/Feature/Bootstrap tests/Feature/Extensions tests/Feature/Console/TitanZeroProviderAuditCommandTest.php
+```
 
 ---
 
-# Completion Rules
+## Pass 3 — WorkCore host integration and tenancy
 
-A feature is complete only when:
+**Outcome:** WorkCore boots as the canonical operational domain with host adapters, tenant-safe route binding and deterministic capability registration.
 
-- source code exists in the canonical location
-- dependencies are registered
-- routes and permissions are wired
-- database changes are migratable
-- UI is reachable
-- offline behaviour is defined
-- tests pass
-- audit and event behaviour is verified
-- documentation is updated
+### Task 3.1: Prove WorkCore boot contracts
 
-Do not count placeholders, empty interfaces, copied donor apps, disabled routes or unwired services as completed functionality.
+**Files:**
+- Create: `tests/Feature/WorkCore/WorkCoreBootTest.php`
+- Create: `tests/Feature/WorkCore/WorkCoreBindingTest.php`
+- Inspect and modify only when tests prove a defect: `app/Domains/WorkCore/WorkCoreServiceProvider.php`, `app/Domains/WorkCore/Config/workcore.php`
+
+- [ ] Assert every configured contract resolves to a concrete class.
+- [ ] Assert every enabled WorkCore module provider exists.
+- [ ] Assert migrations, commands and routes load once.
+- [ ] Assert WorkCore API and web routes are disabled unless their explicit flags are enabled.
+- [ ] Commit: `test: lock WorkCore boot contracts`.
+
+### Task 3.2: Replace null host adapters deliberately
+
+**Files:**
+- Create: `app/Integration/WorkCore/MagicAiMenuAdapter.php`
+- Create: `app/Integration/WorkCore/MagicAiNotificationAdapter.php`
+- Create: `app/Integration/WorkCore/MagicAiToolBridge.php`
+- Create: `app/Providers/TitanZeroWorkCoreHostServiceProvider.php`
+- Create: `tests/Feature/WorkCore/WorkCoreHostAdapterTest.php`
+
+- [ ] Write tests proving menu entries, notifications and AI tools remain tenant-scoped.
+- [ ] Bind the host adapters after the canonical WorkCore provider, without changing WorkCore domain contracts.
+- [ ] Ensure host failures degrade safely and do not corrupt WorkCore actions.
+- [ ] Commit: `feat: wire WorkCore to MagicAI host adapters`.
+
+### Task 3.3: Enforce tenant-safe record resolution
+
+**Files:**
+- Create: `tests/Feature/WorkCore/TenantRouteBindingTest.php`
+- Inspect: `app/Domains/WorkCore/Routes/api.php`, `app/Domains/WorkCore/Routes/web.php`
+- Modify affected route bindings, policies and query scopes only after a failing cross-tenant test.
+
+- [ ] Test a user cannot resolve another tenant’s customer, job, invoice, property or workforce record by numeric ID or UUID.
+- [ ] Test queued WorkCore actions restore tenant, user and correlation context.
+- [ ] Test idempotency keys cannot be reused across tenants.
+- [ ] Commit: `fix: enforce WorkCore tenant boundaries`.
+
+**Pass 3 acceptance gate**
+
+```bash
+php artisan workcore:diagnose
+php artisan workcore:schema-preflight
+php artisan test tests/Feature/WorkCore
+```
+
+---
+
+## Pass 4 — Interaction Engine convergence
+
+**Outcome:** Interaction, wizard, authority, confidence and execution logic has one canonical bounded domain and no active parallel implementation.
+
+### Task 4.1: Inventory engine implementations
+
+**Files:**
+- Create: `tools/titan-zero-audit/interaction-engine-map.php`
+- Create: `docs/audits/interaction-engine-map.md`
+- Create: `tests/Architecture/InteractionEngineOwnershipTest.php`
+
+- [ ] Locate runtime engines, wizard state, authority controls, confidence grading, policy evaluation, events, DTOs and adapters across WorkCore and chatbot directories.
+- [ ] Classify each implementation as canonical, adapter, compatibility shim, duplicate or dead candidate.
+- [ ] Fail the architecture test when two active classes claim the same contract or route.
+- [ ] Commit: `chore: map Interaction Engine ownership`.
+
+### Task 4.2: Establish the canonical domain
+
+**Files:**
+- Create or consolidate into: `app/Domains/InteractionEngine`
+- Create: `app/Domains/InteractionEngine/InteractionEngineServiceProvider.php`
+- Create: `tests/Feature/InteractionEngine/InteractionEngineBootTest.php`
+
+**Boundaries:**
+
+```text
+app/Domains/InteractionEngine/
+├── Contracts/
+├── Application/
+├── Domain/
+├── Infrastructure/
+├── Providers/
+├── Config/
+├── Database/Migrations/
+└── Tests/
+```
+
+- [ ] Move only validated canonical code; retain temporary namespace shims for known consumers.
+- [ ] Keep WorkCore as the operational authority and make the Interaction Engine call WorkCore through contracts/adapters.
+- [ ] Keep chatbot-specific presentation and device adapters inside the chatbot extension.
+- [ ] Add architecture tests preventing the Interaction Engine from depending on Blade controllers or PWA storage implementations.
+- [ ] Commit: `refactor: establish canonical Interaction Engine domain`.
+
+### Task 4.3: Wire confidence and authority controls
+
+**Files:**
+- Create: `tests/Feature/InteractionEngine/AuthorityDecisionTest.php`
+- Create: `tests/Feature/InteractionEngine/ConfidencePipelineTest.php`
+- Modify canonical engine services only after the tests fail.
+
+- [ ] Prove Green decisions may proceed, Amber decisions request confirmation, and Red decisions are blocked or escalated.
+- [ ] Persist the decision, actor, tenant, device, reason, confidence and correlation identifiers.
+- [ ] Ensure offline actions cannot silently bypass authority rules during later synchronisation.
+- [ ] Commit: `feat: enforce Interaction Engine authority pipeline`.
+
+**Pass 4 acceptance gate**
+
+```bash
+php artisan test tests/Architecture/InteractionEngineOwnershipTest.php tests/Feature/InteractionEngine
+```
+
+---
+
+## Pass 5 — Chatbot, five-tier AI and offline PWA
+
+**Outcome:** The chatbot extension boots through a narrow provider, uses canonical WorkCore and Interaction Engine contracts, and works device-first without leaking secrets.
+
+### Task 5.1: Decompose the chatbot provider
+
+**Files:**
+- Modify: `app/Extensions/Chatbot/System/ChatbotServiceProvider.php`
+- Create focused providers under: `app/Extensions/Chatbot/System/Providers/`
+- Create: `tests/Feature/Chatbot/ChatbotProviderGraphTest.php`
+
+**Target providers:**
+
+```text
+ChatbotCoreServiceProvider.php
+ChatbotRoutesServiceProvider.php
+ChatbotPwaServiceProvider.php
+ChatbotTitanAiServiceProvider.php
+ChatbotGenerativeUiServiceProvider.php
+ChatbotTeamChatServiceProvider.php
+```
+
+- [ ] Write tests ensuring each provider has one responsibility and is registered once.
+- [ ] Preserve extension routes, views, migrations, policies and public asset publishing.
+- [ ] Move custom autoload compatibility into a dedicated, documented bridge and remove mappings as Composer-compatible namespaces become available.
+- [ ] Commit: `refactor: split chatbot service provider responsibilities`.
+
+### Task 5.2: Wire the five-tier AI runtime
+
+**Files:**
+- Inspect and repair: `app/Extensions/Chatbot/System/TitanAI`
+- Create: `tests/Feature/Chatbot/TitanAiExecutionPathTest.php`
+
+- [ ] Trace a request from HTTP/controller to Tier 0 orchestration, Tier 1 manager, Tier 2 assistant/specialist, Tier 3 action agent, governance, WorkCore action and generative UI response.
+- [ ] Prove every registered manager, assistant and action agent is reachable through a declared capability.
+- [ ] Reject duplicate or orphaned agent registrations.
+- [ ] Commit: `fix: wire five-tier AI execution path`.
+
+### Task 5.3: Harden offline data and synchronisation
+
+**Files:**
+- Inspect and repair: `app/Extensions/Chatbot/resources/pwa/chatbot-pwa`
+- Create: `tests/browser/chatbot-offline.spec.ts`
+- Create: `tests/Feature/Chatbot/ChatbotSyncContractTest.php`
+
+- [ ] Test offline conversation creation, draft persistence, local search, outbox retry, conflict state and recovery after reconnect.
+- [ ] Assert client-generated UUIDs and tenant/user/device identifiers are included in every local mutation.
+- [ ] Assert credentials and sensitive responses never enter Cache Storage.
+- [ ] Assert failed synchronisation never deletes unsynchronised local records.
+- [ ] Commit: `fix: harden chatbot offline sync`.
+
+**Pass 5 acceptance gate**
+
+```bash
+php artisan test tests/Feature/Chatbot
+npx playwright test tests/browser/chatbot-offline.spec.ts
+```
+
+---
+
+## Pass 6 — Extension catalogue and progressive enablement
+
+**Outcome:** The 104 imported extension folders are visible, classified and testable, while only compatible packages can be enabled.
+
+### Task 6.1: Build the extension health catalogue
+
+**Files:**
+- Create: `app/Support/Extensions/ExtensionHealthReport.php`
+- Create: `app/Console/Commands/TitanZeroExtensionAuditCommand.php`
+- Create: `tests/Feature/Extensions/ExtensionHealthAuditTest.php`
+
+**Health states:** `green`, `amber`, `red`, `quarantined`.
+
+- [ ] Validate manifest schema, provider class, PHP syntax, migration uniqueness, route uniqueness, configuration, assets and required Composer/npm packages.
+- [ ] Generate `storage/app/audits/extensions.json` and a Markdown summary.
+- [ ] Default unverified extensions to disabled or quarantined.
+- [ ] Commit: `feat: add progressive extension health catalogue`.
+
+### Task 6.2: Test extension families in batches
+
+**Families:** host/base, AI providers, AIChatPro, agent/channel, creative/media, chatbot/channel, payments/integrations and experimental.
+
+- [ ] Enable one family per test process.
+- [ ] Run provider boot, route list, migration dry run and focused smoke tests.
+- [ ] Record failures against the exact extension and dependency.
+- [ ] Promote only passing extensions from Amber/Red to Green.
+- [ ] Commit one family at a time using `fix: qualify <family> extensions`.
+
+**Pass 6 acceptance gate**
+
+```bash
+php artisan titan-zero:extension-audit --format=json
+php artisan test tests/Feature/Extensions
+```
+
+---
+
+## Pass 7 — Build Web Apps interface integration
+
+**Outcome:** Titan Zero presents one coherent, responsive business operating interface instead of disconnected dashboards and chat surfaces.
+
+### Task 7.1: Map existing UI routes and templates
+
+**Files:**
+- Create: `docs/audits/ui-route-map.md`
+- Create: `tests/browser/navigation-shell.spec.ts`
+
+- [ ] Map MagicAI header, sidebar/menu, chatbot shell, WorkCore pages, extension pages and settings surfaces.
+- [ ] Identify duplicate navigation entries and routes that bypass tenant or capability checks.
+- [ ] Preserve the persistent top chat bar, operational workspace, gear settings control and responsive hamburger navigation requested for Titan Zero.
+- [ ] Commit: `docs: map Titan Zero interface surfaces`.
+
+### Task 7.2: Establish a shared Titan Zero shell
+
+**Files:**
+- Create focused Blade/React components under the existing theme conventions; do not start a parallel frontend application.
+- Create: `tests/browser/titan-zero-shell.spec.ts`
+
+- [ ] Implement the shared header, persistent chat bar, primary workspace and contextual navigation.
+- [ ] Use WorkCore capability metadata to decide which operational links appear.
+- [ ] Use extension catalogue health to hide quarantined extension links.
+- [ ] Validate desktop, tablet and mobile layouts with Playwright screenshots.
+- [ ] Commit: `feat: add shared Titan Zero application shell`.
+
+### Task 7.3: Connect generative UI to operational actions
+
+**Files:**
+- Inspect and repair: `app/Extensions/Chatbot/System/GenerativeUI`
+- Create: `tests/Feature/Chatbot/GenerativeUiWorkCoreActionTest.php`
+- Create: `tests/browser/generative-ui-actions.spec.ts`
+
+- [ ] Validate every generated component specification before rendering.
+- [ ] Require authority/confirmation metadata for state-changing WorkCore actions.
+- [ ] Provide accessible loading, offline, error, conflict and success states.
+- [ ] Commit: `feat: connect generative UI to governed WorkCore actions`.
+
+**Pass 7 acceptance gate**
+
+```bash
+npm run build
+npx playwright test tests/browser/navigation-shell.spec.ts tests/browser/titan-zero-shell.spec.ts tests/browser/generative-ui-actions.spec.ts
+```
+
+---
+
+## Pass 8 — Security, privacy and operational resilience
+
+**Outcome:** Tenant isolation, BYO credentials, queues, files, webhooks and offline storage meet Titan Zero’s privacy-first requirements.
+
+### Task 8.1: Credential and secret boundary audit
+
+**Files:**
+- Create: `tests/Security/SecretBoundaryTest.php`
+- Create: `docs/audits/secret-boundaries.md`
+
+- [ ] Find API keys, OAuth tokens, webhook secrets, encryption material and provider credentials.
+- [ ] Ensure secrets are encrypted at rest or remain in environment/secret stores.
+- [ ] Ensure logs, queues, browser storage and service-worker caches do not expose secret values.
+- [ ] Commit: `security: enforce secret boundaries`.
+
+### Task 8.2: Authorization and webhook audit
+
+**Files:**
+- Create: `tests/Security/TenantAuthorizationMatrixTest.php`
+- Create: `tests/Security/WebhookVerificationTest.php`
+
+- [ ] Test owner, administrator, dispatcher, worker, customer and unauthenticated access across representative WorkCore and chatbot actions.
+- [ ] Verify signatures, replay protection and tenant resolution for inbound webhooks.
+- [ ] Ensure rate limits and idempotency apply before side effects.
+- [ ] Commit: `security: harden authorization and webhooks`.
+
+### Task 8.3: Queue and failure recovery
+
+**Files:**
+- Create: `tests/Feature/Resilience/QueueContextTest.php`
+- Create: `tests/Feature/Resilience/OutboxRecoveryTest.php`
+
+- [ ] Test tenant/user/device/correlation context survives queue serialization.
+- [ ] Test retries do not duplicate invoices, messages, bookings or payments.
+- [ ] Test poison messages move to a reviewable failed state.
+- [ ] Commit: `fix: harden queue and outbox recovery`.
+
+**Pass 8 acceptance gate**
+
+```bash
+php artisan test tests/Security tests/Feature/Resilience
+```
+
+---
+
+## Pass 9 — CI, release and deployment readiness
+
+**Outcome:** Every merge candidate produces evidence that backend, frontend, PWA and selected extensions work together.
+
+### Task 9.1: Add continuous integration
+
+**Files:**
+- Create: `.github/workflows/titan-zero-ci.yml`
+- Create: `.github/pull_request_template.md`
+
+**CI jobs:**
+
+1. Composer validation and PHP syntax.
+2. Pint check.
+3. Pest architecture/unit tests.
+4. Laravel integration tests using an isolated database.
+5. npm clean install and Vite production build.
+6. Playwright browser tests.
+7. Extension health audit.
+8. Source and migration collision audit.
+
+- [ ] Make each job independently diagnosable.
+- [ ] Upload test logs and browser screenshots only; never upload `.env`, databases or credentials.
+- [ ] Commit: `ci: add Titan Zero validation pipeline`.
+
+### Task 9.2: Produce release evidence
+
+**Files:**
+- Create: `docs/releases/RELEASE_CHECKLIST.md`
+- Create: `tools/release/build-release.sh`
+
+- [ ] Build release archives only from a tagged, verified commit.
+- [ ] Exclude `.git`, `.env`, logs, caches, test databases, node modules and local credentials.
+- [ ] Generate SHA-256 checksums, migration inventory and extension health report.
+- [ ] Perform install, upgrade and rollback rehearsals.
+- [ ] Commit: `chore: add reproducible release packaging`.
+
+**Pass 9 acceptance gate**
+
+```bash
+composer test
+composer test:lint
+npm run build
+php artisan titan-zero:provider-audit
+php artisan titan-zero:extension-audit
+npx playwright test
+```
+
+---
+
+# Review gates and completion definition
+
+## Per-pass review gate
+
+A pass cannot be marked complete until:
+
+- The relevant tests fail before implementation and pass afterward.
+- No new duplicate provider, route, migration or namespace owner is introduced.
+- Tenant and authorization tests cover state-changing behaviour.
+- Documentation names the canonical owner and compatibility shims.
+- The commit contains only files belonging to that pass.
+
+## Final completion definition
+
+Titan Zero is ready for a release candidate when:
+
+1. Laravel boots cleanly with production configuration.
+2. WorkCore diagnoses and schema preflight pass.
+3. The canonical Interaction Engine has no active competing implementation.
+4. The chatbot works online and offline, with safe conflict recovery.
+5. The five-tier AI path reaches governed WorkCore actions and generative UI.
+6. All enabled extensions are Green; Amber, Red and quarantined extensions remain disabled.
+7. Desktop, tablet and mobile browser tests pass.
+8. Tenant isolation, credentials, webhooks, queue context and idempotency tests pass.
+9. CI passes from a clean checkout.
+10. A release archive can be reproduced from the tagged commit with matching SHA-256 checksums.
+
+# Execution order
+
+Use this order strictly:
+
+```text
+Pass 1 → Pass 2 → Pass 3 → Pass 4 → Pass 5 → Pass 6 → Pass 7 → Pass 8 → Pass 9
+```
+
+Do not begin broad UI redesign before Passes 1–6 establish a bootable and governed backend. Do not enable every extension to “see what breaks”; qualify extensions progressively through the health catalogue.
