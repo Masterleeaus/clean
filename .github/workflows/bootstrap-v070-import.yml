@@ -1,6 +1,7 @@
 name: Bootstrap verified Titan Zero v0.7.0 source
 
 on:
+  workflow_dispatch:
   pull_request_target:
     types: [opened, reopened, synchronize]
 
@@ -15,8 +16,9 @@ concurrency:
 jobs:
   import-source:
     if: >-
-      github.event.pull_request.head.repo.full_name == github.repository &&
-      github.event.pull_request.head.ref == 'agent/v070-upgrade-base'
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.pull_request.head.repo.full_name == github.repository &&
+      github.event.pull_request.head.ref == 'agent/v070-upgrade-base')
     runs-on: ubuntu-latest
     timeout-minutes: 20
 
@@ -29,7 +31,7 @@ jobs:
       ARCHIVE_WRAPPER: Titan-Zero-Meetup-WorkCore-Integrated-v0.7.0
 
     steps:
-      - name: Check out exact same-repository head branch
+      - name: Check out exact prepared branch
         uses: actions/checkout@v4
         with:
           repository: ${{ github.repository }}
@@ -38,11 +40,19 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Verify pull-request identity
+        if: github.event_name == 'pull_request_target'
         shell: bash
         run: |
           set -euo pipefail
           test "${{ github.event.pull_request.head.repo.full_name }}" = "${{ github.repository }}"
           test "${{ github.event.pull_request.head.ref }}" = "$TARGET_BRANCH"
+          test "$(git branch --show-current)" = "$TARGET_BRANCH"
+
+      - name: Verify manual-dispatch target
+        if: github.event_name == 'workflow_dispatch'
+        shell: bash
+        run: |
+          set -euo pipefail
           test "$(git branch --show-current)" = "$TARGET_BRANCH"
 
       - name: Download verified source from MiniUp
@@ -110,12 +120,14 @@ jobs:
             --exclude='UPGRADE_PLAN.md' \
             --exclude='AGENTS.md' \
             --exclude='SOURCE_IMPORT_MANIFEST.json' \
+            --exclude='BRANCH_STATUS.md' \
             --exclude='.github/workflows/import-v070-source.yml' \
             "$source_root/" ./
 
           test -f UPGRADE_PLAN.md
           test -f AGENTS.md
           test -f SOURCE_IMPORT_MANIFEST.json
+          test -f BRANCH_STATUS.md
           test -f composer.json
           test -f artisan
 
@@ -132,7 +144,7 @@ jobs:
           The source was checksum-verified, ZIP-tested and inspected for generated dependencies, runtime environment files and private-key material before extraction.
           EOF
 
-      - name: Commit imported source to head branch
+      - name: Commit imported source to prepared branch
         shell: bash
         run: |
           set -euo pipefail
