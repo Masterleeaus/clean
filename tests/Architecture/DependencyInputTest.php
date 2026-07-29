@@ -37,8 +37,26 @@ function titanZeroDependencyInputIssues(string $root): array
             $issues[] = "Missing Composer path repository: {$relative}";
             continue;
         }
-        if (! is_file($path . '/composer.json')) {
+        $manifestPath = $path . '/composer.json';
+        if (! is_file($manifestPath)) {
             $issues[] = "Composer path repository has no composer.json: {$relative}";
+            continue;
+        }
+
+        $packageManifest = json_decode((string) file_get_contents($manifestPath), true);
+        if (! is_array($packageManifest)) {
+            $issues[] = "Composer path repository has invalid composer.json: {$relative}";
+            continue;
+        }
+
+        $packageName = (string) ($packageManifest['name'] ?? '');
+        $rootConstraint = $composer['require'][$packageName] ?? null;
+        $packageVersion = $packageManifest['version'] ?? null;
+        if (is_string($rootConstraint) && str_starts_with($rootConstraint, 'dev-') && ! is_string($packageVersion)) {
+            $mappedVersion = $repository['options']['versions'][$packageName] ?? null;
+            if ($mappedVersion !== $rootConstraint) {
+                $issues[] = "Composer path repository {$packageName} must map to {$rootConstraint}.";
+            }
         }
     }
 
