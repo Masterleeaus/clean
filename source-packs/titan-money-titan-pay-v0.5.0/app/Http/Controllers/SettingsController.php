@@ -1,0 +1,75 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rules\Password;
+
+class SettingsController extends Controller
+{
+    public function index()
+    {
+        return view('settings');
+    }
+
+    public function updateProfile(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email,' . auth()->id(),
+            'phone' => 'nullable|string|max:20',
+            'avatar' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
+        ]);
+
+        $user = auth()->user();
+
+        // Handle avatar upload
+        if ($request->hasFile('avatar')) {
+            // Delete old avatar if exists
+            if ($user->avatar && Storage::disk('public')->exists($user->avatar)) {
+                Storage::disk('public')->delete($user->avatar);
+            }
+
+            $validated['avatar'] = $request->file('avatar')->store('avatars/users', 'public');
+        }
+
+        $user->update($validated);
+
+        return back()->with('success', 'Profile updated successfully!');
+    }
+
+    public function updatePassword(Request $request)
+    {
+        $validated = $request->validate([
+            'current_password' => 'required',
+            'new_password' => ['required', 'confirmed', Password::min(12)->mixedCase()->letters()->numbers()->symbols()],
+        ]);
+
+        // Check if current password is correct
+        if (! Hash::check($validated['current_password'], auth()->user()->password)) {
+            return back()->withErrors(['current_password' => 'Current password is incorrect']);
+        }
+
+        // Update password
+        auth()->user()->update([
+            'password' => Hash::make($validated['new_password'])
+        ]);
+
+        return back()->with('success', 'Password changed successfully!');
+    }
+
+    public function toggleNotifications(Request $request)
+    {
+        $user = auth()->user();
+        $user->update([
+            'notifications_muted' => !$user->notifications_muted
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'notifications_muted' => $user->notifications_muted
+        ]);
+    }
+}
