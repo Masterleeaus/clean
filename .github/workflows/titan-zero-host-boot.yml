@@ -111,7 +111,7 @@ jobs:
         run: php artisan migrate --force
 
       - name: Verify Interaction Engine routes
-        run: php artisan route:list --path=interaction
+        run: php artisan route:list --name=interaction
 
       - name: Run host boot tests
         run: php artisan test --filter=HostBootTest
