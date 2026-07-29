@@ -1,0 +1,73 @@
+name: Titan Zero Pass 2 Staged Bootstrap
+
+on:
+  pull_request:
+    branches:
+      - agent/gpt56-titan-zero-upgrade-review-base
+
+permissions:
+  contents: read
+
+jobs:
+  staged-bootstrap:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      APP_ENV: testing
+      APP_DEBUG: 'false'
+      APP_URL: http://localhost
+      APP_KEY: base64:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+      CACHE_DRIVER: array
+      DB_CONNECTION: sqlite
+      DB_DATABASE: ':memory:'
+      LOG_CHANNEL: stderr
+      MAIL_MAILER: array
+      QUEUE_CONNECTION: sync
+      SESSION_DRIVER: array
+      TITAN_ZERO_EXTENSION_DISCOVERY_ENABLED: 'false'
+      TITAN_ZERO_INTERACTION_ENGINE_ENABLED: 'false'
+
+    steps:
+      - name: Checkout work branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+
+      - name: Set up PHP 8.2
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: mbstring, dom, xml, xmlwriter, curl, zip, sqlite3
+          coverage: none
+          tools: composer:v2
+
+      - name: Install PHP dependencies without application scripts
+        run: composer install --no-interaction --prefer-dist --no-progress --no-scripts
+
+      - name: Run feature-flag contract test
+        run: vendor/bin/phpunit tests/Feature/Bootstrap/TitanZeroFeatureFlagTest.php
+
+      - name: Boot with all Titan Zero cores disabled
+        env:
+          TITAN_ZERO_WORKCORE_ENABLED: 'false'
+          TITAN_ZERO_CHATBOT_ENABLED: 'false'
+        run: php tools/titan-zero-audit/boot-probe.php
+
+      - name: Boot with WorkCore only
+        env:
+          TITAN_ZERO_WORKCORE_ENABLED: 'true'
+          TITAN_ZERO_CHATBOT_ENABLED: 'false'
+        run: php tools/titan-zero-audit/boot-probe.php
+
+      - name: Boot with chatbot only
+        env:
+          TITAN_ZERO_WORKCORE_ENABLED: 'false'
+          TITAN_ZERO_CHATBOT_ENABLED: 'true'
+        run: php tools/titan-zero-audit/boot-probe.php
+
+      - name: Boot with WorkCore and chatbot
+        env:
+          TITAN_ZERO_WORKCORE_ENABLED: 'true'
+          TITAN_ZERO_CHATBOT_ENABLED: 'true'
+        run: php tools/titan-zero-audit/boot-probe.php

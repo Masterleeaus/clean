@@ -1,0 +1,57 @@
+name: Titan Zero Pass 1 Baseline
+
+on:
+  pull_request:
+    branches:
+      - agent/gpt56-titan-zero-upgrade-review-base
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  baseline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout work branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref || github.ref_name }}
+          fetch-depth: 0
+
+      - name: Repair stale npm lockfile reference
+        run: node tools/titan-zero-audit/pass1-lockfile-repair.mjs
+
+      - name: Set up PHP 8.2
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: mbstring, dom, xml, xmlwriter, curl, zip, sqlite3
+          coverage: none
+          tools: composer:v2
+
+      - name: Refresh dependency lock metadata
+        run: composer update --lock --no-install --no-scripts --no-interaction --no-progress
+
+      - name: Verify lockfiles are committed
+        run: git diff --exit-code -- package-lock.json composer.lock
+
+      - name: Validate Composer metadata
+        run: composer validate --strict
+
+      - name: Install PHP dependencies without application scripts
+        run: composer install --no-interaction --prefer-dist --no-progress --no-scripts
+
+      - name: Run source baseline audit
+        run: php tools/titan-zero-audit/baseline.php
+
+      - name: Run architecture tests directly
+        run: vendor/bin/phpunit tests/Architecture/SourceBaselineTest.php tests/Architecture/DependencyInputTest.php
+
+      - name: Validate npm metadata and lockfile
+        run: |
+          npm pkg get scripts dependencies devDependencies > /tmp/npm-package.json
+          node -e "JSON.parse(require('fs').readFileSync('/tmp/npm-package.json'))"
+          npm ci --ignore-scripts --no-audit --no-fund
