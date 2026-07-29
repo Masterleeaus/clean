@@ -19,5 +19,9 @@ Completed in this increment:
 
 - PHP syntax check for `TitanTrainInteractionCatalog.php` — passed.
 - PHP syntax check for `TitanTrainInteractionCatalogTest.php` — passed.
+- PHP syntax check for `TitanTrainWizardContributor.php` — passed.
+- PHP syntax check for `TitanTrainWizardContributorTest.php` — passed.
+- Isolated canonical-registry contract harness using the current `WizardRegistry` and `WizardDefinition` shapes — passed.
+- The harness registered four definitions, preserved online-only policy and trainer permissions, and rejected duplicate contribution.
 - Git ancestry check — branch starts from `e565d7594e062c6705be9747bee0bd6081beb137` and is zero commits behind the integration base.
 - Static definition review — no executable PHP/JavaScript/SQL callbacks or raw table names are present in the catalog.
