@@ -5,8 +5,10 @@ on:
   push:
     branches:
       - agent/ai-site-builder-bridge
-    paths:
-      - .github/workflows/bootstrap-magicai-v1100-mega.yml
+  pull_request:
+    branches:
+      - main
+    types: [opened, synchronize, reopened]
   issues:
     types: [opened]
 
@@ -20,7 +22,7 @@ concurrency:
 
 jobs:
   import-sources:
-    if: github.event_name == 'workflow_dispatch' || github.event_name == 'push' || github.event.issue.title == 'BOOTSTRAP AI SITE BUILDER BRIDGE'
+    if: github.event_name == 'workflow_dispatch' || github.event_name == 'push' || github.event_name == 'pull_request' || github.event.issue.title == 'BOOTSTRAP AI SITE BUILDER BRIDGE'
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
