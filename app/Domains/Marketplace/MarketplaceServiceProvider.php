@@ -120,7 +120,6 @@ use App\Extensions\VideoDubbing\System\VideoDubbingServiceProvider;
 use App\Extensions\VideoEditor\System\VideoEditorServiceProvider;
 use App\Extensions\Wordpress\System\WordpressServiceProvider;
 use App\Extensions\Xero\System\XeroServiceProvider;
-use App\Support\TitanZero\TitanZeroFeatureFlags;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
@@ -256,9 +255,8 @@ class MarketplaceServiceProvider extends ServiceProvider
 
     public function register(): void
     {
-        if ($this->featureFlags()->extensionDiscoveryEnabled()) {
-            $this->extensionProviderRegister();
-        }
+        // Extension providers are registered by App\Providers\ExtensionServiceProvider
+        // after manifest validation and explicit enablement.
     }
 
     public function boot(): void
@@ -293,23 +291,6 @@ class MarketplaceServiceProvider extends ServiceProvider
         return $this->app['router'];
     }
 
-    private function featureFlags(): TitanZeroFeatureFlags
-    {
-        if ($this->app->bound(TitanZeroFeatureFlags::class)) {
-            return $this->app->make(TitanZeroFeatureFlags::class);
-        }
-
-        return TitanZeroFeatureFlags::fromArray((array) config('titan-zero', []));
-    }
-
-    public function extensionProviderRegister(): void
-    {
-        foreach (static::$extensionProviders as $provider) {
-            if (class_exists($provider)) {
-                $this->app->register($provider);
-            }
-        }
-    }
 
     public static function uninstallExtension(string $slug): void
     {
