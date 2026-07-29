@@ -326,125 +326,125 @@ Use the `composer fund` command to find out more!
 - Exit code: `1`
 
 ```text
-  2026_07_23_120015_create_tz_worker_tables ........................ 22ms DONE
-  2026_07_23_120016_create_tz_availability_and_roster_tables ....... 36ms DONE
-  2026_07_23_120017_create_tz_asset_and_equipment_tables ........... 34ms DONE
-  2026_07_23_120018_create_tz_inventory_and_material_tables ........ 39ms DONE
-  2026_07_23_120019_create_tz_forms_and_checklists_tables .......... 38ms DONE
-  2026_07_23_120020_create_tz_attendance_and_leave_tables .......... 36ms DONE
-  2026_07_23_120021_create_tz_support_ticket_tables ................ 27ms DONE
-  2026_07_23_120022_create_tz_knowledge_base_tables ................ 28ms DONE
-  2026_07_23_120023_create_tz_reviews_and_rebooking_tables ......... 56ms DONE
+  2026_07_23_120016_create_tz_availability_and_roster_tables ....... 27ms DONE
+  2026_07_23_120017_create_tz_asset_and_equipment_tables ........... 37ms DONE
+  2026_07_23_120018_create_tz_inventory_and_material_tables ........ 40ms DONE
+  2026_07_23_120019_create_tz_forms_and_checklists_tables .......... 34ms DONE
+  2026_07_23_120020_create_tz_attendance_and_leave_tables .......... 33ms DONE
+  2026_07_23_120021_create_tz_support_ticket_tables ................ 26ms DONE
+  2026_07_23_120022_create_tz_knowledge_base_tables ................ 29ms DONE
+  2026_07_23_120023_create_tz_reviews_and_rebooking_tables ......... 51ms DONE
   2026_07_23_120024_merge_titan_assets_into_workcore .............. 375ms DONE
-  2026_07_23_120025_integrate_assets_with_scheduling ................ 9ms DONE
-  2026_07_23_120026_harden_asset_runtime_wiring .................... 10ms DONE
-  2026_07_23_120027_expand_premises_supply_fleet_and_repairs ...... 294ms DONE
-  2026_07_23_120028_create_tz_vault_tables ......................... 40ms DONE
+  2026_07_23_120025_integrate_assets_with_scheduling ................ 6ms DONE
+  2026_07_23_120026_harden_asset_runtime_wiring .................... 11ms DONE
+  2026_07_23_120027_expand_premises_supply_fleet_and_repairs ...... 291ms DONE
+  2026_07_23_120028_create_tz_vault_tables ......................... 33ms DONE
   2026_07_23_120029_create_tz_vertical_system_tables ............... 28ms DONE
-  2026_07_23_120030_create_tz_vertical_setup_tables ................ 18ms DONE
-  2026_07_23_120031_create_tz_vertical_operations_tables ........... 96ms DONE
+  2026_07_23_120030_create_tz_vertical_setup_tables ................ 17ms DONE
+  2026_07_23_120031_create_tz_vertical_operations_tables ........... 94ms DONE
   2026_07_23_120032_create_tz_trade_field_compliance_tables ........ 40ms DONE
-  2026_07_23_120033_create_tz_compliance_and_safety_tables ........ 104ms DONE
-  2026_07_23_120034_merge_titan_feedback_into_workcore ............ 218ms DONE
-  2026_07_23_120035_create_tz_recurring_service_tables ............. 33ms DONE
-  2026_07_23_120036_wire_feedback_across_workcore .................. 20ms DONE
-  2026_07_23_120037_create_tz_territory_tables ..................... 28ms DONE
+  2026_07_23_120033_create_tz_compliance_and_safety_tables ........ 102ms DONE
+  2026_07_23_120034_merge_titan_feedback_into_workcore ............ 199ms DONE
+  2026_07_23_120035_create_tz_recurring_service_tables ............. 30ms DONE
+  2026_07_23_120036_wire_feedback_across_workcore .................. 19ms DONE
+  2026_07_23_120037_create_tz_territory_tables ..................... 30ms DONE
   2026_07_23_120038_create_tz_qr_tables ............................ 19ms DONE
   2026_07_23_120039_create_tm_financial_settings_table .............. 3ms DONE
   2026_07_23_120040_create_tm_tax_registrations_table ............... 4ms DONE
   2026_07_23_120041_create_tm_number_sequences_table ................ 3ms DONE
-  2026_07_23_120042_create_tm_idempotency_keys_table ................ 4ms DONE
+  2026_07_23_120042_create_tm_idempotency_keys_table ................ 7ms DONE
   2026_07_23_120043_create_tm_document_snapshots_table .............. 4ms DONE
-  2026_07_23_120044_create_tm_commercial_documents_tables .......... 59ms DONE
-  2026_07_23_120045_create_tm_payments_expenses_and_payables_tables  62ms DONE
-  2026_07_23_120046_create_tm_ledger_tax_and_period_tables ......... 34ms DONE
-  2026_07_23_120047_create_tm_reconciliation_forecasting_and_export_tables  32ms DONE
-  2026_07_23_120048_create_tm_autonomous_money_management_tables ... 54ms DONE
-  2026_07_23_120049_create_tm_runtime_audit_and_inbox_tables ....... 10ms DONE
-  2026_07_23_120050_create_tm_collections_and_payment_runtime_tables  33ms DONE
+  2026_07_23_120044_create_tm_commercial_documents_tables .......... 58ms DONE
+  2026_07_23_120045_create_tm_payments_expenses_and_payables_tables  54ms DONE
+  2026_07_23_120046_create_tm_ledger_tax_and_period_tables ......... 39ms DONE
+  2026_07_23_120047_create_tm_reconciliation_forecasting_and_export_tables  29ms DONE
+  2026_07_23_120048_create_tm_autonomous_money_management_tables ... 46ms DONE
+  2026_07_23_120049_create_tm_runtime_audit_and_inbox_tables ....... 11ms DONE
+  2026_07_23_120050_create_tm_collections_and_payment_runtime_tables  34ms DONE
   2026_07_23_120051_create_tm_integration_runtime_tables .......... 137ms DONE
-  2026_07_23_120052_create_tm_missing_money_domains_tables ........ 157ms DONE
-  2026_07_23_120053_create_tz_capability_expansion_tables .......... 37ms DONE
-  2026_07_23_120054_create_tz_sales_pipeline_tables ................ 30ms DONE
-  2026_07_23_120055_create_tz_workforce_team_domains .............. 238ms DONE
-  2026_07_23_120056_create_tz_adaptive_feature_tables .............. 38ms DONE
-  2026_07_23_120057_create_tz_intelligence_core_tables ............. 26ms DONE
-  2026_07_23_120058_create_tz_ai_knowledge_tables .................. 20ms DONE
+  2026_07_23_120052_create_tm_missing_money_domains_tables ........ 151ms DONE
+  2026_07_23_120053_create_tz_capability_expansion_tables .......... 36ms DONE
+  2026_07_23_120054_create_tz_sales_pipeline_tables ................ 22ms DONE
+  2026_07_23_120055_create_tz_workforce_team_domains .............. 226ms DONE
+  2026_07_23_120056_create_tz_adaptive_feature_tables .............. 34ms DONE
+  2026_07_23_120057_create_tz_intelligence_core_tables ............. 25ms DONE
+  2026_07_23_120058_create_tz_ai_knowledge_tables .................. 15ms DONE
   2026_07_23_120059_create_tz_service_variants_and_faqs_tables ..... 10ms DONE
-  2026_07_23_120060_create_pm_properties_table ..................... 12ms DONE
-  2026_07_23_120061_create_pm_property_units_table .................. 8ms DONE
-  2026_07_23_120062_create_pm_property_contacts_table ............... 8ms DONE
+  2026_07_23_120060_create_pm_properties_table ..................... 11ms DONE
+  2026_07_23_120061_create_pm_property_units_table .................. 7ms DONE
+  2026_07_23_120062_create_pm_property_contacts_table ............... 7ms DONE
   2026_07_23_120063_create_pm_property_jobs_table .................. 10ms DONE
   2026_07_23_120064_create_pm_property_keys_table ................... 7ms DONE
   2026_07_23_120065_create_pm_property_photos_table ................. 7ms DONE
-  2026_07_23_120066_create_pm_property_checklists_table ............. 9ms DONE
+  2026_07_23_120066_create_pm_property_checklists_table ............ 12ms DONE
   2026_07_23_120067_create_pm_settings_table ........................ 5ms DONE
   2026_07_23_120068_create_pm_property_tags_table ................... 9ms DONE
-  2026_07_23_120069_create_pm_property_rooms_table ................. 10ms DONE
-  2026_07_23_120070_create_pm_property_hazards_table ................ 8ms DONE
-  2026_07_23_120071_create_pm_property_service_windows_table ........ 8ms DONE
-  2026_07_23_120072_create_pm_property_assets_table ................. 8ms DONE
+  2026_07_23_120069_create_pm_property_rooms_table .................. 7ms DONE
+  2026_07_23_120070_create_pm_property_hazards_table ................ 7ms DONE
+  2026_07_23_120071_create_pm_property_service_windows_table ........ 7ms DONE
+  2026_07_23_120072_create_pm_property_assets_table ................. 7ms DONE
   2026_07_23_120073_create_pm_property_service_plans_table .......... 6ms DONE
-  2026_07_23_120074_create_pm_property_visits_table ................ 10ms DONE
+  2026_07_23_120074_create_pm_property_visits_table ................. 8ms DONE
   2026_07_23_120075_create_pm_property_inspections_table ............ 7ms DONE
   2026_07_23_120076_create_pm_property_documents_table .............. 7ms DONE
-  2026_07_23_120077_create_pm_property_approvals_table ............. 10ms DONE
-  2026_07_23_120078_create_pm_meter_readings_table ................. 12ms DONE
-  2026_07_23_120079_add_job_link_to_photos_and_documents ........... 29ms DONE
-  2026_07_23_120080_add_cleaning_fields_to_pm_properties .......... 145ms DONE
-  2026_07_23_120081_add_uploaded_at_to_pm_property_photos .......... 23ms DONE
-  2026_07_23_120082_add_profile_layer_to_pm_properties ............. 49ms DONE
+  2026_07_23_120077_create_pm_property_approvals_table .............. 8ms DONE
+  2026_07_23_120078_create_pm_meter_readings_table ................. 11ms DONE
+  2026_07_23_120079_add_job_link_to_photos_and_documents ........... 31ms DONE
+  2026_07_23_120080_add_cleaning_fields_to_pm_properties .......... 153ms DONE
+  2026_07_23_120081_add_uploaded_at_to_pm_property_photos .......... 25ms DONE
+  2026_07_23_120082_add_profile_layer_to_pm_properties ............. 51ms DONE
   2026_07_23_120083_create_pm_premise_spaces_table ................. 20ms DONE
-  2026_07_23_120084_create_pm_premise_parties_and_occupancies ...... 43ms DONE
-  2026_07_23_120085_create_pm_premise_agreements ................... 62ms DONE
+  2026_07_23_120084_create_pm_premise_parties_and_occupancies ...... 42ms DONE
+  2026_07_23_120085_create_pm_premise_agreements ................... 54ms DONE
   2026_07_23_120086_create_pm_access_condition_incident_tables ..... 71ms DONE
-  2026_07_23_120087_create_pm_premise_workflows .................... 24ms DONE
-  2026_07_23_120088_create_pm_portal_and_vacancy_tables ............ 51ms DONE
-  2026_07_23_120089_create_pm_applications_communications_requests  120ms DONE
-  2026_07_23_120090_create_pm_access_card_requests_and_work_permits  66ms DONE
+  2026_07_23_120087_create_pm_premise_workflows .................... 22ms DONE
+  2026_07_23_120088_create_pm_portal_and_vacancy_tables ............ 50ms DONE
+  2026_07_23_120089_create_pm_applications_communications_requests  119ms DONE
+  2026_07_23_120090_create_pm_access_card_requests_and_work_permits  64ms DONE
   2026_07_23_120091_create_pm_portfolios_ownership_management_approvals  93ms DONE
-  2026_07_23_120092_premises_deduplication_links ................... 28ms DONE
-  2026_07_23_120093_premises_forms_and_assets_deduplication_links .. 33ms DONE
-  2026_07_23_120094_add_public_ids_to_managed_premises ............. 76ms DONE
-  2026_07_23_120095_create_pm_accommodation_operations_tables ..... 151ms DONE
-  2026_07_23_120096_create_tz_ndis_operations_tables .............. 217ms DONE
-  2026_07_23_120097_create_tz_wizard_runtime_tables ................ 39ms DONE
-  2026_07_23_120098_create_tz_native_ai_kernel_tables .............. 48ms DONE
-  2026_07_23_120099_create_tz_ai_orchestration_tables .............. 43ms DONE
-  2026_07_23_120100_create_pm_compliance_register_tables ........... 74ms DONE
+  2026_07_23_120092_premises_deduplication_links ................... 29ms DONE
+  2026_07_23_120093_premises_forms_and_assets_deduplication_links .. 35ms DONE
+  2026_07_23_120094_add_public_ids_to_managed_premises ............. 78ms DONE
+  2026_07_23_120095_create_pm_accommodation_operations_tables ..... 147ms DONE
+  2026_07_23_120096_create_tz_ndis_operations_tables .............. 215ms DONE
+  2026_07_23_120097_create_tz_wizard_runtime_tables ................ 35ms DONE
+  2026_07_23_120098_create_tz_native_ai_kernel_tables .............. 47ms DONE
+  2026_07_23_120099_create_tz_ai_orchestration_tables .............. 39ms DONE
+  2026_07_23_120100_create_pm_compliance_register_tables ........... 72ms DONE
   2026_07_23_120101_create_workcore_business_flows_table ............ 5ms DONE
-  2026_07_27_000001_create_titan_ai_governance_tables .............. 23ms DONE
-  2026_07_27_000002_upgrade_governance_execution ................... 88ms DONE
-  2026_07_27_000005_create_governance_configuration_tables ......... 31ms DONE
-  2026_07_27_000006_harden_governance_execution .................... 56ms DONE
-  2026_07_27_000100_create_chatbot_sync_infrastructure ............ 361ms DONE
+  2026_07_27_000001_create_titan_ai_governance_tables .............. 21ms DONE
+  2026_07_27_000002_upgrade_governance_execution ................... 94ms DONE
+  2026_07_27_000005_create_governance_configuration_tables ......... 32ms DONE
+  2026_07_27_000006_harden_governance_execution .................... 59ms DONE
+  2026_07_27_000100_create_chatbot_sync_infrastructure ............ 363ms DONE
   2026_07_27_210000_create_ext_chatbot_team_conversations .......... 13ms DONE
   2026_07_27_210100_create_ext_chatbot_team_participants ............ 8ms DONE
-  2026_07_27_210200_create_ext_chatbot_team_messages ............... 17ms DONE
-  2026_07_27_210400_add_business_channels_to_ext_chatbot_team_conversations  159ms DONE
-  2026_07_28_000010_add_execution_context_to_titan_ai_action_receipts  146ms DONE
-  2026_07_28_000100_add_titan_shell_builder_config_to_ext_chatbots . 31ms DONE
-  2026_07_29_000100_create_chatbot_team_chat_tables ................. 0ms FAIL
+  2026_07_27_210200_create_ext_chatbot_team_messages ............... 15ms DONE
+  2026_07_27_210400_add_business_channels_to_ext_chatbot_team_conversations  113ms DONE
+  2026_07_28_000010_add_execution_context_to_titan_ai_action_receipts  135ms DONE
+  2026_07_28_000100_add_titan_shell_builder_config_to_ext_chatbots . 34ms DONE
+  2026_07_29_000100_create_chatbot_team_chat_tables ................ 33ms DONE
+  2026_08_01_000000_create_interaction_runs_table ................... 3ms DONE
+  2026_08_01_000001_create_interaction_answers_table ................ 3ms DONE
+  2026_08_01_000002_create_interaction_events_table ................. 4ms DONE
+  2026_08_02_000000_create_queued_commands_table .................... 0ms FAIL
 
 In Connection.php line 829:
                                                                                
-  SQLSTATE[HY000]: General error: 1 table "ext_chatbot_team_conversations" al  
-  ready exists (Connection: sqlite, SQL: create table "ext_chatbot_team_conve  
-  rsations" ("id" integer primary key autoincrement not null, "uuid" varchar   
-  not null, "tenant_id" integer not null, "name" varchar, "type" varchar not   
-  null, "avatar" varchar, "description" text, "owner_id" integer not null, "v  
-  isibility" varchar not null default 'private', "is_archived" tinyint(1) not  
-   null default '0', "version" integer not null default '1', "sync_sequence"   
-  integer not null default '0', "originating_device_id" varchar, "created_by"  
-   integer, "updated_by" integer, "created_at" datetime, "updated_at" datetim  
-  e, "deleted_at" datetime))                                                   
+  SQLSTATE[HY000]: General error: 1 duplicate column name: created_at (Connec  
+  tion: sqlite, SQL: create table "queued_commands" ("id" integer primary key  
+   autoincrement not null, "capability" varchar not null, "payload" text not   
+  null, "metadata" text, "status" varchar check ("status" in ('pending', 'syn  
+  ced', 'failed')) not null default 'pending', "attempts" integer not null de  
+  fault '0', "error" text, "created_at" datetime not null default CURRENT_TIM  
+  ESTAMP, "synced_at" datetime, "failed_at" datetime, "created_at" datetime,   
+  "updated_at" datetime))                                                      
                                                                                
 
 In Connection.php line 581:
-                                                                               
-  SQLSTATE[HY000]: General error: 1 table "ext_chatbot_team_conversations" al  
-  ready exists                                                                 
-                                                                               
+                                                                       
+  SQLSTATE[HY000]: General error: 1 duplicate column name: created_at  
+                                                                       
 
 
 ```
@@ -455,17 +455,16 @@ In Connection.php line 581:
 
 ```text
 
-In Application.php line 1274:
-                                                                  
-  [Symfony\Component\HttpKernel\Exception\NotFoundHttpException]  
-                                                                  
+In TTSController.php line 57:
+                                                                               
+  [TypeError]                                                                  
+  Cannot assign null to property App\Http\Controllers\TTSController::$ai of t  
+  ype App\Models\OpenAIGenerator                                               
+                                                                               
 
 Exception trace:
-  at /home/runner/work/clean/clean/vendor/laravel/framework/src/Illuminate/Foundation/Application.php:1274
- Illuminate\Foundation\Application->abort() at /home/runner/work/clean/clean/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php:45
- abort() at /home/runner/work/clean/clean/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php:65
- abort_if() at /home/runner/work/clean/clean/app/Http/Controllers/Team/TeamController.php:19
- App\Http\Controllers\Team\TeamController->__construct() at n/a:n/a
+  at /home/runner/work/clean/clean/app/Http/Controllers/TTSController.php:57
+ App\Http\Controllers\TTSController->__construct() at n/a:n/a
  ReflectionClass->newInstanceArgs() at /home/runner/work/clean/clean/vendor/laravel/framework/src/Illuminate/Container/Container.php:952
  Illuminate\Container\Container->build() at /home/runner/work/clean/clean/vendor/laravel/framework/src/Illuminate/Container/Container.php:795
  Illuminate\Container\Container->resolve() at /home/runner/work/clean/clean/vendor/laravel/framework/src/Illuminate/Foundation/Application.php:986
@@ -509,26 +508,34 @@ Exception trace:
   [30;43;1m WARN [39;49;22m Your XML configuration validates against a deprecated schema. Migrate your XML configuration using "--migrate-configuration"!
 
    PASS  Tests\Feature\HostBootTest
-  ✓ authoritative service providers are loaded once                      1.06s  
-  ✓ interaction routes boot without duplicate names                      0.89s  
-  ✓ interaction engine defaults to local safe operation                  0.90s  
+  ✓ authoritative service providers are loaded once                      1.08s  
+  ✓ interaction routes boot without duplicate names                      0.96s  
+  ✓ interaction engine defaults to local safe operation                  0.91s  
 
   Tests:    3 passed (9 assertions)
-  Duration: 2.91s
+  Duration: 3.02s
 
 
 ```
 
 ## static-host-contracts
 
-- Exit code: `0`
+- Exit code: `1`
 
 ```text
-....
+.F....
+======================================================================
+FAIL: test_controller_constructors_do_not_abort_route_inspection (__main__.HostBootContractTest.test_controller_constructors_do_not_abort_route_inspection)
 ----------------------------------------------------------------------
-Ran 4 tests in 0.008s
+Traceback (most recent call last):
+  File "/home/runner/work/clean/clean/tests/contracts/titan_zero_host_boot_contract_test.py", line 107, in test_controller_constructors_do_not_abort_route_inspection
+    self.assertNotIn('abort_if(', constructor.group('body'))
+AssertionError: 'abort_if(' unexpectedly found in "\n        $this->middleware(static function (Request $request, callable $next) {\n            abort_if(! Helper::setting('team_functionality'), 404);\n\n            return $next($request);"
 
-OK
+----------------------------------------------------------------------
+Ran 6 tests in 0.012s
+
+FAILED (failures=1)
 
 ```
 
