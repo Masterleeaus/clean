@@ -1,4 +1,4 @@
-name: Bootstrap MagicAI v11.00 source from MEGA
+name: Bootstrap MagicAI and AI Site Builder on isolated branch
 
 on:
   issues:
@@ -9,67 +9,101 @@ permissions:
   issues: write
 
 concurrency:
-  group: magicai-v1100-main-bootstrap
+  group: ai-site-builder-bridge-bootstrap
   cancel-in-progress: false
 
 jobs:
-  import-source:
-    if: github.event.issue.title == 'BOOTSTRAP MAGICAI V1100 SOURCE'
+  import-sources:
+    if: github.event.issue.title == 'BOOTSTRAP AI SITE BUILDER BRIDGE'
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
 
     env:
-      TARGET_BRANCH: main
-      ARCHIVE_URL: https://mega.nz/file/edcEzSJZ#iHrQEPJb8E7xDcg0QUatncsokg_GTarzpNwjo5GwXwE
-      ARCHIVE_FILE: MagicAI-v11.00-source-clean.zip
-      ARCHIVE_SHA256: ed6ce50730150601ccea6577fa72c65c3e33db127e2af0064d18e7738fe57d57
-      EXPECTED_FILE_COUNT: '5020'
+      TARGET_BRANCH: agent/ai-site-builder-bridge
+      MAGICAI_URL: https://mega.nz/file/edcEzSJZ#iHrQEPJb8E7xDcg0QUatncsokg_GTarzpNwjo5GwXwE
+      MAGICAI_FILE: MagicAI-v11.00-source-clean.zip
+      MAGICAI_SHA256: ed6ce50730150601ccea6577fa72c65c3e33db127e2af0064d18e7738fe57d57
+      MAGICAI_EXPECTED_FILE_COUNT: '5020'
+      SITE_BUILDER_URL: https://mega.nz/file/jEkGlYLQ#5JGOpAIrTHd761L8TDGzgzO5grne6bN5t-U1MuxWwbY
+      SITE_BUILDER_FILE: ai-powered-site-builder.zip
 
     steps:
-      - name: Check out main
+      - name: Check out isolated branch
         uses: actions/checkout@v4
         with:
           ref: ${{ env.TARGET_BRANCH }}
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Install MEGA downloader
+      - name: Install archive tools
         shell: bash
         run: |
           set -euo pipefail
           sudo apt-get update
-          sudo apt-get install -y megatools
+          sudo apt-get install -y megatools unzip p7zip-full rsync
 
-      - name: Download and verify archive
+      - name: Download and verify MagicAI
         shell: bash
         run: |
           set -euo pipefail
-          rm -f "/tmp/$ARCHIVE_FILE"
-          megadl "$ARCHIVE_URL" --path "/tmp/$ARCHIVE_FILE"
-          printf '%s  %s\n' "$ARCHIVE_SHA256" "/tmp/$ARCHIVE_FILE" | sha256sum --check --strict
-          unzip -t "/tmp/$ARCHIVE_FILE"
-          actual_count="$(zipinfo -1 "/tmp/$ARCHIVE_FILE" | awk 'substr($0, length($0), 1) != "/"' | wc -l | tr -d ' ')"
-          test "$actual_count" = "$EXPECTED_FILE_COUNT"
+          rm -f "/tmp/$MAGICAI_FILE"
+          megadl "$MAGICAI_URL" --path "/tmp/$MAGICAI_FILE"
+          printf '%s  %s\n' "$MAGICAI_SHA256" "/tmp/$MAGICAI_FILE" | sha256sum --check --strict
+          unzip -t "/tmp/$MAGICAI_FILE"
+          actual_count="$(zipinfo -1 "/tmp/$MAGICAI_FILE" | awk 'substr($0, length($0), 1) != "/"' | wc -l | tr -d ' ')"
+          test "$actual_count" = "$MAGICAI_EXPECTED_FILE_COUNT"
 
-      - name: Extract and validate Laravel source
+      - name: Extract and validate MagicAI
         shell: bash
         run: |
           set -euo pipefail
-          extract_dir=/tmp/magicai-v1100-source
-          rm -rf "$extract_dir"
-          mkdir -p "$extract_dir"
-          unzip -q "/tmp/$ARCHIVE_FILE" -d "$extract_dir"
-          test -f "$extract_dir/artisan"
-          test -f "$extract_dir/composer.json"
-          test -f "$extract_dir/composer.lock"
-          test -d "$extract_dir/app"
-          test -d "$extract_dir/routes"
-          test -d "$extract_dir/database"
-          test -f "$extract_dir/public/index.php"
-          ! find "$extract_dir" -type d \( -name vendor -o -name node_modules \) -print -quit | grep -q .
-          ! find "$extract_dir" -type f \( -name '.env' -o -name '*.pem' -o -name '*.p12' -o -name '*.pfx' \) -print -quit | grep -q .
+          extract=/tmp/magicai-v1100-source
+          rm -rf "$extract"
+          mkdir -p "$extract"
+          unzip -q "/tmp/$MAGICAI_FILE" -d "$extract"
+          test -f "$extract/artisan"
+          test -f "$extract/composer.json"
+          test -f "$extract/composer.lock"
+          test -d "$extract/app"
+          test -d "$extract/routes"
+          test -d "$extract/database"
+          test -f "$extract/public/index.php"
+          ! find "$extract" -type d \( -name vendor -o -name node_modules -o -name .git \) -print -quit | grep -q .
+          ! find "$extract" -type f \( -name '.env' -o -name '*.pem' -o -name '*.p12' -o -name '*.pfx' -o -name 'id_rsa' -o -name 'id_ed25519' \) -print -quit | grep -q .
 
-      - name: Merge source into repository root
+      - name: Download and inspect AI site builder
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f "/tmp/$SITE_BUILDER_FILE"
+          megadl "$SITE_BUILDER_URL" --path "/tmp/$SITE_BUILDER_FILE"
+          test -s "/tmp/$SITE_BUILDER_FILE"
+          7z t "/tmp/$SITE_BUILDER_FILE"
+          sha256sum "/tmp/$SITE_BUILDER_FILE" | tee /tmp/site-builder.sha256
+
+      - name: Extract and sanitise AI site builder
+        shell: bash
+        run: |
+          set -euo pipefail
+          raw=/tmp/site-builder-raw
+          source=/tmp/site-builder-source
+          rm -rf "$raw" "$source"
+          mkdir -p "$raw" "$source"
+          7z x -y -o"$raw" "/tmp/$SITE_BUILDER_FILE" >/dev/null
+          mapfile -t roots < <(find "$raw" -mindepth 1 -maxdepth 1 -printf '%p\n')
+          if [[ ${#roots[@]} -eq 1 && -d "${roots[0]}" ]]; then
+            rsync -a "${roots[0]}/" "$source/"
+          else
+            rsync -a "$raw/" "$source/"
+          fi
+          find "$source" -type f \( -name '.env' -o -name '*.pem' -o -name '*.p12' -o -name '*.pfx' -o -name 'id_rsa' -o -name 'id_ed25519' \) -delete
+          find "$source" -type d \( -name .git -o -name node_modules -o -name vendor -o -name dist \) -prune -exec rm -rf {} +
+          test -f "$source/package.json"
+          test -d "$source/src"
+          test -d "$source/supabase"
+          test "$(find "$source" -type f | wc -l)" -gt 50
+
+      - name: Merge sources into isolated branch
         shell: bash
         run: |
           set -euo pipefail
@@ -80,18 +114,27 @@ jobs:
             --exclude='vendor/' \
             --exclude='node_modules/' \
             /tmp/magicai-v1100-source/ ./
+          rm -rf external/ai-site-builder
+          mkdir -p external/ai-site-builder docs/integrations
+          rsync -a /tmp/site-builder-source/ external/ai-site-builder/
+          builder_sha="$(cut -d' ' -f1 /tmp/site-builder.sha256)"
+          builder_count="$(find external/ai-site-builder -type f | wc -l | tr -d ' ')"
+          cat > docs/integrations/AI_SITE_BUILDER_SOURCE_IMPORT.md <<EOF
+          # AI Site Builder source import
+
+          Imported only on branch \`agent/ai-site-builder-bridge\`.
+
+          - Source: user-supplied MEGA archive
+          - Download SHA-256: \`$builder_sha\`
+          - Sanitised source files: \`$builder_count\`
+          - Removed: \`.env\`, private-key formats, \`.git/\`, \`vendor/\`, \`node_modules/\`, and stale \`dist/\`
+          - Install target: \`external/ai-site-builder/\`
+
+          The builder remains separately deployable. MagicAI integration is applied in later commits on this same branch.
+          EOF
           rm -f .github/workflows/bootstrap-magicai-v1100-mega.yml
-          cat > MAGICAI_V1100_IMPORT.md <<'NOTICE'
-          # MagicAI v11.00 source import
 
-          MagicAI v11.00 cleaned Laravel source was imported from the verified archive supplied for Titan Zero integration.
-
-          - Archive SHA-256: `ed6ce50730150601ccea6577fa72c65c3e33db127e2af0064d18e7738fe57d57`
-          - Expected archive file count: `5020`
-          - Excluded from import: `.env`, `vendor/`, `node_modules/`, private key formats, and `.github/`
-          NOTICE
-
-      - name: Commit merged source to main
+      - name: Commit branch-only source import
         shell: bash
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -101,9 +144,9 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
           if git diff --cached --quiet; then
-            gh issue close "${{ github.event.issue.number }}" --comment 'No source changes were detected after verification.'
+            gh issue close "${{ github.event.issue.number }}" --comment 'No source changes were detected.'
             exit 0
           fi
-          git commit -m 'feat: merge verified MagicAI v11.00 source into main'
-          git push origin HEAD:main
-          gh issue close "${{ github.event.issue.number }}" --comment 'Verified MagicAI v11.00 source merge completed on `main`.'
+          git commit -m 'feat: import MagicAI and sanitised AI site builder on isolated branch'
+          git push origin HEAD:"$TARGET_BRANCH"
+          gh issue close "${{ github.event.issue.number }}" --comment 'MagicAI and the sanitised AI site builder were imported into `agent/ai-site-builder-bridge`. Main was not modified.'
