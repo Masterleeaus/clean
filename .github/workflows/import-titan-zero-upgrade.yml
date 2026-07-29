@@ -1,0 +1,75 @@
+name: Import Titan Zero PWA Upgrade Overlay
+
+on:
+  push:
+    branches:
+      - agent/titan-zero-pwa-upgrade
+    paths:
+      - .github/workflows/import-titan-zero-upgrade.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: titan-zero-pwa-upgrade-import
+  cancel-in-progress: false
+
+jobs:
+  import-overlay:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout prepared source branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/titan-zero-pwa-upgrade
+          fetch-depth: 0
+
+      - name: Download and verify encrypted overlay
+        shell: bash
+        env:
+          OVERLAY_KEY: 8c05314bb1a536fdb45df0ee84fec665a5dbf2371ca9d0758a7bc100e64a2546
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/titan-zero-overlay
+          curl -fL --retry 5 --retry-all-errors \
+            https://titan-zero-encrypted-overlay-20260729.miniup.app/titan-zero-overlay.tar.gz.enc \
+            -o /tmp/titan-zero-overlay/overlay.tar.gz.enc
+          echo "51f0409955232efdf45f9b4789f89e519cc2bd989484502ec35528c7041155c6  /tmp/titan-zero-overlay/overlay.tar.gz.enc" | sha256sum --check
+          openssl enc -d -aes-256-cbc -pbkdf2 -iter 200000 \
+            -in /tmp/titan-zero-overlay/overlay.tar.gz.enc \
+            -out /tmp/titan-zero-overlay/overlay.tar.gz \
+            -pass env:OVERLAY_KEY
+          echo "22aa7175f6a1c8be5ff005d4a74db4e5bdfe6ee8f461d03d3a3dd587cf0bad2a  /tmp/titan-zero-overlay/overlay.tar.gz" | sha256sum --check
+          tar -tzf /tmp/titan-zero-overlay/overlay.tar.gz > /tmp/titan-zero-overlay/tree.txt
+
+      - name: Apply verified source overlay
+        shell: bash
+        run: |
+          set -euo pipefail
+          tar -xzf /tmp/titan-zero-overlay/overlay.tar.gz -C .
+          test -f artisan
+          test -f composer.json
+          test -f app/Domains/WorkCore/WorkCoreServiceProvider.php
+          test -f app/Extensions/Chatbot/extension.json
+          test -f packages/titanzero/interaction-engine/composer.json
+          test -f packages/titanzero/interaction-engine/src/Providers/InteractionServiceProvider.php
+          test -f TITAN_ZERO_CHATBOT_PWA_UPGRADE_PLAN.md
+          test -f BRANCH_PREPARATION.md
+          test -f AGENTS.md
+          bash -n scripts/titan-zero/verify-source.sh
+          rm -f .github/workflows/import-titan-zero-upgrade.yml
+
+      - name: Rewrite branch as a clean prepared source snapshot
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "Titan Zero Upgrade Agent"
+          git config user.email "actions@users.noreply.github.com"
+          git checkout --orphan prepared-titan-zero-upgrade
+          git rm -rf --cached . >/dev/null 2>&1 || true
+          git add -A
+          git commit -m "Prepare Titan Zero PWA upgrade source branch"
+          git push --force origin HEAD:refs/heads/agent/titan-zero-pwa-upgrade
