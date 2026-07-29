@@ -57,7 +57,6 @@ use App\Extensions\Chatbot\System\Policies\ChatbotKnowledgeBaseArticlePolicy;
 use App\Extensions\Chatbot\System\Policies\ChatbotPolicy;
 use App\Helpers\Classes\Helper;
 use App\Http\Middleware\CheckTemplateTypeAndPlan;
-use App\Support\TitanZero\TitanZeroFeatureFlags;
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Gate;
@@ -76,11 +75,8 @@ class ChatbotServiceProvider extends ServiceProvider implements ExtensionRegiste
         $this->registerTitanAIAutoloader();
         $this->registerConfig();
         TitanRegistry::init();
-        $flags = $this->featureFlags();
-        $this->registerTitanAIProviders($flags);
-        if ($flags->workCoreEnabled()) {
-            $this->app->register(WorkCoreAppsIntegrationServiceProvider::class);
-        }
+        $this->registerTitanAIProviders();
+        $this->app->register(WorkCoreAppsIntegrationServiceProvider::class);
     }
 
     private function registerTitanAIAutoloader(): void
@@ -120,32 +116,17 @@ class ChatbotServiceProvider extends ServiceProvider implements ExtensionRegiste
         }, true, true);
     }
 
-    private function registerTitanAIProviders(TitanZeroFeatureFlags $flags): void
+    private function registerTitanAIProviders(): void
     {
         $providers = [
+            \App\Domains\WorkCore\System\AI\Providers\WorkCoreAIServiceProvider::class,
+            \App\Services\AI\Integration\WorkCore\TitanAIWorkCoreRuntimeServiceProvider::class,
             \App\Extensions\TitanAIGovernance\System\TitanAIGovernanceServiceProvider::class,
             TitanAIRuntimeServiceProvider::class,
         ];
-
-        if ($flags->workCoreEnabled()) {
-            array_unshift(
-                $providers,
-                \App\Domains\WorkCore\System\AI\Providers\WorkCoreAIServiceProvider::class,
-                \App\Services\AI\Integration\WorkCore\TitanAIWorkCoreRuntimeServiceProvider::class,
-            );
-        }
         foreach ($providers as $provider) {
             if (class_exists($provider)) $this->app->register($provider);
         }
-    }
-
-    private function featureFlags(): TitanZeroFeatureFlags
-    {
-        if ($this->app->bound(TitanZeroFeatureFlags::class)) {
-            return $this->app->make(TitanZeroFeatureFlags::class);
-        }
-
-        return TitanZeroFeatureFlags::fromArray((array) config('titan-zero', []));
     }
 
     public function boot(Kernel $kernel): void
