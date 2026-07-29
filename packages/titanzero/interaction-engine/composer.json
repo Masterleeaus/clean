@@ -26,13 +26,6 @@
       "TitanZero\\Engines\\": "src/Engines/"
     }
   },
-  "extra": {
-    "laravel": {
-      "providers": [
-        "TitanZero\\Interaction\\Providers\\InteractionServiceProvider"
-      ]
-    }
-  },
   "scripts": {
     "test": "php tests/run.php",
     "verify": [
