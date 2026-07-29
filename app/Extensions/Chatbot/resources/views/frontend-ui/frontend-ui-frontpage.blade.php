@@ -8,7 +8,6 @@
 @vite('app/Extensions/Chatbot/resources/assets/scss/external-chatbot-tw.scss')
 <link rel="stylesheet" href="{{ asset('vendor/chatbot/css/titan-generative-ui.css') }}">
 <link rel="stylesheet" href="{{ asset('vendor/chatbot/css/titan-app-shell.css') }}">
-<link rel="stylesheet" href="{{ asset('vendor/chatbot/css/titan-train.css') }}">
 
 @php
     $style = '';
@@ -64,8 +63,6 @@
 <script src="{{ custom_theme_url('/assets/libs/turndown.js') }}"></script>
 <script src="{{ custom_theme_url('/assets/libs/picmo/picmo.min.js') }}"></script>
 <script defer src="{{ asset('vendor/chatbot/js/titan-generative-ui.js') }}"></script>
-<script defer src="{{ asset('chatbot-pwa/apps/titan-train.js') }}"></script>
-<script defer src="{{ asset('vendor/chatbot/js/titan-train-workspace.js') }}"></script>
 <script defer src="{{ asset('vendor/chatbot/js/titan-operational-screens.js') }}"></script>
 <script
     defer

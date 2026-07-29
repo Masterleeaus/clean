@@ -17,45 +17,17 @@ final class TemplateSchema
         if (! is_file($path)) {
             return self::generic($slug);
         }
-
-        return self::decode($path, $slug);
-    }
-
-    public static function all(): array
-    {
-        $templates = [];
-        $indexPath = self::directory() . DIRECTORY_SEPARATOR . 'index.json';
-
-        if (is_file($indexPath)) {
-            $decoded = json_decode((string) file_get_contents($indexPath), true);
-            if (is_array($decoded['templates'] ?? null)) {
-                foreach ($decoded['templates'] as $template) {
-                    $slug = $template['identity']['slug'] ?? null;
-                    if (is_string($slug) && $slug !== '') {
-                        $templates[$slug] = $template;
-                    }
-                }
-            }
-        }
-
-        foreach (glob(self::directory() . DIRECTORY_SEPARATOR . 'titan-*.json') ?: [] as $path) {
-            $slug = pathinfo($path, PATHINFO_FILENAME);
-            $templates[$slug] = self::decode($path, $slug);
-        }
-
-        ksort($templates);
-
-        return array_values($templates);
-    }
-
-    private static function decode(string $path, string $slug): array
-    {
         $decoded = json_decode((string) file_get_contents($path), true);
         if (! is_array($decoded)) {
             throw new RuntimeException('Invalid Titan template schema: ' . $slug);
         }
-
         return $decoded;
+    }
+
+    public static function all(): array
+    {
+        $decoded = json_decode((string) file_get_contents(self::directory() . DIRECTORY_SEPARATOR . 'index.json'), true);
+        return is_array($decoded['templates'] ?? null) ? $decoded['templates'] : [];
     }
 
     private static function directory(): string
@@ -72,10 +44,8 @@ final class TemplateSchema
             'home' => ['widgets' => [], 'quick_actions' => []],
             'chat' => ['persistent' => true, 'role' => 'Chatbot', 'suggested_prompts' => [], 'context_policy' => ['minimum_scope' => true]],
             'workcore' => ['domains' => [], 'commands' => [], 'read_models' => []],
-            'offline' => ['enabled' => true, 'records' => [], 'packs' => [], 'retention' => ['completed_days' => 0], 'conflict_rules' => ['server_authoritative' => true]],
-            'permissions' => [],
-            'privacy' => ['default_mode' => 'device-first'],
-            'notifications' => [],
+            'offline' => ['records' => [], 'packs' => [], 'retention' => ['completed_days' => 0], 'conflict_rules' => ['server_authoritative' => true]],
+            'permissions' => [], 'privacy' => ['default_mode' => 'device-first'], 'notifications' => [],
             'settings_sections' => ['privacy', 'device-security', 'offline-sync', 'appearance', 'diagnostics'],
             'preview_states' => ['mobile', 'desktop', 'offline'],
         ];
