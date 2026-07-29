@@ -27,13 +27,7 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
 
       - name: Repair stale npm lockfile reference
-        run: |
-          node tools/titan-zero-audit/pass1-lockfile-repair.mjs
-          if ! git diff --quiet -- package-lock.json; then
-            git add package-lock.json
-            git commit -m "fix: remove stale rt-client lockfile entry"
-            git push origin HEAD:${{ github.event.pull_request.head.ref || github.ref_name }}
-          fi
+        run: node tools/titan-zero-audit/pass1-lockfile-repair.mjs
 
       - name: Set up PHP 8.2
         uses: shivammathur/setup-php@v2
@@ -42,6 +36,17 @@ jobs:
           extensions: mbstring, dom, xml, xmlwriter, curl, zip, sqlite3
           coverage: none
           tools: composer:v2
+
+      - name: Refresh dependency lock metadata
+        run: composer update --lock --no-install --no-scripts --no-interaction --no-progress
+
+      - name: Commit deterministic lockfile repairs
+        run: |
+          if ! git diff --quiet -- package-lock.json composer.lock; then
+            git add package-lock.json composer.lock
+            git commit -m "fix: refresh Pass 1 dependency lock metadata"
+            git push origin HEAD:${{ github.event.pull_request.head.ref || github.ref_name }}
+          fi
 
       - name: Validate Composer metadata
         run: composer validate --strict
