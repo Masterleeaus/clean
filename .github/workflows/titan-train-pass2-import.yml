@@ -1,0 +1,185 @@
+name: Import Titan Train LMS Pass 2
+
+on:
+  push:
+    branches:
+      - agent/titan-train-lms-v2
+    paths:
+      - .github/workflows/titan-train-pass2-import.yml
+
+permissions:
+  contents: write
+
+jobs:
+  import-pass2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout repaired LMS branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/titan-train-lms-v2
+          fetch-depth: 0
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          coverage: none
+
+      - name: Restore Pass 1 records and donor pack
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin agent/titan-train-lms:refs/remotes/origin/agent/titan-train-lms
+          for path in \
+            TITAN_TRAIN_LMS_UPGRADE_PLAN.md \
+            TITAN_TRAIN_LMS_BRANCH.md \
+            PASS1_STATUS.md \
+            source-packs \
+            docs/architecture \
+            docs/merge; do
+            git checkout origin/agent/titan-train-lms -- "$path" || true
+          done
+
+      - name: Download and decrypt Pass 2 payload
+        shell: bash
+        env:
+          TITAN_TRAIN_PASS2_KEY: d4c9b064b356ff77ef4ff93ab89ec6ccdc5f2a0d24f152723a2a44a383ca0752
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/titan-train-pass2
+          curl -fL --retry 5 --retry-all-errors \
+            https://titan-train-pass2-transport.miniup.app/pass2-payload.zip.enc \
+            -o /tmp/titan-train-pass2/pass2-payload.zip.enc
+          echo "db7de068fff030c49c82796f43ecf5a15597c8b3e06448fb2ede9ecec156d702  /tmp/titan-train-pass2/pass2-payload.zip.enc" | sha256sum --check
+          printf '%s' "$TITAN_TRAIN_PASS2_KEY" > /tmp/titan-train-pass2/key.txt
+          openssl enc -d -aes-256-cbc -pbkdf2 -iter 200000 \
+            -in /tmp/titan-train-pass2/pass2-payload.zip.enc \
+            -out /tmp/titan-train-pass2/pass2-payload.zip \
+            -pass file:/tmp/titan-train-pass2/key.txt
+          echo "1d608d25bf39840fca61ea5ab58daa63b34b532736b6d844d4079f1e68cb439e  /tmp/titan-train-pass2/pass2-payload.zip" | sha256sum --check
+          unzip -q -o /tmp/titan-train-pass2/pass2-payload.zip -d .
+
+      - name: Register Titan Train and merge PWA registries
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 <<'PY'
+          from pathlib import Path
+          import json, re
+
+          config = Path('config/app.php')
+          text = config.read_text()
+          provider = '        App\\Domains\\TitanTrain\\Infrastructure\\Providers\\TitanTrainServiceProvider::class,\n'
+          anchor = '        App\\Domains\\WorkCore\\WorkCoreServiceProvider::class,\n'
+          if provider not in text:
+              if anchor not in text:
+                  raise SystemExit('WorkCore provider anchor not found in config/app.php')
+              text = text.replace(anchor, anchor + provider, 1)
+              config.write_text(text)
+
+          app_manifest = {
+              'id': 'titan-train',
+              'name': 'Titan Train',
+              'manifest': '/chatbot-pwa/apps/titan-train.json',
+              'bridge': '/chatbot-pwa/apps/titan-train.js',
+              'launch_url': '/train',
+              'online_only': True,
+          }
+          app_index = Path('public/chatbot-pwa/apps/index.json')
+          app_index.parent.mkdir(parents=True, exist_ok=True)
+          if app_index.exists():
+              try:
+                  data = json.loads(app_index.read_text())
+              except Exception:
+                  data = {'version': '1.0.0', 'apps': []}
+          else:
+              data = {'version': '1.0.0', 'apps': []}
+          if isinstance(data, list):
+              apps = data
+              wrapper = None
+          else:
+              apps = data.setdefault('apps', [])
+              wrapper = data
+          apps[:] = [entry for entry in apps if not (
+              (isinstance(entry, dict) and entry.get('id') == 'titan-train') or
+              (isinstance(entry, str) and 'titan-train' in entry)
+          )]
+          apps.append(app_manifest)
+          app_index.write_text(json.dumps(apps if wrapper is None else wrapper, indent=2) + '\n')
+
+          schema_file = Path('resources/titan-apps/TemplateSchemas/titan-train.json')
+          schema = json.loads(schema_file.read_text())
+          schema_index = Path('resources/titan-apps/TemplateSchemas/index.json')
+          schema_index.parent.mkdir(parents=True, exist_ok=True)
+          if schema_index.exists():
+              try:
+                  registry = json.loads(schema_index.read_text())
+              except Exception:
+                  registry = {'schema_version': '1.0.0', 'templates': []}
+          else:
+              registry = {'schema_version': '1.0.0', 'templates': []}
+          templates = registry.setdefault('templates', []) if isinstance(registry, dict) else registry
+          templates[:] = [entry for entry in templates if not (
+              isinstance(entry, dict) and entry.get('identity', {}).get('slug') == 'titan-train'
+          )]
+          templates.append(schema)
+          schema_index.write_text(json.dumps(registry, indent=2) + '\n')
+
+          guide = Path('TITAN_TRAIN_LMS_BRANCH.md')
+          if guide.exists():
+              g = guide.read_text()
+              g = re.sub(
+                  r'## Current phase\n\n.*?(?=\n## Source rules)',
+                  '## Current phase\n\n**Pass 2 — online Titan Train core completed**\n\nThe permanent domain, `tt_*` schema, governed WorkCore actions, authenticated API and online Chatbot PWA bridge are now present. Pass 3 will complete the native learner workspace and channel integration.',
+                  g,
+                  flags=re.S,
+              )
+              guide.write_text(g)
+          PY
+
+      - name: Verify Pass 2 source
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f app/Domains/TitanTrain/Infrastructure/Providers/TitanTrainServiceProvider.php
+          test -f app/Domains/TitanTrain/Infrastructure/Migrations/2026_07_29_200000_create_titan_train_online_tables.php
+          test -f public/chatbot-pwa/apps/titan-train.js
+          test -f resources/titan-apps/TemplateSchemas/titan-train.json
+          grep -q 'TitanTrainServiceProvider::class' config/app.php
+          test "$(grep -R "Schema::create('tt_" -h app/Domains/TitanTrain/Infrastructure/Migrations/*.php | wc -l | tr -d ' ')" = "13"
+          find app/Domains/TitanTrain tests/Feature/TitanTrain tests/Unit/TitanTrain -type f -name '*.php' -print0 | xargs -0 -n1 php -l > /tmp/titan-train-pass2-php-lint.txt
+          php -r 'require "app/Domains/TitanTrain/Domain/Blueprints/CleanerFoundationBlueprint.php"; $b = new App\\Domains\\TitanTrain\\Domain\\Blueprints\\CleanerFoundationBlueprint(); $lessons = array_sum(array_map(fn($m) => count($m["lessons"]), $b->modules())); if (count($b->modules()) !== 9 || $lessons !== 26 || count($b->assessments()) !== 2 || count($b->competencies()) !== 5) { exit(1); } echo "9 modules, 26 lessons, 2 assessments, 5 competencies\n";'
+          if grep -R -E 'IndexedDB|SQLCipher|sync_cursor|sync_conflict|offline_operation' app/Domains/TitanTrain public/chatbot-pwa/apps/titan-train.*; then
+            echo 'Unexpected offline subsystem reference found.' >&2
+            exit 1
+          fi
+          {
+            echo '# Titan Train Pass 2 Runner Verification'
+            echo
+            echo '- PHP version:' "$(php -r 'echo PHP_VERSION;')"
+            echo '- Titan Train PHP files linted:' "$(grep -c 'No syntax errors detected' /tmp/titan-train-pass2-php-lint.txt)"
+            echo '- tt_* tables:' 13
+            echo '- Cleaner Foundation:' '9 modules / 26 lessons / 2 assessments / 5 competencies'
+            echo '- Provider registration: present'
+            echo '- PWA manifest and template schema: present'
+            echo '- Offline subsystem: excluded'
+            echo '- Laravel runtime boot: not executed because vendor dependencies are not committed'
+            echo
+            echo '## Host chatbot paths detected'
+            find app public resources -maxdepth 5 -type f \( -iname '*chatbot*' -o -iname '*template*schema*' -o -name 'extension.json' \) 2>/dev/null | sort | head -300
+          } > docs/titan-train/PASS2-RUN-VERIFICATION.md
+          sha256sum source-packs/Titan-Train-LMS-Donor-Core-Pack-v1.1.0.zip | grep -q '^77bb614bccd90f8049efb3ef2f9285dd835e67fafd1505b48f8082aac69153d6 '
+
+      - name: Commit repaired branch and Pass 2
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'Titan Train Integration Agent'
+          git config user.email 'actions@users.noreply.github.com'
+          rm -f .github/workflows/titan-train-pass2-import.yml
+          git add -A
+          git commit -m 'feat: integrate Titan Train LMS online core'
+          git push origin HEAD:agent/titan-train-lms-v2
