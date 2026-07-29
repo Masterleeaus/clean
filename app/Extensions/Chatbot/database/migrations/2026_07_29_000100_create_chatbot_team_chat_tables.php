@@ -1,3 +1,52 @@
 <?php
-use Illuminate\Database\Migrations\Migration; use Illuminate\Database\Schema\Blueprint; use Illuminate\Support\Facades\Schema;
-return new class extends Migration { public function up():void{Schema::create('ext_chatbot_team_conversations',function(Blueprint $t){$t->id();$t->uuid('uuid')->unique();$t->unsignedBigInteger('tenant_id')->index();$t->string('name')->nullable();$t->string('type',20);$t->string('avatar',2048)->nullable();$t->text('description')->nullable();$t->unsignedBigInteger('owner_id');$t->string('visibility',20)->default('private');$t->boolean('is_archived')->default(false);$t->unsignedInteger('version')->default(1);$t->unsignedBigInteger('sync_sequence')->default(0);$t->string('originating_device_id')->nullable();$t->unsignedBigInteger('created_by')->nullable();$t->unsignedBigInteger('updated_by')->nullable();$t->timestamps();$t->softDeletes();});Schema::create('ext_chatbot_team_conversation_participants',function(Blueprint $t){$t->id();$t->foreignId('conversation_id')->constrained('ext_chatbot_team_conversations')->cascadeOnDelete();$t->unsignedBigInteger('tenant_id')->index();$t->unsignedBigInteger('user_id')->index();$t->string('role',20)->default('member');$t->timestamp('joined_at')->nullable();$t->timestamp('left_at')->nullable();$t->timestamp('archived_at')->nullable();$t->unsignedBigInteger('last_read_message_id')->nullable();$t->timestamps();$t->softDeletes();$t->unique(['conversation_id','user_id']);});Schema::create('ext_chatbot_team_messages',function(Blueprint $t){$t->id();$t->uuid('uuid');$t->foreignId('conversation_id')->constrained('ext_chatbot_team_conversations')->cascadeOnDelete();$t->unsignedBigInteger('tenant_id')->index();$t->unsignedBigInteger('user_id')->index();$t->longText('body');$t->string('message_type',30)->default('text');$t->json('metadata')->nullable();$t->unsignedInteger('version')->default(1);$t->unsignedBigInteger('sync_sequence')->default(0);$t->string('originating_device_id')->nullable();$t->unsignedBigInteger('created_by')->nullable();$t->unsignedBigInteger('updated_by')->nullable();$t->timestamps();$t->softDeletes();$t->unique(['tenant_id','uuid']);});Schema::create('ext_chatbot_team_message_reads',function(Blueprint $t){$t->id();$t->foreignId('message_id')->constrained('ext_chatbot_team_messages')->cascadeOnDelete();$t->unsignedBigInteger('tenant_id')->index();$t->unsignedBigInteger('user_id')->index();$t->timestamp('read_at');$t->unique(['message_id','user_id']);});} public function down():void{Schema::dropIfExists('ext_chatbot_team_message_reads');Schema::dropIfExists('ext_chatbot_team_messages');Schema::dropIfExists('ext_chatbot_team_conversation_participants');Schema::dropIfExists('ext_chatbot_team_conversations');} };
+
+declare(strict_types=1);
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        if (
+            Schema::hasTable('ext_chatbot_team_conversation_participants')
+            && ! Schema::hasColumn('ext_chatbot_team_conversation_participants', 'last_read_message_id')
+        ) {
+            Schema::table('ext_chatbot_team_conversation_participants', function (Blueprint $table): void {
+                $table->unsignedBigInteger('last_read_message_id')->nullable()->after('last_read_at');
+            });
+        }
+
+        if (
+            Schema::hasTable('ext_chatbot_team_messages')
+            && ! Schema::hasColumn('ext_chatbot_team_messages', 'metadata')
+        ) {
+            Schema::table('ext_chatbot_team_messages', function (Blueprint $table): void {
+                $table->json('metadata')->nullable()->after('message_type');
+            });
+        }
+    }
+
+    public function down(): void
+    {
+        if (
+            Schema::hasTable('ext_chatbot_team_messages')
+            && Schema::hasColumn('ext_chatbot_team_messages', 'metadata')
+        ) {
+            Schema::table('ext_chatbot_team_messages', function (Blueprint $table): void {
+                $table->dropColumn('metadata');
+            });
+        }
+
+        if (
+            Schema::hasTable('ext_chatbot_team_conversation_participants')
+            && Schema::hasColumn('ext_chatbot_team_conversation_participants', 'last_read_message_id')
+        ) {
+            Schema::table('ext_chatbot_team_conversation_participants', function (Blueprint $table): void {
+                $table->dropColumn('last_read_message_id');
+            });
+        }
+    }
+};
