@@ -1,196 +1,233 @@
 # Titan Zero Current Upgrade Plan
 
 > [!NOTE]
-> **Current coordination baseline:** repository `main` at `e565d7594e062c6705be9747bee0bd6081beb137`. All agents preserve their old branches as evidence, but port only unique, verified deltas onto a fresh integration branch created from current `main`. Old branches are not merged wholesale.
-
+> **Current coordination baseline:** `integration/current-main-reconciliation`, created from repository `main` at `e565d7594e062c6705be9747bee0bd6081beb137`. Agents preserve old branches as evidence, but port only unique, verified deltas onto fresh `reconcile/<scope>` branches. Old branches are not merged wholesale.
 
 ## Purpose
 
-This plan converts the recovered cumulative source tree into a secure, testable and maintainable Titan Zero application without replacing the existing MagicAI host, WorkCore domain or Titan Zero Chatbot extension.
+Convert the cumulative MagicAI, WorkCore, Chatbot/PWA, Interaction/Wizard, five-tier intelligence and extension source into one secure, bootable, testable, tenant-safe and device-first Titan Zero application.
 
 The governing rule is simple: preserve real functionality, establish one authority for each responsibility, and remove duplicate or unreachable implementations only after references and runtime wiring have been verified.
 
-## Target authority model
+## Canonical authority
 
-- **MagicAI host:** authentication, users, companies, subscriptions, provider configuration and application shell.
-- **WorkCore:** authoritative operational business records, commands, policies, events, audit trails and sync contracts.
-- **Titan AI:** reasoning, orchestration, confidence, governance and model selection.
-- **Titan Zero Chatbot:** presentation, PWA/device runtime, local storage, offline interaction and generative UI.
-- **Interaction Engine:** governed execution pipeline between actors, AI, WorkCore and device runtimes.
+- **MagicAI host:** authentication, users, companies, memberships, subscriptions, platform billing, provider configuration and application shell.
+- **WorkCore:** operational records, business permissions, governed actions, transactions, domain events, operational audit and synchronisation contracts.
+- **Titan Zero intelligence:** intent, planning, orchestration, delegation, confidence and model/tool selection.
+- **Interaction Engine:** interaction and wizard state, clarification, evidence, abstention, approval preparation and governed command preparation.
+- **Chatbot/PWA:** conversations, channels, presentation, generative UI, device storage, drafts, offline state, outbox and sync experience.
+- **Titan Money/payment surfaces:** operational finance and payment lifecycle under WorkCore governance, separate from MagicAI platform billing.
+
+See `docs/architecture/TITAN_ZERO_AUTHORITY_MAP.md` and `docs/architecture/TENANCY_TRUST_AND_ACTION_EXECUTION.md`.
+
+## Verified current-state findings
+
+1. The host is Laravel 10 and PHP 8.2.
+2. `App\Providers\TitanZeroServiceProvider` stages WorkCore and Chatbot providers through feature flags.
+3. WorkCore is enabled by default; Chatbot and Interaction Engine flags default to disabled.
+4. WorkCore provides scoped tenant/operation contexts and a governed `BusinessActionDispatcher` with entitlement, permission, confirmation, idempotency, audit and domain-event controls.
+5. The Interaction Engine package source exists under `packages/titanzero/interaction-engine` and contains a provider and tests.
+6. The root `composer.json` currently does not register or require that package.
+7. `interaction_engine_enabled` is stored by `TitanZeroFeatureFlags`, but `coreProviderClassNames()` does not currently register the Interaction Engine provider.
+8. The repository contains parallel/embedded Chatbot and WorkCore runtime copies that require classification before deletion or activation.
+
+The Interaction Engine is therefore **source-present but not yet proven active in the host**.
 
 ## Delivery phases
 
-### Phase 0 — Repository safety and recovery controls
+### Phase 0 — Repository safety and coordination
 
-Status: active reconciliation and stabilisation.
+**Status:** Active reconciliation and stabilisation.
 
-1. Create one integration base from the latest verified `main`, then use isolated child branches.
-2. Keep the repository private because it contains licensed source.
-3. Remove tracked runtime secrets and destructive import/sanitiser workflows.
-4. Rotate any keys exposed in historical commits.
-5. Add repeatable CI checks for Composer, PHP syntax, Laravel boot, routes, tests and frontend builds.
-6. Record each repair pass in focused commits and pull requests; never force-push or bulk-merge an obsolete branch into `main`.
+1. Use `integration/current-main-reconciliation` as the shared base.
+2. Create isolated `reconcile/<scope>` branches.
+3. Freeze old agent branches and port only verified unique deltas.
+4. Keep the repository private because it contains licensed source.
+5. Remove tracked runtime secrets and destructive import/sanitiser workflows.
+6. Rotate keys exposed in historical commits.
+7. Record every repair pass in focused commits and draft PRs.
 
-Exit criteria:
+**Exit criteria**
 
-- No live `.env`, private key or embedded transport key is tracked in the branch tree.
+- No live `.env`, private key or embedded transport key is tracked.
 - No workflow can rewrite `main` or create orphan history.
+- Every active agent branch starts from the coordination base.
 - Basic repository validation runs automatically.
 
-### Phase 1 — Boot and dependency baseline
+### Phase 1 — Boot, dependencies and provider graph
 
-1. Validate `composer.json`, path repositories and lockfiles.
-2. Confirm all local packages referenced by Composer exist.
-3. Run PSR-4/autoload validation and PHP syntax checks.
-4. Boot Laravel with a generated test environment.
-5. verify configuration caching, route discovery and service-provider registration.
-6. Catalogue missing classes, interfaces and package dependencies.
+1. Validate `composer.json`, local path repositories and lockfiles.
+2. Confirm every referenced local package exists.
+3. Register `packages/titanzero/interaction-engine` deliberately or record a different canonical destination.
+4. Wire `interaction_engine_enabled` to exactly one loadable provider.
+5. Run PSR-4/autoload and PHP syntax validation.
+6. Boot Laravel under staged combinations: host only, WorkCore only, Chatbot only, Interaction Engine only and approved combinations.
+7. Verify config caching, package discovery, provider counts and route registration.
+8. Catalogue missing classes, duplicate symbols and dependency conflicts.
 
-Exit criteria:
+**Exit criteria**
 
 - `composer install` succeeds from a clean checkout.
 - Laravel boots without container-resolution failures.
-- No duplicate class or PSR-4 errors remain.
+- WorkCore, Chatbot and Interaction Engine activate independently through explicit flags.
+- No provider, route or class is registered twice.
 
 ### Phase 2 — Canonical WorkCore boundary
 
 1. Treat `app/Domains/WorkCore` as the canonical server-side WorkCore implementation.
-2. Inventory the PHP WorkCore copy embedded under the chatbot runtime.
-3. Compare duplicate files and preserve any unique capabilities.
-4. Move unique server functionality into the canonical domain.
-5. Retain only device-side contracts and TypeScript/JavaScript runtime code in the chatbot extension.
-6. Add architecture tests preventing a second Laravel WorkCore domain from being introduced.
+2. Inventory PHP WorkCore copies embedded under Chatbot runtimes.
+3. Compare duplicate files and preserve unique capabilities.
+4. Move valid server functionality into canonical WorkCore.
+5. Retain only device contracts and client runtime code in the Chatbot extension.
+6. Add architecture tests preventing a second active Laravel WorkCore domain.
+7. Scan AI, PWA, integration and extension code for direct operational model writes.
 
-Exit criteria:
+**Exit criteria**
 
-- One server-side WorkCore domain exists.
-- Chatbot code consumes WorkCore contracts/APIs rather than carrying a second PHP backend.
+- One active server-side WorkCore domain exists.
+- All operational mutations use registered WorkCore actions.
+- Chatbot/PWA code consumes WorkCore contracts/APIs rather than carrying a second backend.
 
-### Phase 3 — Tenant and identity consolidation
+### Phase 3 — Identity, tenant and trust consolidation
 
-1. Select one tenant-context contract.
-2. Separate request-scoped context from serialisable queue snapshots.
-3. Standardise company/user/device identifiers and column types.
-4. Consolidate tenant resolvers and company-scoping traits.
-5. Verify queue restoration, scheduled jobs, AI tool calls and offline sync all restore the same tenant context.
-6. Add cross-tenant isolation tests.
+1. Keep host user/company/membership lifecycle authoritative.
+2. Select one normalised WorkCore tenant-context contract.
+3. Separate request-scoped context from serialisable queue/offline snapshots.
+4. Standardise company, actor, device, channel, correlation and causation identifiers.
+5. Consolidate tenant resolvers and company-scoping traits.
+6. Verify route binding, queues, schedules, AI tools and offline sync restore the same context.
+7. Establish one device/channel trust-state model.
+8. Add cross-company isolation and privilege-escalation tests.
 
-Exit criteria:
+**Exit criteria**
 
-- One canonical tenant context and one host adapter are used everywhere.
-- Cross-company access tests fail closed.
+- One host identity source and one WorkCore operational context are used everywhere.
+- Cross-company access fails closed across web, API, queue, AI and sync paths.
 
 ### Phase 4 — Provider, adapter and module wiring
 
 1. Audit every service-container binding.
-2. Replace production null adapters with explicit MagicAI adapters.
+2. Replace production null adapters with explicit MagicAI adapters where required.
 3. Verify menu, notification, storage, payment, messaging, calendar and geocoding contracts.
-4. Classify every WorkCore module as enabled, optional, dormant or legacy.
-5. Disable unused verticals by manifest/config rather than deleting code prematurely.
+4. Classify each WorkCore module as enabled, optional, dormant, compatibility-only or obsolete.
+5. Disable unused verticals by manifest/config rather than premature deletion.
 6. Ensure retained modules register providers, migrations, routes, permissions and UI entries exactly once.
 
-Exit criteria:
+**Exit criteria**
 
-- No required interface resolves to a null implementation in integrated production mode.
-- Every enabled module is reachable and authorised.
+- No required production interface resolves to an unintended null implementation.
+- Every enabled module is reachable, entitled and authorised.
 
 ### Phase 5 — Route and API consolidation
 
 1. Generate and analyse the complete route table.
 2. Remove duplicate names and method/URI collisions.
-3. Standardise `/api/v1/workcore` prefixes.
-4. Apply consistent authentication, tenant, capability and API-exception middleware.
-5. Keep controllers thin and move business decisions into WorkCore application actions.
-6. Version device sync and AI tool endpoints explicitly.
+3. Standardise WorkCore operational API prefixes and response envelopes.
+4. Apply consistent authentication, tenant, capability and exception middleware.
+5. Keep controllers thin and move decisions into application actions.
+6. Version device sync and AI tool endpoints.
+7. Require signed, replay-protected external callbacks.
 
-Exit criteria:
+**Exit criteria**
 
-- No duplicate route names or method/URI pairs.
-- All operational APIs enforce authentication and tenant context.
+- No duplicate route names or method/URI pairs exist.
+- All operational APIs enforce identity, tenant and capability context.
 
 ### Phase 6 — Database and migration repair
 
-1. Build a complete table and migration ownership map.
+1. Build a table, model and migration ownership map.
 2. Detect duplicate table creation and altered historical migrations.
-3. Validate foreign-key types and indexes.
-4. Reconcile MagicAI users/companies with WorkCore membership tables.
-5. Mark Rewind/legacy models as canonical, compatibility-only or obsolete.
-6. Test fresh install and upgrade from the latest supported deployed schema.
+3. Validate foreign-key types, indexes, tenant keys and UUID strategy.
+4. Reconcile host users/companies with WorkCore membership/context tables.
+5. Mark Rewind and legacy models as canonical, compatibility-only or obsolete.
+6. Test fresh install and upgrade from the latest supported schema.
 
-Exit criteria:
+**Exit criteria**
 
-- Fresh migration and upgrade migration both succeed.
-- No table has competing model or migration ownership without an explicit compatibility layer.
+- Fresh and upgrade migrations succeed.
+- No table has competing ownership without an explicit compatibility layer.
 
-### Phase 7 — AI and Interaction Engine authority
+### Phase 7 — Interaction Engine and five-tier intelligence
 
-1. Separate Titan AI orchestration from WorkCore business authority.
-2. Consolidate agent, tool, memory, usage and governance registries.
-3. Make WorkCore actions the only authoritative mutation path.
-4. Route chatbot, offline and hosted AI execution through the Interaction Engine.
-5. Enforce confidence, confirmation, idempotency, authorisation and audit policies.
-6. Add contract tests for local/offline and cloud execution parity.
+1. Select one canonical Interaction Engine runtime and remove active parallel registration.
+2. Separate Titan Zero orchestration from WorkCore business authority.
+3. Consolidate agent, tool, memory, usage and governance registries.
+4. Route Chatbot, offline and hosted AI execution through Interaction Engine clarification/approval and WorkCore actions.
+5. Keep confidence separate from permission, entitlement and confirmation.
+6. Enforce idempotency, authorisation, audit and domain events.
+7. Add local/offline and cloud execution parity tests.
 
-Exit criteria:
+**Exit criteria**
 
-- One tool/action catalogue is authoritative.
+- Exactly one Interaction Engine provider and one tool/action catalogue are active.
 - AI cannot bypass WorkCore policy, confirmation or audit controls.
 
-### Phase 8 — PWA and offline runtime alignment
+### Phase 8 — PWA and offline alignment
 
-1. Confirm IndexedDB schemas match canonical WorkCore DTOs.
-2. Standardise UUID, tenant, user and device fields.
-3. Validate vault encryption, outbox retries, conflict handling and background sync.
-4. Prevent secrets and sensitive responses from entering service-worker caches.
-5. Add schema/version migration handling for local databases.
-6. Test offline create/update/delete and later reconciliation.
+1. Match IndexedDB schemas to canonical WorkCore DTOs and versions.
+2. Standardise UUID, company, actor and device fields.
+3. Validate vault encryption, outbox retry, conflict handling and background sync.
+4. Prevent secrets and sensitive responses entering service-worker caches.
+5. Add local schema migrations and safe recovery.
+6. Test offline create/update/delete and later reconciliation through WorkCore.
 
-Exit criteria:
+**Exit criteria**
 
-- Offline operations reconcile without loss, duplication or cross-tenant leakage.
+- Offline operations reconcile without loss, duplication, false success or cross-tenant leakage.
 
-### Phase 9 — UI, menu and product-surface wiring
+### Phase 9 — UI, menus and product surfaces
 
-1. Wire WorkCore modules into the MagicAI application shell.
-2. Keep the persistent chatbot input as the primary assistant surface.
-3. Use the menu for operational domains rather than duplicate assistant links.
-4. Add settings through the header gear and secondary navigation where appropriate.
-5. Verify role-specific dashboards and mobile/tablet/desktop layouts.
+1. Wire qualified WorkCore modules into the MagicAI shell.
+2. Keep the persistent Chatbot input as the primary assistant surface.
+3. Use menus for operational domains rather than duplicate assistant links.
+4. Place settings behind the header gear and appropriate secondary navigation.
+5. Verify role-specific mobile, tablet and desktop layouts.
 6. Remove dead links and unreachable screens.
 
-Exit criteria:
+**Exit criteria**
 
-- Every enabled feature has a reachable authorised UI path.
+- Every enabled feature has a reachable, authorised UI path.
 - No placeholder menu or disconnected dashboard remains.
 
 ### Phase 10 — Security, quality and release hardening
 
 1. Add secret scanning, dependency auditing and static analysis.
-2. Test file uploads, SSRF, path traversal, XSS, CSRF, SQL injection and mass assignment controls.
+2. Test uploads, SSRF, path traversal, XSS, CSRF, SQL injection and mass-assignment controls.
 3. Review queue, scheduler, webhook and provider failure behaviour.
 4. Add observability for actions, sync, AI runs and tenant violations.
 5. Produce deployment, rollback and disaster-recovery documentation.
 6. Generate a verified release archive and checksums.
 
-Exit criteria:
+**Exit criteria**
 
 - CI is green.
-- Security review has no unresolved critical/high findings.
-- Release can be installed from a clean environment and rolled back safely.
+- No unresolved critical/high security finding remains.
+- The release installs from a clean environment and can be rolled back safely.
 
 ## Working method
 
-Each pass should:
+Each pass must:
 
-1. State its scope.
-2. Identify confirmed defects separately from probable defects and architecture risks.
-3. Modify the smallest coherent set of files.
-4. Add or update tests for changed behaviour.
-5. Run relevant validation.
-6. Record remaining risks and the next pass.
+1. state its scope;
+2. separate confirmed defects, probable defects and architecture risks;
+3. modify the smallest coherent file set;
+4. add or update tests for changed behaviour;
+5. run relevant validation;
+6. state tests not run;
+7. record rejected source and remaining risks;
+8. update the documentation and next-pass handoff.
 
-## Current branch
+## Branch and PR rule
 
-Initial stabilisation work begins on:
+```text
+main
+└── integration/current-main-reconciliation
+    ├── reconcile/documentation
+    ├── reconcile/repository-safety
+    ├── reconcile/workcore
+    ├── reconcile/interaction-engine
+    ├── reconcile/offline-pwa
+    └── reconcile/<other-independent-scope>
+```
 
-`agent/repository-stabilisation-pass1`
+Reconciliation PRs target `integration/current-main-reconciliation`. Only the integration coordinator merges them. The coordination branch returns to `main` only after connected release gates pass.
