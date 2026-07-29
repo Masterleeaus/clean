@@ -96,6 +96,17 @@ class HostBootContractTest(unittest.TestCase):
         self.assertIn("DB::connection()->getDriverName() !== 'sqlite'", migration)
         self.assertIn("$table->fullText('content', 'ai_kchunk_content_ft')", migration)
 
+    def test_controller_constructors_do_not_abort_route_inspection(self) -> None:
+        controller = (ROOT / 'app/Http/Controllers/Team/TeamController.php').read_text()
+        constructor = re.search(
+            r'public function __construct\([^)]*\)\s*\{(?P<body>.*?)\n\s*\}',
+            controller,
+            flags=re.DOTALL,
+        )
+        self.assertIsNotNone(constructor)
+        self.assertNotIn('abort_if(', constructor.group('body'))
+        self.assertIn('$this->middleware(', constructor.group('body'))
+
 
 if __name__ == '__main__':
     unittest.main()
