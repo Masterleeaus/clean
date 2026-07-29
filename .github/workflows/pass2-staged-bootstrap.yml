@@ -45,8 +45,8 @@ jobs:
       - name: Install PHP dependencies without application scripts
         run: composer install --no-interaction --prefer-dist --no-progress --no-scripts
 
-      - name: Run feature-flag contract test
-        run: vendor/bin/phpunit tests/Feature/Bootstrap/TitanZeroFeatureFlagTest.php
+      - name: Run provider contract tests
+        run: vendor/bin/phpunit tests/Feature/Bootstrap/TitanZeroFeatureFlagTest.php tests/Feature/Extensions/ExtensionProviderDiscoveryTest.php
 
       - name: Boot with all Titan Zero cores disabled
         env:
@@ -70,4 +70,20 @@ jobs:
         env:
           TITAN_ZERO_WORKCORE_ENABLED: 'true'
           TITAN_ZERO_CHATBOT_ENABLED: 'true'
+        run: php tools/titan-zero-audit/boot-probe.php
+
+      - name: Boot safely with an invalid enabled extension
+        env:
+          TITAN_ZERO_WORKCORE_ENABLED: 'false'
+          TITAN_ZERO_CHATBOT_ENABLED: 'false'
+          TITAN_ZERO_EXTENSION_DISCOVERY_ENABLED: 'true'
+          TITAN_ZERO_ENABLED_EXTENSIONS: not-real
+        run: php tools/titan-zero-audit/boot-probe.php
+
+      - name: Boot one validated enabled extension
+        env:
+          TITAN_ZERO_WORKCORE_ENABLED: 'false'
+          TITAN_ZERO_CHATBOT_ENABLED: 'false'
+          TITAN_ZERO_EXTENSION_DISCOVERY_ENABLED: 'true'
+          TITAN_ZERO_ENABLED_EXTENSIONS: focus-mode
         run: php tools/titan-zero-audit/boot-probe.php
