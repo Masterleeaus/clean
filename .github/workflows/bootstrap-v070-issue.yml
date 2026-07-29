@@ -1,4 +1,4 @@
-name: Bootstrap verified Titan Zero sources
+name: Bootstrap Titan Zero v0.7.0 from verified source
 
 on:
   issues:
@@ -9,11 +9,11 @@ permissions:
   issues: write
 
 concurrency:
-  group: titan-zero-source-issue-bootstrap
+  group: titan-zero-v070-issue-bootstrap
   cancel-in-progress: false
 
 jobs:
-  import-v070-source:
+  import-source:
     if: github.event.issue.title == 'BOOTSTRAP TITAN ZERO V070 SOURCE'
     runs-on: ubuntu-latest
     timeout-minutes: 20
@@ -108,77 +108,3 @@ jobs:
             git push origin "HEAD:$TARGET_BRANCH"
           fi
           gh issue close "${{ github.event.issue.number }}" --comment 'Verified v0.7.0 source import completed on `agent/v070-upgrade-base`.'
-
-  import-titan-money-pay-v050:
-    if: github.event.issue.title == 'BOOTSTRAP TITAN MONEY PAY V050 SOURCE'
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-
-    env:
-      TARGET_BRANCH: agent/titan-money-pay-chat-upgrade
-      ARCHIVE_URL: https://titan-v050-binary-transport.miniup.app/TitanZero-Meetup-TitanMoney-TitanPay-v0.5.0-FULL.zip
-      ARCHIVE_FILE: TitanZero-Meetup-TitanMoney-TitanPay-v0.5.0-FULL.zip
-      ARCHIVE_SHA256: 7758320397db5d3e180fbc7b27e831a9a8590769dd6a11de45357d6eb73ec858
-      EXPECTED_FILE_COUNT: '404'
-      ARCHIVE_WRAPPER: meetup-titan-money-titan-pay
-      DESTINATION: source-packs/titan-money-titan-pay-v0.5.0
-
-    steps:
-      - name: Check out prepared branch
-        uses: actions/checkout@v4
-        with:
-          repository: ${{ github.repository }}
-          ref: ${{ env.TARGET_BRANCH }}
-          fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Download and verify source
-        shell: bash
-        run: |
-          set -euo pipefail
-          curl --fail --location --retry 5 --retry-delay 3 --retry-all-errors \
-            "$ARCHIVE_URL" --output "/tmp/$ARCHIVE_FILE"
-          printf '%s  %s\n' "$ARCHIVE_SHA256" "/tmp/$ARCHIVE_FILE" | sha256sum --check --strict
-          unzip -t "/tmp/$ARCHIVE_FILE"
-          actual_count="$(zipinfo -1 "/tmp/$ARCHIVE_FILE" | awk 'substr($0, length($0), 1) != "/"' | wc -l | tr -d ' ')"
-          test "$actual_count" = "$EXPECTED_FILE_COUNT"
-
-      - name: Extract into isolated source pack
-        shell: bash
-        run: |
-          set -euo pipefail
-          extract_dir=/tmp/titan-money-pay-v050-source
-          rm -rf "$extract_dir" "$DESTINATION"
-          mkdir -p "$extract_dir" "$DESTINATION"
-          unzip -q "/tmp/$ARCHIVE_FILE" -d "$extract_dir"
-          source_root="$extract_dir/$ARCHIVE_WRAPPER"
-          test -f "$source_root/artisan"
-          test -f "$source_root/composer.json"
-          test -f "$source_root/app/Domains/TitanMoney/Providers/TitanMoneyServiceProvider.php"
-          test -f "$source_root/app/Domains/TitanPay/Providers/TitanPayServiceProvider.php"
-          ! find "$source_root" -type d \( -name vendor -o -name node_modules \) -print -quit | grep -q .
-          ! find "$source_root" -type f \( -name '.env' -o -name '*.pem' -o -name '*.p12' -o -name '*.pfx' \) -print -quit | grep -q .
-          cp -a "$source_root"/. "$DESTINATION"/
-          rm -f "$DESTINATION/.import-trigger" "$DESTINATION/.import-method"
-          cat > "$DESTINATION/STAGED_SOURCE_NOTICE.md" <<'NOTICE'
-          # Staged source notice
-
-          This directory contains the verified extracted Titan Money + Titan Pay v0.5.0 donor application. It is deliberately outside the Laravel runtime and must be integrated only through the root upgrade plan's ownership, collision, tenancy, dependency and security gates.
-          NOTICE
-          staged_count="$(find "$DESTINATION" -type f ! -name STAGED_SOURCE_NOTICE.md | wc -l | tr -d ' ')"
-          test "$staged_count" = "$EXPECTED_FILE_COUNT"
-
-      - name: Commit source and close trigger issue
-        shell: bash
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          set -euo pipefail
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A "$DESTINATION"
-          if ! git diff --cached --quiet; then
-            git commit -m 'chore: stage verified Titan Money and Titan Pay v0.5.0 source'
-            git push origin "HEAD:$TARGET_BRANCH"
-          fi
-          gh issue close "${{ github.event.issue.number }}" --comment 'Verified Titan Money + Titan Pay v0.5.0 source import completed on `agent/titan-money-pay-chat-upgrade`.'
