@@ -1,6 +1,7 @@
 name: Bootstrap MagicAI and AI Site Builder on isolated branch
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - agent/ai-site-builder-bridge
@@ -19,7 +20,7 @@ concurrency:
 
 jobs:
   import-sources:
-    if: github.event_name == 'push' || github.event.issue.title == 'BOOTSTRAP AI SITE BUILDER BRIDGE'
+    if: github.event_name == 'workflow_dispatch' || github.event_name == 'push' || github.event.issue.title == 'BOOTSTRAP AI SITE BUILDER BRIDGE'
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
@@ -118,6 +119,7 @@ jobs:
             --exclude='.env' \
             --exclude='vendor/' \
             --exclude='node_modules/' \
+            --exclude='integrations/' \
             /tmp/magicai-v1100-source/ ./
           rm -rf external/ai-site-builder
           mkdir -p external/ai-site-builder docs/integrations
@@ -134,12 +136,19 @@ jobs:
           - Sanitised source files: \`$builder_count\`
           - Removed: \`.env\`, private-key formats, \`.git/\`, \`vendor/\`, \`node_modules/\`, and stale \`dist/\`
           - Install target: \`external/ai-site-builder/\`
-
-          The builder remains separately deployable. MagicAI integration is applied in later commits on this same branch.
           EOF
-          rm -f .github/workflows/bootstrap-magicai-v1100-mega.yml
 
-      - name: Commit branch-only source import
+      - name: Apply the two-sided bridge
+        shell: bash
+        run: |
+          set -euo pipefail
+          bash integrations/ai-site-builder/apply.sh "$GITHUB_WORKSPACE"
+          test -f app/Extensions/AiSiteBuilderBridge/extension.json
+          test -f external/ai-site-builder/supabase/functions/titan-bridge/index.ts
+          test -f external/ai-site-builder/supabase/migrations/20260730010000_add_titan_zero_bridge.sql
+          ! find external/ai-site-builder -type f \( -name '.env' -o -name '*.pem' -o -name '*.p12' -o -name '*.pfx' \) -print -quit | grep -q .
+
+      - name: Commit branch-only source and integration
         shell: bash
         run: |
           set -euo pipefail
@@ -150,5 +159,5 @@ jobs:
             echo 'No source changes were detected.'
             exit 0
           fi
-          git commit -m 'feat: import MagicAI and sanitised AI site builder on isolated branch'
+          git commit -m 'feat: import and wire AI site builder on isolated branch'
           git push origin HEAD:"$TARGET_BRANCH"
