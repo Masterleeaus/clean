@@ -13,7 +13,7 @@
 		"@tailwindcss/typography": "^0.5.12",
 		"@vitejs/plugin-react-swc": "^4.3.0",
 		"autoprefixer": "^10.4.14",
-		"axios": "^1.8.4",
+		"axios": "^1.19.0",
 		"blade-formatter": "^1.42.2",
 		"del": "^7.0.0",
 		"eslint": "^8.56.0",
