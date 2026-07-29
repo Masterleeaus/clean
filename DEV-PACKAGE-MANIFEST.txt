@@ -1,0 +1,6 @@
+Source archive: codecanyon-Oy9ugums-magicai-openai-content-text-image-chat-code-generator-as-saas.zip
+Application release: magicai-release-v10.91
+Created: 2026-07-27 Australia/Sydney
+Purpose: minimal reproducible developer codebase
+
+Excluded: installed dependencies, environment secrets, generated frontend bundles, runtime state, user/demo uploads, large demo videos, caches, logs, and OS metadata.
