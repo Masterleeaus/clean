@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -62,7 +63,10 @@ return new class extends Migration
             $table->index(['company_id', 'visibility', 'expires_at'], 'ai_kchunk_access_expiry_idx');
             $table->index(['company_id', 'required_permission'], 'ai_kchunk_permission_idx');
             $table->index(['company_id', 'owner_user_id'], 'ai_kchunk_owner_idx');
-            $table->fullText('content', 'ai_kchunk_content_ft');
+
+            if (DB::connection()->getDriverName() !== 'sqlite') {
+                $table->fullText('content', 'ai_kchunk_content_ft');
+            }
         });
     }
 
