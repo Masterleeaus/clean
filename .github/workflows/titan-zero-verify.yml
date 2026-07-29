@@ -19,6 +19,8 @@ jobs:
         run: python3 tests/contracts/titan_zero_source_verification_test.py
       - name: Verify required source and JSON
         run: bash scripts/titan-zero/verify-source.sh
+      - name: Host registration contracts
+        run: python3 tests/contracts/titan_zero_host_boot_contract_test.py
       - name: PHP syntax
         run: |
           set -euo pipefail
