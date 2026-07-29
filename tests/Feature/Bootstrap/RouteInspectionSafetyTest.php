@@ -8,20 +8,36 @@ use PHPUnit\Framework\TestCase;
 function titanZeroRouteInspectionSafetyIssues(string $root): array
 {
     $issues = [];
-    $path = $root . '/app/Http/Controllers/Api/AIChatController.php';
-    $source = (string) @file_get_contents($path);
 
-    if ($source === '') {
-        return ['AIChatController source is missing.'];
+    foreach ([
+        'AIChatController' => $root . '/app/Http/Controllers/Api/AIChatController.php',
+        'AIRealTimeChatController' => $root . '/app/Http/Controllers/Api/AIRealTimeChatController.php',
+    ] as $controller => $path) {
+        $source = (string) @file_get_contents($path);
+        if ($source === '') {
+            $issues[] = "{$controller} source is missing.";
+            continue;
+        }
+        if (str_contains($source, 'Setting::getCache()') || str_contains($source, 'SettingTwo::getCache()')) {
+            $issues[] = "{$controller} still queries settings during route inspection.";
+        }
+        if (! str_contains($source, '$this->configureOpenAiRuntime();')) {
+            $issues[] = "{$controller} does not initialise its OpenAI runtime lazily.";
+        }
+        if (! str_contains($source, 'private function configureOpenAiRuntime(): void')) {
+            $issues[] = "{$controller} has no request-scoped OpenAI runtime initialiser.";
+        }
     }
-    if (str_contains($source, 'Setting::getCache()') || str_contains($source, 'SettingTwo::getCache()')) {
-        $issues[] = 'AIChatController constructor still queries settings during route inspection.';
+
+    $cacheTrait = (string) @file_get_contents($root . '/app/Models/Concerns/HasCacheFirst.php');
+    if (! str_contains($cacheTrait, 'app()->runningInConsole()')) {
+        $issues[] = 'HasCacheFirst has no console-only missing-schema guard.';
     }
-    if (! str_contains($source, '$this->configureOpenAiRuntime();')) {
-        $issues[] = 'chatOutput does not initialise its OpenAI runtime lazily.';
+    if (! str_contains($cacheTrait, 'Schema::hasTable($model->getTable())')) {
+        $issues[] = 'HasCacheFirst does not verify its table before console inspection.';
     }
-    if (! str_contains($source, 'private function configureOpenAiRuntime(): void')) {
-        $issues[] = 'AIChatController has no request-scoped OpenAI runtime initialiser.';
+    if (! str_contains($cacheTrait, 'static::query()->first() ?? $model')) {
+        $issues[] = 'HasCacheFirst does not return an empty model when a configured row is absent.';
     }
 
     return $issues;
