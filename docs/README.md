@@ -25,5 +25,5 @@ This directory separates current engineering guidance from evidence, historical 
 
 ## Current reconciliation count
 
-- Catalogued documents after Pass 1: **376**
+- Catalogued documents after Pass 1: **377**
 - Remaining exact duplicate groups: **0**
