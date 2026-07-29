@@ -97,8 +97,15 @@ jobs:
           set -euo pipefail
           for combination in "false false" "true false" "false true" "true true"; do
             read -r workcore chatbot <<< "$combination"
-            TITAN_ZERO_WORKCORE_ENABLED="$workcore" TITAN_ZERO_CHATBOT_ENABLED="$chatbot" php artisan about --no-ansi >/dev/null
-            TITAN_ZERO_WORKCORE_ENABLED="$workcore" TITAN_ZERO_CHATBOT_ENABLED="$chatbot" php artisan route:list --except-vendor --no-ansi >/dev/null
+            echo "Checking workcore=$workcore chatbot=$chatbot"
+            if ! TITAN_ZERO_WORKCORE_ENABLED="$workcore" TITAN_ZERO_CHATBOT_ENABLED="$chatbot" php artisan about --no-ansi > /tmp/titan-about.log 2>&1; then
+              cat /tmp/titan-about.log
+              exit 1
+            fi
+            if ! TITAN_ZERO_WORKCORE_ENABLED="$workcore" TITAN_ZERO_CHATBOT_ENABLED="$chatbot" php artisan route:list --except-vendor --no-ansi > /tmp/titan-routes.log 2>&1; then
+              cat /tmp/titan-routes.log
+              exit 1
+            fi
           done
 
       - name: Generate real extension provider audit
