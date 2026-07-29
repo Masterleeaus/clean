@@ -1,0 +1,109 @@
+name: Bootstrap MagicAI v11.00 source from MEGA
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: magicai-v1100-main-bootstrap
+  cancel-in-progress: false
+
+jobs:
+  import-source:
+    if: github.event.issue.title == 'BOOTSTRAP MAGICAI V1100 SOURCE'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    env:
+      TARGET_BRANCH: main
+      ARCHIVE_URL: https://mega.nz/file/edcEzSJZ#iHrQEPJb8E7xDcg0QUatncsokg_GTarzpNwjo5GwXwE
+      ARCHIVE_FILE: MagicAI-v11.00-source-clean.zip
+      ARCHIVE_SHA256: ed6ce50730150601ccea6577fa72c65c3e33db127e2af0064d18e7738fe57d57
+      EXPECTED_FILE_COUNT: '5020'
+
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TARGET_BRANCH }}
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install MEGA downloader
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y megatools
+
+      - name: Download and verify archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f "/tmp/$ARCHIVE_FILE"
+          megadl "$ARCHIVE_URL" --path "/tmp/$ARCHIVE_FILE"
+          printf '%s  %s\n' "$ARCHIVE_SHA256" "/tmp/$ARCHIVE_FILE" | sha256sum --check --strict
+          unzip -t "/tmp/$ARCHIVE_FILE"
+          actual_count="$(zipinfo -1 "/tmp/$ARCHIVE_FILE" | awk 'substr($0, length($0), 1) != "/"' | wc -l | tr -d ' ')"
+          test "$actual_count" = "$EXPECTED_FILE_COUNT"
+
+      - name: Extract and validate Laravel source
+        shell: bash
+        run: |
+          set -euo pipefail
+          extract_dir=/tmp/magicai-v1100-source
+          rm -rf "$extract_dir"
+          mkdir -p "$extract_dir"
+          unzip -q "/tmp/$ARCHIVE_FILE" -d "$extract_dir"
+          test -f "$extract_dir/artisan"
+          test -f "$extract_dir/composer.json"
+          test -f "$extract_dir/composer.lock"
+          test -d "$extract_dir/app"
+          test -d "$extract_dir/routes"
+          test -d "$extract_dir/database"
+          test -f "$extract_dir/public/index.php"
+          ! find "$extract_dir" -type d \( -name vendor -o -name node_modules \) -print -quit | grep -q .
+          ! find "$extract_dir" -type f \( -name '.env' -o -name '*.pem' -o -name '*.p12' -o -name '*.pfx' \) -print -quit | grep -q .
+
+      - name: Merge source into repository root
+        shell: bash
+        run: |
+          set -euo pipefail
+          rsync -a --delete-delay \
+            --exclude='.git/' \
+            --exclude='.github/' \
+            --exclude='.env' \
+            --exclude='vendor/' \
+            --exclude='node_modules/' \
+            /tmp/magicai-v1100-source/ ./
+          rm -f .github/workflows/bootstrap-magicai-v1100-mega.yml
+          cat > MAGICAI_V1100_IMPORT.md <<'NOTICE'
+          # MagicAI v11.00 source import
+
+          MagicAI v11.00 cleaned Laravel source was imported from the verified archive supplied for Titan Zero integration.
+
+          - Archive SHA-256: `ed6ce50730150601ccea6577fa72c65c3e33db127e2af0064d18e7738fe57d57`
+          - Expected archive file count: `5020`
+          - Excluded from import: `.env`, `vendor/`, `node_modules/`, private key formats, and `.github/`
+          NOTICE
+
+      - name: Commit merged source to main
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if git diff --cached --quiet; then
+            gh issue close "${{ github.event.issue.number }}" --comment 'No source changes were detected after verification.'
+            exit 0
+          fi
+          git commit -m 'feat: merge verified MagicAI v11.00 source into main'
+          git push origin HEAD:main
+          gh issue close "${{ github.event.issue.number }}" --comment 'Verified MagicAI v11.00 source merge completed on `main`.'
