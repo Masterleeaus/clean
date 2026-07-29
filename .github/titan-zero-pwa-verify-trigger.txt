@@ -1,3 +1,4 @@
-Verify branch: agent/titan-zero-pwa-upgrade
+Target branch: agent/titan-zero-pwa-upgrade
 Requested: 2026-07-29
-Attempt: 3
+Operation: import quarantined mobile builder donor sources
+Attempt: 1
