@@ -114,6 +114,7 @@ jobs:
         run: |
           set -euo pipefail
           source_root="/tmp/titan-zero-v070-source/$ARCHIVE_WRAPPER"
+          skipped_workflows="$(cd "$source_root" && find .github/workflows -maxdepth 1 -type f -printf '%f\n' 2>/dev/null | sort || true)"
 
           rsync -a --delete \
             --exclude='.git/' \
@@ -121,7 +122,7 @@ jobs:
             --exclude='AGENTS.md' \
             --exclude='SOURCE_IMPORT_MANIFEST.json' \
             --exclude='BRANCH_STATUS.md' \
-            --exclude='.github/workflows/import-v070-source.yml' \
+            --exclude='.github/workflows/' \
             "$source_root/" ./
 
           test -f UPGRADE_PLAN.md
@@ -142,6 +143,8 @@ jobs:
           - Bootstrap run: <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}>
 
           The source was checksum-verified, ZIP-tested and inspected for generated dependencies, runtime environment files and private-key material before extraction.
+
+          The archive's \`.github/workflows/\` directory was intentionally not imported: the default \`GITHUB_TOKEN\` cannot create or update workflow files without an explicit \`workflows\` permission, and this automation does not request that scope. Files present in the source but not imported: ${skipped_workflows:-none}. Review and add them manually via a human-authored PR if they are wanted.
           EOF
 
       - name: Commit imported source to prepared branch
