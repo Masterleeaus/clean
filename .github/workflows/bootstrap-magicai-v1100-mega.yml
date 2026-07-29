@@ -1,4 +1,4 @@
-name: Bootstrap MagicAI and AI Site Builder on isolated branch
+name: Bootstrap MagicAI WorkCore and AI Site Builder on isolated branch
 
 on:
   workflow_dispatch:
@@ -9,12 +9,9 @@ on:
     branches:
       - main
     types: [opened, synchronize, reopened]
-  issues:
-    types: [opened]
 
 permissions:
   contents: write
-  issues: write
 
 concurrency:
   group: ai-site-builder-bridge-bootstrap
@@ -22,16 +19,12 @@ concurrency:
 
 jobs:
   import-sources:
-    if: github.event_name == 'workflow_dispatch' || github.event_name == 'push' || github.event_name == 'pull_request' || github.event.issue.title == 'BOOTSTRAP AI SITE BUILDER BRIDGE'
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
     env:
       TARGET_BRANCH: agent/ai-site-builder-bridge
-      MAGICAI_URL: https://mega.nz/file/edcEzSJZ#iHrQEPJb8E7xDcg0QUatncsokg_GTarzpNwjo5GwXwE
-      MAGICAI_FILE: MagicAI-v11.00-source-clean.zip
-      MAGICAI_SHA256: ed6ce50730150601ccea6577fa72c65c3e33db127e2af0064d18e7738fe57d57
-      MAGICAI_EXPECTED_FILE_COUNT: '5020'
+      MAGICAI_WORKCORE_SOURCE_BRANCH: agent/import-magicai-workcore-chatbot
       SITE_BUILDER_URL: https://mega.nz/file/jEkGlYLQ#5JGOpAIrTHd761L8TDGzgzO5grne6bN5t-U1MuxWwbY
       SITE_BUILDER_FILE: ai-powered-site-builder.zip
 
@@ -48,36 +41,26 @@ jobs:
         run: |
           set -euo pipefail
           sudo apt-get update
-          sudo apt-get install -y megatools unzip p7zip-full rsync
+          sudo apt-get install -y megatools p7zip-full rsync unzip
 
-      - name: Download and verify MagicAI
+      - name: Materialise verified MagicAI WorkCore source branch
         shell: bash
         run: |
           set -euo pipefail
-          rm -f "/tmp/$MAGICAI_FILE"
-          megadl "$MAGICAI_URL" --path "/tmp/$MAGICAI_FILE"
-          printf '%s  %s\n' "$MAGICAI_SHA256" "/tmp/$MAGICAI_FILE" | sha256sum --check --strict
-          unzip -t "/tmp/$MAGICAI_FILE"
-          actual_count="$(zipinfo -1 "/tmp/$MAGICAI_FILE" | awk 'substr($0, length($0), 1) != "/"' | wc -l | tr -d ' ')"
-          test "$actual_count" = "$MAGICAI_EXPECTED_FILE_COUNT"
-
-      - name: Extract and validate MagicAI
-        shell: bash
-        run: |
-          set -euo pipefail
-          extract=/tmp/magicai-v1100-source
-          rm -rf "$extract"
-          mkdir -p "$extract"
-          unzip -q "/tmp/$MAGICAI_FILE" -d "$extract"
-          test -f "$extract/artisan"
-          test -f "$extract/composer.json"
-          test -f "$extract/composer.lock"
-          test -d "$extract/app"
-          test -d "$extract/routes"
-          test -d "$extract/database"
-          test -f "$extract/public/index.php"
-          ! find "$extract" -type d \( -name vendor -o -name node_modules -o -name .git \) -print -quit | grep -q .
-          ! find "$extract" -type f \( -name '.env' -o -name '*.pem' -o -name '*.p12' -o -name '*.pfx' -o -name 'id_rsa' -o -name 'id_ed25519' \) -print -quit | grep -q .
+          source=/tmp/magicai-workcore-source
+          rm -rf "$source"
+          git fetch origin "$MAGICAI_WORKCORE_SOURCE_BRANCH:refs/remotes/origin/$MAGICAI_WORKCORE_SOURCE_BRANCH"
+          git worktree add --detach "$source" "origin/$MAGICAI_WORKCORE_SOURCE_BRANCH"
+          git -C "$source" rev-parse HEAD | tee /tmp/magicai-workcore-source.sha
+          test -f "$source/artisan"
+          test -f "$source/composer.json"
+          test -f "$source/composer.lock"
+          test -f "$source/public/index.php"
+          test -f "$source/app/Domains/WorkCore/WorkCoreServiceProvider.php"
+          test -f "$source/app/Domains/WorkCore/System/Contracts/TenantContextContract.php"
+          test -f "$source/app/Domains/WorkCore/System/Contracts/PermissionResolverContract.php"
+          ! find "$source" -type d \( -name vendor -o -name node_modules \) -print -quit | grep -q .
+          ! find "$source" -type f \( -name '.env' -o -name '*.pem' -o -name '*.p12' -o -name '*.pfx' -o -name 'id_rsa' -o -name 'id_ed25519' \) -print -quit | grep -q .
 
       - name: Download and inspect AI site builder
         shell: bash
@@ -111,33 +94,36 @@ jobs:
           test -d "$source/supabase"
           test "$(find "$source" -type f | wc -l)" -gt 50
 
-      - name: Merge sources into isolated branch
+      - name: Merge source trees into isolated branch
         shell: bash
         run: |
           set -euo pipefail
           rsync -a --delete-delay \
-            --exclude='.git/' \
+            --exclude='.git' \
             --exclude='.github/' \
             --exclude='.env' \
             --exclude='vendor/' \
             --exclude='node_modules/' \
             --exclude='integrations/' \
-            /tmp/magicai-v1100-source/ ./
+            /tmp/magicai-workcore-source/ ./
           rm -rf external/ai-site-builder
           mkdir -p external/ai-site-builder docs/integrations
           rsync -a /tmp/site-builder-source/ external/ai-site-builder/
           builder_sha="$(cut -d' ' -f1 /tmp/site-builder.sha256)"
           builder_count="$(find external/ai-site-builder -type f | wc -l | tr -d ' ')"
+          source_sha="$(cat /tmp/magicai-workcore-source.sha)"
           cat > docs/integrations/AI_SITE_BUILDER_SOURCE_IMPORT.md <<EOF
           # AI Site Builder source import
 
           Imported only on branch \`agent/ai-site-builder-bridge\`.
 
-          - Source: user-supplied MEGA archive
-          - Download SHA-256: \`$builder_sha\`
-          - Sanitised source files: \`$builder_count\`
+          - MagicAI WorkCore source branch: \`$MAGICAI_WORKCORE_SOURCE_BRANCH\`
+          - MagicAI WorkCore source commit: \`$source_sha\`
+          - Builder source: user-supplied MEGA archive
+          - Builder download SHA-256: \`$builder_sha\`
+          - Sanitised builder source files: \`$builder_count\`
           - Removed: \`.env\`, private-key formats, \`.git/\`, \`vendor/\`, \`node_modules/\`, and stale \`dist/\`
-          - Install target: \`external/ai-site-builder/\`
+          - Builder install target: \`external/ai-site-builder/\`
           EOF
 
       - name: Apply the two-sided bridge
