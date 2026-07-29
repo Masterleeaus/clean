@@ -10,6 +10,16 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 
 
+def table_creators(migration_roots: list[Path]) -> dict[str, list[str]]:
+    tables: dict[str, list[str]] = defaultdict(list)
+    for migration_root in migration_roots:
+        for path in migration_root.glob('*.php'):
+            content = path.read_text(errors='ignore')
+            for table in re.findall(r"Schema::create\(['\"]([^'\"]+)", content):
+                tables[table].append(str(path.relative_to(ROOT)))
+    return tables
+
+
 class HostBootContractTest(unittest.TestCase):
     def test_interaction_engine_is_registered_once(self) -> None:
         composer = json.loads((ROOT / 'composer.json').read_text())
@@ -56,17 +66,10 @@ class HostBootContractTest(unittest.TestCase):
         )
 
     def test_interaction_migrations_create_each_table_once(self) -> None:
-        migration_roots = [
+        tables = table_creators([
             ROOT / 'packages/titanzero/interaction-engine/src/Migrations',
             ROOT / 'packages/titanzero/interaction-engine/database/migrations',
-        ]
-        tables: dict[str, list[str]] = defaultdict(list)
-        for migration_root in migration_roots:
-            for path in migration_root.glob('*.php'):
-                content = path.read_text(errors='ignore')
-                for table in re.findall(r"Schema::create\(['\"]([^'\"]+)", content):
-                    tables[table].append(str(path.relative_to(ROOT)))
-
+        ])
         duplicates = {table: paths for table, paths in tables.items() if len(paths) > 1}
         self.assertEqual(
             {},
@@ -74,6 +77,15 @@ class HostBootContractTest(unittest.TestCase):
             f'duplicate Interaction Engine table creators found: {duplicates}',
         )
         self.assertGreaterEqual(len(tables), 10, 'expected the cumulative Interaction Engine schema')
+
+    def test_chatbot_migrations_create_each_table_once(self) -> None:
+        tables = table_creators([ROOT / 'app/Extensions/Chatbot/database/migrations'])
+        duplicates = {table: paths for table, paths in tables.items() if len(paths) > 1}
+        self.assertEqual(
+            {},
+            duplicates,
+            f'duplicate Chatbot table creators found: {duplicates}',
+        )
 
     def test_workcore_fulltext_migration_is_sqlite_safe(self) -> None:
         migration = (
