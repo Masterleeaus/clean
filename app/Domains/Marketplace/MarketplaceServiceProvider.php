@@ -120,6 +120,7 @@ use App\Extensions\VideoDubbing\System\VideoDubbingServiceProvider;
 use App\Extensions\VideoEditor\System\VideoEditorServiceProvider;
 use App\Extensions\Wordpress\System\WordpressServiceProvider;
 use App\Extensions\Xero\System\XeroServiceProvider;
+use App\Support\TitanZero\TitanZeroFeatureFlags;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
@@ -255,7 +256,9 @@ class MarketplaceServiceProvider extends ServiceProvider
 
     public function register(): void
     {
-        $this->extensionProviderRegister();
+        if ($this->featureFlags()->extensionDiscoveryEnabled()) {
+            $this->extensionProviderRegister();
+        }
     }
 
     public function boot(): void
@@ -288,6 +291,15 @@ class MarketplaceServiceProvider extends ServiceProvider
     private function router(): Router|Route
     {
         return $this->app['router'];
+    }
+
+    private function featureFlags(): TitanZeroFeatureFlags
+    {
+        if ($this->app->bound(TitanZeroFeatureFlags::class)) {
+            return $this->app->make(TitanZeroFeatureFlags::class);
+        }
+
+        return TitanZeroFeatureFlags::fromArray((array) config('titan-zero', []));
     }
 
     public function extensionProviderRegister(): void
