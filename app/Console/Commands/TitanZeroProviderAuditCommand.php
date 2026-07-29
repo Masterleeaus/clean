@@ -26,7 +26,7 @@ final class TitanZeroProviderAuditCommand extends Command
             legacyProviders: MarketplaceServiceProvider::getExtensionProviders(),
         );
 
-        $audit = new ExtensionProviderAudit(
+        $results = (new ExtensionProviderAudit(
             catalog: $catalog,
             extensionsPath: app_path('Extensions'),
             hostSourcePaths: [
@@ -36,22 +36,34 @@ final class TitanZeroProviderAuditCommand extends Command
                 base_path('routes'),
                 database_path('migrations'),
             ],
-        );
+        ))->audit();
 
-        $results = $audit->audit();
+        $counts = ['Green' => 0, 'Amber' => 0, 'Red' => 0];
+        foreach ($results as $result) {
+            $counts[$result->status] = ($counts[$result->status] ?? 0) + 1;
+        }
+
         if ($this->option('json')) {
-            $this->line(json_encode(array_map(
-                static fn (ExtensionProviderAuditResult $result): array => [
-                    'directory' => $result->manifest->directory,
-                    'name' => $result->manifest->name,
-                    'version' => $result->manifest->version,
-                    'provider' => $result->manifest->provider,
-                    'enabled' => $result->manifest->enabled,
-                    'status' => $result->status,
-                    'diagnostics' => $result->diagnostics,
+            $this->line(json_encode([
+                'summary' => [
+                    'green' => $counts['Green'],
+                    'amber' => $counts['Amber'],
+                    'red' => $counts['Red'],
+                    'total' => count($results),
                 ],
-                $results,
-            ), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+                'extensions' => array_map(
+                    static fn (ExtensionProviderAuditResult $result): array => [
+                        'directory' => $result->manifest->directory,
+                        'name' => $result->manifest->name,
+                        'version' => $result->manifest->version,
+                        'provider' => $result->manifest->provider,
+                        'enabled' => $result->manifest->enabled,
+                        'status' => $result->status,
+                        'diagnostics' => $result->diagnostics,
+                    ],
+                    $results,
+                ),
+            ], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
         } else {
             $this->table(
                 ['Status', 'Extension', 'Version', 'Enabled', 'Findings'],
@@ -66,13 +78,8 @@ final class TitanZeroProviderAuditCommand extends Command
                     $results,
                 ),
             );
+            $this->line(sprintf('Green=%d Amber=%d Red=%d', $counts['Green'], $counts['Amber'], $counts['Red']));
         }
-
-        $counts = ['Green' => 0, 'Amber' => 0, 'Red' => 0];
-        foreach ($results as $result) {
-            $counts[$result->status] = ($counts[$result->status] ?? 0) + 1;
-        }
-        $this->line(sprintf('Green=%d Amber=%d Red=%d', $counts['Green'], $counts['Amber'], $counts['Red']));
 
         return $this->option('strict') && $counts['Red'] > 0 ? self::FAILURE : self::SUCCESS;
     }
