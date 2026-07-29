@@ -1,0 +1,7 @@
+﻿{
+    "name":  "Checkout Registration",
+    "type":  "extension",
+    "version":  "1.5",
+    "description":  "Registration with checkout process extension for MagicAI — TG: @heew_support",
+    "support_telegram":  "heew_support"
+}
