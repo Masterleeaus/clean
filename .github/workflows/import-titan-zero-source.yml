@@ -1,0 +1,72 @@
+name: Import Titan Zero Source
+
+on:
+  pull_request:
+    branches:
+      - main
+    types: [opened, synchronize, reopened]
+    paths:
+      - .github/workflows/import-titan-zero-source.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  import-source:
+    if: github.head_ref == 'agent/import-magicai-workcore-chatbot'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout bootstrap branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/import-magicai-workcore-chatbot
+          fetch-depth: 0
+
+      - name: Download encrypted source parts
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/titan-zero-transport
+          curl -fL --retry 5 --retry-all-errors https://faint-waiter.miniup.app/source.part-000 -o /tmp/titan-zero-transport/source.part-000
+          curl -fL --retry 5 --retry-all-errors https://faint-waiter.miniup.app/source.part-001 -o /tmp/titan-zero-transport/source.part-001
+          curl -fL --retry 5 --retry-all-errors https://bulky-knife.miniup.app/source.part-002 -o /tmp/titan-zero-transport/source.part-002
+          curl -fL --retry 5 --retry-all-errors https://bulky-knife.miniup.app/source.part-003 -o /tmp/titan-zero-transport/source.part-003
+          curl -fL --retry 5 --retry-all-errors https://sticky-knife.miniup.app/source.part-004 -o /tmp/titan-zero-transport/source.part-004
+          curl -fL --retry 5 --retry-all-errors https://sticky-knife.miniup.app/source.part-005 -o /tmp/titan-zero-transport/source.part-005
+          curl -fL --retry 5 --retry-all-errors https://many-fireman.miniup.app/source.part-006 -o /tmp/titan-zero-transport/source.part-006
+          cat /tmp/titan-zero-transport/source.part-* > /tmp/titan-zero-transport/source.tar.gz.enc
+          echo "a64bab4b43fccb66e958100db3d32ab550bdc60a288ee70948c1cf3812b137a7  /tmp/titan-zero-transport/source.tar.gz.enc" | sha256sum --check
+
+      - name: Decrypt and extract source
+        shell: bash
+        env:
+          TITAN_ZERO_IMPORT_KEY: 55a23f6cf177352646da67ec600dd18ac52de2124666d90f7e85283f2df3577e
+        run: |
+          set -euo pipefail
+          printf '%s' "$TITAN_ZERO_IMPORT_KEY" > /tmp/titan-zero-transport/key.txt
+          openssl enc -d -aes-256-cbc -pbkdf2 -iter 200000 \
+            -in /tmp/titan-zero-transport/source.tar.gz.enc \
+            -out /tmp/titan-zero-transport/source.tar.gz \
+            -pass file:/tmp/titan-zero-transport/key.txt
+          mkdir -p /tmp/titan-zero-source
+          tar -xzf /tmp/titan-zero-transport/source.tar.gz -C /tmp/titan-zero-source
+          test -f /tmp/titan-zero-source/artisan
+          test -f /tmp/titan-zero-source/app/Domains/WorkCore/WorkCoreServiceProvider.php
+          test -f /tmp/titan-zero-source/app/Extensions/TitanZeroChatbot/extension.json
+
+      - name: Rewrite import branch with clean source commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "Titan Zero Import Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git checkout --orphan imported-source
+          git rm -rf . >/dev/null 2>&1 || true
+          find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          cp -a /tmp/titan-zero-source/. .
+          git add -A
+          git commit -m "Import MagicAI v10.91 with WorkCore and Titan Zero Chatbot"
+          git push --force origin HEAD:refs/heads/agent/import-magicai-workcore-chatbot

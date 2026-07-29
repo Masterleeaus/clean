@@ -1,6 +1,5 @@
 {
     "name": "rachidlaasri/laravel-installer",
-    "version": "dev-staging",
     "description": "Laravel web installer",
     "license": "MIT",
     "authors": [
