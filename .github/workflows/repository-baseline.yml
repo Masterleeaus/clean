@@ -1,0 +1,116 @@
+name: Repository Baseline
+
+on:
+  push:
+    branches:
+      - main
+      - 'agent/**'
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: repository-baseline-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  source-integrity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Verify required application files
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f artisan
+          test -f composer.json
+          test -f app/Domains/WorkCore/WorkCoreServiceProvider.php
+          test -f app/Extensions/TitanZeroChatbot/extension.json
+
+      - name: Reject tracked runtime secret files
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          forbidden_files=(
+            .env
+            auth.json
+            .npmrc
+            .pypirc
+            id_rsa
+            id_dsa
+          )
+
+          for path in "${forbidden_files[@]}"; do
+            if git ls-files --error-unmatch "$path" >/dev/null 2>&1; then
+              echo "Forbidden tracked file: $path" >&2
+              exit 1
+            fi
+          done
+
+          if git ls-files '*.pem' | grep -q .; then
+            echo 'Tracked PEM file detected.' >&2
+            exit 1
+          fi
+
+      - name: Reject obvious populated Laravel keys
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git grep -nE 'APP_KEY=base64:[A-Za-z0-9+/=]{20,}' -- ':!*.example' ':!.github/workflows/repository-baseline.yml'; then
+            echo 'A populated Laravel APP_KEY is tracked.' >&2
+            exit 1
+          fi
+
+      - name: Reject destructive repository workflows
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git grep -nE 'git[[:space:]]+push[[:space:]].*--force.*(main|master)|git[[:space:]]+checkout[[:space:]]+--orphan' -- '.github/workflows/*.yml' '.github/workflows/*.yaml'; then
+            echo 'Destructive history-rewrite command detected in a workflow.' >&2
+            exit 1
+          fi
+
+  php-baseline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          coverage: none
+          tools: composer:v2
+
+      - name: Validate Composer metadata
+        run: composer validate --strict --no-check-publish
+
+      - name: Check PHP syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          find app bootstrap config database packages routes tests -type f -name '*.php' -print0 \
+            | xargs -0 -n1 -P4 php -l
+
+      - name: Verify local Composer path packages exist
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -d packages/magicai/magicai-updater
+          test -d packages/magicai/magicai-healthy
+          test -d packages/rachidlaasri/laravel-installer
+          test -d packages/openai-php/laravel
+          test -d packages/openai-php/client
