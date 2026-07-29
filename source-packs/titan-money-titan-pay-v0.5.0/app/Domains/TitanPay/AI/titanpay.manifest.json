@@ -1,0 +1,32 @@
+{
+  "domain": "TitanPay",
+  "version": "1.0.0",
+  "authority": "payment-execution-and-verification",
+  "rules": [
+    "browser_returns_are_non_authoritative",
+    "signed_webhooks_required",
+    "amount_and_currency_match_required",
+    "payment_evidence_private",
+    "idempotency_required"
+  ],
+  "tools": [
+    {
+      "name": "titanpay.create_collection_session",
+      "permission": "titanpay.session.create"
+    },
+    {
+      "name": "titanpay.submit_payment_claim",
+      "permission": "titanpay.claim.submit"
+    },
+    {
+      "name": "titanpay.review_payment_claim",
+      "permission": "titanpay.claim.review",
+      "approval_required": true
+    },
+    {
+      "name": "titanpay.configure_gateway",
+      "permission": "titanpay.gateway.manage",
+      "approval_required": true
+    }
+  ]
+}

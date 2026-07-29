@@ -1,0 +1,49 @@
+{
+  "domain": "TitanMoney",
+  "display_name": "Titan Money",
+  "version": "1.1.0",
+  "authority": "financial-records-and-governed-receivables-automation",
+  "rules": [
+    "company_scope_required",
+    "no_direct_ai_database_writes",
+    "issued_invoices_immutable",
+    "all_mutations_audited",
+    "agent_actions_require_named_permissions",
+    "auto_issue_respects_company_amount_limits",
+    "follow_up_stages_are_idempotent",
+    "disputed_paid_voided_and_written_off_invoices_are_not_chased"
+  ],
+  "agents": [
+    {
+      "id": "titan-money.invoice-agent",
+      "name": "Titan Money Invoice Agent",
+      "policy_key": "invoice_generation",
+      "default_autonomy": "draft",
+      "capabilities": ["ingest_billable_event", "create_invoice_draft", "issue_within_limit", "request_approval"]
+    },
+    {
+      "id": "titan-money.receivables-agent",
+      "name": "Titan Money Receivables Agent",
+      "policy_key": "receivables_follow_up",
+      "default_autonomy": "bounded",
+      "capabilities": ["mark_overdue", "queue_follow_up", "avoid_duplicate_stage", "escalate_final_notice"]
+    },
+    {
+      "id": "titan-pay.reconciliation-agent",
+      "name": "Titan Pay Reconciliation Agent",
+      "policy_key": "payment_reconciliation",
+      "default_autonomy": "observe",
+      "capabilities": ["review_unmatched_gateway_events", "review_unmatched_bank_deposits", "escalate_exception"]
+    }
+  ],
+  "tools": [
+    {"name":"titanmoney.create_invoice_draft","permission":"titanmoney.manage"},
+    {"name":"titanmoney.issue_invoice","permission":"titanmoney.invoice.issue","approval_required":true},
+    {"name":"titanmoney.void_invoice","permission":"titanmoney.invoice.void","approval_required":true},
+    {"name":"titanmoney.list_outstanding_invoices","permission":"titanmoney.read"},
+    {"name":"titanmoney.ingest_billable_event","permission":"titanmoney.agent.ingest","idempotent":true},
+    {"name":"titanmoney.run_invoice_agent","permission":"titanmoney.agent.run","approval":"policy"},
+    {"name":"titanmoney.run_receivables_agent","permission":"titanmoney.agent.run","approval":"policy"},
+    {"name":"titanmoney.approve_agent_action","permission":"titanmoney.agent.approve","approval_required":true}
+  ]
+}

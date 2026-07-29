@@ -1,0 +1,223 @@
+{
+  "system": "Meetup + Titan Money + Titan Pay",
+  "version": "0.5.0",
+  "generated": "2026-07-27",
+  "architecture": {
+    "financial_domain": "TitanMoney",
+    "financial_display_name": "Titan Money",
+    "payment_domain": "TitanPay",
+    "payment_display_name": "Titan Pay",
+    "retired_runtime_names": [
+      "Finance bounded context",
+      "ZeroPay",
+      "InvoixPro runtime"
+    ]
+  },
+  "sources": [
+    {
+      "name": "InvoixPro",
+      "files_inspected": 468,
+      "role": "invoice and portal donor"
+    },
+    {
+      "name": "ZeroPayModule",
+      "files_inspected": 397,
+      "role": "payment and knowledge donor"
+    },
+    {
+      "name": "Meetup",
+      "role": "host application"
+    }
+  ],
+  "runtime_identifiers": {
+    "namespace": "App\\Domains\\TitanMoney",
+    "table_prefix": "titan_money_",
+    "route_prefix": "titanmoney.",
+    "web_prefix": "/titan-money",
+    "api_prefix": "/api/titan-money/v1",
+    "config_key": "titanmoney",
+    "command_prefix": "titan-money:"
+  },
+  "ported_capabilities": [
+    "customers",
+    "products",
+    "invoice drafts",
+    "immutable invoice issue",
+    "invoice lines",
+    "GST profiles",
+    "recurring invoices",
+    "reminders",
+    "PDF and HTML snapshots",
+    "Titan Money analytics",
+    "customer payment page",
+    "collection sessions",
+    "cash",
+    "PayID",
+    "bank transfer",
+    "Stripe",
+    "PayPal",
+    "payment claims",
+    "private evidence",
+    "payment allocation",
+    "gateway event idempotency",
+    "reconciliation",
+    "AI tool manifests",
+    "dry-run-first InvoixPro importer",
+    "governed invoice automation agent",
+    "idempotent WorkCore billable event ingestion",
+    "recurring obligations through the invoice agent",
+    "bounded automatic invoice issue",
+    "human agent approval requests",
+    "staged receivables follow-up agent",
+    "forward-only follow-up progression",
+    "Titan Pay reconciliation agent",
+    "transactional outbox publisher",
+    "email and Titan Channels delivery handoff",
+    "agent run history and decision records",
+    "company context before implicit route binding",
+    "private authenticated chat attachments and legacy attachment migration",
+    "explicit platform administrator authority",
+    "provider-idempotent collection initiation",
+    "cross-session payment-claim caps",
+    "stale payment-link cancellation after settlement",
+    "currency-separated dashboards and locale-aware money formatting",
+    "issued snapshot freshness and document hash verification",
+    "chat-first governed WorkCore job completion",
+    "natural-language completion intent with negation and question safety",
+    "single-event synchronous Invoice Agent execution",
+    "truthful partial-outcome reporting across WorkCore, Titan Money, Titan Pay and delivery",
+    "explicit WorkCore GST-inclusive price basis",
+    "secure reusable Titan Pay collection links",
+    "private non-cached SVG invoice QR codes",
+    "PayID then bank transfer then cash then PayPal customer ordering",
+    "protected PayID and bank-detail resolution",
+    "invoice QR and payment controls rendered inside Titan Zero chat",
+    "Titan Channels customer billing conversations",
+    "concrete email, SMS webhook, WhatsApp webhook and voice webhook transports",
+    "timestamped HMAC channel delivery receipts",
+    "customer communication preferences and quiet hours",
+    "internal delivery exceptions when customer delivery or payment-link preparation fails",
+    "end-to-end conversation and correlation context through Invoice Agent execution"
+  ],
+  "rejected": [
+    "InvoixPro public success payment mutation",
+    "InvoixPro remote provisioning and kill switch",
+    "InvoixPro destructive installer",
+    "InvoixPro executable ZIP add-on installer",
+    "InvoixPro plaintext API keys",
+    "InvoixPro public payment-proof storage",
+    "InvoixPro user_id tenancy",
+    "raw ZeroPay Filament shell",
+    "duplicate Finance/ZeroPay/InvoixPro runtime authorities"
+  ],
+  "security_invariants": [
+    "company scoped records",
+    "browser returns never confirm payment",
+    "exact gateway connection selected by webhook URL",
+    "signed webhook verification",
+    "completed event required",
+    "amount and currency matching",
+    "idempotent provider events and transactions",
+    "private payment evidence",
+    "issued invoices immutable",
+    "cross-company foreign-key references rejected at validation and service layers",
+    "automation policies disabled by default",
+    "agent actions attributed through explicit actor context",
+    "company context resolves before route model binding",
+    "follow-up stages never backfill after a later notice",
+    "due-date notices do not mark invoices overdue",
+    "payment reconciliation agent never confirms payments",
+    "provider checkout initiation is idempotent",
+    "fully paid invoices cancel other active collection sessions",
+    "pending claims are capped across every session for an invoice",
+    "customer and company snapshots freeze at issue time",
+    "private invoice documents are hash verified before download",
+    "platform administrator authority is an explicit database flag",
+    "chat conversations and broadcasts are company scoped",
+    "questions, negated completion statements and future intentions cannot complete WorkCore jobs",
+    "WorkCore is mutated only through its governed business-action dispatcher",
+    "WorkCore prices use an explicit GST-inclusive setting rather than inference",
+    "partial workflow failures report the durable job and invoice state truthfully",
+    "payment-link preparation failure creates a staff exception rather than silent linkless customer delivery",
+    "channel receipt callbacks require timestamped HMAC authentication and monotonic state changes",
+    "customer checkout defaults to PayID, bank transfer, cash, then PayPal when those methods are configured",
+    "QR codes open the secure Titan Pay collection page and never confirm payment"
+  ],
+  "limitations": [
+    "The WorkCore business-action package is a separate required runtime; this package fails closed until WorkCore is installed and each Titan company is explicitly mapped to its WorkCore company ID",
+    "Full Laravel runtime and migration suites require Composer dependencies, vendor/, and a configured disposable database",
+    "The supplied composer.json and composer.lock content hashes match; optional PDF rendering requires deliberately adding barryvdh/laravel-dompdf and committing the regenerated lock file",
+    "package-lock.json is absent, so npm install and the production Vite build must be run and locked in the deployment repository",
+    "PayPal requires provider sandbox credentials, merchant eligibility for guest card checkout, and signed webhook registration",
+    "Titan Vault currently uses protected environment references as a fallback until the host Vault service is connected",
+    "SMS, WhatsApp and automated phone delivery require configured HTTPS provider webhooks and authenticated delivery receipts",
+    "Python 3 is required by the bundled private SVG QR renderer",
+    "Provider sandbox delivery, PayPal capture/webhooks and real SMS/voice callbacks were not contacted from the offline verification environment"
+  ],
+  "package_counts": {
+    "full_source_files": 404,
+    "source_changed_or_new_files_from_v0_4": 99,
+    "source_new_files_from_v0_4": 63,
+    "source_modified_files_from_v0_4": 36,
+    "source_deleted_files_from_v0_4": 0,
+    "php_files_present": 292
+  },
+  "automation": {
+    "agents": [
+      {
+        "id": "titan-money.invoice-agent",
+        "policy": "invoice_generation",
+        "default": "enabled/bounded; auto-issue up to A$1,000 for approved sources"
+      },
+      {
+        "id": "titan-money.receivables-agent",
+        "policy": "receivables_follow_up",
+        "default": "enabled/bounded; due, 3, 7, 14 and governed 30-day stages"
+      },
+      {
+        "id": "titan-pay.reconciliation-agent",
+        "policy": "payment_reconciliation",
+        "default": "disabled/observe"
+      },
+      {
+        "id": "titan-money.recurring-invoice-agent",
+        "role": "queues recurring billable events"
+      },
+      {
+        "id": "titan-money.outbox-agent",
+        "role": "publishes durable financial events"
+      },
+      {
+        "id": "titan-money.delivery-agent",
+        "role": "delivers through Titan Channels, email and configured SMS/WhatsApp/voice webhooks with receipts"
+      }
+    ],
+    "commands": [
+      "titan-money:agents-run",
+      "titan-money:generate-recurring",
+      "titan-money:queue-reminders",
+      "titan-money:publish-outbox",
+      "titan-money:dispatch-deliveries"
+    ],
+    "safe_defaults": true
+  },
+  "chat_first_workflow": {
+    "example": "I completed job TZ-1042. Send the invoice.",
+    "workcore_action": "workcore.work_order.change_status",
+    "invoice_source_type": "completed_job",
+    "payment_method_priority": [
+      "payid",
+      "bank_transfer",
+      "cash",
+      "paypal"
+    ],
+    "customer_routes": [
+      "customer_app",
+      "sms",
+      "email",
+      "voice"
+    ],
+    "qr_route": "/pay/{token}/qr.svg",
+    "receipt_route": "POST /api/titan-money/v1/channel-receipts"
+  }
+}
