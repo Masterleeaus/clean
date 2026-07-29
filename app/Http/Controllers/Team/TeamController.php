@@ -16,11 +16,7 @@ class TeamController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(static function (Request $request, callable $next) {
-            abort_if(! Helper::setting('team_functionality'), 404);
-
-            return $next($request);
-        });
+        abort_if(! Helper::setting('team_functionality'), 404);
     }
 
     public function index(Request $request)
@@ -112,10 +108,21 @@ class TeamController extends Controller
 
         $request['allow_unlimited_credits'] = (bool) $request->get('allow_unlimited_credits', false);
 
+        // $user = $team->user;
+        // $manager_remaining_images = $user->remaining_images;
+        // $manager_remaining_words = $user->remaining_words;
+
         $data = $request->validate([
             'role'                      => 'required',
             'status'                    => 'required',
             'daily_shared_credit_limit' => 'sometimes|nullable|numeric|min:0',
+            // 'remaining_images' => $request['allow_unlimited_credits']
+            //     ? 'sometimes|nullable|numeric'
+            //     : 'required|numeric|max:' . $manager_remaining_images,
+            // 'remaining_words' => $request['allow_unlimited_credits']
+            //     ? 'sometimes|nullable|numeric'
+            //     : 'required|numeric|max:' . $manager_remaining_words,
+            // 'allow_unlimited_credits' => 'sometimes|nullable|boolean',
         ]);
 
         $teamMember->update($data);

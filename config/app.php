@@ -238,7 +238,6 @@ return [
          */
         AppServiceProvider::class,
         App\Domains\WorkCore\WorkCoreServiceProvider::class,
-        TitanZero\Interaction\Providers\InteractionServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         App\Providers\BroadcastServiceProvider::class,
         EventServiceProvider::class,
