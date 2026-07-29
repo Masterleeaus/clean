@@ -113,7 +113,7 @@ jobs:
           mv "$report.tmp" "$report"
           git config user.name "Titan Zero CI"
           git config user.email "actions@users.noreply.github.com"
-          if ! git diff --quiet -- "$report"; then
+          if [[ -n "$(git status --porcelain -- "$report")" ]]; then
             git add "$report"
             git commit -m "ci: record Pass 1 diagnostics"
             git push origin HEAD:agent/titan-zero-pwa-upgrade
