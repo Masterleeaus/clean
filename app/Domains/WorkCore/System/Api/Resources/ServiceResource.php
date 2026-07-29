@@ -1,0 +1,3 @@
+<?php
+
+declare(strict_types=1); namespace App\Domains\WorkCore\System\Api\Resources; final class ServiceResource{public static function make(array $r):array{return ['id'=>(string)($r['public_id']??''),'type'=>'service','category_id'=>$r['category_public_id']??null,'category_name'=>$r['category_name']??null,'code'=>$r['code']??null,'name'=>$r['name']??null,'description'=>$r['description']??null,'default_duration_minutes'=>$r['default_duration_minutes']??null,'pricing_model'=>$r['pricing_model']??'fixed','base_price'=>$r['base_price']??null,'tax_code'=>$r['tax_code']??null,'status'=>$r['status']??'active'];}}

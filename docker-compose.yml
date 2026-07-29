@@ -1,0 +1,104 @@
+name: titan-zero
+
+x-php-service: &php-service
+  build:
+    context: .
+    dockerfile: docker/php/Dockerfile
+  working_dir: /var/www/html
+  volumes:
+    - .:/var/www/html
+    - composer-cache:/home/titan/.composer/cache
+  environment:
+    APP_ENV: local
+    APP_KEY: ${APP_KEY:-}
+    APP_DEBUG: "true"
+    APP_URL: http://localhost:8000
+    DB_CONNECTION: pgsql
+    DB_HOST: postgres
+    DB_PORT: 5432
+    DB_DATABASE: titan
+    DB_USERNAME: titan
+    DB_PASSWORD: titan-local-only
+    CACHE_STORE: database
+    SESSION_DRIVER: database
+    QUEUE_CONNECTION: database
+    BROADCAST_CONNECTION: log
+    FILESYSTEM_DISK: local
+  depends_on:
+    postgres:
+      condition: service_healthy
+
+services:
+  app:
+    <<: *php-service
+    ports:
+      - "8000:8000"
+    environment:
+      APP_ENV: local
+      APP_DEBUG: "true"
+      APP_URL: http://localhost:8000
+      APP_KEY: ${APP_KEY:-}
+      DB_CONNECTION: pgsql
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_DATABASE: titan
+      DB_USERNAME: titan
+      DB_PASSWORD: titan-local-only
+      CACHE_STORE: database
+      SESSION_DRIVER: database
+      QUEUE_CONNECTION: database
+      BROADCAST_CONNECTION: log
+      FILESYSTEM_DISK: local
+
+  queue:
+    <<: *php-service
+    command: ["php", "artisan", "queue:work", "--sleep=2", "--tries=3", "--timeout=120"]
+
+  scheduler:
+    <<: *php-service
+    command: ["php", "artisan", "schedule:work"]
+
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: titan
+      POSTGRES_USER: titan
+      POSTGRES_PASSWORD: titan-local-only
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U titan -d titan"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  node:
+    image: node:22-alpine
+    working_dir: /var/www/html
+    volumes:
+      - .:/var/www/html
+      - node-modules:/var/www/html/node_modules
+      - npm-cache:/home/node/.npm
+    command: ["sh", "-lc", "npm install --no-audit --no-fund && npm run dev -- --host 0.0.0.0"]
+    ports:
+      - "5173:5173"
+
+  verify:
+    <<: *php-service
+    profiles: ["verify"]
+    environment:
+      TITAN_VERIFY_POSTGRES: "1"
+      TITAN_PG_HOST: postgres
+      TITAN_PG_PORT: 5432
+      TITAN_PG_DATABASE: titan
+      TITAN_PG_USERNAME: titan
+      TITAN_PG_PASSWORD: titan-local-only
+    command: ["bash", "bin/titan-verify-connected"]
+
+volumes:
+  postgres-data:
+  composer-cache:
+  node-modules:
+  npm-cache:

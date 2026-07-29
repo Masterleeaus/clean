@@ -1,0 +1,29 @@
+{
+  "key": "regulated_care_core",
+  "label": "Regulated Care Core",
+  "version": "1.0.0",
+  "type": "foundation",
+  "extends": [
+    "premises_services_core"
+  ],
+  "capabilities": [
+    "workcore.dispatch",
+    "workcore.rosters",
+    "workcore.attendance",
+    "workcore.reviews"
+  ],
+  "features": {
+    "compliance.worker_screening": true,
+    "compliance.incidents": true,
+    "compliance.document_evidence": true,
+    "care.service_agreements": true,
+    "privacy.sensitive_records": true
+  },
+  "terminology": {
+    "entity.customer.singular": "Participant",
+    "entity.customer.plural": "Participants",
+    "entity.worker.singular": "Support worker",
+    "entity.worker.plural": "Support workers"
+  },
+  "metadata": {}
+}

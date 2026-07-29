@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$ROOT"
+
+run_php() {
+    printf '\n>>> php %s\n' "$1"
+    php "$1"
+}
+
+run_php tools/titan_verify.php
+run_php tools/titan_namespace_scan.php
+run_php tools/titan_migration_order.php
+run_php tools/titan_route_provider_scan.php
+run_php tests/Standalone/Deployment/run.php
+
+for test in \
+    tests/Architecture/FinanceHostSurfaceTest.php \
+    tests/Architecture/FinanceMoneyDomainContractTest.php \
+    tests/Architecture/FinancePersistenceContractTest.php \
+    tests/Architecture/FinanceRuntimeContractTest.php \
+    tests/Architecture/PropertyAccommodationHostSurfaceTest.php \
+    tests/Architecture/PropertyAccommodationPersistenceContractTest.php \
+    tests/Architecture/PropertyAccommodationRuntimeContractTest.php \
+    tests/Architecture/TitanIntelligenceHostSurfaceTest.php \
+    tests/Architecture/TitanIntelligencePersistenceContractTest.php \
+    tests/Architecture/TitanIntelligenceRuntimeContractTest.php \
+    tests/Standalone/TitanAI/run.php \
+    tests/Standalone/TitanCreative/domain.php \
+    tests/Standalone/TitanCreative/persistence.php \
+    tests/Standalone/TitanCreative/runtime.php \
+    tests/Standalone/TitanCreative/host.php \
+    tests/Standalone/TitanCreative/reconciliation.php \
+    tests/Standalone/TitanIntelligence/domain.php \
+    tests/Standalone/TitanMapsIntelligence/run.php \
+    tests/Standalone/WorkCoreAssurance/run.php \
+    tests/WorkCore/property_accommodation_domain.php
+do
+    run_php "$test"
+done
+
+node --check resources/js/app.js
+node --check resources/js/bootstrap.js
+node --check resources/js/titan/operations.js
+node --check public/js/chat-app.js
+node --check public/js/titan-operations.js
+
+php_files=0
+while IFS= read -r file; do
+    php -l "$file" >/dev/null
+    php_files=$((php_files + 1))
+done < <(find . \
+    -path './.git' -prune -o \
+    -path './vendor' -prune -o \
+    -path './node_modules' -prune -o \
+    -type f -name '*.php' -print | sort)
+
+printf '\nOffline verification passed: %d PHP files linted.\n' "$php_files"
