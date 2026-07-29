@@ -1,0 +1,119 @@
+name: Bootstrap onboarding Interaction Engine from verified source
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: onboarding-interaction-engine-bootstrap
+  cancel-in-progress: false
+
+jobs:
+  import-source:
+    if: github.event.issue.title == 'BOOTSTRAP ONBOARDING INTERACTION ENGINE'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    env:
+      TARGET_BRANCH: onboarding
+      ARCHIVE_URL: https://titan-zero-onboarding-artifacts.miniup.app/downloads/TitanZero-InteractionEngine-FULL-CUMULATIVE-RECONCILED-PASS2-DELTA.zip
+      ARCHIVE_FILE: TitanZero-InteractionEngine-FULL-CUMULATIVE-RECONCILED-PASS2-DELTA.zip
+      ARCHIVE_SHA256: fe89e2937b72b0d0d387ffda8fc2afed08e6af85930a0c322ac59ffa18b3650f
+      EXPECTED_FILE_COUNT: '455'
+
+    steps:
+      - name: Check out onboarding branch
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.repository }}
+          ref: ${{ env.TARGET_BRANCH }}
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Download and verify archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 5 --retry-delay 3 --retry-all-errors \
+            "$ARCHIVE_URL" --output "/tmp/$ARCHIVE_FILE"
+          printf '%s  %s\n' "$ARCHIVE_SHA256" "/tmp/$ARCHIVE_FILE" | sha256sum --check --strict
+          unzip -t "/tmp/$ARCHIVE_FILE"
+          actual_count="$(zipinfo -1 "/tmp/$ARCHIVE_FILE" | awk 'substr($0, length($0), 1) != "/"' | wc -l | tr -d ' ')"
+          test "$actual_count" = "$EXPECTED_FILE_COUNT"
+
+      - name: Extract and inspect source
+        shell: bash
+        run: |
+          set -euo pipefail
+          extract_dir=/tmp/titan-zero-onboarding-source
+          rm -rf "$extract_dir"
+          mkdir -p "$extract_dir"
+          unzip -q "/tmp/$ARCHIVE_FILE" -d "$extract_dir"
+          test -f "$extract_dir/composer.json"
+          test -d "$extract_dir/app/Domains/TitanZero/InteractionEngine"
+          test -d "$extract_dir/app/Domains/WorkCore/System/Modules/Wizards"
+          ! find "$extract_dir" -type d \( -name vendor -o -name node_modules -o -name .git \) -print -quit | grep -q .
+          ! find "$extract_dir" -type f \( -name '.env' -o -name '*.pem' -o -name '*.p12' -o -name '*.pfx' \) -print -quit | grep -q .
+
+      - name: Import archive while preserving branch controls
+        shell: bash
+        run: |
+          set -euo pipefail
+          source_root=/tmp/titan-zero-onboarding-source
+          rsync -a \
+            --exclude='.git/' \
+            --exclude='UPGRADE_PLAN.md' \
+            --exclude='artifacts/README.md' \
+            --exclude='.github/workflows/' \
+            "$source_root/" ./
+          test -f UPGRADE_PLAN.md
+          test -f artifacts/README.md
+          test -f composer.json
+          test -d app/Domains/TitanZero/InteractionEngine
+          test -d app/Domains/WorkCore/System/Modules/Wizards
+
+          cat > SOURCE_IMPORT_COMPLETE.md <<EOF
+          # Interaction Engine onboarding source import
+
+          - Source archive: \`$ARCHIVE_FILE\`
+          - MiniUp transfer: <$ARCHIVE_URL>
+          - SHA-256: \`$ARCHIVE_SHA256\`
+          - Imported archive files: \`$EXPECTED_FILE_COUNT\`
+          - Target branch: \`$TARGET_BRANCH\`
+          - Bootstrap run: <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}>
+
+          The archive was checksum-verified, ZIP-tested and inspected for generated dependencies, runtime environment files and private-key material before extraction. Existing branch governance files were preserved.
+          EOF
+
+      - name: Validate imported PHP and JSON
+        shell: bash
+        run: |
+          set -euo pipefail
+          find app config database routes tests -type f -name '*.php' -print0 2>/dev/null \
+            | xargs -0 -r -n1 php -l >/tmp/onboarding-php-lint.log
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          for path in Path('.').rglob('*.json'):
+              with path.open('r', encoding='utf-8') as handle:
+                  json.load(handle)
+          PY
+
+      - name: Commit imported source and close trigger issue
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if ! git diff --cached --quiet; then
+            git commit -m 'chore: import verified onboarding Interaction Engine source'
+            git push origin "HEAD:$TARGET_BRANCH"
+          fi
+          gh issue close "${{ github.event.issue.number }}" --comment 'Verified Interaction Engine source import completed on `onboarding`.'
