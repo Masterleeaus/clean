@@ -1,0 +1,115 @@
+name: Titan Zero Host Boot
+
+on:
+  push:
+    branches:
+      - agent/titan-zero-pwa-upgrade
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: titan-zero-host-boot-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  APP_ENV: testing
+  APP_DEBUG: "false"
+  APP_KEY: base64:MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDA=
+  DB_CONNECTION: sqlite
+  DB_DATABASE: database/database.sqlite
+  CACHE_DRIVER: array
+  SESSION_DRIVER: array
+  QUEUE_CONNECTION: sync
+  MAIL_MAILER: array
+  INTERACTION_AI_ENABLED: "false"
+  INTERACTION_OFFLINE_ENABLED: "true"
+  INTERACTION_APPROVAL_SECRET: pass1-ci-approval-secret
+  INTERACTION_OUTBOX_SECRET: pass1-ci-outbox-secret
+
+jobs:
+  refresh-local-package-lock:
+    if: "${{ !contains(github.event.head_commit.message || '', 'chore: lock Interaction Engine dependency') }}"
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/titan-zero-pwa-upgrade
+          fetch-depth: 0
+
+      - name: Configure PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: curl, fileinfo, intl, json, mbstring, openssl, pdo, pdo_sqlite, sodium, tokenizer, xml, zip
+          tools: composer:v2
+          coverage: none
+
+      - name: Refresh local Interaction Engine lock entry
+        run: >-
+          composer update titanzero/interaction-engine
+          --with-dependencies
+          --no-interaction
+          --no-progress
+          --prefer-dist
+          --no-scripts
+
+      - name: Commit generated lock file when changed
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- composer.lock; then
+            echo "composer.lock already contains the current Interaction Engine package."
+            exit 0
+          fi
+          git config user.name "Titan Zero CI"
+          git config user.email "actions@users.noreply.github.com"
+          git add composer.lock
+          git commit -m "chore: lock Interaction Engine dependency"
+          git push origin HEAD:agent/titan-zero-pwa-upgrade
+
+  clean-clone-host-boot:
+    needs: refresh-local-package-lock
+    if: "${{ always() && (needs.refresh-local-package-lock.result == 'success' || needs.refresh-local-package-lock.result == 'skipped') }}"
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/titan-zero-pwa-upgrade
+
+      - name: Configure PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: curl, fileinfo, intl, json, mbstring, openssl, pdo, pdo_sqlite, sodium, tokenizer, xml, zip
+          tools: composer:v2
+          coverage: none
+
+      - name: Prepare test environment
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp .env.example .env
+          mkdir -p database storage/framework/{cache/data,sessions,testing,views} storage/logs bootstrap/cache
+          touch database/database.sqlite
+
+      - name: Validate locked dependencies
+        run: composer validate --no-check-publish --no-interaction
+
+      - name: Install locked dependencies
+        run: composer install --no-interaction --no-progress --prefer-dist --optimize-autoloader
+
+      - name: Boot Laravel host
+        run: php artisan about
+
+      - name: Verify Interaction Engine routes
+        run: php artisan route:list --path=interaction
+
+      - name: Run host boot tests
+        run: php artisan test --filter=HostBootTest
+
+      - name: Run static host contracts
+        run: python3 tests/contracts/titan_zero_host_boot_contract_test.py
