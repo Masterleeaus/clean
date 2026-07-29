@@ -79,6 +79,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: agent/titan-zero-pwa-upgrade
+          fetch-depth: 0
 
       - name: Configure PHP
         uses: shivammathur/setup-php@v2
@@ -113,3 +114,34 @@ jobs:
 
       - name: Run static host contracts
         run: python3 tests/contracts/titan_zero_host_boot_contract_test.py
+
+      - name: Record Pass 1 verification receipt
+        shell: bash
+        run: |
+          set -euo pipefail
+          lock_sha="$(sha256sum composer.lock | awk '{print $1}')"
+          package_version="$(php -r '$lock=json_decode(file_get_contents("composer.lock"), true); foreach ($lock["packages"] as $package) { if (($package["name"] ?? null) === "titanzero/interaction-engine") { echo $package["version"]; exit; } } exit(1);')"
+          mkdir -p docs/passes
+          cat > docs/passes/PASS1_CI_VERIFICATION.md <<EOF
+          # Pass 1 CI Verification
+
+          This receipt is written only after the clean-clone host boot workflow completes successfully.
+
+          - Composer validation: PASS
+          - Locked dependency installation: PASS
+          - Laravel `artisan about`: PASS
+          - Interaction Engine route discovery: PASS
+          - `HostBootTest`: PASS
+          - Static host contracts: PASS
+          - Interaction Engine locked version: `${package_version}`
+          - `composer.lock` SHA-256: `${lock_sha}`
+          EOF
+          if git diff --quiet -- docs/passes/PASS1_CI_VERIFICATION.md; then
+            echo "Pass 1 verification receipt is current."
+            exit 0
+          fi
+          git config user.name "Titan Zero CI"
+          git config user.email "actions@users.noreply.github.com"
+          git add docs/passes/PASS1_CI_VERIFICATION.md
+          git commit -m "ci: record Pass 1 host boot verification"
+          git push origin HEAD:agent/titan-zero-pwa-upgrade
