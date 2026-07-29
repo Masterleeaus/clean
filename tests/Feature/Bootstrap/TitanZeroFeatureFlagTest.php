@@ -39,12 +39,7 @@ function titanZeroFeatureFlagIssues(string $root): array
     foreach ($cases as $name => $case) {
         $flags = \App\Support\TitanZero\TitanZeroFeatureFlags::fromArray($case['config']);
         if ($flags->coreProviderClassNames() !== $case['providers']) {
-            $issues[] = sprintf(
-                '%s provider plan mismatch: expected %s, got %s.',
-                $name,
-                json_encode($case['providers']),
-                json_encode($flags->coreProviderClassNames()),
-            );
+            $issues[] = sprintf('%s provider plan mismatch.', $name);
         }
     }
 
@@ -55,22 +50,16 @@ function titanZeroFeatureFlagIssues(string $root): array
         'extension_discovery_enabled' => true,
     ]);
 
-    foreach ([
-        'workCoreEnabled' => true,
-        'chatbotEnabled' => true,
-        'interactionEngineEnabled' => true,
-        'extensionDiscoveryEnabled' => true,
-    ] as $method => $expected) {
-        if ($all->{$method}() !== $expected) {
+    foreach (['workCoreEnabled', 'chatbotEnabled', 'interactionEngineEnabled', 'extensionDiscoveryEnabled'] as $method) {
+        if ($all->{$method}() !== true) {
             $issues[] = "{$method} did not preserve its configured value.";
         }
     }
+    if (! in_array('App\\Providers\\ExtensionServiceProvider', $all->coreProviderClassNames(), true)) {
+        $issues[] = 'Extension discovery did not add ExtensionServiceProvider to the provider plan.';
+    }
 
-    $requiredFiles = [
-        'config/titan-zero.php',
-        'app/Providers/TitanZeroServiceProvider.php',
-    ];
-    foreach ($requiredFiles as $relative) {
+    foreach (['config/titan-zero.php', 'app/Providers/TitanZeroServiceProvider.php'] as $relative) {
         if (! is_file($root . '/' . $relative)) {
             $issues[] = "Missing staged boot file: {$relative}";
         }
@@ -88,8 +77,13 @@ function titanZeroFeatureFlagIssues(string $root): array
     }
 
     $marketplaceProvider = (string) @file_get_contents($root . '/app/Domains/Marketplace/MarketplaceServiceProvider.php');
-    if (! str_contains($marketplaceProvider, 'extensionDiscoveryEnabled()')) {
-        $issues[] = 'Marketplace extension registration is not guarded by Titan Zero feature flags.';
+    if (str_contains($marketplaceProvider, '$this->extensionProviderRegister();')) {
+        $issues[] = 'Marketplace still registers extension providers directly.';
+    }
+
+    $extensionProvider = (string) @file_get_contents($root . '/app/Providers/ExtensionServiceProvider.php');
+    if (! str_contains($extensionProvider, 'resolveEnabledProviders()')) {
+        $issues[] = 'ExtensionServiceProvider does not use validated provider discovery.';
     }
 
     $chatbotProvider = (string) @file_get_contents($root . '/app/Extensions/Chatbot/System/ChatbotServiceProvider.php');
@@ -116,6 +110,5 @@ if (realpath($_SERVER['SCRIPT_FILENAME'] ?? '') === __FILE__) {
         fwrite(STDERR, implode(PHP_EOL, $issues) . PHP_EOL);
         exit(1);
     }
-
     fwrite(STDOUT, "Titan Zero feature flag test passed.\n");
 }
