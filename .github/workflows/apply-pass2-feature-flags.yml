@@ -1,0 +1,48 @@
+name: Apply Pass 2 Feature Flag Wiring
+
+on:
+  push:
+    branches:
+      - agent/gpt56-titan-zero-upgrade-workbench
+    paths:
+      - .github/pass2-apply-trigger
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout work branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/gpt56-titan-zero-upgrade-workbench
+          fetch-depth: 0
+
+      - name: Apply exact provider wiring patch
+        run: php tools/titan-zero-audit/apply-pass2-feature-flags.php
+
+      - name: Verify PHP syntax and feature-flag contract
+        run: |
+          php -l config/app.php
+          php -l config/titan-zero.php
+          php -l app/Providers/TitanZeroServiceProvider.php
+          php -l app/Support/TitanZero/TitanZeroFeatureFlags.php
+          php -l app/Domains/Marketplace/MarketplaceServiceProvider.php
+          php -l app/Extensions/Chatbot/System/ChatbotServiceProvider.php
+          php tests/Feature/Bootstrap/TitanZeroFeatureFlagTest.php
+
+      - name: Commit patched provider graph
+        run: |
+          if git diff --quiet -- config/app.php app/Domains/Marketplace/MarketplaceServiceProvider.php app/Extensions/Chatbot/System/ChatbotServiceProvider.php; then
+            echo "Provider graph already patched."
+            exit 0
+          fi
+          git config user.name "Titan Zero Pass 2 Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add config/app.php app/Domains/Marketplace/MarketplaceServiceProvider.php app/Extensions/Chatbot/System/ChatbotServiceProvider.php
+          git commit -m "feat: gate Titan Zero provider activation"
+          git push origin HEAD:agent/gpt56-titan-zero-upgrade-workbench
