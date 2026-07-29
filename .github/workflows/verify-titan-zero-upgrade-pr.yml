@@ -1,0 +1,51 @@
+name: Verify Titan Zero PWA Upgrade Branch
+
+on:
+  pull_request:
+    branches:
+      - agent/titan-zero-pwa-import-base
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+
+jobs:
+  verify-source:
+    if: github.head_ref == 'agent/titan-zero-pwa-upgrade'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout isolated work branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 1
+
+      - name: Report source size
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "Files: $(find . -type f ! -path './.git/*' | wc -l)"
+          echo "Bytes: $(find . -type f ! -path './.git/*' -printf '%s\n' | awk '{sum += $1} END {print sum}')"
+
+      - name: Verify required source, strict JSON and private-key absence
+        run: bash scripts/titan-zero/verify-source.sh
+
+      - name: PHP syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          find app packages -type f -name '*.php' -print0 \
+            | xargs -0 -n1 -P4 php -l >/tmp/php-lint.log
+          echo "PHP files checked: $(wc -l </tmp/php-lint.log)"
+          tail -20 /tmp/php-lint.log
+
+      - name: Composer metadata
+        run: composer validate --no-check-publish --no-check-lock --no-interaction
+
+      - name: Interaction Engine standalone tests
+        run: php packages/titanzero/interaction-engine/tests/run.php
+
+      - name: Shell syntax
+        run: bash -n scripts/titan-zero/verify-source.sh
