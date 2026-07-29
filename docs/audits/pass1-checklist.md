@@ -9,6 +9,10 @@
 - [x] Stale unused `rt-client` dependency removed from `package.json`.
 - [x] Idempotent lockfile repair utility added.
 - [x] Standalone dependency test passing locally.
-- [ ] Composer strict validation passing in GitHub Actions.
-- [ ] PHPUnit architecture tests passing in GitHub Actions.
-- [ ] npm clean install passing in GitHub Actions.
+- [x] Composer strict validation passing in GitHub Actions.
+- [x] PHPUnit architecture tests passing in GitHub Actions.
+- [x] npm clean install passing in GitHub Actions.
+
+## Acceptance evidence
+
+GitHub Actions run `30468140105` completed successfully. It verified committed lockfiles, strict Composer metadata, PHP dependency installation, the source baseline audit, both architecture tests and a clean npm installation.
