@@ -11,7 +11,7 @@ permissions:
 jobs:
   staged-bootstrap:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 40
     env:
       APP_ENV: testing
       APP_DEBUG: 'false'
@@ -45,8 +45,11 @@ jobs:
       - name: Install PHP dependencies without application scripts
         run: composer install --no-interaction --prefer-dist --no-progress --no-scripts
 
+      - name: Clear configuration cache
+        run: php artisan config:clear
+
       - name: Run provider contract tests
-        run: vendor/bin/phpunit tests/Feature/Bootstrap/TitanZeroFeatureFlagTest.php tests/Feature/Extensions/ExtensionProviderDiscoveryTest.php
+        run: vendor/bin/phpunit tests/Feature/Bootstrap/TitanZeroFeatureFlagTest.php tests/Feature/Extensions/ExtensionProviderDiscoveryTest.php tests/Feature/Console/TitanZeroProviderAuditCommandTest.php
 
       - name: Boot with all Titan Zero cores disabled
         env:
@@ -87,3 +90,26 @@ jobs:
           TITAN_ZERO_EXTENSION_DISCOVERY_ENABLED: 'true'
           TITAN_ZERO_ENABLED_EXTENSIONS: focus-mode
         run: php tools/titan-zero-audit/boot-probe.php
+
+      - name: Verify Artisan about and route listing for staged combinations
+        shell: bash
+        run: |
+          set -euo pipefail
+          for combination in "false false" "true false" "false true" "true true"; do
+            read -r workcore chatbot <<< "$combination"
+            TITAN_ZERO_WORKCORE_ENABLED="$workcore" TITAN_ZERO_CHATBOT_ENABLED="$chatbot" php artisan about --no-ansi >/dev/null
+            TITAN_ZERO_WORKCORE_ENABLED="$workcore" TITAN_ZERO_CHATBOT_ENABLED="$chatbot" php artisan route:list --except-vendor --no-ansi >/dev/null
+          done
+
+      - name: Generate real extension provider audit
+        run: |
+          mkdir -p storage/app/audits
+          php artisan titan-zero:provider-audit --json > storage/app/audits/provider-audit.json
+          php -r '$audit=json_decode(file_get_contents("storage/app/audits/provider-audit.json"), true, 512, JSON_THROW_ON_ERROR); if (($audit["summary"]["total"] ?? 0) !== 104) { fwrite(STDERR, "Provider audit did not inspect 104 extensions.\n"); exit(1); }'
+
+      - name: Upload provider audit evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: titan-zero-provider-audit
+          path: storage/app/audits/provider-audit.json
+          if-no-files-found: error
