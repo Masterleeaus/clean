@@ -93,7 +93,7 @@ jobs:
           if [[ -f vendor/autoload.php ]]; then
             run_check artisan-about php artisan about
             run_check migrations php artisan migrate --force
-            run_check interaction-routes php artisan route:list --path=interaction
+            run_check interaction-routes php artisan route:list --name=interaction -vvv
             run_check host-boot-tests php artisan test --filter=HostBootTest
           else
             printf '\n## Laravel boot stages\n\nSkipped because `vendor/autoload.php` was not created.\n' >> "$report.tmp"
