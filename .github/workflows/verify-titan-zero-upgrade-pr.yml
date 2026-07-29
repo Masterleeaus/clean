@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   verify-source:
-    if: github.head_ref == 'agent/titan-zero-pwa-upgrade'
+    if: github.head_ref == 'agent/titan-zero-pwa-verify-trigger'
     runs-on: ubuntu-latest
     timeout-minutes: 20
 
@@ -19,7 +19,7 @@ jobs:
       - name: Checkout isolated work branch
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.head_ref }}
+          ref: agent/titan-zero-pwa-upgrade
           fetch-depth: 1
 
       - name: Report source size
