@@ -20,6 +20,15 @@ def table_creators(migration_roots: list[Path]) -> dict[str, list[str]]:
     return tables
 
 
+def constructor_body(source: str) -> str:
+    match = re.search(
+        r'public function __construct\([^)]*\)\s*\{(?P<body>.*?)\n\s*\}',
+        source,
+        flags=re.DOTALL,
+    )
+    return match.group('body') if match else ''
+
+
 class HostBootContractTest(unittest.TestCase):
     def test_interaction_engine_is_registered_once(self) -> None:
         composer = json.loads((ROOT / 'composer.json').read_text())
@@ -78,6 +87,16 @@ class HostBootContractTest(unittest.TestCase):
         )
         self.assertGreaterEqual(len(tables), 10, 'expected the cumulative Interaction Engine schema')
 
+    def test_queued_commands_migration_declares_each_timestamp_once(self) -> None:
+        migration = (
+            ROOT
+            / 'packages/titanzero/interaction-engine/src/Migrations/'
+            '2026_08_02_000000_create_queued_commands_table.php'
+        ).read_text()
+        self.assertEqual(1, migration.count("timestamp('created_at')"))
+        self.assertEqual(1, migration.count("timestamp('updated_at')"))
+        self.assertNotIn('$table->timestamps()', migration)
+
     def test_chatbot_migrations_create_each_table_once(self) -> None:
         tables = table_creators([ROOT / 'app/Extensions/Chatbot/database/migrations'])
         duplicates = {table: paths for table, paths in tables.items() if len(paths) > 1}
@@ -98,14 +117,18 @@ class HostBootContractTest(unittest.TestCase):
 
     def test_controller_constructors_do_not_abort_route_inspection(self) -> None:
         controller = (ROOT / 'app/Http/Controllers/Team/TeamController.php').read_text()
-        constructor = re.search(
-            r'public function __construct\([^)]*\)\s*\{(?P<body>.*?)\n\s*\}',
-            controller,
-            flags=re.DOTALL,
-        )
-        self.assertIsNotNone(constructor)
-        self.assertNotIn('abort_if(', constructor.group('body'))
-        self.assertIn('$this->middleware(', constructor.group('body'))
+        body = constructor_body(controller)
+        self.assertNotIn('abort_if(', body)
+        self.assertIn('$this->middleware(', body)
+
+    def test_tts_controller_constructor_has_no_database_side_effects(self) -> None:
+        controller = (ROOT / 'app/Http/Controllers/TTSController.php').read_text()
+        body = constructor_body(controller)
+        for forbidden in ('Setting::getCache', 'SettingTwo::getCache', 'OpenAIGenerator::where', '->first('):
+            self.assertNotIn(forbidden, body)
+        self.assertIn('private function settings()', controller)
+        self.assertIn('private function settingsTwo()', controller)
+        self.assertIn('private function voiceoverGenerator()', controller)
 
 
 if __name__ == '__main__':
