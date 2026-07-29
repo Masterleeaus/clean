@@ -1,25 +1,28 @@
 {
   "id": "titan-train",
   "name": "Titan Train",
-  "version": "0.2.0-pass2",
-  "description": "Cleaner onboarding, lessons, assessments, competency and readiness inside Titan Zero.",
+  "version": "0.3.0-pass3",
+  "description": "Native guided cleaner onboarding, assessment, competency and readiness workspace inside Titan Zero.",
   "online_only": true,
+  "native_template": true,
   "launch_url": "/train",
   "bridge_url": "/chatbot-pwa/apps/titan-train.js",
   "bootstrap_endpoint": "/api/v1/titan-train/pwa/bootstrap",
   "navigation": [
-    {"id":"learn","label":"Learn","icon":"book-open"},
-    {"id":"practice","label":"Practice","icon":"clipboard-check"},
-    {"id":"skills","label":"Skills","icon":"badge-check"},
-    {"id":"me","label":"Me","icon":"user"}
+    {"id": "learn", "label": "Learn", "icon": "book-open"},
+    {"id": "practice", "label": "Practice", "icon": "clipboard-check"},
+    {"id": "skills", "label": "Skills", "icon": "badge-check"},
+    {"id": "me", "label": "Me", "icon": "user"}
   ],
   "capabilities": [
     "training.assignments.read",
     "training.lessons.complete",
     "training.assessments.attempt",
-    "training.readiness.read"
+    "training.readiness.read",
+    "training.channels.open"
   ],
-  "template_schema_url": "/titan-apps/TemplateSchemas/titan-train.json",
-  "api_auth": "passport",
-  "tenant_header": "X-Titan-Company"
+  "template_schema_url": "/vendor/chatbot/titan-apps/TemplateSchemas/titan-train.json",
+  "api_auth": "session-or-passport",
+  "tenant_header": "X-Titan-Company",
+  "channel_surface": "titan-channels"
 }

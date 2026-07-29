@@ -29,6 +29,7 @@ final class PwaBootstrapService
         $channels = ChannelLink::query()->where(function ($query) use ($assignments, $manager): void {
             if ($manager) {
                 $query->whereIn('channel_type', ['program_cohort', 'private_learner']);
+
                 return;
             }
 
@@ -42,9 +43,12 @@ final class PwaBootstrapService
             'app' => [
                 'id' => 'titan-train',
                 'name' => 'Titan Train',
-                'version' => '0.2.0-pass2',
+                'version' => '0.3.0-pass3',
                 'launch_url' => url('/train'),
                 'online_only' => true,
+                'native_template' => true,
+                'views' => ['learn', 'practice', 'skills', 'me'],
+                'channel_surface' => 'titan-channels',
             ],
             'company' => [
                 'public_id' => $membership->company?->public_id,
@@ -58,6 +62,10 @@ final class PwaBootstrapService
             'endpoints' => [
                 'bootstrap' => url($prefix.'/pwa/bootstrap'),
                 'assignments' => url($prefix.'/assignments'),
+                'assignment' => url($prefix.'/assignments/{assignment}'),
+                'complete_lesson' => url($prefix.'/assignments/{assignment}/lessons/{lesson}/complete'),
+                'start_assessment' => url($prefix.'/assignments/{assignment}/assessments/{assessment}/start'),
+                'submit_attempt' => url($prefix.'/attempts/{attempt}/submit'),
                 'management_install' => url($prefix.'/management/cleaner-foundation/install'),
             ],
         ];

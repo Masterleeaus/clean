@@ -1,5 +1,6 @@
 {
   "schema_version": "1.0.0",
+  "online_only": true,
   "identity": {
     "name": "Titan Train",
     "slug": "titan-train",
@@ -43,7 +44,7 @@
     }
   },
   "workcore": {
-    "domains": ["TitanTrain", "Workforce", "Compliance", "Documents"],
+    "domains": ["TitanTrain", "Workforce", "Compliance", "Documents", "Channels"],
     "commands": [
       "titan_train.assignments.list",
       "titan_train.readiness.get",
@@ -55,10 +56,12 @@
       "learning_progress",
       "assessment_attempts",
       "competency_grants",
-      "training_certificates"
+      "training_certificates",
+      "training_channels"
     ]
   },
   "offline": {
+    "enabled": false,
     "records": [],
     "packs": [],
     "retention": {"completed_days": 0},
