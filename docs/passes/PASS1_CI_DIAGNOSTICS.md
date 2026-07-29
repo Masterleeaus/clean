@@ -321,33 +321,163 @@ Use the `composer fund` command to find out more!
 
 ```
 
+## migrations
+
+- Exit code: `1`
+
+```text
+  2026_04_24_000002_add_conversation_id_to_ext_ai_agent_messages .... 4ms DONE
+  2026_04_24_071216_add_voice_type_to_user_heygen_table ............. 6ms DONE
+  2026_04_24_100001_add_is_ai_photo_studio_column_to_user_openai_table  4ms DONE
+  2026_04_24_100002_create_ai_photo_studio_products_table ........... 1ms DONE
+  2026_04_24_100003_create_ai_photo_studio_backgrounds_table ........ 1ms DONE
+  2026_04_24_100004_create_ai_photo_studio_user_settings_table ...... 2ms DONE
+  2026_04_24_132415_add_locale_to_user_heygen_table ................. 3ms DONE
+  2026_04_28_070713_add_created_at_index_to_ext_ai_agent_workflow_runs_table  1ms DONE
+  2026_04_28_131234_add_ai_agent_limits_to_plans_table ............. 14ms DONE
+  2026_04_28_133202_add_ai_agent_memory_limit_to_plans_table ........ 0ms DONE
+  2026_04_29_000001_create_ext_ai_agent_connectors_table ............ 3ms DONE
+  2026_04_29_120000_add_category_and_description_to_ai_photo_studio_backgrounds_table  7ms DONE
+  2026_05_08_100001_create_ugc_factory_actors_table ................. 3ms DONE
+  2026_05_08_100002_create_ugc_factory_videos_table ................. 4ms DONE
+  2026_05_08_100003_add_ugc_videos_limit_to_plans_table ............. 4ms DONE
+  2026_05_08_100004_add_fal_columns_to_ugc_factory_actors_table ..... 7ms DONE
+  2026_05_11_125019_add_config_fields_to_ext_ai_agent_workflows .... 10ms DONE
+  2026_05_11_140226_create_ext_ai_agent_avatars_table ............... 1ms DONE
+  2026_05_12_141714_add_copilot_model_to_ext_ai_agent_workflows_table  3ms DONE
+  2026_05_18_000001_create_ai_captions_videos_table ................. 2ms DONE
+  2026_05_18_000002_add_ai_captions_columns_to_plans_table .......... 7ms DONE
+  2026_05_18_000002_widen_ai_captions_url_columns ................... 2ms DONE
+  2026_05_19_000001_create_ext_phone_call_agents_table .............. 2ms DONE
+  2026_05_19_000002_create_ext_phone_call_agent_trains_table ........ 1ms DONE
+  2026_05_19_000003_create_ext_phone_call_agent_calls_table ......... 2ms DONE
+  2026_05_19_000004_create_ext_phone_call_agent_transcripts_table ... 1ms DONE
+  2026_05_19_000005_add_phone_call_agent_seconds_limit_to_plans ..... 4ms DONE
+  2026_05_19_084654_add_language_to_elevenlab_voices_table .......... 3ms DONE
+  2026_05_19_100001_create_ugc_creator_assets_table ................. 2ms DONE
+  2026_05_19_100002_create_ugc_creator_videos_table ................. 4ms DONE
+  2026_05_19_100003_add_ugc_creator_videos_limit_to_plans_table ..... 4ms DONE
+  2026_05_20_000001_add_local_output_path_to_video_dubbings ......... 4ms DONE
+  2026_05_20_000001_add_metadata_to_ext_ai_agent_workflow_copilot_messages  4ms DONE
+  2026_05_20_100001_consolidate_script_fields_on_ugc_creator_videos_table  1ms DONE
+  2026_05_20_100001_expand_video_editor_media_path_columns .......... 9ms DONE
+  2026_05_20_100002_add_fal_poll_urls_to_ugc_creator_videos_table ... 8ms DONE
+  2026_05_21_000006_create_ext_phone_call_agent_call_tags_table ..... 1ms DONE
+  2026_05_21_000007_create_ext_phone_call_agent_call_tag_pivot_table  2ms DONE
+  2026_05_21_093817_add_pinned_to_ext_phone_call_agent_calls_table .. 4ms DONE
+  2026_05_22_113556_add_content_to_ext_phone_call_agent_trains ...... 4ms DONE
+  2026_05_22_113556_add_twilio_credentials_to_settings_two .......... 7ms DONE
+  2026_05_26_000001_add_pinned_and_closed_at_to_ext_ai_agent_conversations  8ms DONE
+  2026_05_28_085259_add_booking_fields_to_ext_phone_call_agents_table  14ms DONE
+  2026_05_29_100824_change_booking_api_key_to_text_on_ext_phone_call_agents_table  6ms DONE
+  2026_06_02_000001_create_ext_ai_chat_pro_connectors_table ......... 3ms DONE
+  2026_06_02_000002_add_used_connectors_to_user_openai_chat_messages_table  4ms DONE
+  2026_06_03_000001_add_uuid_to_ext_ai_chat_pro_connectors_table ... 10ms DONE
+  2026_06_03_120000_add_is_paused_to_ext_ai_chat_pro_connectors_table  4ms DONE
+  2026_06_04_084631_reset_ext_ai_agent_avatar_presets ............... 4ms DONE
+  2026_06_05_105707_backfill_image_for_new_claude_opus_entities ..... 0ms DONE
+  2026_06_08_075837_add_workflow_id_to_ext_ai_agent_conversations ... 5ms DONE
+  2026_06_12_153306_drop_ip_column_from_users_activity_table ........ 4ms DONE
+  2026_06_19_000000_add_avatar_6_and_7_presets ...................... 5ms DONE
+  2026_06_19_075901_add_booking_tool_ids_to_ext_phone_call_agents_table  4ms DONE
+  2026_06_22_000001_add_phone_number_to_ext_phone_call_agents_table  14ms DONE
+  2026_06_25_115509_add_ai_chat_pro_connectors_to_plans ............. 4ms DONE
+  2026_07_23_120001_create_tz_companies_table ....................... 4ms DONE
+  2026_07_23_120002_create_tz_company_roles_table ................... 2ms DONE
+  2026_07_23_120003_create_tz_company_memberships_table ............. 3ms DONE
+  2026_07_23_120004_create_tz_company_permissions_tables ............ 6ms DONE
+  2026_07_23_120005_create_tz_crm_tables ........................... 12ms DONE
+  2026_07_23_120006_create_tz_company_invitations_table ............. 5ms DONE
+  2026_07_23_120007_create_tz_action_governance_tables ............. 10ms DONE
+  2026_07_23_120008_create_tz_outbox_messages_table ................. 5ms DONE
+  2026_07_23_120009_complete_tz_crm_foundation ..................... 60ms DONE
+  2026_07_23_120010_create_tz_premises_table ........................ 4ms DONE
+  2026_07_23_120011_create_tz_service_catalogue_tables ............. 17ms DONE
+  2026_07_23_120012_create_tz_work_order_tables .................... 19ms DONE
+  2026_07_23_120013_create_tz_appointment_tables ................... 16ms DONE
+  2026_07_23_120014_create_tz_dispatch_tables ...................... 13ms DONE
+  2026_07_23_120015_create_tz_worker_tables ........................ 17ms DONE
+  2026_07_23_120016_create_tz_availability_and_roster_tables ....... 38ms DONE
+  2026_07_23_120017_create_tz_asset_and_equipment_tables ........... 27ms DONE
+  2026_07_23_120018_create_tz_inventory_and_material_tables ........ 29ms DONE
+  2026_07_23_120019_create_tz_forms_and_checklists_tables .......... 28ms DONE
+  2026_07_23_120020_create_tz_attendance_and_leave_tables .......... 29ms DONE
+  2026_07_23_120021_create_tz_support_ticket_tables ................ 23ms DONE
+  2026_07_23_120022_create_tz_knowledge_base_tables ................ 25ms DONE
+  2026_07_23_120023_create_tz_reviews_and_rebooking_tables ......... 51ms DONE
+  2026_07_23_120024_merge_titan_assets_into_workcore .............. 368ms DONE
+  2026_07_23_120025_integrate_assets_with_scheduling ................ 6ms DONE
+  2026_07_23_120026_harden_asset_runtime_wiring .................... 12ms DONE
+  2026_07_23_120027_expand_premises_supply_fleet_and_repairs ...... 322ms DONE
+  2026_07_23_120028_create_tz_vault_tables ......................... 26ms DONE
+  2026_07_23_120029_create_tz_vertical_system_tables ............... 23ms DONE
+  2026_07_23_120030_create_tz_vertical_setup_tables ................ 15ms DONE
+  2026_07_23_120031_create_tz_vertical_operations_tables ........... 89ms DONE
+  2026_07_23_120032_create_tz_trade_field_compliance_tables ........ 32ms DONE
+  2026_07_23_120033_create_tz_compliance_and_safety_tables ......... 86ms DONE
+  2026_07_23_120034_merge_titan_feedback_into_workcore ............ 170ms DONE
+  2026_07_23_120035_create_tz_recurring_service_tables ............. 25ms DONE
+  2026_07_23_120036_wire_feedback_across_workcore .................. 17ms DONE
+  2026_07_23_120037_create_tz_territory_tables ..................... 23ms DONE
+  2026_07_23_120038_create_tz_qr_tables ............................ 14ms DONE
+  2026_07_23_120039_create_tm_financial_settings_table .............. 2ms DONE
+  2026_07_23_120040_create_tm_tax_registrations_table ............... 3ms DONE
+  2026_07_23_120041_create_tm_number_sequences_table ................ 6ms DONE
+  2026_07_23_120042_create_tm_idempotency_keys_table ................ 3ms DONE
+  2026_07_23_120043_create_tm_document_snapshots_table .............. 3ms DONE
+  2026_07_23_120044_create_tm_commercial_documents_tables .......... 48ms DONE
+  2026_07_23_120045_create_tm_payments_expenses_and_payables_tables  49ms DONE
+  2026_07_23_120046_create_tm_ledger_tax_and_period_tables ......... 28ms DONE
+  2026_07_23_120047_create_tm_reconciliation_forecasting_and_export_tables  28ms DONE
+  2026_07_23_120048_create_tm_autonomous_money_management_tables ... 39ms DONE
+  2026_07_23_120049_create_tm_runtime_audit_and_inbox_tables ........ 7ms DONE
+  2026_07_23_120050_create_tm_collections_and_payment_runtime_tables  29ms DONE
+  2026_07_23_120051_create_tm_integration_runtime_tables .......... 133ms DONE
+  2026_07_23_120052_create_tm_missing_money_domains_tables ........ 121ms DONE
+  2026_07_23_120053_create_tz_capability_expansion_tables .......... 29ms DONE
+  2026_07_23_120054_create_tz_sales_pipeline_tables ................ 19ms DONE
+  2026_07_23_120055_create_tz_workforce_team_domains .............. 191ms DONE
+  2026_07_23_120056_create_tz_adaptive_feature_tables .............. 26ms DONE
+  2026_07_23_120057_create_tz_intelligence_core_tables ............. 20ms DONE
+  2026_07_23_120058_create_tz_ai_knowledge_tables ................... 5ms FAIL
+
+In Grammar.php line 108:
+                                                                  
+  This database driver does not support fulltext index creation.  
+                                                                  
+
+
+```
+
 ## interaction-routes
 
 - Exit code: `1`
 
 ```text
 
-In Connection.php line 829:
-                                                                               
-  SQLSTATE[HY000]: General error: 1 no such table: settings (Connection: sqli  
-  te, SQL: select * from "settings" limit 1)                                   
-                                                                               
-
-In Connection.php line 423:
-                                                             
-  SQLSTATE[HY000]: General error: 1 no such table: settings  
-                                                             
+In Application.php line 1274:
+                                                                  
+  [Symfony\Component\HttpKernel\Exception\NotFoundHttpException]  
+                                                                  
 
 
 ```
 
 ## host-boot-tests
 
-- Exit code: `2`
+- Exit code: `0`
 
 ```text
 
-  [44;1m INFO [49;22m Test directory "/home/runner/work/clean/clean/./tests/Unit" not found.
+  [30;43;1m WARN [39;49;22m Your XML configuration validates against a deprecated schema. Migrate your XML configuration using "--migrate-configuration"!
+
+   PASS  Tests\Feature\HostBootTest
+  ✓ authoritative service providers are loaded once                      0.64s  
+  ✓ interaction routes boot without duplicate names                      0.46s  
+  ✓ interaction engine defaults to local safe operation                  0.49s  
+
+  Tests:    3 passed (9 assertions)
+  Duration: 1.65s
 
 
 ```
