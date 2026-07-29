@@ -237,7 +237,7 @@ return [
          * Application Service Providers...
          */
         AppServiceProvider::class,
-        App\Providers\TitanZeroServiceProvider::class,
+        App\Domains\WorkCore\WorkCoreServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         App\Providers\BroadcastServiceProvider::class,
         EventServiceProvider::class,
