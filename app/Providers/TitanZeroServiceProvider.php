@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\Console\Commands\TitanZeroProviderAuditCommand;
 use App\Support\TitanZero\TitanZeroFeatureFlags;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
@@ -29,6 +30,15 @@ final class TitanZeroServiceProvider extends ServiceProvider
             }
 
             $this->app->register($provider);
+        }
+    }
+
+    public function boot(): void
+    {
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                TitanZeroProviderAuditCommand::class,
+            ]);
         }
     }
 }
