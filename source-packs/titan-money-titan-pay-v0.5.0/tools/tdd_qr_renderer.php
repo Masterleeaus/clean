@@ -11,12 +11,8 @@ if (! is_file($script)) {
 
 $payload = 'https://example.test/pay/'.str_repeat('A', 64);
 
-// Use proc_open for safer command execution with proper handling
-$configuredBinary = getenv('TITANPAY_QR_PYTHON_BINARY');
-$allowedBinaries = ['python', 'python3', 'python3.10', 'python3.11', 'python3.12'];
-$pythonBinary = (is_string($configuredBinary) && in_array($configuredBinary, $allowedBinaries, true))
-    ? $configuredBinary
-    : 'python3';
+// Hard-code python3 to eliminate environment variable injection risks
+$pythonBinary = 'python3';
 
 $descriptorspec = [
     0 => ['pipe', 'r'],
