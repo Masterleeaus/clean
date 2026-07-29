@@ -26,7 +26,7 @@ if (! is_resource($process)) {
 }
 
 fclose($pipes[0]);
-$output = stream_get_contents($pipes[1]);
+$output = fread($pipes[1], 2097152);
 $errors = stream_get_contents($pipes[2]);
 fclose($pipes[1]);
 fclose($pipes[2]);
