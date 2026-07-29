@@ -1,0 +1,41 @@
+{
+  "repository": "Masterleeaus/clean",
+  "base_branch": "main",
+  "working_branch": "agent/titan-money-pay-chat-upgrade",
+  "prepared_at": "2026-07-30T01:47:00+10:00",
+  "source": {
+    "archive": "TitanZero-Meetup-TitanMoney-TitanPay-v0.5.0-FULL.zip",
+    "sha256": "7758320397db5d3e180fbc7b27e831a9a8590769dd6a11de45357d6eb73ec858",
+    "bytes": 984427,
+    "archive_files": 404,
+    "wrapper": "meetup-titan-money-titan-pay",
+    "transport_url": "https://titan-v050-binary-transport.miniup.app/TitanZero-Meetup-TitanMoney-TitanPay-v0.5.0-FULL.zip",
+    "drive_backup_id": "18L3L4osTR_fuc21bw1PJroCuw8-GuxWb"
+  },
+  "destination": "source-packs/titan-money-titan-pay-v0.5.0",
+  "runtime_loaded": false,
+  "authorities": {
+    "host": "MagicAI",
+    "operations": "WorkCore",
+    "conversation": "Titan Zero Chatbot / Channels",
+    "finance": "Titan Money",
+    "payments": "Titan Pay",
+    "orchestration": "Titan Zero five-tier AI"
+  },
+  "required_first_outputs": [
+    "docs/integration/titan-money-titan-pay/base-inventory.md",
+    "docs/integration/titan-money-titan-pay/staged-source-inventory.md",
+    "docs/integration/titan-money-titan-pay/path-collision-ledger.md",
+    "docs/integration/titan-money-titan-pay/authority-ownership-matrix.md",
+    "docs/integration/titan-money-titan-pay/dependency-compatibility.md",
+    "docs/integration/titan-money-titan-pay/security-regression-register.md"
+  ],
+  "forbidden": [
+    "raw Laravel application overlay",
+    "direct AI writes to WorkCore tables",
+    "browser redirect payment confirmation",
+    "public payment evidence",
+    "duplicate Finance or ZeroPay runtime namespaces",
+    "committed secrets or environment files"
+  ]
+}
