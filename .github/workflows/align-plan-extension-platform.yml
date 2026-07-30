@@ -1,0 +1,96 @@
+name: Align upgrade plan with extension platform
+
+on:
+  push:
+    branches:
+      - agent/documentation-reconciliation
+    paths:
+      - '.github/workflows/align-plan-extension-platform.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  align:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/documentation-reconciliation
+          fetch-depth: 0
+
+      - name: Update current upgrade plan
+        shell: python
+        run: |
+          from pathlib import Path
+          path = Path('docs/plans/CURRENT_UPGRADE_PLAN.md')
+          text = path.read_text(encoding='utf-8')
+
+          pwa_paragraph = '''The PWA is **source-present with substantial offline foundations**, but production readiness is not proven until duplicate-extension activation, queued-payload secrecy, device trust, IndexedDB upgrades and tenant-safe sync are verified end to end.
+'''
+          extension_paragraph = '''The extension platform is **source-present but not production-qualified**. Current discovery can register every mapped provider, 19 registry entries point to absent source, 88 extensions have no detected local tests, and install/uninstall require archive, authorization, rollback and least-privilege hardening.
+'''
+          if extension_paragraph not in text:
+              if pwa_paragraph not in text:
+                  raise SystemExit('PWA status paragraph not found')
+              text = text.replace(pwa_paragraph, pwa_paragraph + '\n' + extension_paragraph)
+
+          marker = '''### Phase 5 — Route and API consolidation
+'''
+          phase = '''### Phase 4B — Extension platform and lifecycle
+
+1. Replace activate-all discovery with registry selection of installed, enabled, entitled and qualified extensions.
+2. Resolve the 19 stale provider mappings and classify the two unmapped source directories.
+3. Introduce a normalized manifest schema covering identity, provider, compatibility, dependencies, capabilities, permissions, tenant scope, lifecycle, health and integrity.
+4. Add collision checks for providers, symbols, migrations, routes, permissions, capabilities, menus, events, schedules and published assets.
+5. Replace state-changing GET install/uninstall routes with authorised, CSRF-protected and confirmed lifecycle actions.
+6. Verify archive origin, SHA-256 and signature before extraction.
+7. Reject traversal, absolute paths, links, encrypted members and undeclared files during staged extraction.
+8. Replace `0777` directories with least-privilege ownership and modes.
+9. Stage migrations and asset publication behind dry-run, backup, health and rollback gates.
+10. Separate disable from uninstall and preserve auditable data-retention policy.
+11. Require tests or approved contract/health evidence before production qualification.
+12. Quarantine extensions that fail integrity, compatibility, conflict or health checks.
+
+**Exit criteria**
+
+- Enabling extension discovery does not activate all source-present providers.
+- Every enabled extension has unique identity, a valid normalized manifest, satisfied dependencies, entitlement and health evidence.
+- No stale provider mapping or compatibility-only extension can load.
+- Install, upgrade, disable and uninstall are authorised, auditable and reversible.
+- Archives are signed and safely extracted.
+- Duplicate provider, migration, route, permission and capability registration fails closed.
+
+'''
+          if phase not in text:
+              if marker not in text:
+                  raise SystemExit('Phase 5 marker not found')
+              text = text.replace(marker, phase + marker)
+
+          security_old = '''5. Audit outbox payloads, service-worker caching, notification navigation and device registration.
+6. Produce deployment, rollback and disaster-recovery documentation.
+7. Generate a verified release archive and checksums.
+'''
+          security_new = '''5. Audit outbox payloads, service-worker caching, notification navigation and device registration.
+6. Audit extension install/update/uninstall authorization, signatures, extraction paths, file permissions, migration rollback and quarantine.
+7. Produce deployment, rollback and disaster-recovery documentation.
+8. Generate a verified release archive and checksums.
+'''
+          if security_old not in text:
+              raise SystemExit('Security phase block not found')
+          text = text.replace(security_old, security_new)
+          path.write_text(text, encoding='utf-8')
+
+      - name: Remove one-time workflow
+        run: rm -f .github/workflows/align-plan-extension-platform.yml
+
+      - name: Commit plan alignment
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "docs: add extension lifecycle phase to current upgrade plan"
+          git push origin HEAD:agent/documentation-reconciliation
