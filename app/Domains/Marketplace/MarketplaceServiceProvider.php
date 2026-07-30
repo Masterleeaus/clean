@@ -255,7 +255,8 @@ class MarketplaceServiceProvider extends ServiceProvider
 
     public function register(): void
     {
-        $this->extensionProviderRegister();
+        // Extension providers are registered by App\Providers\ExtensionServiceProvider
+        // after manifest validation and explicit enablement.
     }
 
     public function boot(): void
@@ -290,14 +291,6 @@ class MarketplaceServiceProvider extends ServiceProvider
         return $this->app['router'];
     }
 
-    public function extensionProviderRegister(): void
-    {
-        foreach (static::$extensionProviders as $provider) {
-            if (class_exists($provider)) {
-                $this->app->register($provider);
-            }
-        }
-    }
 
     public static function uninstallExtension(string $slug): void
     {

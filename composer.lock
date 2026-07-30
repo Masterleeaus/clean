@@ -4,7 +4,7 @@
 		"Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
 		"This file is @generated automatically"
 	],
-	"content-hash": "85fdc71b8855d9dea7e42d3e0e53b77c",
+	"content-hash": "80cca7e8cc6d71624e396323f0a62625",
 	"packages": [
 		{
 			"name": "ably/ably-php",
@@ -2586,12 +2586,12 @@
 			"version": "v6.11.1",
 			"source": {
 				"type": "git",
-				"url": "https://github.com/firebase/php-jwt.git",
+				"url": "https://github.com/googleapis/php-jwt.git",
 				"reference": "d1e91ecf8c598d073d0995afa8cd5c75c6e19e66"
 			},
 			"dist": {
 				"type": "zip",
-				"url": "https://api.github.com/repos/firebase/php-jwt/zipball/d1e91ecf8c598d073d0995afa8cd5c75c6e19e66",
+				"url": "https://api.github.com/repos/googleapis/php-jwt/zipball/d1e91ecf8c598d073d0995afa8cd5c75c6e19e66",
 				"reference": "d1e91ecf8c598d073d0995afa8cd5c75c6e19e66",
 				"shasum": ""
 			},
@@ -6539,7 +6539,7 @@
 			"dist": {
 				"type": "path",
 				"url": "./packages/magicai/magicai-healthy",
-				"reference": "4d7dae3cd9c97d32b6e929c3ccb7467cb04bf77d"
+				"reference": "6337f23ef05c8553b3da839617ef15409e5622be"
 			},
 			"require": {
 				"ext-zip": "*",
@@ -6639,7 +6639,7 @@
 			"dist": {
 				"type": "path",
 				"url": "./packages/magicai/magicai-updater",
-				"reference": "23d89977eb0d347db050c0d4ac5628c8a3c6623a"
+				"reference": "78173673987baa1a06ef5d2463e0f884172bfdb3"
 			},
 			"require": {
 				"ext-zip": "*",
@@ -8159,7 +8159,7 @@
 			"dist": {
 				"type": "path",
 				"url": "./packages/openai-php/laravel",
-				"reference": "bfd9ed88e9322dcfd1088bf3f173e5624690f672"
+				"reference": "6b43278cc0a39d997ac1b6cbd0ad916067b7c56c"
 			},
 			"require": {
 				"guzzlehttp/guzzle": "^7.9.3",
@@ -10743,7 +10743,7 @@
 			"dist": {
 				"type": "path",
 				"url": "./packages/rachidlaasri/laravel-installer",
-				"reference": "cd5371086e751ba6e03726dc1ebd652f1ea1f8bf"
+				"reference": "dd768031d588a813f2c728c49b9cf7b21bab66b0"
 			},
 			"require": {
 				"php": ">=7.0.0"
@@ -13043,12 +13043,12 @@
 			"version": "3.0.40",
 			"source": {
 				"type": "git",
-				"url": "https://github.com/srmklive/laravel-paypal.git",
+				"url": "https://github.com/blendbyte/laravel-paypal.git",
 				"reference": "1ddc49fd836a4785933ab953452152f3fedbac63"
 			},
 			"dist": {
 				"type": "zip",
-				"url": "https://api.github.com/repos/srmklive/laravel-paypal/zipball/1ddc49fd836a4785933ab953452152f3fedbac63",
+				"url": "https://api.github.com/repos/blendbyte/laravel-paypal/zipball/1ddc49fd836a4785933ab953452152f3fedbac63",
 				"reference": "1ddc49fd836a4785933ab953452152f3fedbac63",
 				"shasum": ""
 			},
@@ -21790,7 +21790,6 @@
 	"stability-flags": {
 		"magicai/magicai-healthy": 20,
 		"magicai/magicai-updater": 20,
-		"openai-php/client": 20,
 		"openai-php/laravel": 20,
 		"rachidlaasri/laravel-installer": 20
 	},

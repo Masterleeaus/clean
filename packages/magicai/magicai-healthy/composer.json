@@ -1,5 +1,6 @@
 {
     "name": "magicai/magicai-healthy",
+    "version": "dev-staging",
     "description": "Magic ai healthy",
     "keywords": [
         "MagicAI",
@@ -74,8 +75,7 @@
             "providers": [
                 "MagicAI\\Healthy\\HealthyServiceProvider"
             ],
-            "aliases": {
-            }
+            "aliases": {}
         }
     },
     "minimum-stability": "dev",

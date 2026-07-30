@@ -10,8 +10,6 @@ use App\Http\Controllers\Controller;
 use App\Models\OpenAIGenerator;
 use App\Models\OpenaiGeneratorChatCategory;
 use App\Models\Plan;
-use App\Models\Setting;
-use App\Models\SettingTwo;
 use App\Models\User;
 use App\Models\UserOpenai;
 use App\Models\UserOpenaiChat;
@@ -29,19 +27,6 @@ use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class AIRealTimeChatController extends Controller
 {
-    protected $settings;
-
-    protected $settings_two;
-
-    public function __construct()
-    {
-        // Settings
-        $this->settings = Setting::getCache();
-        $this->settings_two = SettingTwo::getCache();
-        $apiKey = ApiHelper::setOpenAiKey();
-        config(['openai.api_key' => $apiKey]);
-        set_time_limit(120);
-    }
 
     // Conversations under (/history) -----------------------------------------------------
 
@@ -543,8 +528,16 @@ class AIRealTimeChatController extends Controller
      *
      * @throws JsonException
      */
+    private function configureOpenAiRuntime(): void
+    {
+        $apiKey = ApiHelper::setOpenAiKey();
+        config(['openai.api_key' => $apiKey]);
+        set_time_limit(120);
+    }
+
     public function chatOutput(Request $request): JsonResponse|StreamedResponse
     {
+        $this->configureOpenAiRuntime();
         $driver = Entity::driver();
         if ($request->isMethod('get')) {
             $driver->redirectIfNoCreditBalance();
