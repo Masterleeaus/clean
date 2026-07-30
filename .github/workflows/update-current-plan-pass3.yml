@@ -1,0 +1,68 @@
+name: Align current upgrade plan with Pass 3
+
+on:
+  push:
+    branches:
+      - agent/documentation-reconciliation
+    paths:
+      - '.github/workflows/update-current-plan-pass3.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-plan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/documentation-reconciliation
+          fetch-depth: 0
+
+      - name: Update plan against current baseline
+        shell: python
+        run: |
+          from pathlib import Path
+
+          path = Path('docs/plans/CURRENT_UPGRADE_PLAN.md')
+          text = path.read_text(encoding='utf-8')
+          text = text.replace(
+              '`integration/current-main-reconciliation`, created from repository `main` at `e565d7594e062c6705be9747bee0bd6081beb137`',
+              '`integration/current-main-reconciliation`, fast-forwarded to repository `main` at `fa607d769a4f72ba287801b027cc42dcf56aa549`',
+          )
+          text = text.replace(
+              'See `docs/architecture/TITAN_ZERO_AUTHORITY_MAP.md` and `docs/architecture/TENANCY_TRUST_AND_ACTION_EXECUTION.md`.',
+              'See `docs/architecture/TITAN_ZERO_AUTHORITY_MAP.md`, `docs/architecture/TENANCY_TRUST_AND_ACTION_EXECUTION.md` and `docs/architecture/INTERACTION_WIZARD_AND_FIVE_TIER_INTELLIGENCE.md`.',
+          )
+          old_findings = '''5. The Interaction Engine package source exists under `packages/titanzero/interaction-engine` and contains a provider and tests.\n6. The root `composer.json` currently does not register or require that package.\n7. `interaction_engine_enabled` is stored by `TitanZeroFeatureFlags`, but `coreProviderClassNames()` does not currently register the Interaction Engine provider.\n8. The repository contains parallel/embedded Chatbot and WorkCore runtime copies that require classification before deletion or activation.\n\nThe Interaction Engine is therefore **source-present but not yet proven active in the host**.\n'''
+          new_findings = '''5. The canonical Interaction Engine package source exists under `packages/titanzero/interaction-engine` and contains 386 files, including its provider, routes, migrations, tests, offline runtime and engine library.\n6. A metadata-only duplicate package root under `packages/titan-zero/interaction-engine` was removed after its unique metadata and conflict were recorded.\n7. The root `composer.json` currently does not register or require the canonical package.\n8. `interaction_engine_enabled` is stored by `TitanZeroFeatureFlags`, but `coreProviderClassNames()` does not currently register the Interaction Engine provider.\n9. WorkCore Wizards is a separate operational-domain module under canonical WorkCore and must not be conflated with the universal Interaction Engine.\n10. The TitanAI trees under `app/Extensions/Chatbot` and `app/Extensions/TitanZeroChatbot` contained 864 byte-identical files at Pass 3 inventory time; the second tree remains frozen compatibility/reference material pending focused source reconciliation.\n11. Embedded Chatbot WorkCore server code remains compatibility/reference-only and must not shadow `app/Domains/WorkCore`.\n\nThe Interaction Engine is therefore **source-present but not yet proven active in the host**. Pass 3 established its canonical package path and removed the empty competing package root; connected activation remains implementation work.\n'''
+          if old_findings not in text:
+              raise SystemExit('Expected current-state findings block not found')
+          text = text.replace(old_findings, new_findings)
+          text = text.replace(
+              '1. Select one canonical Interaction Engine runtime and remove active parallel registration.',
+              '1. Retain `packages/titanzero/interaction-engine` as the canonical universal runtime; the metadata-only competing package root has been removed.',
+          )
+          text = text.replace(
+              '2. Separate Titan Zero orchestration from WorkCore business authority.',
+              '2. Select one coherent host activation model—explicit feature-gated registration or Composer auto-discovery—and load the provider exactly once.\n3. Separate Titan Zero orchestration from WorkCore business authority.',
+          )
+          text = text.replace(
+              '3. Consolidate agent, tool, memory, usage and governance registries.\n4. Route Chatbot, offline and hosted AI execution through Interaction Engine clarification/approval and WorkCore actions.\n5. Keep confidence separate from permission, entitlement and confirmation.\n6. Enforce idempotency, authorisation, audit and domain events.\n7. Add local/offline and cloud execution parity tests.',
+              '4. Consolidate agent, tool, memory, usage and governance registries.\n5. Keep only one active Chatbot TitanAI tree and one canonical WorkCore authority; port unique deltas before removing compatibility copies.\n6. Route Chatbot, offline and hosted AI execution through Interaction Engine clarification/approval and WorkCore actions.\n7. Keep confidence separate from permission, entitlement and confirmation.\n8. Enforce idempotency, authorisation, audit and domain events.\n9. Add local/offline and cloud execution parity tests.',
+          )
+          path.write_text(text, encoding='utf-8')
+
+      - name: Remove one-time workflow
+        run: rm -f .github/workflows/update-current-plan-pass3.yml
+
+      - name: Commit plan update
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "docs: align current upgrade plan with Pass 3 evidence"
+          git push origin HEAD:agent/documentation-reconciliation
