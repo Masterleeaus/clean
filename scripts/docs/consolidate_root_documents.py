@@ -29,7 +29,7 @@ RUNTIME_ROOT_FILES = {
     "composer.json", "composer.lock", "package.json", "package-lock.json", "pnpm-lock.yaml",
     "yarn.lock", "phpunit.xml", "phpunit.xml.dist", "vite.config.js", "vite.config.ts",
     "tailwind.config.js", "postcss.config.js", "docker-compose.yml", "docker-compose.yaml",
-    "manifest.json", "mix-manifest.json", "tsconfig.json", "jsconfig.json",
+    "manifest.json", "mix-manifest.json", "tsconfig.json", "jsconfig.json", "version.txt",
 }
 JSON_DOC_MARKERS = (
     "PROVENANCE", "SOURCE_IMPORT", "SOURCE-IMPORT", "SOURCE_ARCHIVE", "SOURCE-ARCHIVE",
@@ -173,7 +173,7 @@ def move_documents() -> list[MoveRecord]:
 
 def scan_references(records: list[MoveRecord]) -> dict[str, list[str]]:
     references: dict[str, list[str]] = {record.source: [] for record in records}
-    ignored_parts = {".git", "vendor", "node_modules", "storage", "bootstrap/cache"}
+    ignored_parts = {".git", "vendor", "node_modules", "storage", "bootstrap", "cache"}
     report_paths = {
         "docs/inventory/ROOT_DOCUMENT_CONSOLIDATION.md",
         "docs/inventory/root_document_moves.json",
@@ -239,6 +239,7 @@ def write_reports(records: list[MoveRecord], references: dict[str, list[str]]) -
         "",
         "- `README.md` — repository and agent entry point",
         "- `AGENTS.md` — mandatory working agreement",
+        "- `version.txt` — application/updater version marker",
         "- recognised licence/notice files",
         "- build, dependency, environment-template and machine configuration files",
         "",
