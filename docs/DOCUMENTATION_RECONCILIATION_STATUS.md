@@ -113,6 +113,42 @@ Not deleted:
 - either 864-file Chatbot TitanAI tree;
 - package-local build reports or changelogs that preserve source lineage.
 
+## Pass 4 — PWA, offline runtime and duplicated Chatbot surfaces
+
+**Status:** Completed for documentation classification and evidence gathering. Runtime removal and security repair remain focused implementation work.
+
+### Canonical documents and evidence
+
+- `docs/architecture/PWA_OFFLINE_AND_CHATBOT_EXTENSION_ARCHITECTURE.md`
+- `docs/inventory/PWA_OFFLINE_RUNTIME_INVENTORY.md`
+- `docs/inventory/PWA_OFFLINE_RUNTIME_INVENTORY.json`
+
+### Runtime findings
+
+1. `app/Extensions/Chatbot` is the canonical intended Chatbot/PWA extension.
+2. The primary extension contains 1,548 files; `app/Extensions/TitanZeroChatbot` contains 1,542.
+3. The trees share 1,542 relative paths: 1,541 are byte-identical and only `System/ChatbotServiceProvider.php` differs.
+4. The primary contains six additional Titan Train files and its native workspace test.
+5. External source references overwhelmingly use the primary namespace and provider; no secondary namespace/provider references were found outside documentation/reference paths.
+6. The primary provider uses `TitanZeroFeatureFlags` and conditionally registers WorkCore integrations.
+7. The secondary provider registers WorkCore AI/runtime integration unconditionally and is superseded as current bootstrap behaviour.
+8. Each tree contains 93 migrations and 40 provider-like files, creating a high duplicate-activation risk.
+9. The canonical PWA includes a versioned service worker, IndexedDB version 5, AES-256-GCM device vault, persistent outbox, conflict store, sync inbox and push/pull/acknowledgement engine.
+10. The service worker intentionally excludes authenticated APIs and sensitive paths from caching and wakes authenticated clients rather than reading IndexedDB or credentials directly.
+11. The generic outbox persists operation headers and bodies directly; production verification must prove no secrets enter queued payloads or add encryption before persistence.
+12. The device ID is stored in localStorage and must be treated only as an identifier, never as authorization proof.
+
+### Pass 4 deletion policy
+
+Not deleted:
+
+- either complete Chatbot extension;
+- the secondary 1,542-file compatibility tree;
+- any IndexedDB store, migration, service worker, outbox or local record;
+- extension-local reports or provenance files.
+
+The secondary extension requires a focused source PR with registry, provider, route, migration, asset, installer, updater and rollback evidence before removal.
+
 ## Pass 1 exact duplicates removed
 
 - `docs/reference/titan-library/collection-1/01-Ecosystem-Vision/Titan Zero Doctrine.pdf`
@@ -135,12 +171,12 @@ The complete per-file move register remains in the Pass 1 disposition report and
 
 ## Next pass
 
-### Pass 4 — PWA, offline runtime and duplicated Chatbot surfaces
+### Pass 5 — extension platform, modules and capability manifests
 
-1. Inventory service workers, manifests, IndexedDB schemas, vaults, outboxes, retry and conflict implementations.
-2. Compare `app/Extensions/Chatbot` with `app/Extensions/TitanZeroChatbot` beyond the TitanAI subtree.
-3. Establish the canonical PWA extension and compatibility boundary.
-4. Map device DTOs and sync envelopes to canonical WorkCore contracts.
-5. Identify duplicate service-worker caches, local databases, routes, providers and assets.
-6. Produce one source-backed PWA/offline architecture specification.
-7. Remove only exact duplicates or fully preserved superseded documentation; leave runtime deletion to focused source PRs with dependency evidence.
+1. Inventory extension registries, discovery paths, manifests, package gates and marketplace activation.
+2. Classify extensions as canonical, optional, dormant, compatibility-only, donor/reference or superseded.
+3. Detect duplicate providers, migrations, routes, menus, permissions and capability keys.
+4. Establish one extension lifecycle and qualification specification.
+5. Map extension capabilities to host identity and WorkCore authority boundaries.
+6. Consolidate unique requirements from extension-platform reference documents.
+7. Remove only exact duplicates or fully preserved superseded documentation; runtime changes remain focused implementation PRs.
