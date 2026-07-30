@@ -7,6 +7,10 @@
 import { execSync } from 'child_process';
 import * as fs from 'fs';
 import * as path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 interface ReplayResult {
   id: string;
@@ -87,7 +91,7 @@ function replayCommits(recoveryBranch: string, commits: string[]): ReplayResult 
 }
 
 function writeReplayResult(result: ReplayResult): void {
-  const recoveryDir = path.join(__dirname, '../recovery');
+  const recoveryDir = path.join(path.dirname(__dirname), 'recovery');
   const resultPath = path.join(recoveryDir, 'replay.json');
 
   if (!fs.existsSync(recoveryDir)) {

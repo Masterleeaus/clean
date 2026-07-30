@@ -1,0 +1,33 @@
+{
+  "scan_date": "2026-07-30T08:13:44.216Z",
+  "total_branches": 1,
+  "categories": {
+    "already_merged": 0,
+    "fast_forward": 1,
+    "cherry_pick_candidate": 0,
+    "rebase_needed": 0,
+    "unrelated": 0,
+    "duplicate": 0,
+    "orphaned": 0
+  },
+  "branches": [
+    {
+      "name": "claude/repo-code-quality-audit-x2kvax",
+      "parent": "main",
+      "ahead": 33,
+      "behind": 0,
+      "unique_commits": 33,
+      "changed_files": [],
+      "commit_count": 41,
+      "last_modified": "2026-07-30 07:13:14 +0000",
+      "author": "Claude",
+      "status": "fast_forward",
+      "conflict_risk": "low",
+      "recovery_plan": "Direct merge or fast-forward rebase",
+      "reason": "All commits are unique to this branch",
+      "tags": [
+        "clean-history"
+      ]
+    }
+  ]
+}

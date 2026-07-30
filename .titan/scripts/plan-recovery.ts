@@ -7,6 +7,10 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { execSync } from 'child_process';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 interface RecoveryPlan {
   id: string;
@@ -148,7 +152,7 @@ function createRecoveryPlan(sourceBranch: string, baseBranch: string = 'main'): 
 }
 
 function writePlan(plan: RecoveryPlan, branchName: string): void {
-  const recoveryDir = path.join(__dirname, '../recovery');
+  const recoveryDir = path.join(path.dirname(__dirname), 'recovery');
   const planPath = path.join(recoveryDir, `${branchName}.json`);
 
   if (!fs.existsSync(recoveryDir)) {

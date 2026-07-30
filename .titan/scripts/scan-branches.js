@@ -4,50 +4,14 @@
  * Automatically inspects every branch and categorizes them for recovery
  */
 
-import { execSync } from 'child_process';
-import * as fs from 'fs';
-import * as path from 'path';
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-interface BranchInfo {
-  name: string;
-  parent: string;
-  ahead: number;
-  behind: number;
-  unique_commits: number;
-  changed_files: string[];
-  commit_count: number;
-  status: 'already_merged' | 'fast_forward' | 'cherry_pick_candidate' | 'rebase_needed' | 'unrelated' | 'duplicate' | 'orphaned';
-  conflict_risk: 'low' | 'medium' | 'high';
-  last_modified: string;
-  author: string;
-  recovery_plan: string;
-  reason?: string;
-  tags: string[];
-}
-
-interface BranchAudit {
-  scan_date: string;
-  total_branches: number;
-  categories: {
-    already_merged: number;
-    fast_forward: number;
-    cherry_pick_candidate: number;
-    rebase_needed: number;
-    unrelated: number;
-    duplicate: number;
-    orphaned: number;
-  };
-  branches: BranchInfo[];
-}
+const { execSync } = require('child_process');
+const fs = require('fs');
+const path = require('path');
 
 const MAIN_BRANCH = 'main';
-const EXCLUDED_BRANCHES = ['main', 'develop', 'master', 'integration', 'release', 'recovery'];
+const EXCLUDED_BRANCHES = ['main', 'develop', 'master', 'integration', 'release', 'recovery', 'HEAD'];
 
-function exec(cmd: string): string {
+function exec(cmd) {
   try {
     return execSync(cmd, { encoding: 'utf-8' }).trim();
   } catch (e) {
@@ -55,7 +19,7 @@ function exec(cmd: string): string {
   }
 }
 
-function getAllBranches(): string[] {
+function getAllBranches() {
   const output = exec('git branch -a');
   return output
     .split('\n')
@@ -64,7 +28,7 @@ function getAllBranches(): string[] {
     .filter((branch, index, self) => self.indexOf(branch) === index); // unique
 }
 
-function getBranchInfo(branchName: string): Partial<BranchInfo> {
+function getBranchInfo(branchName) {
   const ahead = parseInt(
     exec(`git rev-list --count ${MAIN_BRANCH}..${branchName}`).split(/\s+/)[0] || '0',
     10
@@ -96,7 +60,7 @@ function getBranchInfo(branchName: string): Partial<BranchInfo> {
   };
 }
 
-function categorizeBranch(branch: string, info: Partial<BranchInfo>): Partial<BranchInfo> {
+function categorizeBranch(branch, info) {
   // Check if already merged
   if (info.ahead === 0 && info.behind === 0) {
     return {
@@ -109,7 +73,7 @@ function categorizeBranch(branch: string, info: Partial<BranchInfo>): Partial<Br
   }
 
   // Check if can fast-forward
-  if (info.behind === 0 && info.ahead! > 0) {
+  if (info.behind === 0 && info.ahead > 0) {
     return {
       status: 'fast_forward',
       reason: 'All commits are unique to this branch',
@@ -120,7 +84,7 @@ function categorizeBranch(branch: string, info: Partial<BranchInfo>): Partial<Br
   }
 
   // Check for rebase needed
-  if (info.behind! > 0) {
+  if (info.behind > 0) {
     return {
       status: 'rebase_needed',
       reason: `Behind main by ${info.behind} commits`,
@@ -140,11 +104,11 @@ function categorizeBranch(branch: string, info: Partial<BranchInfo>): Partial<Br
   };
 }
 
-function scanBranches(): BranchAudit {
+function scanBranches() {
   console.log('🔍 Scanning branches...');
 
   const branches = getAllBranches();
-  const branchInfos: BranchInfo[] = [];
+  const branchInfos = [];
   const categories = {
     already_merged: 0,
     fast_forward: 0,
@@ -161,7 +125,7 @@ function scanBranches(): BranchAudit {
     const info = getBranchInfo(branch);
     const categorization = categorizeBranch(branch, info);
 
-    const branchInfo: BranchInfo = {
+    const branchInfo = {
       name: branch,
       parent: MAIN_BRANCH,
       ahead: info.ahead || 0,
@@ -171,11 +135,11 @@ function scanBranches(): BranchAudit {
       commit_count: info.commit_count || 0,
       last_modified: info.last_modified || new Date().toISOString().split('T')[0],
       author: info.author || 'unknown',
-      status: (categorization.status as any) || 'cherry_pick_candidate',
-      conflict_risk: (categorization.conflict_risk as any) || 'medium',
+      status: categorization.status || 'cherry_pick_candidate',
+      conflict_risk: categorization.conflict_risk || 'medium',
       recovery_plan: categorization.recovery_plan || '',
       reason: categorization.reason || '',
-      tags: (categorization.tags as any) || [],
+      tags: categorization.tags || [],
     };
 
     branchInfos.push(branchInfo);
@@ -192,8 +156,8 @@ function scanBranches(): BranchAudit {
   };
 }
 
-function writeAudit(audit: BranchAudit): void {
-  const registryDir = path.join(path.dirname(__dirname), 'registry');
+function writeAudit(audit) {
+  const registryDir = path.join(__dirname, '../registry');
   const auditPath = path.join(registryDir, 'branches.json');
 
   if (!fs.existsSync(registryDir)) {
@@ -204,7 +168,7 @@ function writeAudit(audit: BranchAudit): void {
   console.log(`\n✅ Audit saved to ${auditPath}`);
 }
 
-function printSummary(audit: BranchAudit): void {
+function printSummary(audit) {
   console.log('\n📊 Branch Scan Summary');
   console.log('=====================');
   console.log(`Total branches: ${audit.total_branches}`);
@@ -224,14 +188,14 @@ function printSummary(audit: BranchAudit): void {
   }
 }
 
-async function main(): Promise<void> {
+async function main() {
   try {
     const audit = scanBranches();
     writeAudit(audit);
     printSummary(audit);
     process.exit(0);
   } catch (error) {
-    console.error('❌ Scan failed:', error);
+    console.error('❌ Scan failed:', error.message);
     process.exit(1);
   }
 }

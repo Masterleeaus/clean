@@ -4,27 +4,10 @@
  * Generates comprehensive reports from registry data
  */
 
-import * as fs from 'fs';
-import * as path from 'path';
-import { fileURLToPath } from 'url';
+const fs = require('fs');
+const path = require('path');
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-interface BranchInfo {
-  name: string;
-  status: string;
-  ahead: number;
-  behind: number;
-  conflict_risk: string;
-}
-
-interface ReportOptions {
-  registryPath?: string;
-  outputPath?: string;
-}
-
-function loadRegistry(registryPath: string): any {
+function loadRegistry(registryPath) {
   try {
     const data = fs.readFileSync(registryPath, 'utf-8');
     return JSON.parse(data);
@@ -33,7 +16,7 @@ function loadRegistry(registryPath: string): any {
   }
 }
 
-function generateBranchHealth(branches: BranchInfo[]): string {
+function generateBranchHealth(branches) {
   let md = '# Branch Health Report\n\n';
   md += `Generated: ${new Date().toISOString()}\n\n`;
 
@@ -78,7 +61,7 @@ function generateBranchHealth(branches: BranchInfo[]): string {
   return md;
 }
 
-function generateSummary(registry: any): string {
+function generateSummary(registry) {
   let md = '# Titan Zero Recovery System - Summary Report\n\n';
   md += `Generated: ${new Date().toISOString()}\n\n`;
 
@@ -108,18 +91,17 @@ function generateSummary(registry: any): string {
   return md;
 }
 
-function writeReport(content: string, fileName: string, outputPath?: string): void {
-  const finalPath = outputPath || '.titan/reports';
-  if (!fs.existsSync(finalPath)) {
-    fs.mkdirSync(finalPath, { recursive: true });
+function writeReport(content, fileName, outputPath = '.titan/reports') {
+  if (!fs.existsSync(outputPath)) {
+    fs.mkdirSync(outputPath, { recursive: true });
   }
 
-  const filePath = path.join(finalPath, fileName);
+  const filePath = path.join(outputPath, fileName);
   fs.writeFileSync(filePath, content);
   console.log(`✅ Report saved: ${filePath}`);
 }
 
-async function main(): Promise<void> {
+async function main() {
   const registryPath = '.titan/registry/branches.json';
   console.log('📝 Generating reports...\n');
 
@@ -139,6 +121,6 @@ async function main(): Promise<void> {
 }
 
 main().catch(err => {
-  console.error('❌ Report generation failed:', err);
+  console.error('❌ Report generation failed:', err.message);
   process.exit(1);
 });

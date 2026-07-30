@@ -7,6 +7,10 @@
 import { execSync } from 'child_process';
 import * as fs from 'fs';
 import * as path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 interface ValidationResult {
   id: string;
@@ -149,7 +153,7 @@ function validateMerge(branch: string): ValidationResult {
 }
 
 function writeValidationResult(result: ValidationResult): void {
-  const auditDir = path.join(__dirname, '../audits');
+  const auditDir = path.join(path.dirname(__dirname), 'audits');
   const resultPath = path.join(auditDir, `validation-${result.branch}.json`);
 
   if (!fs.existsSync(auditDir)) {

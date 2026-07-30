@@ -7,6 +7,10 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import * as crypto from 'crypto';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 interface DuplicateSet {
   id: string;
@@ -94,7 +98,7 @@ function generateDuplicateReport(): DuplicateReport {
 }
 
 function writeReport(report: DuplicateReport): void {
-  const registryDir = path.join(__dirname, '../registry');
+  const registryDir = path.join(path.dirname(__dirname), 'registry');
   const reportPath = path.join(registryDir, 'duplicates.json');
 
   if (!fs.existsSync(registryDir)) {
