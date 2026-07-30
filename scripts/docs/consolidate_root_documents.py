@@ -269,10 +269,27 @@ def write_reports(records: list[MoveRecord], references: dict[str, list[str]]) -
 
 
 def main() -> None:
-    records = move_documents()
+    inventory_path = DOCS / "inventory" / "root_document_moves.json"
+    existing_records: list[MoveRecord] = []
+    if inventory_path.is_file():
+        try:
+            payload = json.loads(inventory_path.read_text(encoding="utf-8"))
+            for item in payload.get("moves", []):
+                if isinstance(item, dict):
+                    existing_records.append(MoveRecord(**item))
+        except (OSError, json.JSONDecodeError, TypeError):
+            existing_records = []
+
+    new_records = move_documents()
+    records_by_key = {
+        (record.source, record.destination): record
+        for record in [*existing_records, *new_records]
+    }
+    records = sorted(records_by_key.values(), key=lambda record: (record.source.lower(), record.destination))
     references = scan_references(records)
     write_reports(records, references)
-    print(f"Moved {len(records)} root documents into docs/.")
+    print(f"Moved {len(new_records)} new root documents into docs/.")
+    print(f"Cumulative root-document moves: {len(records)}")
     print(f"Remaining old-name reference groups: {len(references)}")
 
 

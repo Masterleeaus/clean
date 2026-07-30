@@ -23,4 +23,4 @@ Documents moved in this pass: **2**.
 - recognised licence/notice files
 - build, dependency, environment-template and machine configuration files
 
-The dependent baseline test, audit tool and extension README now use the manifest's new provenance path. `ROOT_DOCUMENT_REFERENCE_CHECK.md` records whether any obsolete root references remain.
+See `ROOT_DOCUMENT_REFERENCE_CHECK.md` for references that may need manual link repair.

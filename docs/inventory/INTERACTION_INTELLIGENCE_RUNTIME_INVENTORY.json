@@ -1,5 +1,5 @@
 {
-  "source_commit": "86ffd1a3c916a961138cf0f44779480b1012ec3a",
+  "source_commit": "6cda4d6aac47f0b07ab582d8d9719df8edcfa361",
   "roots": {
     "interaction_package_primary": {
       "path": "packages/titanzero/interaction-engine",
@@ -101,43 +101,13 @@
     },
     "interaction_package_hyphenated": {
       "path": "packages/titan-zero/interaction-engine",
-      "exists": true,
-      "is_directory": true,
-      "file_count": 1,
-      "byte_count": 1270,
-      "extensions": {
-        ".json": 1
-      },
-      "top_level_entries": {
-        "composer.json": 1
-      },
-      "composer": {
-        "name": "titanzero/interaction-engine",
-        "type": "laravel-module",
-        "autoload": {
-          "psr-4": {
-            "TitanZero\\Interaction\\": "src/",
-            "TitanZero\\Engines\\": "src/Engines/"
-          }
-        },
-        "laravel_providers": [
-          "TitanZero\\Interaction\\Providers\\InteractionServiceProvider"
-        ],
-        "require": {
-          "php": "^8.2",
-          "ext-json": "*",
-          "ext-sodium": "*",
-          "illuminate/cache": "^10.0 || ^11.0 || ^12.0",
-          "illuminate/contracts": "^10.0 || ^11.0 || ^12.0",
-          "illuminate/database": "^10.0 || ^11.0 || ^12.0",
-          "illuminate/events": "^10.0 || ^11.0 || ^12.0",
-          "illuminate/http": "^10.0 || ^11.0 || ^12.0",
-          "illuminate/routing": "^10.0 || ^11.0 || ^12.0",
-          "illuminate/support": "^10.0 || ^11.0 || ^12.0",
-          "illuminate/view": "^10.0 || ^11.0 || ^12.0",
-          "symfony/yaml": "^6.0 || ^7.0"
-        }
-      },
+      "exists": false,
+      "is_directory": false,
+      "file_count": 0,
+      "byte_count": 0,
+      "extensions": {},
+      "top_level_entries": {},
+      "composer": null,
       "provider_files": [],
       "route_files": [],
       "migration_files": [],
@@ -486,24 +456,17 @@
     "primary_path_registered": false,
     "hyphenated_path_registered": false
   },
-  "package_name_collisions": {
-    "titanzero/interaction-engine": [
-      "interaction_package_primary",
-      "interaction_package_hyphenated"
-    ]
-  },
+  "package_name_collisions": {},
   "comparisons": {
     "interaction_package_paths": {
       "left": "packages/titanzero/interaction-engine",
       "right": "packages/titan-zero/interaction-engine",
-      "common_file_count": 1,
+      "common_file_count": 0,
       "identical_file_count": 0,
-      "different_file_count": 1,
-      "only_left_count": 385,
+      "different_file_count": 0,
+      "only_left_count": 386,
       "only_right_count": 0,
-      "different_files": [
-        "composer.json"
-      ],
+      "different_files": [],
       "only_left_files": [
         "CHANGELOG_PHASE10_FIX_PASS.md",
         "CHANGELOG_PHASE11_COGNITIVE_EVENTS.md",
@@ -518,6 +481,7 @@
         "_Architecture/Roadmap.md",
         "benchmarks/performance.md",
         "bin/verify.php",
+        "composer.json",
         "config/interaction.php",
         "database/migrations/2026_08_03_000000_create_long_term_memory_table.php",
         "database/migrations/2026_08_04_000000_create_interaction_cognitive_events_table.php",
@@ -908,8 +872,8 @@
   },
   "text_references": {
     "InteractionServiceProvider": [
+      "docs/architecture/INTERACTION_WIZARD_AND_FIVE_TIER_INTELLIGENCE.md",
       "docs/inventory/PASS2_ARCHITECTURE_CONSOLIDATION.md",
-      "packages/titan-zero/interaction-engine/composer.json",
       "packages/titanzero/interaction-engine/MERGE_MANIFEST.json",
       "packages/titanzero/interaction-engine/PHASE14_BUILD_REPORT.md",
       "packages/titanzero/interaction-engine/PHASE8_IMPORT.txt",
@@ -925,28 +889,32 @@
     ],
     "titanzero/interaction-engine": [
       "AGENTS.md",
+      "docs/architecture/INTERACTION_WIZARD_AND_FIVE_TIER_INTELLIGENCE.md",
       "docs/architecture/TITAN_ZERO_AUTHORITY_MAP.md",
       "docs/inventory/PASS2_ARCHITECTURE_CONSOLIDATION.md",
       "docs/passes/PASS1_CI_DIAGNOSTICS.md",
       "docs/plans/CURRENT_UPGRADE_PLAN.md",
       "docs/provenance/root-imported/known_baseline_gaps.md",
-      "packages/titan-zero/interaction-engine/composer.json",
       "packages/titanzero/interaction-engine/composer.json",
       "packages/titanzero/interaction-engine/package.json",
       "tests/Unit/InteractionEnginePackageContractTest.php"
     ],
     "packages/titanzero/interaction-engine": [
       "AGENTS.md",
+      "docs/architecture/INTERACTION_WIZARD_AND_FIVE_TIER_INTELLIGENCE.md",
       "docs/architecture/TITAN_ZERO_AUTHORITY_MAP.md",
       "docs/inventory/PASS2_ARCHITECTURE_CONSOLIDATION.md",
       "docs/plans/CURRENT_UPGRADE_PLAN.md",
       "tests/Unit/InteractionEnginePackageContractTest.php"
     ],
-    "packages/titan-zero/interaction-engine": [],
+    "packages/titan-zero/interaction-engine": [
+      "docs/architecture/INTERACTION_WIZARD_AND_FIVE_TIER_INTELLIGENCE.md"
+    ],
     "interaction_engine_enabled": [
       "app/Support/TitanZero/TitanZeroFeatureFlags.php",
       "config/titan-zero.php",
       "docs/DOCUMENTATION_RECONCILIATION_STATUS.md",
+      "docs/architecture/INTERACTION_WIZARD_AND_FIVE_TIER_INTELLIGENCE.md",
       "docs/architecture/TITAN_ZERO_AUTHORITY_MAP.md",
       "docs/inventory/PASS2_ARCHITECTURE_CONSOLIDATION.md",
       "docs/plans/CURRENT_UPGRADE_PLAN.md",
@@ -954,7 +922,8 @@
     ],
     "WorkWizardsServiceProvider": [
       "app/Domains/WorkCore/Config/workcore.php",
-      "app/Domains/WorkCore/System/Modules/Wizards/Providers/WorkWizardsServiceProvider.php"
+      "app/Domains/WorkCore/System/Modules/Wizards/Providers/WorkWizardsServiceProvider.php",
+      "docs/architecture/INTERACTION_WIZARD_AND_FIVE_TIER_INTELLIGENCE.md"
     ],
     "UniversalWizardEngine": [
       "packages/titanzero/interaction-engine/CHANGELOG_PHASE10_FIX_PASS.md",

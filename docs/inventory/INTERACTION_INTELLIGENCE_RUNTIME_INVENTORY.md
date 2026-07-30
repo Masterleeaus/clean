@@ -1,6 +1,6 @@
 # Interaction, Wizard and Five-Tier Intelligence Runtime Inventory
 
-Source commit: `86ffd1a3c916a961138cf0f44779480b1012ec3a`
+Source commit: `6cda4d6aac47f0b07ab582d8d9719df8edcfa361`
 
 This is an evidence inventory. It does not declare a runtime active merely because files exist.
 
@@ -9,7 +9,7 @@ This is an evidence inventory. It does not declare a runtime active merely becau
 | Key | Path | Exists | Files | Bytes | Providers | Routes | Migrations | Tests |
 |---|---|---:|---:|---:|---:|---:|---:|---:|
 | `interaction_package_primary` | `packages/titanzero/interaction-engine` | true | 386 | 606344 | 4 | 2 | 12 | 2 |
-| `interaction_package_hyphenated` | `packages/titan-zero/interaction-engine` | true | 1 | 1270 | 0 | 0 | 0 | 0 |
+| `interaction_package_hyphenated` | `packages/titan-zero/interaction-engine` | false | 0 | 0 | 0 | 0 | 0 | 0 |
 | `interaction_domain` | `app/Domains/InteractionEngine` | false | 0 | 0 | 0 | 0 | 0 | 0 |
 | `workcore_wizards` | `app/Domains/WorkCore/System/Modules/Wizards` | true | 33 | 143651 | 1 | 2 | 0 | 0 |
 | `chatbot_ai_primary` | `app/Extensions/Chatbot/System/TitanAI` | true | 864 | 2316465 | 39 | 1 | 33 | 4 |
@@ -26,8 +26,8 @@ This is an evidence inventory. It does not declare a runtime active merely becau
 ### `interaction_package_hyphenated`
 
 - Path: `packages/titan-zero/interaction-engine`
-- Package name: `titanzero/interaction-engine`
-- Laravel providers: `['TitanZero\\Interaction\\Providers\\InteractionServiceProvider']`
+- Package name: `None`
+- Laravel providers: `[]`
 
 ### Root Composer activation
 
@@ -41,10 +41,10 @@ This is an evidence inventory. It does not declare a runtime active merely becau
 
 - Left: `packages/titanzero/interaction-engine`
 - Right: `packages/titan-zero/interaction-engine`
-- Common files: **1**
+- Common files: **0**
 - Identical files: **0**
-- Different files: **1**
-- Only left: **385**
+- Different files: **0**
+- Only left: **386**
 - Only right: **0**
 
 ### `chatbot_ai_paths`
