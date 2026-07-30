@@ -1,7 +1,0 @@
-﻿{
-    "name":  "Instagram Chatbot",
-    "type":  "extension",
-    "version":  "1.0.0",
-    "description":  "Instagram Direct integration scaffolding for MagicAI — TG: @heew_support",
-    "support_telegram":  "heew_support"
-}
