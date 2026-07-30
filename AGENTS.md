@@ -2,6 +2,21 @@
 
 This repository contains licensed/private source and must remain private.
 
+## Mandatory reading and documentation duty
+
+Before changing code or documentation, every agent must read:
+
+1. the root `README.md` in full;
+2. this `AGENTS.md` file in full;
+3. `docs/README.md` in full;
+4. every canonical document linked from `docs/README.md`;
+5. every current document in the subject cluster affected by the work;
+6. relevant archive and reference documents when recovering unique requirements or provenance.
+
+An agent must not rely on a branch name, ZIP filename, document title such as `final` or `canonical`, or a previous chat summary without comparing it with current source, tests and accepted authority boundaries.
+
+When work changes architecture, behaviour, contracts, APIs, migrations, setup, security, UI, providers, deployment or runtime status, the agent must update or add documentation under `docs/` in the same branch. Do not add project documentation to the repository root. Historical material moves to `docs/archive/` only after unique information has been preserved.
+
 ## Single coordination base
 
 The approved shared base is:
@@ -19,7 +34,8 @@ Each agent must:
 3. identify work already present, unique work, conflicts and obsolete work;
 4. port only the unique, verified delta to a fresh reconciliation branch;
 5. open a draft PR targeting `integration/current-main-reconciliation`;
-6. record tests run, tests not run and rejected source.
+6. record tests run, tests not run and rejected source;
+7. update the relevant current documents under `docs/`.
 
 Do not commit upgrade work directly to `main`.
 
@@ -39,7 +55,7 @@ The host supplies identity and tenant membership context. WorkCore validates and
 
 Owns interaction definitions, sessions, transitions, clarification, confidence, evidence, abstention, approval preparation and wizard execution. It may prepare or dispatch governed commands, but it may not mutate operational records outside WorkCore actions.
 
-The package source exists under `packages/titanzero/interaction-engine`, but activation must not be claimed until root dependency registration, provider activation, Laravel boot and route tests pass.
+The canonical package source exists under `packages/titanzero/interaction-engine`, but activation must not be claimed until root dependency registration, provider activation, Laravel boot and route tests pass.
 
 ### Titan Zero intelligence
 
@@ -92,6 +108,8 @@ No UI, chatbot, AI agent, PWA adapter, integration or extension may bypass this 
 10. Record unavailable validation honestly as `not run`.
 11. Do not merge to the coordination base without authority, tenancy, security and regression evidence.
 12. Only the integration coordinator merges reconciliation PRs.
+13. Never describe planned, source-present or partially wired functionality as operational without connected evidence.
+14. Never add a new root-level plan, status report, architecture note, audit or provenance document; use the governed `docs/` tree.
 
 ## Shared-file locks
 
@@ -116,9 +134,12 @@ PHP syntax → Composer validation → architecture tests → focused tests
 
 ## Current documentation
 
+- Repository entry point: `README.md`
+- Documentation index and placement rules: `docs/README.md`
 - Coordination and upgrade plan: `docs/plans/CURRENT_UPGRADE_PLAN.md`
 - Authority map: `docs/architecture/TITAN_ZERO_AUTHORITY_MAP.md`
 - Trust and action model: `docs/architecture/TENANCY_TRUST_AND_ACTION_EXECUTION.md`
-- Documentation index: `docs/README.md`
+- Interaction, Wizard and five-tier model: `docs/architecture/INTERACTION_WIZARD_AND_FIVE_TIER_INTELLIGENCE.md`
+- Documentation reconciliation status: `docs/DOCUMENTATION_RECONCILIATION_STATUS.md`
 
-Historical plans are retained under `docs/archive/` and are not current implementation instructions.
+Historical plans are retained under `docs/archive/` and are not current implementation instructions. Reference doctrine under `docs/reference/titan-library/` is source material, not automatic runtime authority.
