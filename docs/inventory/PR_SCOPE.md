@@ -47,15 +47,30 @@
 - Added the canonical Interaction, Wizard and five-tier architecture specification.
 - Recorded that connected Interaction Engine host activation remains unverified because root Composer and provider activation are not coherent with existing tests.
 
+## Pass 4 — PWA, offline runtime and complete Chatbot extension comparison
+
+- Inventoried both complete Chatbot extension trees, their manifests, providers, routes, migrations, tests and offline subsystem candidates.
+- Confirmed `app/Extensions/Chatbot` contains 1,548 files and is the canonical intended extension.
+- Confirmed `app/Extensions/TitanZeroChatbot` contains 1,542 files and is a frozen compatibility/reference copy.
+- Compared 1,542 common paths: 1,541 files are byte-identical and only `System/ChatbotServiceProvider.php` differs.
+- Preserved six primary-only Titan Train files and its native workspace test.
+- Confirmed repository bootstrap and source references favour the primary namespace/provider.
+- Documented that the primary provider feature-gates WorkCore/TitanAI integration while the secondary provider registers it unconditionally.
+- Inventoried IndexedDB version 5, AES-256-GCM device vault, service worker, outbox, conflict store, sync inbox and cursor-based sync engine.
+- Recorded the raw queued-header/body persistence risk and the requirement for a no-secrets guarantee or encryption.
+- Added the canonical PWA/offline and duplicate-extension architecture specification.
+- Did not bulk-delete either extension or any local/offline data implementation.
+
 ## Safety boundary
 
 This PR does not:
 
 - activate the Interaction Engine;
-- change controllers, routes, migrations or operational domain behaviour;
-- bulk-delete either Chatbot extension or its 864-file TitanAI tree;
+- change controllers, operational routes, server migrations or domain behaviour;
+- bulk-delete either Chatbot extension or its TitanAI/PWA runtime;
 - merge old agent branches;
 - delete non-identical doctrine or architecture documents;
+- clear or migrate any user IndexedDB data;
 - claim unexecuted tests have passed.
 
 The only non-document source removal is the single metadata-only duplicate `composer.json` under an otherwise empty competing package path. The only source-reference edits point baseline tooling to the relocated provenance manifest.
@@ -69,7 +84,9 @@ The only non-document source removal is the single metadata-only duplicate `comp
 - `docs/inventory/root_document_moves.json`
 - `docs/inventory/INTERACTION_INTELLIGENCE_RUNTIME_INVENTORY.md`
 - `docs/inventory/INTERACTION_INTELLIGENCE_RUNTIME_INVENTORY.json`
+- `docs/inventory/PWA_OFFLINE_RUNTIME_INVENTORY.md`
+- `docs/inventory/PWA_OFFLINE_RUNTIME_INVENTORY.json`
 
 ## Next pass
 
-Pass 4 will inventory and consolidate PWA/offline architecture and the duplicated Chatbot extension surfaces. Runtime deletion or activation will remain in focused implementation PRs with dependency and test evidence.
+Pass 5 will inventory extension registries, manifests, package gates, marketplace activation, providers, migrations, routes, menus, permissions and capability-key collisions. Runtime qualification or deletion remains focused implementation work with tests and rollback evidence.
