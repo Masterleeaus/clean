@@ -78,6 +78,36 @@
 - Added the canonical extension-platform, manifest, qualification, install, upgrade, disable, uninstall and quarantine architecture.
 - Did not delete any extension directory or stale mapping; runtime cleanup remains focused implementation work.
 
+## Titan Agent OS v1.0 bootstrap
+
+- Created `/.titan` as the governed Agent OS layer rather than a miscellaneous configuration directory.
+- Added `/.titan/MANDATE.md` as the full Claude Architecture Authority mandate.
+- Added `/.titan/README.md`, `os.yaml` and Claude control-plane onboarding.
+- Established the federated two-documentation model:
+  - `/docs` remains the canonical human project-documentation library;
+  - `/.titan/documentation` owns Agent OS onboarding, generated views, status, progress, decisions, reviews, learning, dashboards, visualisations, history and Chronicle records.
+- Added the Agent OS Constitution and WorkCore operational-authority view.
+- Added an initial documentation source registry linking canonical repository documents and useful uploaded WorkCore/extension references.
+- Added JSON schemas for universal object metadata, document sources, agents, providers, events, mailbox messages and decision records.
+- Added entry points for Intent, Control, Execution, Intelligence, Integration, Runtime, Observability, Evolution and Developer Experience layers.
+- Added event-driven mailbox rules, worker-agent onboarding, engineering journals, Status Centre and Project Chronicle.
+- Updated root `README.md`, `AGENTS.md` and `docs/README.md` to require the Agent OS reading path and distinguish the two documentation audiences.
+- Added a permanent Agent OS structure validator and GitHub Actions check.
+- Explicitly recorded that autonomous planning, continuous World Model generation, self-healing, event transport, automatic trust scoring and unsupervised evolution remain planned rather than operational.
+
+## Verification
+
+GitHub Actions workflow `Validate Titan Agent OS` completed successfully on the PR merge ref:
+
+- 23 required paths present;
+- 7 JSON schemas parsed;
+- 68 local Markdown links resolved;
+- required YAML bootstrap markers present;
+- Claude mandate required sections present;
+- no unexpected manually-authored output under `.titan/documentation/system/`.
+
+Application runtime tests were not run because this bootstrap changes documentation, schemas and validation tooling rather than application behaviour.
+
 ## Safety boundary
 
 This PR does not:
@@ -87,16 +117,27 @@ This PR does not:
 - bulk-delete either Chatbot extension or its TitanAI/PWA runtime;
 - modify extension install/uninstall runtime behaviour;
 - remove stale marketplace provider mappings;
+- implement an autonomous Agent OS runtime;
+- grant Claude final human authority;
 - merge old agent branches;
 - delete non-identical doctrine or architecture documents;
 - clear or migrate any user IndexedDB data;
 - claim unexecuted tests have passed.
 
-The only non-document source removal is the single metadata-only duplicate `composer.json` under an otherwise empty competing package path. The only source-reference edits point baseline tooling to the relocated provenance manifest.
+The only non-document source removal is the single metadata-only duplicate `composer.json` under an otherwise empty competing package path. The source-reference edits point baseline tooling to the relocated provenance manifest. The new Python validator and CI workflow validate Agent OS structure only.
 
 ## Evidence
 
 - `docs/DOCUMENTATION_RECONCILIATION_STATUS.md`
+- `docs/plans/TITAN_AGENT_OS_DOCUMENTATION_BOOTSTRAP.md`
+- `.titan/README.md`
+- `.titan/MANDATE.md`
+- `.titan/os.yaml`
+- `.titan/registry/documentation.yaml`
+- `.titan/documentation/status/current.md`
+- `.titan/documentation/chronicle/timeline.md`
+- `.titan/developer/validators/validate_structure.py`
+- `.github/workflows/validate-titan-agent-os.yml`
 - `docs/inventory/archive_inventory.json`
 - `docs/inventory/documentation_catalogue.json`
 - `docs/inventory/ROOT_DOCUMENT_CONSOLIDATION.md`
