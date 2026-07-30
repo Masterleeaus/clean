@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://titanzero.local/.titan/schemas/provider-manifest.schema.json",
+  "title": "Titan Agent OS Provider Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "version", "status", "provider_type", "capabilities", "operations", "authentication", "limits", "failure_modes"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^provider:[a-z0-9._-]+$"},
+    "version": {"type": "string"},
+    "status": {"type": "string", "enum": ["active", "dormant", "deprecated", "quarantined", "retired"]},
+    "provider_type": {"type": "string", "enum": ["scm", "build", "deployment", "hosting", "cli", "container", "communication", "analysis", "other"]},
+    "capabilities": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "operations": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "mappings": {"type": "object"},
+    "schemas": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "authentication": {
+      "type": "object",
+      "required": ["mode", "secret_storage"],
+      "properties": {
+        "mode": {"type": "string"},
+        "secret_storage": {"type": "string", "enum": ["titan-vault", "host-secret-store", "none"]}
+      },
+      "additionalProperties": false
+    },
+    "limits": {
+      "type": "object",
+      "properties": {
+        "rate_limit": {"type": ["string", "null"]},
+        "concurrency": {"type": ["integer", "null"], "minimum": 1},
+        "payload_bytes": {"type": ["integer", "null"], "minimum": 1}
+      },
+      "additionalProperties": false
+    },
+    "failure_modes": {"type": "array", "items": {"type": "string"}},
+    "retry_policy": {"type": ["string", "null"]},
+    "health_check": {"type": ["string", "null"]},
+    "permissions": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://titanzero.local/.titan/schemas/agent-manifest.schema.json",
+  "title": "Titan Agent OS Agent Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "version", "status", "role", "permissions", "providers", "capabilities", "state_policy", "trust"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^agent:[a-z0-9._-]+$"},
+    "version": {"type": "string"},
+    "status": {"type": "string", "enum": ["active", "dormant", "quarantined", "retired"]},
+    "role": {"type": "string", "minLength": 1},
+    "description": {"type": "string"},
+    "permissions": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "providers": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "capabilities": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "prohibited_actions": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "state_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["persistent", "journal_path", "mailbox"],
+      "properties": {
+        "persistent": {"type": "boolean"},
+        "journal_path": {"type": ["string", "null"]},
+        "mailbox": {"type": "string"}
+      }
+    },
+    "trust": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["score", "basis", "last_updated"],
+      "properties": {
+        "score": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "basis": {"type": "string", "enum": ["unmeasured", "manual", "observed", "verified"]},
+        "last_updated": {"type": ["string", "null"], "format": "date-time"}
+      }
+    },
+    "current_task": {"type": ["string", "null"]},
+    "requires_human_review": {"type": "boolean", "default": true}
+  }
+}

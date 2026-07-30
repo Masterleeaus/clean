@@ -19,7 +19,7 @@ function titanZeroSourceBaselineIssues(string $root): array
         'package.json',
         'app/Domains/WorkCore/WorkCoreServiceProvider.php',
         'app/Extensions/Chatbot/extension.json',
-        'EXTENSIONS_IMPORT_MANIFEST.json',
+        'docs/provenance/root-imported/extensions_import_manifest.json',
         'tools/titan-zero-audit/baseline.php',
     ];
 
@@ -29,11 +29,11 @@ function titanZeroSourceBaselineIssues(string $root): array
         }
     }
 
-    $manifestPath = $root . '/EXTENSIONS_IMPORT_MANIFEST.json';
+    $manifestPath = $root . '/docs/provenance/root-imported/extensions_import_manifest.json';
     if (is_file($manifestPath)) {
         $manifest = json_decode((string) file_get_contents($manifestPath), true);
         if (! is_array($manifest)) {
-            $issues[] = 'EXTENSIONS_IMPORT_MANIFEST.json is not valid JSON.';
+            $issues[] = 'docs/provenance/root-imported/extensions_import_manifest.json is not valid JSON.';
         } else {
             $expected = (int) ($manifest['extension_directories'] ?? 0);
             $actual = glob($root . '/app/Extensions/*/extension.json') ?: [];

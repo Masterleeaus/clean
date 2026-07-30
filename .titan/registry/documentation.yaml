@@ -1,0 +1,143 @@
+schema_version: 1
+registry_id: titan.documentation.sources
+status: active
+last_updated: 2026-07-30
+
+rules:
+  canonical_human_source: docs
+  agent_os_source: .titan/documentation
+  generated_source: .titan/documentation/system
+  duplicate_manual_authority: prohibited
+  repository_evidence_overrides_reference_claims: true
+
+sources:
+  - id: repo.root-readme
+    kind: authored
+    path: README.md
+    audience: [human, agent]
+    authority: repository-entry
+    status: active
+
+  - id: repo.agent-working-agreement
+    kind: authored
+    path: AGENTS.md
+    audience: [agent, human]
+    authority: mandatory-working-agreement
+    status: active
+
+  - id: docs.index
+    kind: authored
+    path: docs/README.md
+    audience: [human, agent]
+    authority: canonical-documentation-index
+    status: active
+
+  - id: docs.current-upgrade-plan
+    kind: authored
+    path: docs/plans/CURRENT_UPGRADE_PLAN.md
+    audience: [human, agent]
+    authority: current-implementation-plan
+    status: active
+    derived_views:
+      - .titan/documentation/progress/
+      - .titan/documentation/status/current.md
+
+  - id: docs.authority-map
+    kind: authored
+    path: docs/architecture/TITAN_ZERO_AUTHORITY_MAP.md
+    audience: [human, agent]
+    authority: canonical-architecture
+    status: active
+    derived_views:
+      - .titan/kernel/constitution/README.md
+      - .titan/documentation/architecture/
+
+  - id: docs.tenancy-trust-execution
+    kind: authored
+    path: docs/architecture/TENANCY_TRUST_AND_ACTION_EXECUTION.md
+    audience: [human, agent]
+    authority: canonical-governance
+    status: active
+    derived_views:
+      - .titan/kernel/policies/
+      - .titan/documentation/architecture/
+
+  - id: docs.interaction-intelligence
+    kind: authored
+    path: docs/architecture/INTERACTION_WIZARD_AND_FIVE_TIER_INTELLIGENCE.md
+    audience: [human, agent]
+    authority: canonical-architecture
+    status: active
+    derived_views:
+      - .titan/documentation/architecture/
+      - .titan/intelligence/
+
+  - id: docs.pwa-offline
+    kind: authored
+    path: docs/architecture/PWA_OFFLINE_AND_CHATBOT_EXTENSION_ARCHITECTURE.md
+    audience: [human, agent]
+    authority: canonical-architecture
+    status: active
+    derived_views:
+      - .titan/documentation/architecture/
+      - .titan/documentation/reports/
+
+  - id: docs.extension-lifecycle
+    kind: authored
+    path: docs/architecture/EXTENSION_PLATFORM_AND_LIFECYCLE_ARCHITECTURE.md
+    audience: [human, agent]
+    authority: canonical-architecture
+    status: active
+    derived_views:
+      - .titan/integration/
+      - .titan/registry/providers.json
+
+  - id: docs.reconciliation-status
+    kind: authored
+    path: docs/DOCUMENTATION_RECONCILIATION_STATUS.md
+    audience: [human, agent]
+    authority: current-documentation-status
+    status: active
+    derived_views:
+      - .titan/documentation/status/current.md
+      - .titan/documentation/chronicle/timeline.md
+
+  - id: reference.workcore-technical-architecture-v2
+    kind: reference
+    external_name: WorkCore Technical Architecture Specification.txt
+    audience: [human, agent]
+    authority: reference-only
+    status: active
+    useful_for:
+      - workcore operational authority
+      - governed action principles
+      - tenancy and permissions
+      - event and audit architecture
+      - offline and sync requirements
+    caution: Repository source and current canonical docs override unverified implementation claims.
+
+  - id: reference.workcore-executive-report
+    kind: reference
+    external_name: Workcore.txt
+    audience: [human, agent]
+    authority: evidence-reference
+    status: active
+    useful_for:
+      - package measurements
+      - governed dispatcher assessment
+      - known blockers
+      - authority and repair sequencing
+    caution: Measurements describe the inspected archive and may not match the current repository.
+
+  - id: reference.extension-system-catalogue
+    kind: reference
+    external_name: Extension System.txt
+    audience: [human, agent]
+    authority: product-reference
+    status: active
+    useful_for:
+      - vertical capability discovery
+      - property and facility management taxonomy
+      - service-provider capability mapping
+      - future capability graph inputs
+    caution: Product concepts do not become installed extensions, operational domains or active capabilities without source and qualification evidence.
