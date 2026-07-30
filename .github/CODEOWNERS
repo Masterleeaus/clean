@@ -1,0 +1,14 @@
+# Titan System - Owner-controlled
+.titan/ @Masterleeaus
+.titan-backup/ @Masterleeaus
+.backups/ @Masterleeaus
+
+# Protection and security files
+.github/branch-protection-config.md @Masterleeaus
+.titan/PROTECTION.md @Masterleeaus
+.titan/WORKFLOW.md @Masterleeaus
+
+# Critical configuration
+.titan/config/ @Masterleeaus
+.titan/kernel/ @Masterleeaus
+.titan/architect/ @Masterleeaus

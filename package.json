@@ -17,7 +17,10 @@
 		"titan:plan": "node .titan/scripts/plan-recovery.js",
 		"titan:replay": "node .titan/scripts/replay-commits.js",
 		"titan:validate": "node .titan/scripts/validate-merge.js",
-		"titan:report": "node .titan/scripts/generate-reports.js"
+		"titan:report": "node .titan/scripts/generate-reports.js",
+		"backup:create": "node .titan/scripts/backup-create.js",
+		"backup:restore": "node .titan/scripts/backup-restore.js",
+		"backup:list": "node .titan/scripts/backup-list.js"
 	},
 	"devDependencies": {
 		"@angular-eslint/template-parser": "^17.2.1",

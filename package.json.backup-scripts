@@ -1,0 +1,8 @@
+# Add these to package.json "scripts" section:
+
+"backup:create": "node .titan/scripts/backup-create.js",
+"backup:restore": "node .titan/scripts/backup-restore.js",
+"backup:list": "node .titan/scripts/backup-list.js",
+"backup:verify": "node .titan/scripts/backup-verify.js",
+"protect:setup": "node .titan/scripts/protect-setup.js",
+"workflow:check": "node .titan/scripts/workflow-check.js"

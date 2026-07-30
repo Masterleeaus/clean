@@ -1,0 +1,23 @@
+{
+  "scan_date": "2026-07-30T08:27:02.398Z",
+  "total_duplicates": 0,
+  "scan_type": "initial_scan",
+  "findings": {
+    "service_classes": 0,
+    "controllers": 0,
+    "routes": 0,
+    "components": 0,
+    "utilities": 0,
+    "migrations": 0,
+    "tests": 0
+  },
+  "duplicate_sets": [],
+  "notes": "Scanning repository for duplicate implementations",
+  "recommendations": [
+    "Monitor for duplicate service classes",
+    "Track duplicate controllers",
+    "Watch for duplicate routes",
+    "Flag component duplication",
+    "Check utility function overlap"
+  ]
+}
