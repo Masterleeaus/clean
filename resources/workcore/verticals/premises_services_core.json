@@ -1,0 +1,43 @@
+{
+  "key": "premises_services_core",
+  "label": "Premises Services Core",
+  "version": "1.0.0",
+  "type": "foundation",
+  "extends": [],
+  "capabilities": [
+    "workcore.core",
+    "workcore.tenancy",
+    "workcore.authorization",
+    "workcore.crm",
+    "workcore.premises",
+    "workcore.catalogue",
+    "workcore.operations",
+    "workcore.scheduling",
+    "workcore.workforce",
+    "workcore.assets",
+    "workcore.forms",
+    "workcore.support",
+    "workcore.knowledge",
+    "workcore.finance"
+  ],
+  "features": {
+    "premises.enabled": true,
+    "operations.work_orders": true,
+    "scheduling.appointments": true,
+    "finance.enabled": true,
+    "reviews.enabled": true
+  },
+  "terminology": {
+    "entity.customer.singular": "Customer",
+    "entity.customer.plural": "Customers",
+    "entity.premises.singular": "Premises",
+    "entity.premises.plural": "Premises",
+    "entity.work_order.singular": "Work order",
+    "entity.work_order.plural": "Work orders",
+    "entity.worker.singular": "Worker",
+    "entity.worker.plural": "Workers",
+    "navigation.operations": "Operations",
+    "message.assignment": "Assigned :worker to :job"
+  },
+  "metadata": {}
+}

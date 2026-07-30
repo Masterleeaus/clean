@@ -1,0 +1,76 @@
+id: titan.agent-os
+name: Titan Agent OS
+version: 1.0.0-bootstrap
+status: bootstrap
+schema_version: 1
+
+repository:
+  name: Masterleeaus/clean
+  coordination_branch: integration/current-main-reconciliation
+  worker_branch_pattern: reconcile/<scope>
+
+human_authority:
+  final_business_authority: true
+  final_strategic_architecture_authority: true
+  final_production_release_authority: true
+
+control_plane:
+  architecture_authority: claude
+  mandate: .titan/MANDATE.md
+  direct_business_code_modification: prohibited
+
+execution_plane:
+  default_worker_type: chatgpt-agent
+  architectural_decisions: prohibited
+  requires_approved_plan: true
+  requires_isolated_branch: true
+
+layers:
+  - kernel
+  - intent
+  - control-plane
+  - execution-plane
+  - intelligence
+  - integration
+  - runtime
+  - observability
+  - evolution
+  - documentation
+  - developer
+
+documentation:
+  mode: federated
+  canonical_human_source: docs
+  agent_os_source: .titan/documentation
+  generated_path: .titan/documentation/system
+  generated_files_manual_edit: prohibited
+  duplicate_manual_authority: prohibited
+
+runtime_claims:
+  autonomous_planning: planned
+  continuous_world_model_generation: planned
+  self_healing: planned
+  automatic_trust_scoring: planned
+  automatic_evolution_adoption: prohibited_without_approval
+
+canonical_authorities:
+  platform_identity: magicai-host
+  operational_records_and_mutations: workcore
+  orchestration: titan-zero
+  interaction_governance: interaction-engine
+  conversational_and_device_surface: chatbot-pwa
+  credentials: titan-vault
+
+lifecycle_statuses:
+  - draft
+  - proposed
+  - accepted
+  - active
+  - dormant
+  - deprecated
+  - superseded
+  - retired
+  - rejected
+  - quarantined
+
+last_updated: 2026-07-30

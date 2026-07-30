@@ -1,0 +1,35 @@
+name: Titan Zero Source Verification
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches:
+      - agent/titan-zero-pwa-upgrade
+
+permissions:
+  contents: read
+
+jobs:
+  source-contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Source-verifier regression tests
+        run: python3 tests/contracts/titan_zero_source_verification_test.py
+      - name: Verify required source and JSON
+        run: bash scripts/titan-zero/verify-source.sh
+      - name: Host registration contracts
+        run: python3 tests/contracts/titan_zero_host_boot_contract_test.py
+      - name: PHP syntax
+        run: |
+          set -euo pipefail
+          find app packages -type f -name '*.php' -print0 \
+            | xargs -0 -n1 -P4 php -l >/tmp/php-lint.log
+          tail -20 /tmp/php-lint.log
+      - name: Composer metadata
+        run: composer validate --no-check-publish --no-check-lock --no-interaction
+      - name: Interaction Engine standalone tests
+        run: php packages/titanzero/interaction-engine/tests/run.php
+      - name: Shell syntax
+        run: bash -n scripts/titan-zero/verify-source.sh

@@ -1,0 +1,80 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$ROOT"
+
+bin/titan-preflight
+created_env=0
+if [[ ! -f .env ]]; then
+    cp .env.verification .env
+    created_env=1
+fi
+cleanup() {
+    if [[ "$created_env" == "1" ]]; then rm -f .env; fi
+    rm -f database/verification.sqlite
+}
+trap cleanup EXIT
+
+composer validate --strict
+if [[ "${TITAN_SKIP_INSTALL:-0}" != "1" || ! -f vendor/autoload.php ]]; then
+    composer install --no-interaction --prefer-dist --optimize-autoloader
+fi
+
+touch database/verification.sqlite
+php artisan optimize:clear
+php artisan package:discover --ansi
+php artisan migrate:fresh --env=verification --force
+php artisan migrate:rollback --env=verification --step=1 --force
+php artisan migrate --env=verification --force
+php artisan about
+php artisan route:list
+php artisan schedule:list
+php artisan queue:work --env=verification --once --stop-when-empty --tries=1 --timeout=30
+php artisan test
+
+bash bin/titan-verify-offline
+
+if [[ "${TITAN_VERIFY_POSTGRES:-0}" == "1" ]]; then
+    DB_CONNECTION=pgsql \
+    DB_HOST="${TITAN_PG_HOST:-127.0.0.1}" \
+    DB_PORT="${TITAN_PG_PORT:-5432}" \
+    DB_DATABASE="${TITAN_PG_DATABASE:-titan}" \
+    DB_USERNAME="${TITAN_PG_USERNAME:-titan}" \
+    DB_PASSWORD="${TITAN_PG_PASSWORD:-titan-local-only}" \
+        php artisan migrate:fresh --env=verification --force
+    DB_CONNECTION=pgsql \
+    DB_HOST="${TITAN_PG_HOST:-127.0.0.1}" \
+    DB_PORT="${TITAN_PG_PORT:-5432}" \
+    DB_DATABASE="${TITAN_PG_DATABASE:-titan}" \
+    DB_USERNAME="${TITAN_PG_USERNAME:-titan}" \
+    DB_PASSWORD="${TITAN_PG_PASSWORD:-titan-local-only}" \
+        php artisan test
+    DB_CONNECTION=pgsql \
+    DB_HOST="${TITAN_PG_HOST:-127.0.0.1}" \
+    DB_PORT="${TITAN_PG_PORT:-5432}" \
+    DB_DATABASE="${TITAN_PG_DATABASE:-titan}" \
+    DB_USERNAME="${TITAN_PG_USERNAME:-titan}" \
+    DB_PASSWORD="${TITAN_PG_PASSWORD:-titan-local-only}" \
+        php artisan migrate:rollback --env=verification --step=1 --force
+    DB_CONNECTION=pgsql \
+    DB_HOST="${TITAN_PG_HOST:-127.0.0.1}" \
+    DB_PORT="${TITAN_PG_PORT:-5432}" \
+    DB_DATABASE="${TITAN_PG_DATABASE:-titan}" \
+    DB_USERNAME="${TITAN_PG_USERNAME:-titan}" \
+    DB_PASSWORD="${TITAN_PG_PASSWORD:-titan-local-only}" \
+        php artisan migrate --env=verification --force
+fi
+
+if [[ "${TITAN_SKIP_INSTALL:-0}" != "1" || ! -d node_modules ]]; then
+    if [[ -f package-lock.json ]]; then
+        npm ci --no-audit --no-fund
+    else
+        npm install --no-audit --no-fund
+    fi
+fi
+npm run build
+node --check resources/js/titan/operations.js
+node --check public/js/titan-operations.js
+
+printf 'Titan connected verification passed.\n'

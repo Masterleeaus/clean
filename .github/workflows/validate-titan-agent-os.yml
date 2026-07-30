@@ -1,0 +1,33 @@
+name: Validate Titan Agent OS
+
+on:
+  pull_request:
+    paths:
+      - '.titan/**'
+      - 'README.md'
+      - 'AGENTS.md'
+      - 'docs/README.md'
+      - 'docs/plans/TITAN_AGENT_OS_DOCUMENTATION_BOOTSTRAP.md'
+      - '.github/workflows/validate-titan-agent-os.yml'
+  push:
+    branches:
+      - agent/documentation-reconciliation
+    paths:
+      - '.titan/**'
+      - 'README.md'
+      - 'AGENTS.md'
+      - 'docs/README.md'
+      - 'docs/plans/TITAN_AGENT_OS_DOCUMENTATION_BOOTSTRAP.md'
+      - '.github/workflows/validate-titan-agent-os.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate Agent OS contracts and links
+        run: python3 .titan/developer/validators/validate_structure.py

@@ -1,12 +1,25 @@
+# Environment and credentials
 /.env
 /.env.*
 !/.env.example
+/auth.json
+/.npmrc
+/.pypirc
+*.pem
+id_rsa
+id_dsa
+
+# Installed dependencies
 /vendor/
 /node_modules/
+
+# Generated frontend and public runtime content
 /public/build/
 /public/storage
 /public/upload/
 /public/uploads/
+
+# Laravel runtime state
 /storage/*.key
 /storage/app/*
 !/storage/app/public/
@@ -17,15 +30,14 @@
 /storage/framework/views/*
 /storage/logs/*
 /bootstrap/cache/*.php
+
+# Test and analysis output
 /coverage/
 *.log
+.phpunit.result.cache
+.phpstan.cache
+
+# Operating-system and editor metadata
 .DS_Store
-# Titan Zero repository safety
-.env
-.env.*
-!.env.example
-/vendor/
-/node_modules/
-/storage/*.key
-storage/logs/*.log
-bootstrap/cache/*.php
+.idea/
+.vscode/
