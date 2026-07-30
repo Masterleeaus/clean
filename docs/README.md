@@ -1,22 +1,47 @@
 # Titan Zero Documentation
 
-This directory separates current engineering guidance from evidence, historical records and the extracted Titan reference library.
+This directory is the canonical human project-documentation library. It separates current engineering guidance from evidence, historical records and the extracted Titan reference library.
+
+Titan Agent OS has a second complementary documentation tree at [`/.titan/documentation`](../.titan/documentation/README.md). That layer serves agent onboarding, generated system views, status, progress, decisions, reviews, learning, dashboards, visualisations, history and the Project Chronicle. The two trees must not become competing manually maintained sources of truth.
 
 ## Mandatory reading for every agent
 
-Before changing code or documentation, read the root [`README.md`](../README.md), [`AGENTS.md`](../AGENTS.md), this file, every canonical document listed below, and every document in the subject cluster affected by the work. New project documentation must be added under `docs/`, not at the repository root.
+Before changing code or documentation, read:
+
+1. the root [`README.md`](../README.md);
+2. [`AGENTS.md`](../AGENTS.md);
+3. [`.titan/README.md`](../.titan/README.md);
+4. [`.titan/MANDATE.md`](../.titan/MANDATE.md) when acting as Claude or architecture authority;
+5. the [Agent OS current status](../.titan/documentation/status/current.md);
+6. this file;
+7. every canonical document listed below;
+8. every document in the subject cluster affected by the work;
+9. current source, tests and runtime wiring.
+
+New long-form project documentation belongs under `/docs`, not at the repository root. Agent OS-native status, decisions, reviews, lessons, generated views and Chronicle records belong under `/.titan/documentation`.
 
 ## Start here
 
 1. [Agent working agreement](../AGENTS.md)
-2. [Current upgrade plan](plans/CURRENT_UPGRADE_PLAN.md)
-3. [Canonical authority map](architecture/TITAN_ZERO_AUTHORITY_MAP.md)
-4. [Tenancy, trust and governed action execution](architecture/TENANCY_TRUST_AND_ACTION_EXECUTION.md)
-5. [Interaction Engine, Wizard and five-tier intelligence architecture](architecture/INTERACTION_WIZARD_AND_FIVE_TIER_INTELLIGENCE.md)
-6. [PWA, offline runtime and Chatbot extension architecture](architecture/PWA_OFFLINE_AND_CHATBOT_EXTENSION_ARCHITECTURE.md)
-7. [Extension platform, manifest and lifecycle architecture](architecture/EXTENSION_PLATFORM_AND_LIFECYCLE_ARCHITECTURE.md)
-8. [Documentation policy](governance/DOCUMENTATION_POLICY.md)
-9. [Documentation reconciliation status](DOCUMENTATION_RECONCILIATION_STATUS.md)
+2. [Titan Agent OS](../.titan/README.md)
+3. [Claude Architecture Authority mandate](../.titan/MANDATE.md)
+4. [Current upgrade plan](plans/CURRENT_UPGRADE_PLAN.md)
+5. [Canonical authority map](architecture/TITAN_ZERO_AUTHORITY_MAP.md)
+6. [Tenancy, trust and governed action execution](architecture/TENANCY_TRUST_AND_ACTION_EXECUTION.md)
+7. [Interaction Engine, Wizard and five-tier intelligence architecture](architecture/INTERACTION_WIZARD_AND_FIVE_TIER_INTELLIGENCE.md)
+8. [PWA, offline runtime and Chatbot extension architecture](architecture/PWA_OFFLINE_AND_CHATBOT_EXTENSION_ARCHITECTURE.md)
+9. [Extension platform, manifest and lifecycle architecture](architecture/EXTENSION_PLATFORM_AND_LIFECYCLE_ARCHITECTURE.md)
+10. [Documentation policy](governance/DOCUMENTATION_POLICY.md)
+11. [Documentation reconciliation status](DOCUMENTATION_RECONCILIATION_STATUS.md)
+
+## Two documentation systems
+
+| Tree | Purpose | Editing authority |
+|---|---|---|
+| `/docs` | Human-authored canonical architecture, governance, plans, audits, provenance, setup, reference and history | Humans and authorised agents |
+| `/.titan/documentation` | Agent onboarding, system-generated views, status, progress, decisions, reviews, learning, dashboards, visualisations and Chronicle | Control plane, authorised agents and generators according to section policy |
+
+A `.titan` derived view identifies its canonical `/docs` source and source commit. Do not copy a document into both trees and maintain both manually.
 
 ## Evidence and provenance
 
@@ -34,22 +59,28 @@ Before changing code or documentation, read the root [`README.md`](../README.md)
 - `inventory/INTERACTION_INTELLIGENCE_RUNTIME_INVENTORY.json` contains the file-level Pass 3 evidence.
 - `inventory/PWA_OFFLINE_RUNTIME_INVENTORY.json` contains the file-level Pass 4 evidence.
 - `inventory/EXTENSION_PLATFORM_INVENTORY.json` contains the per-extension Pass 5 evidence.
+- [Agent OS documentation source registry](../.titan/registry/documentation.yaml) maps canonical and reference sources into Agent OS views.
 
 ## Where agents add documentation
 
 | Change type | Destination |
 |---|---|
-| Canonical architecture or system boundaries | `architecture/` |
-| Current implementation or upgrade plan | `plans/` |
-| Security, engineering or documentation policy | `governance/` |
-| Verified audit or test evidence | `audits/` |
-| Source origins, checksums or import decisions | `provenance/` |
-| Generated catalogues, comparisons and disposition registers | `inventory/` |
-| Installation, operations or deployment guidance | `setup/` or an appropriate current operations folder |
-| Superseded plans, status reports and obsolete setup material | `archive/` after unique information is preserved |
-| Doctrine, proposals, product concepts and unverified blueprints | `reference/titan-library/` |
+| Canonical architecture or system boundaries | `docs/architecture/` |
+| Current implementation or upgrade plan | `docs/plans/` |
+| Security, engineering or documentation policy | `docs/governance/` |
+| Verified audit or test evidence | `docs/audits/` |
+| Source origins, checksums or import decisions | `docs/provenance/` |
+| Generated catalogues, comparisons and disposition registers | `docs/inventory/` |
+| Installation, operations or deployment guidance | `docs/setup/` or an appropriate current operations folder |
+| Superseded plans, status reports and obsolete setup material | `docs/archive/` after unique information is preserved |
+| Doctrine, proposals, product concepts and unverified blueprints | `docs/reference/titan-library/` |
+| Agent onboarding and journals | `.titan/documentation/agents/` |
+| Current Agent OS status and progress projections | `.titan/documentation/status/` and `.titan/documentation/progress/` |
+| Durable decisions, reviews and learning | `.titan/documentation/decisions/`, `reviews/` and `learning/` |
+| Generated Agent OS documentation | `.titan/documentation/system/` — generator-owned, not manually edited |
+| Project Chronicle | `.titan/documentation/chronicle/` |
 
-Do not add project plans, status files, architecture notes, audit reports or provenance records to the repository root. The only documentation entry points retained there are `README.md` and `AGENTS.md`.
+Do not add project plans, status files, architecture notes, audit reports or provenance records to the repository root. The root documentation entry points are `README.md` and `AGENTS.md`; the Agent OS entry points live inside `.titan/`.
 
 ## Directory guide
 
@@ -77,4 +108,5 @@ Planned, source-present, partially wired and operational are different states. D
 - Pass 3: Interaction Engine, WorkCore Wizards and five-tier intelligence inventoried; one metadata-only duplicate package root removed; canonical runtime roles established; connected Interaction Engine activation remains unverified.
 - Pass 4: complete Chatbot extension trees and offline runtimes inventoried; primary Chatbot established as canonical intended extension; secondary near-exact tree frozen; service-worker, IndexedDB, vault, outbox and sync boundaries documented.
 - Pass 5: 95 extension directories, 112 provider mappings and the install/uninstall lifecycle inventoried; stale mappings, duplicate symbols/migrations and supply-chain risks documented; canonical qualification and manifest policy established.
+- Agent OS bootstrap: federated documentation layer, Claude mandate, status centre, Chronicle, Kernel constitution, source registry and initial metadata schemas established.
 - Remaining clusters: communications, automation, data architecture and release/deployment guidance.
