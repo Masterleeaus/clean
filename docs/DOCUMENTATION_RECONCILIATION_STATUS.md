@@ -1,8 +1,11 @@
 # Documentation Reconciliation Status
 
+**Current coordination baseline:** `integration/current-main-reconciliation` at `fa607d769a4f72ba287801b027cc42dcf56aa549`.
+
 ## Pass 1 — archive extraction and structural cleanup
 
-- Baseline main SHA: `e565d7594e062c6705be9747bee0bd6081beb137`
+**Status:** Completed.
+
 - Both uploaded archives were safety-checked and extracted.
 - Extracted collections were moved to `docs/reference/titan-library/`.
 - Exact duplicate files removed: **6**.
@@ -13,9 +16,32 @@
 
 Detailed moves and deleted duplicate paths are recorded in `docs/inventory/PASS1_DISPOSITIONS.md` and the machine-readable inventories.
 
+## Root documentation consolidation
+
+**Status:** Completed for the current tree.
+
+The repository root now retains:
+
+- `README.md` as the mandatory repository and agent entry point;
+- `AGENTS.md` as the mandatory working agreement;
+- `version.txt` because application and updater code consume it;
+- recognised legal files;
+- dependency, build and machine configuration files that conventionally belong at root.
+
+Project documentation moved from root:
+
+- `EXTENSIONS_IMPORT_MANIFEST.json` → `docs/provenance/root-imported/extensions_import_manifest.json`
+- `KNOWN_BASELINE_GAPS.md` → `docs/provenance/root-imported/known_baseline_gaps.md`
+
+Dependent baseline tests, audit tooling and extension documentation were updated to the new manifest path. The exact move register is in:
+
+- `docs/inventory/ROOT_DOCUMENT_CONSOLIDATION.md`
+- `docs/inventory/root_document_moves.json`
+- `docs/inventory/ROOT_DOCUMENT_REFERENCE_CHECK.md`
+
 ## Pass 2 — architecture, authority and trust consolidation
 
-**Status:** Completed on `agent/documentation-reconciliation`.
+**Status:** Completed.
 
 ### Canonical documents established
 
@@ -36,18 +62,56 @@ Detailed moves and deleted duplicate paths are recorded in `docs/inventory/PASS1
 7. Chatbot/PWA owns presentation, local drafts, offline state and sync UX, not canonical server truth.
 8. Operational finance remains WorkCore-governed and separate from MagicAI platform billing.
 
-### Verified wiring gap recorded
+No non-identical architecture document was deleted during Pass 2. Extracted architecture documents remain reference-only until each cluster's unique information has been preserved in a source-backed canonical specification.
 
-The Interaction Engine package source and provider exist, but connected host activation is not yet proven because:
+## Pass 3 — Interaction Engine, Wizard and five-tier intelligence
 
-- the root `composer.json` does not register or require the local package;
-- `interaction_engine_enabled` exists but is not used by `TitanZeroFeatureFlags::coreProviderClassNames()` to register the provider.
+**Status:** Completed for documentation classification and evidence gathering. Runtime wiring repair remains implementation work.
 
-Current documentation now describes the engine as **source-present and intended**, not already active.
+### Canonical documents and evidence
 
-### Source-document disposition
+- `docs/architecture/INTERACTION_WIZARD_AND_FIVE_TIER_INTELLIGENCE.md`
+- `docs/inventory/INTERACTION_INTELLIGENCE_RUNTIME_INVENTORY.md`
+- `docs/inventory/INTERACTION_INTELLIGENCE_RUNTIME_INVENTORY.json`
 
-No non-identical architecture document was deleted during Pass 2. Extracted architecture documents remain `reference-only` until each cluster's unique information has been preserved in a source-backed canonical specification.
+### Runtime findings
+
+1. `packages/titanzero/interaction-engine` is the canonical universal package source.
+2. Before cleanup it contained 386 files, including the provider, routes, migrations, tests, offline TypeScript and imported engine library.
+3. `packages/titan-zero/interaction-engine` contained only one competing `composer.json` for the same package name, with no implementation files, routes, migrations or tests.
+4. The metadata-only duplicate package root was removed after its unique provider metadata and conflict were recorded.
+5. WorkCore Wizards exists under `app/Domains/WorkCore/System/Modules/Wizards` and is the canonical operational-domain wizard module.
+6. The primary five-tier runtime is intended to remain under `app/Extensions/Chatbot/System/TitanAI`.
+7. `app/Extensions/TitanZeroChatbot/System/TitanAI` was an exact 864-file byte-for-byte copy of the primary TitanAI tree at inventory time.
+8. The secondary TitanAI tree is frozen as compatibility/reference material pending a focused source reconciliation; it was not bulk-deleted during this documentation pass.
+9. The embedded Chatbot WorkCore server copy is compatibility/reference-only and must never shadow `app/Domains/WorkCore`.
+
+### Connected Interaction Engine activation gap
+
+The universal package remains **source-present but not connected-host verified** because:
+
+- root `composer.json` does not register the canonical package as a path repository;
+- root `composer.json` does not require `titanzero/interaction-engine`;
+- `interaction_engine_enabled` exists but is not currently used to register the provider;
+- the explicit-registration unit test expects one provider reference in `config/app.php`;
+- repository search did not find that explicit provider registration;
+- the host boot test expects the provider to load.
+
+The repository therefore contains source, tests and provider expectations that are not yet coherent. A focused implementation PR must select exactly one activation model and verify it from a clean checkout.
+
+### Pass 3 deletion policy
+
+Deleted:
+
+- the metadata-only duplicate `packages/titan-zero/interaction-engine/composer.json`.
+
+Not deleted:
+
+- any non-identical doctrine or reference document;
+- the canonical Interaction Engine package;
+- WorkCore Wizards;
+- either 864-file Chatbot TitanAI tree;
+- package-local build reports or changelogs that preserve source lineage.
 
 ## Pass 1 exact duplicates removed
 
@@ -60,24 +124,23 @@ No non-identical architecture document was deleted during Pass 2. Extracted arch
 
 ## Pass 1 historical moves
 
-- moved-tree: `docs/inbox/archive-1` → `docs/reference/titan-library/collection-1`
-- moved-tree: `docs/inbox/archive-2` → `docs/reference/titan-library/collection-2`
-- moved branch and pass status documents to `docs/archive/status/2026-07/`
-- moved superseded subsystem plans to `docs/archive/plans/2026-07/`
-- moved MagicAI v10.91 setup and import records to `docs/archive/setup/` and `docs/archive/provenance/`
-- moved old merge/rejected/superseded reports to `docs/archive/reports/2026-07/`
-- moved current Titan Money/Titan Pay provenance to `docs/provenance/`
+- moved the two extracted archive trees to `docs/reference/titan-library/collection-1` and `collection-2`;
+- moved branch and pass status documents to `docs/archive/status/2026-07/`;
+- moved superseded subsystem plans to `docs/archive/plans/2026-07/`;
+- moved MagicAI v10.91 setup and import records to `docs/archive/setup/` and `docs/archive/provenance/`;
+- moved old merge, rejected and superseded reports to `docs/archive/reports/2026-07/`;
+- moved current Titan Money/Titan Pay provenance to `docs/provenance/`.
 
 The complete per-file move register remains in the Pass 1 disposition report and Git history.
 
 ## Next pass
 
-### Pass 3 — Interaction Engine, Wizard and five-tier intelligence
+### Pass 4 — PWA, offline runtime and duplicated Chatbot surfaces
 
-1. Inventory every active and copied Interaction/Wizard/AI runtime.
-2. Separate logical authority from physical code location and activation state.
-3. Compare package code, Chatbot copies, WorkCore wizards and five-tier registries.
-4. Produce one canonical Interaction and intelligence architecture specification.
-5. Record which providers, registries, contracts and routes are canonical, adapters, compatibility-only or superseded.
-6. Delete only exact duplicates or non-identical documents whose unique information has been preserved.
-7. Repair links affected by the consolidated architecture set.
+1. Inventory service workers, manifests, IndexedDB schemas, vaults, outboxes, retry and conflict implementations.
+2. Compare `app/Extensions/Chatbot` with `app/Extensions/TitanZeroChatbot` beyond the TitanAI subtree.
+3. Establish the canonical PWA extension and compatibility boundary.
+4. Map device DTOs and sync envelopes to canonical WorkCore contracts.
+5. Identify duplicate service-worker caches, local databases, routes, providers and assets.
+6. Produce one source-backed PWA/offline architecture specification.
+7. Remove only exact duplicates or fully preserved superseded documentation; leave runtime deletion to focused source PRs with dependency evidence.
