@@ -1,0 +1,58 @@
+name: Record current Titan Agent OS verification
+
+on:
+  push:
+    branches:
+      - agent/documentation-reconciliation
+    paths:
+      - '.github/workflows/record-current-titan-agent-os-verification.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/documentation-reconciliation
+          fetch-depth: 0
+
+      - name: Run validator and capture evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          output="$(python3 .titan/developer/validators/validate_structure.py)"
+          printf '%s\n' "$output"
+          mkdir -p docs/inventory
+          {
+            echo '# Titan Agent OS Verification Evidence'
+            echo
+            echo '- Verified branch: `agent/documentation-reconciliation`'
+            echo '- Coordination base: `integration/current-main-reconciliation` at `49a563505a6f2706fb342a70b032c3170e0e480e`'
+            echo "- Verified at: \`$(date -u +'%Y-%m-%dT%H:%M:%SZ')\`"
+            echo '- Command: `python3 .titan/developer/validators/validate_structure.py`'
+            echo '- Exit code: `0`'
+            echo
+            echo '```text'
+            printf '%s\n' "$output"
+            echo '```'
+            echo
+            echo 'Application runtime tests were not run because this verification covers the Agent OS documentation, metadata schemas, source registry, entry-point links and generated-content boundary.'
+          } > docs/inventory/TITAN_AGENT_OS_VERIFICATION.md
+
+      - name: Remove one-time workflow
+        run: rm -f .github/workflows/record-current-titan-agent-os-verification.yml
+
+      - name: Commit evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "test: record fresh Titan Agent OS structure verification"
+          git push origin HEAD:agent/documentation-reconciliation
