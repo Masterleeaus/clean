@@ -10,17 +10,17 @@
       "title": "Titan Zero Agent Working Agreement"
     },
     {
-      "classification": "review-required",
+      "classification": "provenance",
       "extension": ".json",
-      "path": "EXTENSIONS_IMPORT_MANIFEST.json",
+      "path": "docs/provenance/root-imported/extensions_import_manifest.json",
       "sha256": "a29011a9f0088496c264d9e699b95039a4ac12831ffcd421ce0e9e032d8a7088",
       "size": 53276,
       "title": "{"
     },
     {
-      "classification": "review-required",
+      "classification": "provenance",
       "extension": ".md",
-      "path": "KNOWN_BASELINE_GAPS.md",
+      "path": "docs/provenance/root-imported/known_baseline_gaps.md",
       "sha256": "ed5b2ea0dc6a708e4473c08fe5d053e30882e73123559a31ede6faed3c194b26",
       "size": 1322,
       "title": "Known Baseline Gaps"
@@ -71,7 +71,7 @@
       "path": "docs/agent2/PASS1-PWA-RECONCILIATION.md",
       "sha256": "1deac80385518400a1aa02cf7d68af89295fcd85cb313568ecf45689cb2f8415",
       "size": 5240,
-      "title": "Agent 2 Pass 1 \u2014 PWA Reconciliation Report"
+      "title": "Agent 2 Pass 1 — PWA Reconciliation Report"
     },
     {
       "classification": "review-required",
@@ -79,7 +79,7 @@
       "path": "docs/agent2/PWA-AUTHORITY-AND-DEPENDENCY-MAP.md",
       "sha256": "2dfdd175c4af07464cfe48a2309438c453241d4d67458e222ca31dd47f706030",
       "size": 5073,
-      "title": "Agent 2 \u2014 PWA Authority and Dependency Map"
+      "title": "Agent 2 — PWA Authority and Dependency Map"
     },
     {
       "classification": "canonical",
@@ -95,7 +95,7 @@
       "path": "docs/archive/plans/2026-07/agent2-pwa-offline-upgrade-plan.md",
       "sha256": "42ab4c6e3d2fc85b712e5c38d6f01a5e64c0069153d2203b1246ca59bb5eeff8",
       "size": 26733,
-      "title": "> **Historical record \u2014 not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
     },
     {
       "classification": "historical",
@@ -103,7 +103,7 @@
       "path": "docs/archive/plans/2026-07/creative-extensions-upgrade-plan.md",
       "sha256": "7d7d6ce1a227ef630a2a7de01370119168ad17787c5b72250206e2c61ff08609",
       "size": 6859,
-      "title": "> **Historical record \u2014 not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
     },
     {
       "classification": "historical",
@@ -111,7 +111,7 @@
       "path": "docs/archive/plans/2026-07/extension-platform-upgrade-plan.md",
       "sha256": "3476d431b77cb013a932a96e4175dde84f32b3b83a2e6d5c3ac529633ec132e2",
       "size": 10123,
-      "title": "> **Historical record \u2014 not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
     },
     {
       "classification": "historical",
@@ -119,7 +119,7 @@
       "path": "docs/archive/plans/2026-07/interaction-wizard-multi-pass-upgrade-plan.md",
       "sha256": "cc92cf66c259e2beeee1987fb590e89928c3a0f6c4bfe4b9f0f586273413016a",
       "size": 7096,
-      "title": "> **Historical record \u2014 not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
     },
     {
       "classification": "historical",
@@ -127,7 +127,7 @@
       "path": "docs/archive/plans/2026-07/titan-money-titan-pay-chat-upgrade-plan.md",
       "sha256": "13712d1a1c5a80f8fab70197a2b8432f80002e492c67b0ffba8669229b4b1d67",
       "size": 15069,
-      "title": "> **Historical record \u2014 not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
     },
     {
       "classification": "historical",
@@ -135,7 +135,7 @@
       "path": "docs/archive/plans/2026-07/titan-train-lms-upgrade-plan.md",
       "sha256": "994fc996eb0673f8485516b371b2ba781ce7216fb3d8aaf0418c0658009329ae",
       "size": 7857,
-      "title": "> **Historical record \u2014 not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
     },
     {
       "classification": "historical",
@@ -143,7 +143,7 @@
       "path": "docs/archive/plans/2026-07/titan-zero-chatbot-pwa-upgrade-plan.md",
       "sha256": "779c6f1f2f9628a430a0912eb825f5b3543c851e06a6f780d9114630ccf0e4af",
       "size": 15942,
-      "title": "> **Historical record \u2014 not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
     },
     {
       "classification": "historical",
@@ -151,7 +151,7 @@
       "path": "docs/archive/plans/2026-07/titan-zero-integrated-platform-upgrade-plan-v10.91.md",
       "sha256": "9a48742273166b765f2f10f3bd389e2d2af30238f7ac01532a3f3484dcb811d1",
       "size": 26289,
-      "title": "> **Historical record \u2014 not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
     },
     {
       "classification": "historical",
@@ -159,7 +159,7 @@
       "path": "docs/archive/plans/2026-07/titan-zero-wizard-upgrade-plan.md",
       "sha256": "f5f8481db9252635ed7032517b7d5dbd2129211d3ac0e672fc51d3127e0d2402",
       "size": 9620,
-      "title": "> **Historical record \u2014 not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
     },
     {
       "classification": "historical",
@@ -167,7 +167,7 @@
       "path": "docs/archive/provenance/interaction-engine-source-provenance-v10.91.md",
       "sha256": "4d3a051ef3fc703ee6a1f7ccff4d048caa1379168b6dda4d9dff48dc3b418791",
       "size": 1625,
-      "title": "> **Historical record \u2014 not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
     },
     {
       "classification": "historical",
@@ -175,7 +175,7 @@
       "path": "docs/archive/provenance/interaction-wizard-source-baseline-v10.91.md",
       "sha256": "bb806b335587be53e4d535aa5623d0d338aedcc5cd076bba599e5fee5463f914",
       "size": 1609,
-      "title": "> **Historical record \u2014 not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
     },
     {
       "classification": "historical",
@@ -191,7 +191,7 @@
       "path": "docs/archive/provenance/source-import-note-v10.91.md",
       "sha256": "33998fa517cf531d716b26b714ccd17d5f5f32c9b2d1370cde458792f1ef5c7f",
       "size": 654,
-      "title": "> **Historical record \u2014 not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
     },
     {
       "classification": "historical",
@@ -199,7 +199,7 @@
       "path": "docs/archive/provenance/titan-zero-source-import-v10.91.md",
       "sha256": "8af5a502ae63084c3b2d33eb5985d7b5eeace552685e7d32533bdd12737641dd",
       "size": 935,
-      "title": "> **Historical record \u2014 not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
     },
     {
       "classification": "historical",
@@ -207,7 +207,7 @@
       "path": "docs/archive/reports/2026-07/interaction-engine-merge-report.md",
       "sha256": "289adf933c6dcba30c51b89713a5efeeee42bf284894f158712ae43b33d4d28c",
       "size": 3629,
-      "title": "> **Historical record \u2014 not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
     },
     {
       "classification": "historical",
@@ -215,7 +215,7 @@
       "path": "docs/archive/reports/2026-07/rejected-files-note.md",
       "sha256": "a31253f1835d07885e5a8b6f75ebb814aaac42d16fc636e66586b51b729672be",
       "size": 608,
-      "title": "> **Historical record \u2014 not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
     },
     {
       "classification": "historical",
@@ -223,7 +223,7 @@
       "path": "docs/archive/reports/2026-07/superseded-files-note.md",
       "sha256": "b329e4e67a149de58d354e589c7bc0b9371ebc8c718998a84bc775d4979959d4",
       "size": 547,
-      "title": "> **Historical record \u2014 not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
     },
     {
       "classification": "historical",
@@ -231,7 +231,7 @@
       "path": "docs/archive/reports/2026-07/workcore-merge-result-v10.91.md",
       "sha256": "91cca30c7f15f8fa82d1f5c6cfa2a523d3d5052cc6cd5dd0a5181a6e31bfc3b0",
       "size": 1315,
-      "title": "> **Historical record \u2014 not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
     },
     {
       "classification": "historical",
@@ -239,7 +239,7 @@
       "path": "docs/archive/setup/magicai-v10.91-development-setup.md",
       "sha256": "ccf9dbb532aacbf1ed7a619ae5632618414862a09c79e29bd17c8957633b84a7",
       "size": 1784,
-      "title": "> **Historical record \u2014 not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
     },
     {
       "classification": "historical",
@@ -247,7 +247,7 @@
       "path": "docs/archive/status/2026-07/agent2-pass1-status.md",
       "sha256": "4b86b51dbb031ba872953344d5c5f96ba21a1564f3a6bb8166a283b7630abf36",
       "size": 2509,
-      "title": "> **Historical record \u2014 not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
     },
     {
       "classification": "historical",
@@ -255,7 +255,7 @@
       "path": "docs/archive/status/2026-07/branch-preparation-status.md",
       "sha256": "56cc524de63aeba0e0ca9afced8abd1ee1a16d434df1d3287acf937bb7985de1",
       "size": 1583,
-      "title": "> **Historical record \u2014 not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
     },
     {
       "classification": "historical",
@@ -263,7 +263,7 @@
       "path": "docs/archive/status/2026-07/branch-preparation.md",
       "sha256": "bfd4cc3cfa9ea7335b02345e6a30e9b11629a3225002980bcd0ae10eaf908bc4",
       "size": 1828,
-      "title": "> **Historical record \u2014 not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
     },
     {
       "classification": "historical",
@@ -271,7 +271,7 @@
       "path": "docs/archive/status/2026-07/pwa-upgrade-status.md",
       "sha256": "f1a750f27eb318f39e4d7c4dd3d503b4ff9b97f933274748b6da467730df6afc",
       "size": 2217,
-      "title": "> **Historical record \u2014 not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
     },
     {
       "classification": "historical",
@@ -279,7 +279,7 @@
       "path": "docs/archive/status/2026-07/titan-money-titan-pay-branch-status.md",
       "sha256": "ae97a47c0b877cc0eba10976ad6a97057792b27ffccc3f6504ad4ffa84ce50af",
       "size": 3445,
-      "title": "> **Historical record \u2014 not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
     },
     {
       "classification": "historical",
@@ -287,7 +287,7 @@
       "path": "docs/archive/status/2026-07/titan-train-lms-branch.md",
       "sha256": "2f91ff58a12cfa429c1829f13eb03ed7b07405a65f4e96c12b82b90b63603afa",
       "size": 2255,
-      "title": "> **Historical record \u2014 not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
     },
     {
       "classification": "historical",
@@ -295,7 +295,7 @@
       "path": "docs/archive/status/2026-07/titan-train-pass1-status.md",
       "sha256": "7249b5c84d08d4704ef3aef7f1fe7370e028359e06c2d35655a30f3b7680ffbb",
       "size": 1320,
-      "title": "> **Historical record \u2014 not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
     },
     {
       "classification": "historical",
@@ -303,7 +303,7 @@
       "path": "docs/archive/status/2026-07/titan-train-pass2-status.md",
       "sha256": "7a6537d09597c897ca183d56a342e5382c7f287718fde014e6a8c707bf7e291c",
       "size": 1561,
-      "title": "> **Historical record \u2014 not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
     },
     {
       "classification": "historical",
@@ -311,7 +311,7 @@
       "path": "docs/archive/status/2026-07/titan-train-pass3-status.md",
       "sha256": "23ab05e321fc7d467fa4919cf7f53ef644845a253acde71ab208b31abcec6fc8",
       "size": 1642,
-      "title": "> **Historical record \u2014 not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
     },
     {
       "classification": "historical",
@@ -319,7 +319,7 @@
       "path": "docs/archive/status/2026-07/titan-zero-development-workspace.md",
       "sha256": "e473c07bb237517dccd2cbdcacf8c8321f95414d905521b877999ac470794229",
       "size": 3100,
-      "title": "> **Historical record \u2014 not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
     },
     {
       "classification": "evidence",
@@ -335,7 +335,7 @@
       "path": "docs/creative-audit/01-source-inventory.md",
       "sha256": "0a388f4e16ccdd1b116b5d7e30e501128869ff2aa21256ddd07419d0caec7a2a",
       "size": 3915,
-      "title": "Scan 1 \u2014 Creative Extension Source Inventory"
+      "title": "Scan 1 — Creative Extension Source Inventory"
     },
     {
       "classification": "review-required",
@@ -343,7 +343,7 @@
       "path": "docs/creative-audit/02-runtime-wiring.md",
       "sha256": "3fbe48ce377a263769c4527340739a43f6a8abc43fd0328aea944b646f9281e1",
       "size": 4586,
-      "title": "Scan 2 \u2014 Runtime Wiring (Active)"
+      "title": "Scan 2 — Runtime Wiring (Active)"
     },
     {
       "classification": "review-required",
@@ -439,7 +439,7 @@
       "path": "docs/passes/PASS1_HOST_BOOT_AND_DEPENDENCY_STABILISATION.md",
       "sha256": "81435a7c2a10db519dc3a70760cf053548479896f702a0510898bed0d200aef0",
       "size": 1527,
-      "title": "Pass 1 \u2014 Host Boot and Dependency Stabilisation"
+      "title": "Pass 1 — Host Boot and Dependency Stabilisation"
     },
     {
       "classification": "canonical",
@@ -479,7 +479,7 @@
       "path": "docs/reference/titan-library/collection-1/00-Foundation/00-zero-philosophy.md",
       "sha256": "62b83ca6bec0f01862045b89761073ba9ac705a22debcda7c59139114ba34176",
       "size": 3200,
-      "title": "Titan BOS \u2014 The Zero Philosophy"
+      "title": "Titan BOS — The Zero Philosophy"
     },
     {
       "classification": "reference-only",
@@ -724,10 +724,10 @@
     {
       "classification": "reference-only",
       "extension": ".pdf",
-      "path": "docs/reference/titan-library/collection-1/03-Data-Layer/TitanZero \u0393\u00c7\u00f6 Database Doctrine & Schema Model.pdf",
+      "path": "docs/reference/titan-library/collection-1/03-Data-Layer/TitanZero ΓÇö Database Doctrine & Schema Model.pdf",
       "sha256": "49d8c2ca57bee2543b7b4e1d58cfdece8bfa109f4a1a7cc055c5cb91d26f4e39",
       "size": 107397,
-      "title": "TitanZero \u0393\u00c7\u00f6 Database Doctrine & Schema Model"
+      "title": "TitanZero ΓÇö Database Doctrine & Schema Model"
     },
     {
       "classification": "reference-only",
@@ -844,10 +844,10 @@
     {
       "classification": "reference-only",
       "extension": ".pdf",
-      "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/TitanZero \u0393\u00c7\u00f6 Titan Duality & Lifecycle Assistants.pdf",
+      "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/TitanZero ΓÇö Titan Duality & Lifecycle Assistants.pdf",
       "sha256": "c57c9fcfd4a260a170cbd5c6a2632663c702a5393ed8bb21465ddce81b5f2da9",
       "size": 96584,
-      "title": "TitanZero \u0393\u00c7\u00f6 Titan Duality & Lifecycle Assistants"
+      "title": "TitanZero ΓÇö Titan Duality & Lifecycle Assistants"
     },
     {
       "classification": "reference-only",
@@ -911,7 +911,7 @@
       "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/agent-04-ai-starter.md",
       "sha256": "5956c0a00047923ce002e3d59ea2179cc7179394322cc08d48d1dc272d758182",
       "size": 1282,
-      "title": "Agent 04 Starter Kit \u2014 AI Platform"
+      "title": "Agent 04 Starter Kit — AI Platform"
     },
     {
       "classification": "reference-only",
@@ -935,7 +935,7 @@
       "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/first-ai-feature.md",
       "sha256": "f671b2cb93d1848328a29321678a8db84de0d23b54e3c71f8d3be27458850cdc",
       "size": 4056,
-      "title": "First AI Feature \u2014 Text Summarisation"
+      "title": "First AI Feature — Text Summarisation"
     },
     {
       "classification": "reference-only",
@@ -975,7 +975,7 @@
       "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/quote-drafting.md",
       "sha256": "29b9723295d0cf47042ba58093dd3ce06da85b268617917724380ae529cd4f7b",
       "size": 6692,
-      "title": "Second AI Feature \u2014 Quote / Service Description Drafting"
+      "title": "Second AI Feature — Quote / Service Description Drafting"
     },
     {
       "classification": "reference-only",
@@ -983,7 +983,7 @@
       "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/request-classification.md",
       "sha256": "09e853804bca4eddd833252c5d97f300901e1931a99bc235cfc284b6a92cedbe",
       "size": 7238,
-      "title": "Third AI Feature \u2014 Request / Enquiry Classification"
+      "title": "Third AI Feature — Request / Enquiry Classification"
     },
     {
       "classification": "reference-only",
@@ -1351,7 +1351,7 @@
       "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/README 2.md",
       "sha256": "f89a670f67ba68ed216a86262425916b820284c48fe556e3a999b5a6612b7005",
       "size": 1687,
-      "title": "Agent5 Docs \u2014 Node/PWA Focused Set (v5)"
+      "title": "Agent5 Docs — Node/PWA Focused Set (v5)"
     },
     {
       "classification": "reference-only",
@@ -1359,7 +1359,7 @@
       "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/README.md",
       "sha256": "7707661841b6ee7dcf6436413da4378de31eb53c1e2ef8468559764f83e70ac4",
       "size": 2687,
-      "title": "Worksuite \u2192 AI-Controlled Interconnected PWA System"
+      "title": "Worksuite → AI-Controlled Interconnected PWA System"
     },
     {
       "classification": "reference-only",
@@ -1636,10 +1636,10 @@
     {
       "classification": "reference-only",
       "extension": ".pdf",
-      "path": "docs/reference/titan-library/collection-2/08-Communications-Channels/TitanZero \u0393\u00c7\u00f6 Titan Talk Communication System.pdf",
+      "path": "docs/reference/titan-library/collection-2/08-Communications-Channels/TitanZero ΓÇö Titan Talk Communication System.pdf",
       "sha256": "f2f3ca8e1526311bc7dc8590cdbc1ec4fa2d2c4fa880b734df621f38dbc114d4",
       "size": 90341,
-      "title": "TitanZero \u0393\u00c7\u00f6 Titan Talk Communication System"
+      "title": "TitanZero ΓÇö Titan Talk Communication System"
     },
     {
       "classification": "reference-only",
@@ -1820,10 +1820,10 @@
     {
       "classification": "reference-only",
       "extension": ".pdf",
-      "path": "docs/reference/titan-library/collection-2/09-Workflows-Automation/TitanZero \u0393\u00c7\u00f6 Titan Pulse Automation Engine.pdf",
+      "path": "docs/reference/titan-library/collection-2/09-Workflows-Automation/TitanZero ΓÇö Titan Pulse Automation Engine.pdf",
       "sha256": "3e16375c72229174deb6a3ff0fd39b134465ec7a2b288a6fe906530f03ce5cd8",
       "size": 94717,
-      "title": "TitanZero \u0393\u00c7\u00f6 Titan Pulse Automation Engine"
+      "title": "TitanZero ΓÇö Titan Pulse Automation Engine"
     },
     {
       "classification": "reference-only",
@@ -1855,7 +1855,7 @@
       "path": "docs/reference/titan-library/collection-2/09-Workflows-Automation/agent-06-automation-starter.md",
       "sha256": "61f7eb92657e50b75225ee29c7796b5ab53fb3f286b768ff6aecd46e77f6331a",
       "size": 1150,
-      "title": "Agent 06 Starter Kit \u2014 Automation Engines"
+      "title": "Agent 06 Starter Kit — Automation Engines"
     },
     {
       "classification": "reference-only",
@@ -2095,15 +2095,15 @@
       "path": "docs/reference/titan-library/collection-2/10-User-Interfaces/00-node-architecture.md",
       "sha256": "d053633f2e85f64ebc80d9096146076d5d1caa32f1a8045414acc3a5d62dea35",
       "size": 6620,
-      "title": "Titan BOS \u2014 9-Node + 12-Vertical Architecture"
+      "title": "Titan BOS — 9-Node + 12-Vertical Architecture"
     },
     {
       "classification": "reference-only",
       "extension": ".pdf",
-      "path": "docs/reference/titan-library/collection-2/10-User-Interfaces/TitanZero \u0393\u00c7\u00f6 Titan Go Mobile & PWA Interface System.pdf",
+      "path": "docs/reference/titan-library/collection-2/10-User-Interfaces/TitanZero ΓÇö Titan Go Mobile & PWA Interface System.pdf",
       "sha256": "983cde7a788fbdf2e1eb7f426da28dee2bf9dd204b4b42bd5792748c00180783",
       "size": 92339,
-      "title": "TitanZero \u0393\u00c7\u00f6 Titan Go Mobile & PWA Interface System"
+      "title": "TitanZero ΓÇö Titan Go Mobile & PWA Interface System"
     },
     {
       "classification": "reference-only",
@@ -2151,7 +2151,7 @@
       "path": "docs/reference/titan-library/collection-2/10-User-Interfaces/ground-zero.md",
       "sha256": "20d064e38d57c580d4040079567fb9395b9abeb66ab581ca7b63cb03ca902e9d",
       "size": 2375,
-      "title": "Ground Zero \u2014 Dispatch Control Panel"
+      "title": "Ground Zero — Dispatch Control Panel"
     },
     {
       "classification": "reference-only",
@@ -2167,7 +2167,7 @@
       "path": "docs/reference/titan-library/collection-2/10-User-Interfaces/titan-go.md",
       "sha256": "af37d41c731251ccc37abc23216f21dac41281999ccd1bbb5ba3704ecad78e79",
       "size": 3039,
-      "title": "Titan Go \u2014 Field Worker App"
+      "title": "Titan Go — Field Worker App"
     },
     {
       "classification": "reference-only",
@@ -2175,7 +2175,7 @@
       "path": "docs/reference/titan-library/collection-2/10-User-Interfaces/titan-hello.md",
       "sha256": "bef2fb187ba550c3704c7fbcc864cc815e12350109ece80eb476fbc3bf7159ad",
       "size": 3029,
-      "title": "Titan Hello \u2014 Receptionist & Omni Gateway"
+      "title": "Titan Hello — Receptionist & Omni Gateway"
     },
     {
       "classification": "reference-only",
@@ -2183,7 +2183,7 @@
       "path": "docs/reference/titan-library/collection-2/10-User-Interfaces/titan-pro.md",
       "sha256": "14f4f824dbdb1dd5b148ca2890fcfa597e48feee332d6977b58393946c6aa485",
       "size": 2851,
-      "title": "Titan Pro \u2014 Owner Command Centre"
+      "title": "Titan Pro — Owner Command Centre"
     },
     {
       "classification": "reference-only",
@@ -2191,7 +2191,7 @@
       "path": "docs/reference/titan-library/collection-2/10-User-Interfaces/titan-solo.md",
       "sha256": "f6e1b92bbe024f42c1d01cf9148bcace6192b823cfcd200edd279031a03f79b3",
       "size": 2458,
-      "title": "Titan Solo \u2014 Single Operator Mode"
+      "title": "Titan Solo — Single Operator Mode"
     },
     {
       "classification": "reference-only",
@@ -2199,7 +2199,7 @@
       "path": "docs/reference/titan-library/collection-2/10-User-Interfaces/titan-studio.md",
       "sha256": "7f04b076b72c61c81e4301f6f8d7cdf4ebdea147fea4240d2468737ee0272b77",
       "size": 2276,
-      "title": "Titan Studio \u2014 Growth Surface"
+      "title": "Titan Studio — Growth Surface"
     },
     {
       "classification": "reference-only",
@@ -2207,7 +2207,7 @@
       "path": "docs/reference/titan-library/collection-2/10-User-Interfaces/titan-zero-node.md",
       "sha256": "8457442de9ac6b0bc1626fc128746bb3b14363ab390194d83926f7fd961402a2",
       "size": 2944,
-      "title": "Titan Zero \u2014 AI Operating Assistant"
+      "title": "Titan Zero — AI Operating Assistant"
     },
     {
       "classification": "reference-only",
@@ -2223,7 +2223,7 @@
       "path": "docs/reference/titan-library/collection-2/10-User-Interfaces/vertical-registry.md",
       "sha256": "8fc201c385b5df608d4c128db496dd9e9f7df00da36ebc20808cde1e2693a7bf",
       "size": 7658,
-      "title": "Titan BOS \u2014 Vertical Registry"
+      "title": "Titan BOS — Vertical Registry"
     },
     {
       "classification": "reference-only",
@@ -2247,7 +2247,7 @@
       "path": "docs/reference/titan-library/collection-2/10-User-Interfaces/zero-fuss.md",
       "sha256": "862bfed1c78e507d2e20d34ac99c699c521af4172757769365855d3b2c52251b",
       "size": 2719,
-      "title": "Zero Fuss \u2014 Customer App"
+      "title": "Zero Fuss — Customer App"
     },
     {
       "classification": "reference-only",
@@ -2255,7 +2255,7 @@
       "path": "docs/reference/titan-library/collection-2/10-User-Interfaces/zeropay.md",
       "sha256": "3e9c9c5efe2ec47667ee86fa388f3ad7965d5c9a63562fab2c370065f832caaa",
       "size": 2341,
-      "title": "ZeroPay \u2014 Financial Engine"
+      "title": "ZeroPay — Financial Engine"
     },
     {
       "classification": "reference-only",
@@ -2943,7 +2943,7 @@
       "path": "docs/titan-train/PASS2-VERIFICATION.md",
       "sha256": "c2c5fb6eec761e924de61417c7b3d6f7edc32bcfc8f2c820eec2af38c044d713",
       "size": 897,
-      "title": "Titan Train LMS \u2014 Pass 2 Verification"
+      "title": "Titan Train LMS — Pass 2 Verification"
     },
     {
       "classification": "review-required",
@@ -2959,7 +2959,7 @@
       "path": "docs/titan-train/PASS3-VERIFICATION.md",
       "sha256": "7178e689d80fc42fad367696f997fa712f779ca9ffc4fbaab8aabbbf329eaced",
       "size": 1313,
-      "title": "Titan Train LMS \u2014 Pass 3 Verification"
+      "title": "Titan Train LMS — Pass 3 Verification"
     },
     {
       "classification": "review-required",

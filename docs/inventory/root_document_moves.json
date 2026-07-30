@@ -5,7 +5,7 @@
     "README.md"
   ],
   "legal_files_retained_by_policy": true,
-  "moved_count": 3,
+  "moved_count": 2,
   "moves": [
     {
       "source": "EXTENSIONS_IMPORT_MANIFEST.json",
@@ -22,14 +22,6 @@
       "size": 1322,
       "sha256": "ed5b2ea0dc6a708e4473c08fe5d053e30882e73123559a31ede6faed3c194b26",
       "historical_banner_added": false
-    },
-    {
-      "source": "version.txt",
-      "destination": "docs/archive/root-documents/2026-07/version.txt",
-      "category": "historical-root-document",
-      "size": 6,
-      "sha256": "ca797403796678cf00d9ca8c442f675cd19c23f65d1fe4d3ee367c26bf15bb80",
-      "historical_banner_added": false
     }
   ],
   "remaining_references": {
@@ -42,20 +34,6 @@
     ],
     "KNOWN_BASELINE_GAPS.md": [
       "docs/inventory/documentation_catalogue.json"
-    ],
-    "version.txt": [
-      "app/Domains/Marketplace/Repositories/ExtensionRepository.php",
-      "app/Helpers/helpers.php",
-      "app/Http/Controllers/InstallationController.php",
-      "app/Http/Controllers/Update/AutoUpdateController.php",
-      "docs/audits/magicai-v1100-source-inventory.md",
-      "docs/inventory/documentation_catalogue.json",
-      "docs/reference/titan-library/collection-1/05-Engine-Platform/Titan_Module_Blueprint.md",
-      "docs/reference/titan-library/collection-2/11-Engine-Developer-Kit/TEDK_Volume_2_Engine_Standards.md",
-      "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/05-MODULE-BLUEPRINT.md",
-      "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/15-module-and-plugin-blueprint.md",
-      "packages/magicai/magicai-updater/src/Traits/HasVersionUpdate.php",
-      "packages/magicai/magicai-updater/src/Updater.php"
     ]
   }
 }
