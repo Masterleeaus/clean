@@ -5,7 +5,13 @@
 		"dev": "vite",
 		"build": "NODE_OPTIONS=--max-old-space-size=4096 vite build",
 		"clean": "vite clean",
-		"watch": "gulp watch"
+		"watch": "gulp watch",
+		"titan:scan": "ts-node .titan/scripts/scan-branches.ts",
+		"titan:detect-duplicates": "ts-node .titan/scripts/detect-duplicates.ts",
+		"titan:plan": "ts-node .titan/scripts/plan-recovery.ts",
+		"titan:replay": "ts-node .titan/scripts/replay-commits.ts",
+		"titan:validate": "ts-node .titan/scripts/validate-merge.ts",
+		"titan:report": "ts-node .titan/scripts/generate-reports.ts"
 	},
 	"devDependencies": {
 		"@angular-eslint/template-parser": "^17.2.1",
