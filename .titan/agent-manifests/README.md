@@ -1,8 +1,10 @@
 # 🤖 Agent Manifests & Discovery
 
-**20 Specialized ChatGPT Agents + Claude Architect**
+**36 Specialized ChatGPT Agents + Claude Architect**
 
 All agents work together as a coordinated system. This directory contains their specialization guides and discovery system.
+
+**System:** 20 core agents + 16 PWA specialists = 36 total agents in 11 guilds
 
 ---
 
@@ -48,6 +50,44 @@ All agents work together as a coordinated system. This directory contains their 
 | 19 | **Coordination Agent** | Task routing | Operations | Dispatch to right agent |
 | 20 | **Architecture Agent** | Design & patterns | Architecture | Refactoring, design patterns |
 
+### PWA Specialists (16 agents - NEW)
+
+**Design & UI Support (2 agents)**
+
+| # | Agent | Specialty | Guild | Focus |
+|---|-------|-----------|-------|-------|
+| 21 | **PWA Designer Agent** | Design systems | PWA Specialists | UX, accessibility, design tokens |
+| 22 | **PWA UI Agent** | Component implementation | PWA Specialists | Components, responsive, theming |
+
+**Core PWA Applications (10 agents)**
+
+| # | Agent | App Name | Guild | Focus |
+|---|-------|----------|-------|-------|
+| 23 | **Titan Go Agent** | Field Operations | PWA Specialists | Technician work, GPS, offline |
+| 24 | **Titan Dispatch Agent** | Scheduling | PWA Specialists | Real-time dispatch, routing |
+| 25 | **Titan Hub Agent** | Customer Service | PWA Specialists | Booking, service requests |
+| 26 | **Titan Money Agent** | Finance | PWA Specialists | Invoicing, payments, tax |
+| 27 | **Titan Teams Agent** | HR & Workforce | PWA Specialists | Team management, compliance |
+| 28 | **Titan Locker Agent** | Inventory | PWA Specialists | Stock, barcode, operations |
+| 29 | **Titan Analytics Agent** | Business Intelligence | PWA Specialists | Dashboards, reporting, analysis |
+| 30 | **Titan Front Desk Agent** | Reception | PWA Specialists | Phone, scheduling, visitors |
+| 31 | **Titan Marketing Agent** | Marketing | PWA Specialists | Campaigns, automation, analytics |
+| 32 | **Titan Social Agent** | Social Media | PWA Specialists | Posting, engagement, analytics |
+
+**Emerging PWA Applications (3 agents)**
+
+| # | Agent | App Name | Guild | Focus |
+|---|-------|----------|-------|-------|
+| 33 | **Titan Office Agent** | Document Management | PWA Specialists | Documents, sharing, collaboration |
+| 34 | **Titan Quality Agent** | Quality & Compliance | PWA Specialists | Audits, standards, reporting |
+| 35 | **Titan Sprout Agent** | Lead Generation | PWA Specialists | CRM, sales pipeline, leads |
+
+**Platform (1 agent)**
+
+| # | Agent | App Name | Guild | Focus |
+|---|-------|----------|-------|-------|
+| 36 | **Chatbot PWA Agent** | Multi-Channel AI | PWA Specialists | WhatsApp, Telegram, channels |
+
 ---
 
 ## 📚 Agent Manifests
@@ -79,6 +119,32 @@ All agents work together as a coordinated system. This directory contains their 
 ### Meta-Coordinators
 - [coordination-agent-manifest.md](./coordination-agent-manifest.md) - Task routing
 - [architecture-agent-manifest.md](./architecture-agent-manifest.md) - Design
+
+### PWA Specialists (NEW - 16 agents)
+
+**Design & UI Support**
+- [pwa-designer-agent-manifest.md](./pwa-designer-agent-manifest.md) - Design systems
+- [pwa-ui-agent-manifest.md](./pwa-ui-agent-manifest.md) - Components & theming
+
+**Core PWA Apps**
+- [titan-go-agent-manifest.md](./titan-go-agent-manifest.md) - Field operations
+- [titan-dispatch-agent-manifest.md](./titan-dispatch-agent-manifest.md) - Scheduling
+- [titan-hub-agent-manifest.md](./titan-hub-agent-manifest.md) - Customer service
+- [titan-money-agent-manifest.md](./titan-money-agent-manifest.md) - Finance
+- [titan-teams-agent-manifest.md](./titan-teams-agent-manifest.md) - HR & workforce
+- [titan-locker-agent-manifest.md](./titan-locker-agent-manifest.md) - Inventory
+- [titan-analytics-agent-manifest.md](./titan-analytics-agent-manifest.md) - BI & analytics
+- [titan-front-desk-agent-manifest.md](./titan-front-desk-agent-manifest.md) - Reception
+- [titan-marketing-agent-manifest.md](./titan-marketing-agent-manifest.md) - Marketing
+- [titan-social-agent-manifest.md](./titan-social-agent-manifest.md) - Social media
+
+**Emerging PWA Apps**
+- [titan-office-agent-manifest.md](./titan-office-agent-manifest.md) - Document management
+- [titan-quality-agent-manifest.md](./titan-quality-agent-manifest.md) - Quality & compliance
+- [titan-sprout-agent-manifest.md](./titan-sprout-agent-manifest.md) - Lead generation & CRM
+
+**Platform**
+- [chatbot-pwa-agent-manifest.md](./chatbot-pwa-agent-manifest.md) - Multi-channel AI chatbot
 
 ### Special
 - [claude-manifest.md](./claude-manifest.md) - Claude Architect
