@@ -1,0 +1,37 @@
+name: Inventory PWA and offline runtimes
+
+on:
+  push:
+    branches:
+      - agent/documentation-reconciliation
+    paths:
+      - '.github/workflows/inventory-pwa-offline.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/documentation-reconciliation
+          fetch-depth: 0
+
+      - name: Generate PWA and offline inventory
+        run: python3 scripts/docs/inventory_pwa_offline.py
+
+      - name: Remove one-time workflow
+        run: rm -f .github/workflows/inventory-pwa-offline.yml
+
+      - name: Commit inventory
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "docs: inventory PWA offline and duplicated Chatbot runtimes"
+          git push origin HEAD:agent/documentation-reconciliation
