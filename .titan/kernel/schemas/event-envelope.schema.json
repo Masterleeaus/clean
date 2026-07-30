@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://titanzero.local/.titan/schemas/event-envelope.schema.json",
+  "title": "Titan Agent OS Event Envelope",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "type", "version", "occurred_at", "producer", "correlation_id", "payload"],
+  "properties": {
+    "id": {"type": "string", "minLength": 8},
+    "type": {"type": "string", "pattern": "^[a-z0-9]+(?:[._:-][a-z0-9]+)+$"},
+    "version": {"type": "integer", "minimum": 1},
+    "occurred_at": {"type": "string", "format": "date-time"},
+    "producer": {"type": "string", "minLength": 1},
+    "actor_id": {"type": ["string", "null"]},
+    "agent_id": {"type": ["string", "null"]},
+    "task_id": {"type": ["string", "null"]},
+    "correlation_id": {"type": "string", "minLength": 1},
+    "causation_id": {"type": ["string", "null"]},
+    "repository": {"type": ["string", "null"]},
+    "branch": {"type": ["string", "null"]},
+    "source_commit": {"type": ["string", "null"], "pattern": "^[0-9a-f]{7,40}$"},
+    "classification": {"type": "string", "enum": ["public", "internal", "confidential", "restricted"]},
+    "payload": {"type": "object"},
+    "integrity": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+        "signature": {"type": ["string", "null"]}
+      }
+    }
+  }
+}
