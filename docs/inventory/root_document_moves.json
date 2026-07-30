@@ -1,0 +1,61 @@
+{
+  "generated_on": "2026-07-30",
+  "root_entrypoints_retained": [
+    "AGENTS.md",
+    "README.md"
+  ],
+  "legal_files_retained_by_policy": true,
+  "moved_count": 3,
+  "moves": [
+    {
+      "source": "EXTENSIONS_IMPORT_MANIFEST.json",
+      "destination": "docs/provenance/root-imported/extensions_import_manifest.json",
+      "category": "provenance",
+      "size": 53276,
+      "sha256": "a29011a9f0088496c264d9e699b95039a4ac12831ffcd421ce0e9e032d8a7088",
+      "historical_banner_added": false
+    },
+    {
+      "source": "KNOWN_BASELINE_GAPS.md",
+      "destination": "docs/provenance/root-imported/known_baseline_gaps.md",
+      "category": "provenance",
+      "size": 1322,
+      "sha256": "ed5b2ea0dc6a708e4473c08fe5d053e30882e73123559a31ede6faed3c194b26",
+      "historical_banner_added": false
+    },
+    {
+      "source": "version.txt",
+      "destination": "docs/archive/root-documents/2026-07/version.txt",
+      "category": "historical-root-document",
+      "size": 6,
+      "sha256": "ca797403796678cf00d9ca8c442f675cd19c23f65d1fe4d3ee367c26bf15bb80",
+      "historical_banner_added": false
+    }
+  ],
+  "remaining_references": {
+    "EXTENSIONS_IMPORT_MANIFEST.json": [
+      "app/Extensions/README.md",
+      "docs/archive/plans/2026-07/titan-zero-integrated-platform-upgrade-plan-v10.91.md",
+      "docs/inventory/documentation_catalogue.json",
+      "tests/Architecture/SourceBaselineTest.php",
+      "tools/titan-zero-audit/baseline.php"
+    ],
+    "KNOWN_BASELINE_GAPS.md": [
+      "docs/inventory/documentation_catalogue.json"
+    ],
+    "version.txt": [
+      "app/Domains/Marketplace/Repositories/ExtensionRepository.php",
+      "app/Helpers/helpers.php",
+      "app/Http/Controllers/InstallationController.php",
+      "app/Http/Controllers/Update/AutoUpdateController.php",
+      "docs/audits/magicai-v1100-source-inventory.md",
+      "docs/inventory/documentation_catalogue.json",
+      "docs/reference/titan-library/collection-1/05-Engine-Platform/Titan_Module_Blueprint.md",
+      "docs/reference/titan-library/collection-2/11-Engine-Developer-Kit/TEDK_Volume_2_Engine_Standards.md",
+      "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/05-MODULE-BLUEPRINT.md",
+      "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/15-module-and-plugin-blueprint.md",
+      "packages/magicai/magicai-updater/src/Traits/HasVersionUpdate.php",
+      "packages/magicai/magicai-updater/src/Updater.php"
+    ]
+  }
+}
