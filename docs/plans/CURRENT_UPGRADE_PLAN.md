@@ -24,6 +24,7 @@ See:
 - `docs/architecture/TENANCY_TRUST_AND_ACTION_EXECUTION.md`
 - `docs/architecture/INTERACTION_WIZARD_AND_FIVE_TIER_INTELLIGENCE.md`
 - `docs/architecture/PWA_OFFLINE_AND_CHATBOT_EXTENSION_ARCHITECTURE.md`
+- `docs/architecture/EXTENSION_PLATFORM_AND_LIFECYCLE_ARCHITECTURE.md`
 
 ## Verified current-state findings
 
@@ -45,10 +46,22 @@ See:
 16. The generic outbox stores headers and bodies directly, so queued payloads require a no-secrets guarantee or encryption before production release.
 17. The device ID is stored in localStorage and must be treated as an identifier only; the server must bind device trust to authenticated tenant and actor context.
 18. Embedded Chatbot WorkCore server code remains compatibility/reference-only and must not shadow `app/Domains/WorkCore`.
+19. The extension tree contains 95 directories while the static marketplace map contains 112 provider entries.
+20. Nineteen marketplace mappings point to provider classes whose source files are absent.
+21. `Introduction` and compatibility-only `TitanZeroChatbot` exist on disk but are not marketplace-mapped.
+22. Enabling extension discovery currently registers every loadable mapped provider rather than only installed, entitled, enabled and qualified extensions.
+23. The extension inventory found 810 duplicated PHP symbols and 93 duplicate migration filenames, dominated by the copied Chatbot trees.
+24. Every extension has a valid BOM-aware legacy manifest, but that schema lacks provider, compatibility, dependency, permission, capability, health and integrity declarations.
+25. Eighty-eight of 95 extensions have no detected extension-local test file.
+26. Marketplace install/uninstall use authenticated GET routes.
+27. Remote extension ZIPs are extracted without detected entry-level traversal/symlink validation or signature verification.
+28. Extension directories are created with `0777`, installation runs forced migrations and asset publication without a detected rollback path, and uninstall has no detected database rollback.
 
 The Interaction Engine is therefore **source-present but not yet proven active in the host**. Pass 3 established its canonical package path and removed the empty competing package root; connected activation remains implementation work.
 
 The PWA is **source-present with substantial offline foundations**, but production readiness is not proven until duplicate-extension activation, queued-payload secrecy, device trust, IndexedDB upgrades and tenant-safe sync are verified end to end.
+
+The extension platform is **source-present but not production-qualified**. Current discovery can register every mapped provider, 19 registry entries point to absent source, 88 extensions have no detected local tests, and install/uninstall require archive, authorization, rollback and least-privilege hardening.
 
 ## Delivery phases
 
@@ -144,6 +157,30 @@ The PWA is **source-present with substantial offline foundations**, but producti
 - No required production interface resolves to an unintended null implementation.
 - Every enabled module is reachable, entitled and authorised.
 - Only one Chatbot provider and one Chatbot migration tree can activate.
+
+### Phase 4B — Extension platform and lifecycle
+
+1. Replace activate-all discovery with registry selection of installed, enabled, entitled and qualified extensions.
+2. Resolve the 19 stale provider mappings and classify the two unmapped source directories.
+3. Introduce a normalized manifest schema covering identity, provider, compatibility, dependencies, capabilities, permissions, tenant scope, lifecycle, health and integrity.
+4. Add collision checks for providers, symbols, migrations, routes, permissions, capabilities, menus, events, schedules and published assets.
+5. Replace state-changing GET install/uninstall routes with authorised, CSRF-protected and confirmed lifecycle actions.
+6. Verify archive origin, SHA-256 and signature before extraction.
+7. Reject traversal, absolute paths, links, encrypted members and undeclared files during staged extraction.
+8. Replace `0777` directories with least-privilege ownership and modes.
+9. Stage migrations and asset publication behind dry-run, backup, health and rollback gates.
+10. Separate disable from uninstall and preserve auditable data-retention policy.
+11. Require tests or approved contract/health evidence before production qualification.
+12. Quarantine extensions that fail integrity, compatibility, conflict or health checks.
+
+**Exit criteria**
+
+- Enabling extension discovery does not activate all source-present providers.
+- Every enabled extension has unique identity, a valid normalized manifest, satisfied dependencies, entitlement and health evidence.
+- No stale provider mapping or compatibility-only extension can load.
+- Install, upgrade, disable and uninstall are authorised, auditable and reversible.
+- Archives are signed and safely extracted.
+- Duplicate provider, migration, route, permission and capability registration fails closed.
 
 ### Phase 5 — Route and API consolidation
 
@@ -241,8 +278,9 @@ The PWA is **source-present with substantial offline foundations**, but producti
 3. Review queue, scheduler, webhook and provider failure behaviour.
 4. Add observability for actions, sync, AI runs and tenant violations.
 5. Audit outbox payloads, service-worker caching, notification navigation and device registration.
-6. Produce deployment, rollback and disaster-recovery documentation.
-7. Generate a verified release archive and checksums.
+6. Audit extension install/update/uninstall authorization, signatures, extraction paths, file permissions, migration rollback and quarantine.
+7. Produce deployment, rollback and disaster-recovery documentation.
+8. Generate a verified release archive and checksums.
 
 **Exit criteria**
 
