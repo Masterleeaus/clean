@@ -1,0 +1,253 @@
+version: "1.0.0"
+name: "Clean SaaS Architecture Constitution"
+description: |
+  This document codifies the architectural principles, boundaries, and policies
+  that guide development in the Clean SaaS repository. Violations are detected
+  automatically and reported.
+
+last_updated: 2025-08-15
+
+# ============================================================================
+# BOUNDED CONTEXTS & OWNERSHIP
+# ============================================================================
+
+bounded_contexts:
+  - name: "Payment"
+    path: "src/Payment"
+    owner_team: "billing-team"
+    description: "Payment processing, invoices, subscriptions"
+    critical: true
+
+  - name: "Auth"
+    path: "src/Auth"
+    owner_team: "security-team"
+    description: "Authentication, authorization, access control"
+    critical: true
+
+  - name: "Users"
+    path: "src/Users"
+    owner_team: "platform-team"
+    description: "User management, profiles, preferences"
+
+  - name: "Extensions"
+    path: "src/Extensions"
+    owner_team: "platform-team"
+    description: "Plugin system and extension management"
+
+  - name: "Webhooks"
+    path: "src/Webhooks"
+    owner_team: "integration-team"
+    description: "Webhook delivery and handling"
+
+# ============================================================================
+# ARCHITECTURAL BOUNDARIES
+# ============================================================================
+
+boundaries:
+  # Payment → Auth (allowed: only for verification)
+  - from: "Payment"
+    to: "Auth"
+    allowed_operations:
+      - "verify_user_access"
+      - "check_permission"
+    forbidden_operations:
+      - "create_user"
+      - "modify_user"
+
+  # Auth → Users (not allowed)
+  - from: "Auth"
+    to: "Users"
+    effect: "forbidden"
+    reason: "Auth is lower-level, should not depend on Users"
+
+  # Users → Payment (not allowed)
+  - from: "Users"
+    to: "Payment"
+    effect: "forbidden"
+    reason: "User service should not depend on payment internals"
+
+  # Extensions can call any public API
+  - from: "Extensions"
+    to: "*"
+    effect: "allow"
+    condition: "call_public_api_only"
+
+# ============================================================================
+# SERVICE DEFINITIONS & CONTRACTS
+# ============================================================================
+
+services:
+  - name: "PaymentService"
+    path: "src/Payment/Services/PaymentService.php"
+    public_methods:
+      - name: "charge"
+        signature: "charge(User, Amount, PaymentMethod): Invoice"
+        idempotency_key: "invoice_id"
+        requires_test_coverage: true
+        critical: true
+
+      - name: "refund"
+        signature: "refund(Invoice, ?reason): RefundRecord"
+        idempotency_key: "refund_id"
+        requires_test_coverage: true
+        critical: true
+
+  - name: "AuthService"
+    path: "src/Auth/Services/AuthService.php"
+    public_methods:
+      - name: "authenticate"
+        signature: "authenticate(email, password): User"
+        requires_test_coverage: true
+
+      - name: "authorize"
+        signature: "authorize(User, action, resource): boolean"
+        requires_test_coverage: true
+        critical: true
+
+# ============================================================================
+# ARCHITECTURE RULES
+# ============================================================================
+
+rules:
+  - id: "no_hardcoded_secrets"
+    description: "Never hardcode API keys, passwords, or secrets"
+    pattern: "apiKey|password|secret|token.*=.*['\"]"
+    severity: "critical"
+    auto_fix: "use env('VARIABLE_NAME')"
+
+  - id: "service_injection_only"
+    description: "Services must use dependency injection, never new"
+    pattern: "new .*Service\\(|Service::call"
+    severity: "high"
+    auto_fix: "inject via __construct(Service $service)"
+    exceptions:
+      - "tests/"
+      - "migrations/"
+
+  - id: "query_builder_parameterized"
+    description: "Always use parameterized queries, never raw SQL"
+    pattern: "DB::raw|Query::from_raw"
+    severity: "critical"
+    auto_fix: "use DB::select('...', [params])"
+
+  - id: "event_driven_communication"
+    description: "Services communicate via events, not direct calls"
+    pattern: "\\$.*Service->method\\("
+    severity: "high"
+    exceptions:
+      - "src/Auth/Services/AuthService.php"  # Auth is special
+
+  - id: "immutable_invoices"
+    description: "Invoices must never be modified after creation"
+    pattern: "Invoice.*->update|Invoice.*->delete"
+    severity: "critical"
+
+  - id: "transactional_outbox"
+    description: "Use transactional outbox for event publishing"
+    pattern: "event\\(|Event::dispatch"
+    condition: "must_be_within_transaction"
+    severity: "high"
+
+  - id: "idempotent_operations"
+    description: "Payment operations must be idempotent"
+    pattern: "PaymentService::(charge|refund)"
+    condition: "must_use_idempotency_key"
+    severity: "critical"
+
+# ============================================================================
+# TESTING REQUIREMENTS
+# ============================================================================
+
+testing:
+  global:
+    minimum_coverage: 85
+    mutation_score: 80
+    critical_paths_must_have_integration_tests: true
+
+  critical_services:
+    - "PaymentService"
+    - "AuthService"
+    coverage: 95
+    mutation_score: 90
+    requires_feature_tests: true
+
+  forbidden_patterns:
+    - "sleep\\(|usleep\\("  # No sleeps in tests
+    - "time\\(\\)|now\\(\\)|Carbon::now\\(\\)"  # Use freezeTime
+    - "Http::fake\\(\\);.*Http::spy"  # Inconsistent mocking
+
+# ============================================================================
+# NAMING CONVENTIONS
+# ============================================================================
+
+naming:
+  services: "\\bService$"
+  repositories: "\\bRepository$"
+  models: "^[A-Z][a-zA-Z]+$"  # PascalCase
+  tables: "^[a-z_]+$"
+  migrations: "^\\d{4}_\\d{2}_\\d{2}_[a-z_]+\\.php$"
+  test_files: "^[A-Z].*Test\\.php$"
+
+# ============================================================================
+# FILE OWNERSHIP & PERMISSIONS
+# ============================================================================
+
+ownership:
+  "src/Payment/**":
+    owners: ["billing-team"]
+    requires_approval_from: ["billing-team"]
+
+  "src/Auth/**":
+    owners: ["security-team"]
+    requires_approval_from: ["security-team", "cto"]
+
+  ".env*":
+    owners: ["devops-team"]
+    requires_approval_from: ["devops-team"]
+
+# ============================================================================
+# APPROVAL GATES
+# ============================================================================
+
+approval_gates:
+  - pattern: "src/Payment/**"
+    required_approvers: ["billing-team"]
+    condition: "all"  # All must approve
+    evidence_required: ["tests", "security_scan"]
+
+  - pattern: "src/Auth/**"
+    required_approvers: ["security-team", "cto"]
+    condition: "all"
+    evidence_required: ["tests", "security_scan", "documentation"]
+
+  - pattern: "database/migrations/**"
+    required_approvers: ["dba", "tech_lead"]
+    condition: "any"
+    evidence_required: ["tests", "backup_plan"]
+
+  - pattern: "*.env*"
+    required_approvers: ["devops-team"]
+    condition: "all"
+    evidence_required: []
+
+# ============================================================================
+# RESERVED FILES & PATHS
+# ============================================================================
+
+reserved_paths:
+  - ".titan/**"  # System metadata
+  - ".github/**"  # CI/CD definitions
+  - ".env*"      # Secrets
+  - "config/secrets.php"
+
+# ============================================================================
+# SUCCESS CRITERIA
+# ============================================================================
+
+success_criteria:
+  - "No architecture violations on merge to main"
+  - "Test coverage >= 85% (95% for critical services)"
+  - "No hardcoded secrets or credentials"
+  - "No circular dependencies between contexts"
+  - "All service contracts honored"
+  - "Approval gates satisfied"

@@ -1,0 +1,52 @@
+version: "1.0.0"
+name: "documentation_agent"
+role: "documentation"
+
+description: |
+  Documentation agent writes and updates project documentation.
+  - Writes API documentation from code
+  - Creates architecture decision records (ADRs)
+  - Updates README and guides
+  - Documents configuration options
+  - Maintains changelog
+
+capabilities:
+  - name: "api_documentation"
+    description: "Generate API docs from code"
+    tools: ["doc_generator", "code_analyzer"]
+
+  - name: "architecture_documentation"
+    description: "Write architecture docs and ADRs"
+    tools: ["adr_generator", "diagram_generator"]
+
+  - name: "user_documentation"
+    description: "Write user guides and README"
+    tools: ["doc_writer", "template_engine"]
+
+  - name: "changelog_generation"
+    description: "Generate changelog from commits"
+    tools: ["changelog_generator", "commit_analyzer"]
+
+authority:
+  risk_level: "low"
+  file_patterns: ["docs/**", "README.md", "CHANGELOG.md", ".titan/memory/**"]
+  requires_approval: []
+
+constraints:
+  max_concurrent_tasks: 2
+  max_execution_time_minutes: 30
+  max_tokens_per_task: 40000
+  rate_limit_tasks_per_hour: 12
+
+memory_access:
+  global: true
+  repository: true
+  branch: true
+  task: true
+  agent: false
+
+handoff_rules:
+  - when: "documentation_complete"
+    to_agent: "release_agent"
+  - when: "requires_review"
+    to_agent: "reviewer"

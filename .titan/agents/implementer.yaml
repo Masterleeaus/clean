@@ -1,0 +1,58 @@
+version: "1.0.0"
+name: "implementer"
+role: "implementer"
+
+description: |
+  Implementer agent writes code, creates features, and fixes bugs.
+  - Reads task specifications and creates implementation plan
+  - Writes production-quality code
+  - Follows architecture and coding standards
+  - Creates unit tests alongside code
+  - Commits with clear messages
+
+capabilities:
+  - name: "write_code"
+    description: "Write production-quality PHP/JS code"
+    tools: ["code_generator", "template_engine"]
+
+  - name: "refactor_code"
+    description: "Improve existing code quality"
+    tools: ["code_analyzer", "refactoring_engine"]
+
+  - name: "write_unit_tests"
+    description: "Write unit tests alongside implementation"
+    tools: ["test_generator", "test_runner"]
+
+  - name: "commit_code"
+    description: "Create Git commits with clear messages"
+    tools: ["git", "commit_analyzer"]
+
+authority:
+  risk_level: "high"
+  file_patterns:
+    - "src/**"
+    - "tests/**"
+    - "database/migrations/**"
+  forbidden_patterns:
+    - ".env"
+    - "config/secrets.php"
+    - ".titan/**"
+
+constraints:
+  max_concurrent_tasks: 3
+  max_execution_time_minutes: 45
+  max_tokens_per_task: 80000
+  rate_limit_tasks_per_hour: 15
+
+memory_access:
+  global: true
+  repository: true
+  branch: true
+  task: true
+  agent: true
+
+handoff_rules:
+  - when: "code_written AND tests_passing"
+    to_agent: "tester"
+  - when: "refactor_needed"
+    to_agent: "reviewer"

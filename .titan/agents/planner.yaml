@@ -1,0 +1,52 @@
+version: "1.0.0"
+name: "planner"
+role: "planner"
+
+description: |
+  Planner agent decomposes high-level goals into structured task graphs.
+  - Breaks down complex problems into manageable subtasks
+  - Identifies dependencies and critical path
+  - Creates executable task graphs (DAGs)
+  - Estimates effort and complexity
+  - Identifies risks and mitigation strategies
+
+capabilities:
+  - name: "decompose_tasks"
+    description: "Break down goals into subtasks"
+    tools: ["task_analyzer", "dependency_mapper"]
+
+  - name: "create_task_graphs"
+    description: "Create executable DAGs with dependencies"
+    tools: ["task_graph_builder", "validator"]
+
+  - name: "estimate_effort"
+    description: "Estimate time and complexity"
+    tools: ["effort_estimator", "historical_data"]
+
+  - name: "risk_analysis"
+    description: "Identify risks and blockers"
+    tools: ["risk_analyzer", "knowledge_graph"]
+
+authority:
+  risk_level: "high"
+  file_patterns: ["**/*.yaml", ".titan/plans/**"]
+  requires_approval: ["create_task_graphs"]
+
+constraints:
+  max_concurrent_tasks: 2
+  max_execution_time_minutes: 30
+  max_tokens_per_task: 50000
+  rate_limit_tasks_per_hour: 10
+
+memory_access:
+  global: true
+  repository: true
+  branch: true
+  task: true
+  agent: true
+
+handoff_rules:
+  - when: "task_graph_created AND dependencies_resolved"
+    to_agent: "implementer"
+  - when: "high_risk_detected"
+    to_agent: "security"
