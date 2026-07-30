@@ -1,0 +1,53 @@
+name: Finalise documentation Pass 3 inventories
+
+on:
+  push:
+    branches:
+      - agent/documentation-reconciliation
+    paths:
+      - '.github/workflows/finalise-pass3-inventories.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  finalise:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/documentation-reconciliation
+          fetch-depth: 0
+
+      - name: Preserve cumulative root-document history
+        shell: python
+        run: |
+          from pathlib import Path
+
+          path = Path('scripts/docs/consolidate_root_documents.py')
+          text = path.read_text(encoding='utf-8')
+          old = '''def main() -> None:\n    records = move_documents()\n    references = scan_references(records)\n    write_reports(records, references)\n    print(f"Moved {len(records)} root documents into docs/.")\n    print(f"Remaining old-name reference groups: {len(references)}")\n'''
+          new = '''def main() -> None:\n    inventory_path = DOCS / "inventory" / "root_document_moves.json"\n    existing_records: list[MoveRecord] = []\n    if inventory_path.is_file():\n        try:\n            payload = json.loads(inventory_path.read_text(encoding="utf-8"))\n            for item in payload.get("moves", []):\n                if isinstance(item, dict):\n                    existing_records.append(MoveRecord(**item))\n        except (OSError, json.JSONDecodeError, TypeError):\n            existing_records = []\n\n    new_records = move_documents()\n    records_by_key = {\n        (record.source, record.destination): record\n        for record in [*existing_records, *new_records]\n    }\n    records = sorted(records_by_key.values(), key=lambda record: (record.source.lower(), record.destination))\n    references = scan_references(records)\n    write_reports(records, references)\n    print(f"Moved {len(new_records)} new root documents into docs/.")\n    print(f"Cumulative root-document moves: {len(records)}")\n    print(f"Remaining old-name reference groups: {len(references)}")\n'''
+          if old not in text:
+              raise SystemExit('Expected main() block not found in consolidation script')
+          path.write_text(text.replace(old, new), encoding='utf-8')
+
+      - name: Re-run root consolidation safely
+        run: python3 scripts/docs/consolidate_root_documents.py
+
+      - name: Regenerate Interaction and intelligence inventory
+        run: python3 scripts/docs/inventory_interaction_intelligence.py
+
+      - name: Remove one-time workflow
+        run: rm -f .github/workflows/finalise-pass3-inventories.yml
+
+      - name: Commit refreshed evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "docs: refresh cumulative inventories after Pass 3 cleanup"
+          git push origin HEAD:agent/documentation-reconciliation
