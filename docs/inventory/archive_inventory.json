@@ -1,0 +1,1872 @@
+{
+  "archives": [
+    {
+      "bytes_extracted": 18949114,
+      "files": [
+        {
+          "archive_path": "00-Foundation/Titan_Platform_System_Constitution_Volume_1.docx",
+          "path": "docs/inbox/archive-1/00-Foundation/Titan_Platform_System_Constitution_Volume_1.docx",
+          "sha256": "0c5f8b893be26d0d6222bf16385d7b40b33727816c229bef843b19ef2455a033",
+          "size": 370793
+        },
+        {
+          "archive_path": "00-Foundation/TitanZero \u256c\u00f4C\u2560\u00bao\u2560\u00ea Database Doctrine & Schema Model.pdf",
+          "path": "docs/inbox/archive-1/00-Foundation/TitanZero \u256c\u00f4C\u2560\u00bao\u2560\u00ea Database Doctrine & Schema Model.pdf",
+          "sha256": "49d8c2ca57bee2543b7b4e1d58cfdece8bfa109f4a1a7cc055c5cb91d26f4e39",
+          "size": 107397
+        },
+        {
+          "archive_path": "00-Foundation/Titan Zero Doctrine.pdf",
+          "path": "docs/inbox/archive-1/00-Foundation/Titan Zero Doctrine.pdf",
+          "sha256": "17593555378d49da38542b14c60c0fe817aaaeb4e32b051f7f3d24442ff286d2",
+          "size": 6068168
+        },
+        {
+          "archive_path": "00-Foundation/Titan Development Doctrine (Constitution) 2.pdf",
+          "path": "docs/inbox/archive-1/00-Foundation/Titan Development Doctrine (Constitution) 2.pdf",
+          "sha256": "2ffd3c4f989ed164ef6a06f9afb77ae9df5d5fd7036a2eafe0004ae3c61b2fc6",
+          "size": 117881
+        },
+        {
+          "archive_path": "00-Foundation/01-system-doctrine.md",
+          "path": "docs/inbox/archive-1/00-Foundation/01-system-doctrine.md",
+          "sha256": "fdd0b49b873ddb128f827cc3939610445f21123ade923cf9f4462312f11671d8",
+          "size": 8460
+        },
+        {
+          "archive_path": "00-Foundation/00-zero-philosophy.md",
+          "path": "docs/inbox/archive-1/00-Foundation/00-zero-philosophy.md",
+          "sha256": "62b83ca6bec0f01862045b89761073ba9ac705a22debcda7c59139114ba34176",
+          "size": 3200
+        },
+        {
+          "archive_path": "00-Foundation/Titan canonical lexicon.docx",
+          "path": "docs/inbox/archive-1/00-Foundation/Titan canonical lexicon.docx",
+          "sha256": "719d946d66722c05cfcde6e95607c598857024472881829f506a81fbcfe90bad",
+          "size": 1009811
+        },
+        {
+          "archive_path": "00-Foundation/Titan Data Architecture & Table Doctrine 2.pdf",
+          "path": "docs/inbox/archive-1/00-Foundation/Titan Data Architecture & Table Doctrine 2.pdf",
+          "sha256": "5d7393bf45d04277fb1624e40a0d89c3796c93a9e674cd8e01dde8aa48d02d91",
+          "size": 102330
+        },
+        {
+          "archive_path": "00-Foundation/README.md",
+          "path": "docs/inbox/archive-1/00-Foundation/README.md",
+          "sha256": "a1a44fb9e0a71a66c30a4030603c755f3807fb9f6549780b7ddfe675a811845b",
+          "size": 1562
+        },
+        {
+          "archive_path": "00-Foundation/Titan_System_Complete_CANONICAL_FINAL_FIXED_COVER_FULL_INTEGRATED_v2.docx",
+          "path": "docs/inbox/archive-1/00-Foundation/Titan_System_Complete_CANONICAL_FINAL_FIXED_COVER_FULL_INTEGRATED_v2.docx",
+          "sha256": "99be7d1e97d377a499af0739fbeb8eb4accdaeb5ea2d93a1e47419445ae0860e",
+          "size": 542282
+        },
+        {
+          "archive_path": "00-Foundation/16-duo-mode-and-cross-system-constitution.md",
+          "path": "docs/inbox/archive-1/00-Foundation/16-duo-mode-and-cross-system-constitution.md",
+          "sha256": "cca3acc02f73b37da5eafdd6882e4e4922e9aa037e3c943a8a36c92ec46fff9e",
+          "size": 10437
+        },
+        {
+          "archive_path": "00-Foundation/Titan Doctrine.pdf",
+          "path": "docs/inbox/archive-1/00-Foundation/Titan Doctrine.pdf",
+          "sha256": "33e6d990f30f82f6194f3a1ec17f4d9c324c68776744b08518986c9d87130897",
+          "size": 109190
+        },
+        {
+          "archive_path": "00-Foundation/Worksuite_Module_Doctrine_v1.0_LOCKED.pdf",
+          "path": "docs/inbox/archive-1/00-Foundation/Worksuite_Module_Doctrine_v1.0_LOCKED.pdf",
+          "sha256": "2d79c99fb499dfb8580d9cada8ec3db2e7bc2b2f0d9945388738f6e155f39965",
+          "size": 229999
+        },
+        {
+          "archive_path": "01-Ecosystem-Vision/Titan Zero Doctrine.pdf",
+          "path": "docs/inbox/archive-1/01-Ecosystem-Vision/Titan Zero Doctrine.pdf",
+          "sha256": "17593555378d49da38542b14c60c0fe817aaaeb4e32b051f7f3d24442ff286d2",
+          "size": 6068168
+        },
+        {
+          "archive_path": "01-Ecosystem-Vision/Titan Zero Marketing Guide.pdf",
+          "path": "docs/inbox/archive-1/01-Ecosystem-Vision/Titan Zero Marketing Guide.pdf",
+          "sha256": "4ee1299cb9093e509da725c4ca8f16fba14ba355243464ebd2582592365672a8",
+          "size": 90831
+        },
+        {
+          "archive_path": "01-Ecosystem-Vision/08-unique-product-theses.md",
+          "path": "docs/inbox/archive-1/01-Ecosystem-Vision/08-unique-product-theses.md",
+          "sha256": "ed7ec5efd7d5f59f5aefcddb36b5dbeef7845437609e2ff3009d161715886182",
+          "size": 3848
+        },
+        {
+          "archive_path": "01-Ecosystem-Vision/Titan zero product model.docx",
+          "path": "docs/inbox/archive-1/01-Ecosystem-Vision/Titan zero product model.docx",
+          "sha256": "71706ae081f0a7d7ac44bebd0451470335dca2d299f8a1d415728a55e769d739",
+          "size": 192106
+        },
+        {
+          "archive_path": "01-Ecosystem-Vision/Titan System Architecture Overview.pdf",
+          "path": "docs/inbox/archive-1/01-Ecosystem-Vision/Titan System Architecture Overview.pdf",
+          "sha256": "d0c0fc9aa5b71addfdcd25bee2ebc44a535c528a2940de87beee6020c9cc825f",
+          "size": 99345
+        },
+        {
+          "archive_path": "01-Ecosystem-Vision/Titan Ecosystem V1.0.docx",
+          "path": "docs/inbox/archive-1/01-Ecosystem-Vision/Titan Ecosystem V1.0.docx",
+          "sha256": "b1d907a3b31880c5fb483d06606e5c8b9f45a939bc4e966cf12036ef98fe0225",
+          "size": 615891
+        },
+        {
+          "archive_path": "01-Ecosystem-Vision/Titan Zero system overview.pdf",
+          "path": "docs/inbox/archive-1/01-Ecosystem-Vision/Titan Zero system overview.pdf",
+          "sha256": "000e2357f6a658074bfe2260483946409087fafbcf1e271b014dbc021308c9b7",
+          "size": 126207
+        },
+        {
+          "archive_path": "01-Ecosystem-Vision/07-build-roadmap.md",
+          "path": "docs/inbox/archive-1/01-Ecosystem-Vision/07-build-roadmap.md",
+          "sha256": "c2306b8e57aa933903fe13db793968f290f1c35a1d38a824abdff5d0bdd1d6e7",
+          "size": 4150
+        },
+        {
+          "archive_path": "02-Platform-Architecture/27-cms-portal-and-surface-composition-architecture.md",
+          "path": "docs/inbox/archive-1/02-Platform-Architecture/27-cms-portal-and-surface-composition-architecture.md",
+          "sha256": "a3f5c57f3c88c42465ea6a9eacb2118e85fa72bcabb2bc07a679ddda90564344",
+          "size": 8275
+        },
+        {
+          "archive_path": "02-Platform-Architecture/20-filament-panels-operator-workflows-and-approval-surfaces.md",
+          "path": "docs/inbox/archive-1/02-Platform-Architecture/20-filament-panels-operator-workflows-and-approval-surfaces.md",
+          "sha256": "7822049a7eaa9bdfa9ff33da1931aa472b4d4f2ffa6bc6b4350bd4941913f2e6",
+          "size": 10295
+        },
+        {
+          "archive_path": "02-Platform-Architecture/24-security-identity-device-trust-and-tenant-boundary.md",
+          "path": "docs/inbox/archive-1/02-Platform-Architecture/24-security-identity-device-trust-and-tenant-boundary.md",
+          "sha256": "819c8c71d54f145e136d330cf76bdb0e3dab4e36e53a64542a0277251e5cbbfc",
+          "size": 12646
+        },
+        {
+          "archive_path": "02-Platform-Architecture/26-rollout-strategy-environment-topology-and-evolution-roadmap.md",
+          "path": "docs/inbox/archive-1/02-Platform-Architecture/26-rollout-strategy-environment-topology-and-evolution-roadmap.md",
+          "sha256": "10dd7acfcd666ff75d066f62e58685542580b753e19e2d1ae756c44c9b259372",
+          "size": 12975
+        },
+        {
+          "archive_path": "02-Platform-Architecture/Titan_Permission_and_Tenant_Fence_Model.md",
+          "path": "docs/inbox/archive-1/02-Platform-Architecture/Titan_Permission_and_Tenant_Fence_Model.md",
+          "sha256": "317abfd9ca9ade5592d752fad77bb9a1cabcb35b14d35c100e75788ef811f9f9",
+          "size": 1807
+        },
+        {
+          "archive_path": "02-Platform-Architecture/Titan_Admin_Package_and_Module_Rollout_Model.md",
+          "path": "docs/inbox/archive-1/02-Platform-Architecture/Titan_Admin_Package_and_Module_Rollout_Model.md",
+          "sha256": "ffdae82c4fd21204e2809b32d175c3aa0a7a9a65d5c0382f224ef24780640154",
+          "size": 967
+        },
+        {
+          "archive_path": "02-Platform-Architecture/Titan_Audit_Observability_and_Doctor_Model.md",
+          "path": "docs/inbox/archive-1/02-Platform-Architecture/Titan_Audit_Observability_and_Doctor_Model.md",
+          "sha256": "e8b5f401f96d0a8a2c2e8831cb691a0365dce458142ab2a24c57f3f34f08010b",
+          "size": 2326
+        },
+        {
+          "archive_path": "02-Platform-Architecture/02-reference-architecture.md",
+          "path": "docs/inbox/archive-1/02-Platform-Architecture/02-reference-architecture.md",
+          "sha256": "0f38969e652b2a2e07a9640faa4acb524d2e907d7c6ba07dbe88fd4e8a722584",
+          "size": 7158
+        },
+        {
+          "archive_path": "02-Platform-Architecture/11-security-identity-and-governance.md",
+          "path": "docs/inbox/archive-1/02-Platform-Architecture/11-security-identity-and-governance.md",
+          "sha256": "e30256eec12028e450f3ab64b8410d07ac7dc474edb53b20e5d85835a43b46c3",
+          "size": 5056
+        },
+        {
+          "archive_path": "02-Platform-Architecture/12-filament-control-plane-and-surface-design.md",
+          "path": "docs/inbox/archive-1/02-Platform-Architecture/12-filament-control-plane-and-surface-design.md",
+          "sha256": "b6bcd26465f8e206a10c2d2b35e4d15e8645dabb5618bf256bdaa2b5e1fd917d",
+          "size": 4083
+        },
+        {
+          "archive_path": "02-Platform-Architecture/29-reference-implementation-sequence-and-first-working-slice.md",
+          "path": "docs/inbox/archive-1/02-Platform-Architecture/29-reference-implementation-sequence-and-first-working-slice.md",
+          "sha256": "a7218b68697cdc1630209df0eaeccc603b449bb7723dbee74006315a88de8391",
+          "size": 9779
+        },
+        {
+          "archive_path": "03-Data-Layer/TitanZero \u0393\u00c7\u00f6 Database Doctrine & Schema Model.pdf",
+          "path": "docs/inbox/archive-1/03-Data-Layer/TitanZero \u0393\u00c7\u00f6 Database Doctrine & Schema Model.pdf",
+          "sha256": "49d8c2ca57bee2543b7b4e1d58cfdece8bfa109f4a1a7cc055c5cb91d26f4e39",
+          "size": 107397
+        },
+        {
+          "archive_path": "03-Data-Layer/Titan_Canonical_Status_and_Enum_Registry.md",
+          "path": "docs/inbox/archive-1/03-Data-Layer/Titan_Canonical_Status_and_Enum_Registry.md",
+          "sha256": "2d0f85e6a7e38720f208d2c72ea1ed3782b4736b6959ad7f358ccb80017e981d",
+          "size": 1864
+        },
+        {
+          "archive_path": "03-Data-Layer/Titan_DB_Mapping_Guide.md",
+          "path": "docs/inbox/archive-1/03-Data-Layer/Titan_DB_Mapping_Guide.md",
+          "sha256": "28c9ba0938595ac031549ad1faef71a5827ddd769ab5caeae943ab49f3de11b1",
+          "size": 1295
+        },
+        {
+          "archive_path": "03-Data-Layer/09-canonical-data-model.md",
+          "path": "docs/inbox/archive-1/03-Data-Layer/09-canonical-data-model.md",
+          "sha256": "f1af71ddfd885dc86edfbb47153c32c46d57348b5a8b4f98a9c4069cf3953da1",
+          "size": 6574
+        },
+        {
+          "archive_path": "04-AI-Intelligence-Core/context-packs.md",
+          "path": "docs/inbox/archive-1/04-AI-Intelligence-Core/context-packs.md",
+          "sha256": "35c56910c315bb32ab955ccbdb9948caa29d6247c6387a2540cbea11cf5cb431",
+          "size": 9070
+        },
+        {
+          "archive_path": "04-AI-Intelligence-Core/22-ai-orchestration-memory-and-model-routing.md",
+          "path": "docs/inbox/archive-1/04-AI-Intelligence-Core/22-ai-orchestration-memory-and-model-routing.md",
+          "sha256": "cca3dfd616303f31af0791a538ee134fb8e66b53f5b8f02338eed1db7dbb551d",
+          "size": 10919
+        },
+        {
+          "archive_path": "04-AI-Intelligence-Core/titan-zero.md",
+          "path": "docs/inbox/archive-1/04-AI-Intelligence-Core/titan-zero.md",
+          "sha256": "28fc311f691ad70fb74835789ee27e2a79f5ce3c1312a406e8dfd00eaa066ebb",
+          "size": 17771
+        },
+        {
+          "archive_path": "04-AI-Intelligence-Core/Titan Zero Trinity Sytem Architecture .pdf",
+          "path": "docs/inbox/archive-1/04-AI-Intelligence-Core/Titan Zero Trinity Sytem Architecture .pdf",
+          "sha256": "ce9c757d67e741de3dd2777f44b42081c015c51d03056ceed3f31150ce8f7f65",
+          "size": 80232
+        },
+        {
+          "archive_path": "04-AI-Intelligence-Core/Titan_AI_Core_Architecture.md",
+          "path": "docs/inbox/archive-1/04-AI-Intelligence-Core/Titan_AI_Core_Architecture.md",
+          "sha256": "2499522666d2f9d82b28abd14125a506c4da3b12df6e4fa4369da91f04f63dea",
+          "size": 12475
+        },
+        {
+          "archive_path": "04-AI-Intelligence-Core/specialist-cores.md",
+          "path": "docs/inbox/archive-1/04-AI-Intelligence-Core/specialist-cores.md",
+          "sha256": "df0f789e4fbdffdebf9ea0192760b4312a84d109a3e69ba0818bbbc2869fd724",
+          "size": 9548
+        },
+        {
+          "archive_path": "04-AI-Intelligence-Core/orchestration.md",
+          "path": "docs/inbox/archive-1/04-AI-Intelligence-Core/orchestration.md",
+          "sha256": "6430a5c1c2ac1998dae21bc3c877e81eab6ac159a479e1a00616066cbb623559",
+          "size": 10201
+        },
+        {
+          "archive_path": "04-AI-Intelligence-Core/_folder-readme.md",
+          "path": "docs/inbox/archive-1/04-AI-Intelligence-Core/_folder-readme.md",
+          "sha256": "0a226a5d0d408d6d79d28b01193693c39a7f56b06558996f11a0e33dc1ca9ff5",
+          "size": 244
+        },
+        {
+          "archive_path": "04-AI-Intelligence-Core/Titan Omni.pdf",
+          "path": "docs/inbox/archive-1/04-AI-Intelligence-Core/Titan Omni.pdf",
+          "sha256": "44e736b64bd7207e7777fdc32b7c169d4784f618758424cdf65835c195e6e8a6",
+          "size": 105969
+        },
+        {
+          "archive_path": "04-AI-Intelligence-Core/13-agent-tooling-and-execution-contracts.md",
+          "path": "docs/inbox/archive-1/04-AI-Intelligence-Core/13-agent-tooling-and-execution-contracts.md",
+          "sha256": "ee406b8f1862d965ea06d472879555d0058fe0ba14164cbed9f4dedebe4db998",
+          "size": 3330
+        },
+        {
+          "archive_path": "04-AI-Intelligence-Core/laravel-ai-sdk.md",
+          "path": "docs/inbox/archive-1/04-AI-Intelligence-Core/laravel-ai-sdk.md",
+          "sha256": "574a0eb2280842696c601c0428fd02516ab22634281a04e4c9a58c2239c987c6",
+          "size": 2287
+        },
+        {
+          "archive_path": "04-AI-Intelligence-Core/memory-architecture.md",
+          "path": "docs/inbox/archive-1/04-AI-Intelligence-Core/memory-architecture.md",
+          "sha256": "bf41bed6206a953b410b62ff82e1354422c89f9977adbc5efb78d689e6c30c53",
+          "size": 9215
+        },
+        {
+          "archive_path": "04-AI-Intelligence-Core/Titan Core Engine Stack.pdf",
+          "path": "docs/inbox/archive-1/04-AI-Intelligence-Core/Titan Core Engine Stack.pdf",
+          "sha256": "f079fab938ac28dd9d6c0f4a6290863d3c13db1cc9d984ebd1ecbef62202914e",
+          "size": 124654
+        },
+        {
+          "archive_path": "04-AI-Intelligence-Core/aegis-core.md",
+          "path": "docs/inbox/archive-1/04-AI-Intelligence-Core/aegis-core.md",
+          "sha256": "55ee3438feea1c95fb6c4fa71f1f94c122ca247a6d6383469d35033667d9312f",
+          "size": 10420
+        },
+        {
+          "archive_path": "04-AI-Intelligence-Core/Titan_AI_Tool_Registry.md",
+          "path": "docs/inbox/archive-1/04-AI-Intelligence-Core/Titan_AI_Tool_Registry.md",
+          "sha256": "ca0c65087ba76ce646cf7b78aa9901d1ac2656ffbbc39cb941c34a5c1f32ad60",
+          "size": 2758
+        },
+        {
+          "archive_path": "04-AI-Intelligence-Core/TITAN OMNI VOICE CONTROLLED AI  PWA.pdf",
+          "path": "docs/inbox/archive-1/04-AI-Intelligence-Core/TITAN OMNI VOICE CONTROLLED AI  PWA.pdf",
+          "sha256": "9a8cd33b0b6d4523cc3f280d4e148bc0037b7f19addbf81861d8d7e765f93b91",
+          "size": 442063
+        },
+        {
+          "archive_path": "04-AI-Intelligence-Core/Titan_Sentinel_Approval_Model.md",
+          "path": "docs/inbox/archive-1/04-AI-Intelligence-Core/Titan_Sentinel_Approval_Model.md",
+          "sha256": "2a3db127ffb92d79f25b0acc2c1229c3b6fe025d7d914a9c3dd27459632e3102",
+          "size": 374
+        },
+        {
+          "archive_path": "04-AI-Intelligence-Core/model-routing.md",
+          "path": "docs/inbox/archive-1/04-AI-Intelligence-Core/model-routing.md",
+          "sha256": "f9ccc1edf0c4204c3aab608ece2bf27239da033cf72802973eb5ca31f93d488f",
+          "size": 8384
+        },
+        {
+          "archive_path": "04-AI-Intelligence-Core/TitanZero \u0393\u00c7\u00f6 Titan Duality & Lifecycle Assistants.pdf",
+          "path": "docs/inbox/archive-1/04-AI-Intelligence-Core/TitanZero \u0393\u00c7\u00f6 Titan Duality & Lifecycle Assistants.pdf",
+          "sha256": "c57c9fcfd4a260a170cbd5c6a2632663c702a5393ed8bb21465ddce81b5f2da9",
+          "size": 96584
+        },
+        {
+          "archive_path": "04-AI-Intelligence-Core/quote-drafting.md",
+          "path": "docs/inbox/archive-1/04-AI-Intelligence-Core/quote-drafting.md",
+          "sha256": "29b9723295d0cf47042ba58093dd3ce06da85b268617917724380ae529cd4f7b",
+          "size": 6692
+        },
+        {
+          "archive_path": "04-AI-Intelligence-Core/Titan_AI_Tool_Manifest_Spec.md",
+          "path": "docs/inbox/archive-1/04-AI-Intelligence-Core/Titan_AI_Tool_Manifest_Spec.md",
+          "sha256": "2a592817984c1ad76ade20b7433f6b49c40e5f751b73dd39c27de0bbf0f9567a",
+          "size": 11132
+        },
+        {
+          "archive_path": "04-AI-Intelligence-Core/vertical-ai-training-architecture.md",
+          "path": "docs/inbox/archive-1/04-AI-Intelligence-Core/vertical-ai-training-architecture.md",
+          "sha256": "4676275fd617b570d62a8f5308274bb8a5a6e2063b940ff6c640840ae1990b74",
+          "size": 14748
+        },
+        {
+          "archive_path": "04-AI-Intelligence-Core/request-classification.md",
+          "path": "docs/inbox/archive-1/04-AI-Intelligence-Core/request-classification.md",
+          "sha256": "09e853804bca4eddd833252c5d97f300901e1931a99bc235cfc284b6a92cedbe",
+          "size": 7238
+        },
+        {
+          "archive_path": "04-AI-Intelligence-Core/Titan Zero architecture blueprint .pdf",
+          "path": "docs/inbox/archive-1/04-AI-Intelligence-Core/Titan Zero architecture blueprint .pdf",
+          "sha256": "9fa82779c65a181d35678d2a3c466805e6c0ffe935a7f5f9b82af99adc86cdfb",
+          "size": 118005
+        },
+        {
+          "archive_path": "04-AI-Intelligence-Core/first-ai-feature.md",
+          "path": "docs/inbox/archive-1/04-AI-Intelligence-Core/first-ai-feature.md",
+          "sha256": "f671b2cb93d1848328a29321678a8db84de0d23b54e3c71f8d3be27458850cdc",
+          "size": 4056
+        },
+        {
+          "archive_path": "04-AI-Intelligence-Core/weighting-and-consensus.md",
+          "path": "docs/inbox/archive-1/04-AI-Intelligence-Core/weighting-and-consensus.md",
+          "sha256": "13ff44f6686233f84827a919cc839bbab94299ccf09f7903b1da36d389b9c210",
+          "size": 7904
+        },
+        {
+          "archive_path": "04-AI-Intelligence-Core/Titan Assistants.pdf",
+          "path": "docs/inbox/archive-1/04-AI-Intelligence-Core/Titan Assistants.pdf",
+          "sha256": "7e03978b7d0d98b61586059ac5b1d95988a2d1c60ef1d39ef92e0197fae5724e",
+          "size": 393188
+        },
+        {
+          "archive_path": "04-AI-Intelligence-Core/Titan AI integration guide .docx",
+          "path": "docs/inbox/archive-1/04-AI-Intelligence-Core/Titan AI integration guide .docx",
+          "sha256": "f1760421c7bc7227bfa2f55a4382bc1a98163c07eb27874037e160638b95911c",
+          "size": 11883
+        },
+        {
+          "archive_path": "04-AI-Intelligence-Core/Titan Core Engine Map (Master Blueprint).pdf",
+          "path": "docs/inbox/archive-1/04-AI-Intelligence-Core/Titan Core Engine Map (Master Blueprint).pdf",
+          "sha256": "535a24b35cec7e596057e338b714aa885edab3de535f82685cd52851fb767886",
+          "size": 83622
+        },
+        {
+          "archive_path": "04-AI-Intelligence-Core/visit-summary.md",
+          "path": "docs/inbox/archive-1/04-AI-Intelligence-Core/visit-summary.md",
+          "sha256": "00e6f4a1351d4cf17ef71e11400e1896950ffc24da7bcde5a06af765d56da00d",
+          "size": 7014
+        },
+        {
+          "archive_path": "04-AI-Intelligence-Core/04-ai-control-governance.md",
+          "path": "docs/inbox/archive-1/04-AI-Intelligence-Core/04-ai-control-governance.md",
+          "sha256": "cf424adafd59c1ae338b0b6747b633c940297e7b1814c06e4d435e08d253fa1d",
+          "size": 5241
+        },
+        {
+          "archive_path": "04-AI-Intelligence-Core/agent-04-ai-starter.md",
+          "path": "docs/inbox/archive-1/04-AI-Intelligence-Core/agent-04-ai-starter.md",
+          "sha256": "5956c0a00047923ce002e3d59ea2179cc7179394322cc08d48d1dc272d758182",
+          "size": 1282
+        },
+        {
+          "archive_path": "04-AI-Intelligence-Core/agent-04-ai-gap-audit.md",
+          "path": "docs/inbox/archive-1/04-AI-Intelligence-Core/agent-04-ai-gap-audit.md",
+          "sha256": "63b27393e7cd841debacf6d90175d2da802024d237ec7ca627143be597d9dc9f",
+          "size": 1640
+        },
+        {
+          "archive_path": "04-AI-Intelligence-Core/evaluation.md",
+          "path": "docs/inbox/archive-1/04-AI-Intelligence-Core/evaluation.md",
+          "sha256": "50475e13b227dcc436c81e0106e853dce657fc7f6c4e97f1628ffb42df68d1e4",
+          "size": 7530
+        },
+        {
+          "archive_path": "04-AI-Intelligence-Core/Titan Assistant Architecture.pdf",
+          "path": "docs/inbox/archive-1/04-AI-Intelligence-Core/Titan Assistant Architecture.pdf",
+          "sha256": "244292b41c82e93f1b0c90b6e5691e012ebf4864e8191a872653b373a47ee339",
+          "size": 89857
+        },
+        {
+          "archive_path": "05-Engine-Platform/Titan_PWA_Surface_Architecture.md",
+          "path": "docs/inbox/archive-1/05-Engine-Platform/Titan_PWA_Surface_Architecture.md",
+          "sha256": "eec74c892b947437a00e3af508f226df20dde7cb405e29aba25b4995825e931a",
+          "size": 9932
+        },
+        {
+          "archive_path": "05-Engine-Platform/Titan_Provider_and_Bootstrap_Registry.md",
+          "path": "docs/inbox/archive-1/05-Engine-Platform/Titan_Provider_and_Bootstrap_Registry.md",
+          "sha256": "19024a0053a05c39a00c323d89eb31a570aebd041e4da2ad09a7e1feafed933b",
+          "size": 9175
+        },
+        {
+          "archive_path": "05-Engine-Platform/Titan_Module_Registry_Contract.md",
+          "path": "docs/inbox/archive-1/05-Engine-Platform/Titan_Module_Registry_Contract.md",
+          "sha256": "f23665bf2c16cd4c3a550066faaf6f00772eb5c8772dc571c3aaa61b72b73849",
+          "size": 9241
+        },
+        {
+          "archive_path": "05-Engine-Platform/module-ui-integration.md",
+          "path": "docs/inbox/archive-1/05-Engine-Platform/module-ui-integration.md",
+          "sha256": "2047e9eea74372bdb5a7c35d3faaaae8b1d8bd27f2362d8608da78581fdb3879",
+          "size": 5935
+        },
+        {
+          "archive_path": "05-Engine-Platform/Titan_Module_Install_Upgrade_and_Rollback_Lifecycle.md",
+          "path": "docs/inbox/archive-1/05-Engine-Platform/Titan_Module_Install_Upgrade_and_Rollback_Lifecycle.md",
+          "sha256": "a56aed73048bd383f34a4158a5b5aa3ea7716d3c238ee47a098c8931abf94dad",
+          "size": 4023
+        },
+        {
+          "archive_path": "05-Engine-Platform/module-dependency-resolution.md",
+          "path": "docs/inbox/archive-1/05-Engine-Platform/module-dependency-resolution.md",
+          "sha256": "5e0fce3cb07a6962054ff6e01d8eec96a52c4d1eddf2e3ce5e6043a5909bf151",
+          "size": 4430
+        },
+        {
+          "archive_path": "05-Engine-Platform/Titan Money.pdf",
+          "path": "docs/inbox/archive-1/05-Engine-Platform/Titan Money.pdf",
+          "sha256": "f3a6ddc625171a34dc51b6ded5af6362afb555d5813726f7c1d2bd1105599171",
+          "size": 129221
+        },
+        {
+          "archive_path": "05-Engine-Platform/module-structure.md",
+          "path": "docs/inbox/archive-1/05-Engine-Platform/module-structure.md",
+          "sha256": "c2a2ac7a232da1f05bbe6e6732801eacff1fc165b86feaa90f8a5aface2732cb",
+          "size": 5829
+        },
+        {
+          "archive_path": "05-Engine-Platform/module-settings.md",
+          "path": "docs/inbox/archive-1/05-Engine-Platform/module-settings.md",
+          "sha256": "d5f47d55b950449d673f3628d8a7724a7bdf736a362e3182d91e84b892879abe",
+          "size": 5103
+        },
+        {
+          "archive_path": "05-Engine-Platform/Titan Module developer guide.docx",
+          "path": "docs/inbox/archive-1/05-Engine-Platform/Titan Module developer guide.docx",
+          "sha256": "828ac40356fd4ec22960223bffc76837456b14188f9bb306135861501b904d4c",
+          "size": 272514
+        },
+        {
+          "archive_path": "05-Engine-Platform/Titan_CMS_Manifest_Spec.md",
+          "path": "docs/inbox/archive-1/05-Engine-Platform/Titan_CMS_Manifest_Spec.md",
+          "sha256": "8bf3a4ef78b4df221848b932ebcce290457e3638c9f1384e09576c03588acbf1",
+          "size": 9588
+        },
+        {
+          "archive_path": "05-Engine-Platform/Titan Engine APIs & Contracts (Implementation Guide).pdf",
+          "path": "docs/inbox/archive-1/05-Engine-Platform/Titan Engine APIs & Contracts (Implementation Guide).pdf",
+          "sha256": "f5ada7170e8d988d83e406006fef8140f53c12d3bf8726223807267621dd48ea",
+          "size": 128619
+        },
+        {
+          "archive_path": "05-Engine-Platform/module-installation.md",
+          "path": "docs/inbox/archive-1/05-Engine-Platform/module-installation.md",
+          "sha256": "934bcc4ebdd213bf2d6b89198d83f90a5fa1d393aa7c849f2404b26e4aaf364f",
+          "size": 5667
+        },
+        {
+          "archive_path": "05-Engine-Platform/module-api-exposure.md",
+          "path": "docs/inbox/archive-1/05-Engine-Platform/module-api-exposure.md",
+          "sha256": "646a2161107421aee8fea4e1ec93e37cf6093a3a7fe0f8954d173d2b248b369e",
+          "size": 5028
+        },
+        {
+          "archive_path": "05-Engine-Platform/25-developer-quality-gates-testing-and-module-acceptance.md",
+          "path": "docs/inbox/archive-1/05-Engine-Platform/25-developer-quality-gates-testing-and-module-acceptance.md",
+          "sha256": "164a7db4ea7dab5bdb2d0b54bf93457aaf9ab7faae7db5bbb0be2f707e42b7c0",
+          "size": 13709
+        },
+        {
+          "archive_path": "05-Engine-Platform/tenant-scoping.md",
+          "path": "docs/inbox/archive-1/05-Engine-Platform/tenant-scoping.md",
+          "sha256": "5c96576e3159d3693b480630743efe43b20760e42341ba6398afa484103c8aff",
+          "size": 5964
+        },
+        {
+          "archive_path": "05-Engine-Platform/module-ai-surface-contract.md",
+          "path": "docs/inbox/archive-1/05-Engine-Platform/module-ai-surface-contract.md",
+          "sha256": "5423aa0a7235d4eac7c0eb5e286c80ccc7cdeb4c94fafb09ad3e4517cd1a06e1",
+          "size": 5323
+        },
+        {
+          "archive_path": "05-Engine-Platform/19-module-registry-packages-and-capability-manifests.md",
+          "path": "docs/inbox/archive-1/05-Engine-Platform/19-module-registry-packages-and-capability-manifests.md",
+          "sha256": "de31a6b6668fe089198d014626b03eb391b3cefe9f25cc11b03ee24c9383cab7",
+          "size": 10759
+        },
+        {
+          "archive_path": "05-Engine-Platform/module-discovery-registry.md",
+          "path": "docs/inbox/archive-1/05-Engine-Platform/module-discovery-registry.md",
+          "sha256": "7c714e6c85975852d496e5e075a72c422e2ab48d46b9cea88c8f3b66de23340d",
+          "size": 4518
+        },
+        {
+          "archive_path": "05-Engine-Platform/WORKSUITE_MODULE_MANAGER_SPEC_FROM_SITE_SCAN.md",
+          "path": "docs/inbox/archive-1/05-Engine-Platform/WORKSUITE_MODULE_MANAGER_SPEC_FROM_SITE_SCAN.md",
+          "sha256": "ecc8d6e9c86a7a7e4a63af6f3e35a29235dc5e7ca6b92faad4ee9fd2c435eb04",
+          "size": 941
+        },
+        {
+          "archive_path": "05-Engine-Platform/05-modules-api-and-pwa-contract.md",
+          "path": "docs/inbox/archive-1/05-Engine-Platform/05-modules-api-and-pwa-contract.md",
+          "sha256": "4cb1385c67c366023f4e4af8df247cb976b60c80f432eb2b0fdf4e3d857525b4",
+          "size": 6295
+        },
+        {
+          "archive_path": "05-Engine-Platform/module-health-checks.md",
+          "path": "docs/inbox/archive-1/05-Engine-Platform/module-health-checks.md",
+          "sha256": "7869498293f75182aa2474c31454c420a1fcc6be696a423ca50ba5b496bbf62e",
+          "size": 5628
+        },
+        {
+          "archive_path": "05-Engine-Platform/module-manifests.md",
+          "path": "docs/inbox/archive-1/05-Engine-Platform/module-manifests.md",
+          "sha256": "883cd4010f93ef414073e8c02751adb1a4071d02b98138d6caa3ef6595436b54",
+          "size": 5451
+        },
+        {
+          "archive_path": "05-Engine-Platform/Titan_Module_Manifest_and_Extension_Schema.md",
+          "path": "docs/inbox/archive-1/05-Engine-Platform/Titan_Module_Manifest_and_Extension_Schema.md",
+          "sha256": "10f63968c8d43493f887fd52a09c8ce2de9e3859561dcfaf327b48e78d1e80fa",
+          "size": 9685
+        },
+        {
+          "archive_path": "05-Engine-Platform/module-lifecycle-upgrade-repair.md",
+          "path": "docs/inbox/archive-1/05-Engine-Platform/module-lifecycle-upgrade-repair.md",
+          "sha256": "c549d111d8170d5f60ad4a4a8c9f6d5eac2379180900dabe745d58cc12051f73",
+          "size": 5093
+        },
+        {
+          "archive_path": "05-Engine-Platform/module-signal-registration.md",
+          "path": "docs/inbox/archive-1/05-Engine-Platform/module-signal-registration.md",
+          "sha256": "6ce07fabda1af0c87d1f174c11baa2fc4affe45ef389f0a2f0cea0136956ef5d",
+          "size": 4381
+        },
+        {
+          "archive_path": "05-Engine-Platform/Titan_Module_Blueprint.md",
+          "path": "docs/inbox/archive-1/05-Engine-Platform/Titan_Module_Blueprint.md",
+          "sha256": "204483a3ee01199545780672242354aed885eb73cb65fcfd647f885e057caa5a",
+          "size": 11243
+        },
+        {
+          "archive_path": "05-Engine-Platform/Core Platform Modules .docx",
+          "path": "docs/inbox/archive-1/05-Engine-Platform/Core Platform Modules .docx",
+          "sha256": "debe3f5cbf5e831b26ede38188be52c27e4a407e24ce2d29290648a6eec8396a",
+          "size": 194891
+        },
+        {
+          "archive_path": "05-Engine-Platform/Titan_Module_Install_Lifecycle.md",
+          "path": "docs/inbox/archive-1/05-Engine-Platform/Titan_Module_Install_Lifecycle.md",
+          "sha256": "562c4844e8050c0ffd40cdf94b477043899637ef2e3019dbe04d15c6193f3907",
+          "size": 10536
+        },
+        {
+          "archive_path": "05-Engine-Platform/Worksuite_Module_Doctrine_v1.0_LOCKED.pdf",
+          "path": "docs/inbox/archive-1/05-Engine-Platform/Worksuite_Module_Doctrine_v1.0_LOCKED.pdf",
+          "sha256": "2d79c99fb499dfb8580d9cada8ec3db2e7bc2b2f0d9945388738f6e155f39965",
+          "size": 229999
+        },
+        {
+          "archive_path": "05-Engine-Platform/module-packages.md",
+          "path": "docs/inbox/archive-1/05-Engine-Platform/module-packages.md",
+          "sha256": "26d7e3e1ad6101295f866a932fb09802d2506cf38f1883a05fe99b8cd02d8bc4",
+          "size": 5992
+        },
+        {
+          "archive_path": "05-Engine-Platform/module-permissions.md",
+          "path": "docs/inbox/archive-1/05-Engine-Platform/module-permissions.md",
+          "sha256": "c9f8db0c4aec151162f6fbaafcb0a3d7c0fdaf26ba6173bf67e283f81fc5ced1",
+          "size": 5741
+        },
+        {
+          "archive_path": "05-Engine-Platform/module-routing.md",
+          "path": "docs/inbox/archive-1/05-Engine-Platform/module-routing.md",
+          "sha256": "c96c230448c232bc7ca38d817b7f2a2c72ec18e5260a6b38fcb8f7917d037fe9",
+          "size": 6577
+        }
+      ],
+      "files_extracted": 104,
+      "label": "archive-1",
+      "sha256": "f5a1a4b1cccdc80c5c28e897e3b521047be85c093b11cd2d8786c10737c75ee5",
+      "skipped_metadata": [],
+      "source": "docs/Archive.zip"
+    },
+    {
+      "bytes_extracted": 4155889,
+      "files": [
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/node-media-capture-pipeline.md",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/node-media-capture-pipeline.md",
+          "sha256": "49840388719125d25491a2279037bbf109219e224c90c210de7f41ab2061337c",
+          "size": 1280
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/21-communications-voice-and-consent-architecture.md",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/21-communications-voice-and-consent-architecture.md",
+          "sha256": "42cb7fbaf7f3432bc3809b1efa830d95a7aaece8c5d2fda567b2614e24919fec",
+          "size": 11340
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/node-policy-overlays.md",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/node-policy-overlays.md",
+          "sha256": "97c1f94397d13db0f4374be3ecb3f73a8cfdc327437651d15097a75e2568b69d",
+          "size": 6023
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/03-worksuite-filament-pwa-model.md",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/03-worksuite-filament-pwa-model.md",
+          "sha256": "fbb7ab12b3f37ce164ee8adf05a87611c6f7d2439fc306aa41295da5f2af5450",
+          "size": 5635
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/node-api-envelope-contract.md",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/node-api-envelope-contract.md",
+          "sha256": "199e0e02331544af6297f785c39d1cd42fa73f63f40dcf975018059a9a4c46ab",
+          "size": 1287
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/node-signal-envelope.md",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/node-signal-envelope.md",
+          "sha256": "3b97be344fb91222de20b25fd8afadda0b47dc82d64d3005b5ddf4777ab04e33",
+          "size": 6333
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/node-auth-session-rotation.md",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/node-auth-session-rotation.md",
+          "sha256": "f4f721d0dc9afdf7e5aadc8622b775d6eb7880ce80c0c5db2fc809c98b644d91",
+          "size": 1242
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/node-release-and-migration-playbook.md",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/node-release-and-migration-playbook.md",
+          "sha256": "2b788e4a96ae0b65bdddfb9551898686ba071dd0181cda207478c78fe242e688",
+          "size": 1042
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/10-sync-offline-and-conflict-resolution.md",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/10-sync-offline-and-conflict-resolution.md",
+          "sha256": "9f9f66c351b9889a402b86c5501561aba32e7fa8941d6812877a1cd605424664",
+          "size": 5189
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/23-automation-workflow-and-reliability-engine.md",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/23-automation-workflow-and-reliability-engine.md",
+          "sha256": "97f9aa90eb32264b14498bfe70edf7101b5b4dec247d1c9d79aff8ffaae99329",
+          "size": 12327
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/Titan Pro Cloud & PWA Apps.pdf",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/Titan Pro Cloud & PWA Apps.pdf",
+          "sha256": "c5dae47b1c642ad5bf07e98bc192937943fa6d76e83f1a370cb6cbf60346ccd2",
+          "size": 509827
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/node-testing-and-debug-matrix.md",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/node-testing-and-debug-matrix.md",
+          "sha256": "9d1f2cd732c5437f1bf416d94aaf29154709594801fa2c4021e98e5294a1ee6d",
+          "size": 1194
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/node-service-worker-runtime.md",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/node-service-worker-runtime.md",
+          "sha256": "7cd722d0cb0fa8c73e033facd7280261e2ead0b65cb6a71fa005b149850f84cf",
+          "size": 1056
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/Titan_Node_Runtime_and_Conflict_Resolution_Spec.md",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/Titan_Node_Runtime_and_Conflict_Resolution_Spec.md",
+          "sha256": "59ea0408afc4a4d95b0b9d05f7640f80e9bf601eca3684e1167308be3d9cab4b",
+          "size": 3256
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/Titan_Node_Sync_and_Conflict_Examples.md",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/Titan_Node_Sync_and_Conflict_Examples.md",
+          "sha256": "b9afe9650a703021b3ce1a168199dd858fc15312171c759ea954297813bde1ea",
+          "size": 1162
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/node-sync-engine.md",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/node-sync-engine.md",
+          "sha256": "e86ee534d796e42dfd87eca47f2e3a6a1017faa211e3de09670244fb74e03e20",
+          "size": 4471
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/Titan Portal Mobile App.pdf",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/Titan Portal Mobile App.pdf",
+          "sha256": "5ce5f2de741efd65e0293335b01bc9a578ba7d4714f6e53b95611754dc357099",
+          "size": 297938
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/node-service-worker-contract.md",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/node-service-worker-contract.md",
+          "sha256": "195cc8d57fcf64d4f554efbc8fbd2fa4ec87b33f025beaa0e04abb4e49b30ddc",
+          "size": 1621
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/Titan Trust Mobile App.pdf",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/Titan Trust Mobile App.pdf",
+          "sha256": "7a05e2555fee34b97c33e786373b293315e587cd4e93eef047e4e719382bf36a",
+          "size": 450963
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/node-operator-recovery-flows.md",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/node-operator-recovery-flows.md",
+          "sha256": "c8f423bfb3e37c5eb1462b9667aefeffe0b6790f7a20689750741764ab91930f",
+          "size": 5295
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/Titan Command Mobile App.pdf",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/Titan Command Mobile App.pdf",
+          "sha256": "ca7b6b00e29d803a6c586fa723616d9de8b3751bdfe7ca097b9c9e383ce28c71",
+          "size": 295888
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/node-indexeddb-schema.md",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/node-indexeddb-schema.md",
+          "sha256": "f47b3bccf6834fd3d593bf0062cc90a56cacf7759100e01c2838c805f2efeb2a",
+          "size": 3506
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/node-runtime-storage-and-arbitration.md",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/node-runtime-storage-and-arbitration.md",
+          "sha256": "397062b43c323a8815e3f4ab825eb94c80f11509e2248029a6004bb76d4376a0",
+          "size": 1113
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/node-installation-and-deployment.md",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/node-installation-and-deployment.md",
+          "sha256": "ebb41021287e59523b66e53169b5bfddbb183e6fbfc3234ec4b96107fa2c0bdf",
+          "size": 1979
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/node-architecture.md",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/node-architecture.md",
+          "sha256": "52902cba99e6e7e25bfc8aefbfaf63eba7752f94c6176bec9c59308a5628c114",
+          "size": 5371
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/README.md",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/README.md",
+          "sha256": "7707661841b6ee7dcf6436413da4378de31eb53c1e2ef8468559764f83e70ac4",
+          "size": 2687
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/node-push-subscription-contract.md",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/node-push-subscription-contract.md",
+          "sha256": "ec933e8bd2edad09d9f03836ad00fb19fd1116a80fa8d07ae850ff9fc262a39d",
+          "size": 1309
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/node-network-resilience-and-recovery.md",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/node-network-resilience-and-recovery.md",
+          "sha256": "ecf6138343b05535c77448bddefa56468b1c10d0e0484234b00f27f4f2af5395",
+          "size": 1024
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/17-edge-node-and-pwa-runtime-contract.md",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/17-edge-node-and-pwa-runtime-contract.md",
+          "sha256": "3ca1961ccaa9dd13e2dc3375239f3b7c8b0254ecbade7f0ce4e9ceff6ebe8b31",
+          "size": 11581
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/14-observability-performance-and-deployment.md",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/14-observability-performance-and-deployment.md",
+          "sha256": "add1b1762adabde4881a44992cfc8109badfa276b61eefac7f741509447e0032",
+          "size": 2829
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/node-runtime-health-checks.md",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/node-runtime-health-checks.md",
+          "sha256": "3e8bcd2c4747c6404e76257e80a5f6d9696eae320e2a7bf405d5ad2ba6b03d59",
+          "size": 1476
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/Titan Go Mobile App.pdf",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/Titan Go Mobile App.pdf",
+          "sha256": "d7027b6ee9df87bed6b0cc4a10b28c479568c55c3bb7e25814bf34f055c2ab8b",
+          "size": 178567
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/06-node-device-runtime.md",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/06-node-device-runtime.md",
+          "sha256": "282d60eeaad50e25719ab89eebef4a1a6f924ae630c1c66c6b7149e2ac3a1f0b",
+          "size": 5060
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/node-governance-runtime.md",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/node-governance-runtime.md",
+          "sha256": "b44fb1fdcd56dd54f0923398dab69aa12c187a8f71bb296d97a5787ce906bb7a",
+          "size": 1068
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/Titan_Node_Federation_Model.md",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/Titan_Node_Federation_Model.md",
+          "sha256": "3f6977af89ad4f61b3512d7fd2f5b9ad4d0847ba4109f56011618169362376fd",
+          "size": 469
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/node-upgrade-coordination.md",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/node-upgrade-coordination.md",
+          "sha256": "f7ee18a592e31ab5a0a8961c2e9d9589862d338d7eb7faa91643ef13002cbf13",
+          "size": 1145
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/README 2.md",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/README 2.md",
+          "sha256": "f89a670f67ba68ed216a86262425916b820284c48fe556e3a999b5a6612b7005",
+          "size": 1687
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/node-observability.md",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/node-observability.md",
+          "sha256": "6a6224cfc90f27d551ac42392b4dfc1e888ac9959763051de522a792109d52bd",
+          "size": 1141
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/Titan Studio Cloud Design App.pdf",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/Titan Studio Cloud Design App.pdf",
+          "sha256": "ad4ebc313e3c695c7eae188f9fe66bc39dec5ddf302e2e5ab54434ad18feb646",
+          "size": 532109
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/18-signal-envelope-and-event-backfeed-contract.md",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/18-signal-envelope-and-event-backfeed-contract.md",
+          "sha256": "d697f9c2fd53b49557afd875699ef023fd31497811e638314405f776c50afea3",
+          "size": 13034
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/node-role-shell-map.md",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/node-role-shell-map.md",
+          "sha256": "d92cdc3500ee6007051390b058a5b385368ef23c1e5e4263c84d036ad1b0e964",
+          "size": 1316
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/node-edge-ai-runtime.md",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/node-edge-ai-runtime.md",
+          "sha256": "1eff1a8874164fff3b3fb58caf9c655ecdfc0ee3ef0339c9070229d0a8b76812",
+          "size": 1331
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/node-capability-manifest.md",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/node-capability-manifest.md",
+          "sha256": "64acb9ac50d3d509aa8f3816cb8c763ddf70b85cd4811f220e4293e9dccfebb3",
+          "size": 1193
+        },
+        {
+          "archive_path": "07-Nodes-PWA-Mobile/node-sync-payload-spec.md",
+          "path": "docs/inbox/archive-2/07-Nodes-PWA-Mobile/node-sync-payload-spec.md",
+          "sha256": "31105085feae2b0d7ca75d2fd4c94dfc85b3be1af7e8263f26a5d205d34b8a29",
+          "size": 2357
+        },
+        {
+          "archive_path": "08-Communications-Channels/TitanZero \u0393\u00c7\u00f6 Titan Talk Communication System.pdf",
+          "path": "docs/inbox/archive-2/08-Communications-Channels/TitanZero \u0393\u00c7\u00f6 Titan Talk Communication System.pdf",
+          "sha256": "f2f3ca8e1526311bc7dc8590cdbc1ec4fa2d2c4fa880b734df621f38dbc114d4",
+          "size": 90341
+        },
+        {
+          "archive_path": "08-Communications-Channels/Titan_WhatsApp_Engine.md",
+          "path": "docs/inbox/archive-2/08-Communications-Channels/Titan_WhatsApp_Engine.md",
+          "sha256": "cc96183bb3a91df0815be058e823e72d24f5b476e75bfd07210131b6048aa093",
+          "size": 5964
+        },
+        {
+          "archive_path": "08-Communications-Channels/Titan_Push_Engine.md",
+          "path": "docs/inbox/archive-2/08-Communications-Channels/Titan_Push_Engine.md",
+          "sha256": "69190fea4ac551116f39290284cf397e1cdebb10ca080d7338f3bc3180be8a57",
+          "size": 5647
+        },
+        {
+          "archive_path": "08-Communications-Channels/Titan Engine APIs & Contracts (Implementation Guide).pdf",
+          "path": "docs/inbox/archive-2/08-Communications-Channels/Titan Engine APIs & Contracts (Implementation Guide).pdf",
+          "sha256": "f5ada7170e8d988d83e406006fef8140f53c12d3bf8726223807267621dd48ea",
+          "size": 128619
+        },
+        {
+          "archive_path": "08-Communications-Channels/Titan_Channel_Architecture.md",
+          "path": "docs/inbox/archive-2/08-Communications-Channels/Titan_Channel_Architecture.md",
+          "sha256": "9f36c9cae954412e4f15ce8bfb6bb7571454bb66475ddbb5bf35029390b394c8",
+          "size": 7503
+        },
+        {
+          "archive_path": "08-Communications-Channels/Titan_Telegram_Engine.md",
+          "path": "docs/inbox/archive-2/08-Communications-Channels/Titan_Telegram_Engine.md",
+          "sha256": "225d86c87cb2b47a67ca248db35d35dc974fe00961ceb190ca4c6c1b2f6fe6ff",
+          "size": 5841
+        },
+        {
+          "archive_path": "08-Communications-Channels/Titan_Message_Templates.md",
+          "path": "docs/inbox/archive-2/08-Communications-Channels/Titan_Message_Templates.md",
+          "sha256": "2a4e4a8e732eb619569fe9bc48fd724ee5f0f466828cbac734f5f2129efaa9a6",
+          "size": 5559
+        },
+        {
+          "archive_path": "08-Communications-Channels/Titan_Messenger_Engine.md",
+          "path": "docs/inbox/archive-2/08-Communications-Channels/Titan_Messenger_Engine.md",
+          "sha256": "e3f2cf958577973a23f4fb7e4107e9cecc109e554862afb326d19e9982a27a65",
+          "size": 5886
+        },
+        {
+          "archive_path": "08-Communications-Channels/Titan_Communications_Operations_and_Observability.md",
+          "path": "docs/inbox/archive-2/08-Communications-Channels/Titan_Communications_Operations_and_Observability.md",
+          "sha256": "3ac88df962abc8cd10ba6c0357c0eaddfd592b24ed1cdb00f696588d7513e666",
+          "size": 4807
+        },
+        {
+          "archive_path": "08-Communications-Channels/Titan_Presence_and_Session_Sync.md",
+          "path": "docs/inbox/archive-2/08-Communications-Channels/Titan_Presence_and_Session_Sync.md",
+          "sha256": "85ff6e955d9c64ebbc8591ff829ccea0ada29eb32707469780a3fe8ed55d6ebd",
+          "size": 4618
+        },
+        {
+          "archive_path": "08-Communications-Channels/Titan_Communications_Handoff_Contracts.md",
+          "path": "docs/inbox/archive-2/08-Communications-Channels/Titan_Communications_Handoff_Contracts.md",
+          "sha256": "29137cb8d48660e79ebbd4aed5c9d30044d78954340afb3e651b1b4a84bcbc40",
+          "size": 6029
+        },
+        {
+          "archive_path": "08-Communications-Channels/Titan_Routing_and_Failover.md",
+          "path": "docs/inbox/archive-2/08-Communications-Channels/Titan_Routing_and_Failover.md",
+          "sha256": "856737fc14a5bf29ac9e69b2fcfb79b99b7f26c121463133c994933dd912daa5",
+          "size": 6726
+        },
+        {
+          "archive_path": "08-Communications-Channels/Titan_SMS_Engine.md",
+          "path": "docs/inbox/archive-2/08-Communications-Channels/Titan_SMS_Engine.md",
+          "sha256": "745bf5e6cf9a956795ec4c10e4275138f24709aa9ab36d95aaa65f8a64db1b31",
+          "size": 5562
+        },
+        {
+          "archive_path": "08-Communications-Channels/Titan_Omni_Bridge_Layer.md",
+          "path": "docs/inbox/archive-2/08-Communications-Channels/Titan_Omni_Bridge_Layer.md",
+          "sha256": "baeb2ca56bd486fad8a603904a2cf6d95c8525b0be599f9fa12e9af73a2b1eca",
+          "size": 5902
+        },
+        {
+          "archive_path": "08-Communications-Channels/Titan_Conversation_State_Model.md",
+          "path": "docs/inbox/archive-2/08-Communications-Channels/Titan_Conversation_State_Model.md",
+          "sha256": "18795c58b8436cc69fb6ba2bf9e1d90d22641fc2822e378130a33eedc4f8061e",
+          "size": 5482
+        },
+        {
+          "archive_path": "08-Communications-Channels/Titan_Communications_Engine.md",
+          "path": "docs/inbox/archive-2/08-Communications-Channels/Titan_Communications_Engine.md",
+          "sha256": "d47eb64c69f48a5b6eb660820a7ad9c242f5afb927ddf5734d3df5810e857ff3",
+          "size": 9983
+        },
+        {
+          "archive_path": "08-Communications-Channels/Titan_Unified_Inbox.md",
+          "path": "docs/inbox/archive-2/08-Communications-Channels/Titan_Unified_Inbox.md",
+          "sha256": "24fa756d82c3cb8914a582bf787aec74cf116a4a0026103578c8dcc33df30014",
+          "size": 5381
+        },
+        {
+          "archive_path": "08-Communications-Channels/Titan_Delivery_Tracking_and_Retries.md",
+          "path": "docs/inbox/archive-2/08-Communications-Channels/Titan_Delivery_Tracking_and_Retries.md",
+          "sha256": "fbfa61041b4ecd36d6f6d29ffa804aa397532a062bc34eed26fe2b567da8a383",
+          "size": 4426
+        },
+        {
+          "archive_path": "08-Communications-Channels/Titan_Communications_Governance_and_Compliance.md",
+          "path": "docs/inbox/archive-2/08-Communications-Channels/Titan_Communications_Governance_and_Compliance.md",
+          "sha256": "d7716b8071e412b75c4eae9189cb48006ebe91c569b89f5966c316ec8f32c901",
+          "size": 5099
+        },
+        {
+          "archive_path": "08-Communications-Channels/Titan_Talk_Voice_and_Telephony_Layer.md",
+          "path": "docs/inbox/archive-2/08-Communications-Channels/Titan_Talk_Voice_and_Telephony_Layer.md",
+          "sha256": "a95077c0243ed5a4871e55517e50d5b7c0d4a03de1ed28d179eff4960bb9c4a4",
+          "size": 4342
+        },
+        {
+          "archive_path": "08-Communications-Channels/Titan_Channel_Permissions_Model.md",
+          "path": "docs/inbox/archive-2/08-Communications-Channels/Titan_Channel_Permissions_Model.md",
+          "sha256": "6f40e983d18c9cc1e6522d5f949283ae362da33264d612c95f6e1666c6925e62",
+          "size": 5589
+        },
+        {
+          "archive_path": "08-Communications-Channels/Titan_Channel_Webhooks.md",
+          "path": "docs/inbox/archive-2/08-Communications-Channels/Titan_Channel_Webhooks.md",
+          "sha256": "58ca3df40e5e34a754b0c2771bee6ed3eade71688a5c94374dfc3649c0b4af5d",
+          "size": 5759
+        },
+        {
+          "archive_path": "08-Communications-Channels/Titan_Email_Engine.md",
+          "path": "docs/inbox/archive-2/08-Communications-Channels/Titan_Email_Engine.md",
+          "sha256": "7dd6b90aac791bd2c19eb7d9e7d788ce7cfbaeb562c48fd1db80028f49c1cb4b",
+          "size": 4865
+        },
+        {
+          "archive_path": "09-Workflows-Automation/dead-letter-queues.md",
+          "path": "docs/inbox/archive-2/09-Workflows-Automation/dead-letter-queues.md",
+          "sha256": "f7ac14825330f7afcd92b6167976accf24196c2b233e06ee0b0705f1f1b8552f",
+          "size": 5899
+        },
+        {
+          "archive_path": "09-Workflows-Automation/retry-strategy.md",
+          "path": "docs/inbox/archive-2/09-Workflows-Automation/retry-strategy.md",
+          "sha256": "1ef989666fd870077ac80056772cddbf307014ac98f9ff07c6b6c70f6f8b9ec3",
+          "size": 4859
+        },
+        {
+          "archive_path": "09-Workflows-Automation/Titan Automation Rule Model.pdf",
+          "path": "docs/inbox/archive-2/09-Workflows-Automation/Titan Automation Rule Model.pdf",
+          "sha256": "9830de62ba126b310c7721f2aa153ce206037d93e1f8af299e2cec96d31fd3e0",
+          "size": 93766
+        },
+        {
+          "archive_path": "09-Workflows-Automation/recovery-engine.md",
+          "path": "docs/inbox/archive-2/09-Workflows-Automation/recovery-engine.md",
+          "sha256": "3bd4a942e1b21fe1dcaec1876be5825331bfaf3a08a6693de348d8c5a58515ee",
+          "size": 5250
+        },
+        {
+          "archive_path": "09-Workflows-Automation/example-database-schemas.md",
+          "path": "docs/inbox/archive-2/09-Workflows-Automation/example-database-schemas.md",
+          "sha256": "5589737be8556b1d6c94633cc2c073850ff4e0dff6826825fe43bfa831a7d622",
+          "size": 9524
+        },
+        {
+          "archive_path": "09-Workflows-Automation/templates.md",
+          "path": "docs/inbox/archive-2/09-Workflows-Automation/templates.md",
+          "sha256": "c0ae5f7bd161d0ef75e93fae5f850da675d72fafd880efc923182e1bd855b137",
+          "size": 7649
+        },
+        {
+          "archive_path": "09-Workflows-Automation/engine-coordination-patterns.md",
+          "path": "docs/inbox/archive-2/09-Workflows-Automation/engine-coordination-patterns.md",
+          "sha256": "70eabbdaf8560b2b4b42606f8e7377da69f448e8c2509791502987a48fdc2eda",
+          "size": 5332
+        },
+        {
+          "archive_path": "09-Workflows-Automation/_folder-readme.md",
+          "path": "docs/inbox/archive-2/09-Workflows-Automation/_folder-readme.md",
+          "sha256": "d4041673178c3b2a72cc960ec3411aca6ce82fdb5fae9cf0ae6a4a8ff5a45e79",
+          "size": 252
+        },
+        {
+          "archive_path": "09-Workflows-Automation/transitions.md",
+          "path": "docs/inbox/archive-2/09-Workflows-Automation/transitions.md",
+          "sha256": "eb7b9724f7694f78d945870acaf051550785e4bb437a7ab090fea61b93225b06",
+          "size": 7696
+        },
+        {
+          "archive_path": "09-Workflows-Automation/TitanZero \u0393\u00c7\u00f6 Titan Pulse Automation Engine.pdf",
+          "path": "docs/inbox/archive-2/09-Workflows-Automation/TitanZero \u0393\u00c7\u00f6 Titan Pulse Automation Engine.pdf",
+          "sha256": "3e16375c72229174deb6a3ff0fd39b134465ec7a2b288a6fe906530f03ce5cd8",
+          "size": 94717
+        },
+        {
+          "archive_path": "09-Workflows-Automation/trigger-evaluation.md",
+          "path": "docs/inbox/archive-2/09-Workflows-Automation/trigger-evaluation.md",
+          "sha256": "c7f59971b2e689f42cccaa44e09033151778b927c95fd16dc0cf583c5aa296ef",
+          "size": 6504
+        },
+        {
+          "archive_path": "09-Workflows-Automation/lifecycle-engine.md",
+          "path": "docs/inbox/archive-2/09-Workflows-Automation/lifecycle-engine.md",
+          "sha256": "5e7e98762a9bc4b1a5155f76ad49aacbc315df7ecafc84c7c4a0a2fd66d2ec18",
+          "size": 8472
+        },
+        {
+          "archive_path": "09-Workflows-Automation/outbox-inbox-relays.md",
+          "path": "docs/inbox/archive-2/09-Workflows-Automation/outbox-inbox-relays.md",
+          "sha256": "8c8d13a44b3baf593ca632d8f9fc4d35ec9bb4aac04432715c5c363950ed2745",
+          "size": 6569
+        },
+        {
+          "archive_path": "09-Workflows-Automation/Titan_Workflow_Engine.md",
+          "path": "docs/inbox/archive-2/09-Workflows-Automation/Titan_Workflow_Engine.md",
+          "sha256": "31b596f8660f5ae40992e6df08daf5c7bb55deeb3d784ef290d6a8654d9e1aba",
+          "size": 9912
+        },
+        {
+          "archive_path": "09-Workflows-Automation/workflow-definitions.md",
+          "path": "docs/inbox/archive-2/09-Workflows-Automation/workflow-definitions.md",
+          "sha256": "52f36af982094b86ddecd6b4a105e6e21a66b61ea751bc71f82cbcae684c0913",
+          "size": 10823
+        },
+        {
+          "archive_path": "09-Workflows-Automation/guards.md",
+          "path": "docs/inbox/archive-2/09-Workflows-Automation/guards.md",
+          "sha256": "a2ef872331283f899057202a6314d158f53ad5968ede1b1c4d2cfeb1aef995d1",
+          "size": 8296
+        },
+        {
+          "archive_path": "09-Workflows-Automation/state-machines.md",
+          "path": "docs/inbox/archive-2/09-Workflows-Automation/state-machines.md",
+          "sha256": "e14a32be5b7a52122b0b6c002d5fe4b44c9b597eeb5afdd17ea0042f61177c6d",
+          "size": 7892
+        },
+        {
+          "archive_path": "09-Workflows-Automation/titan-governance-flow-mapping.md",
+          "path": "docs/inbox/archive-2/09-Workflows-Automation/titan-governance-flow-mapping.md",
+          "sha256": "05f4bdabd37f11ba904f69097c3d6dd9be8221ee367c607b4b3dd18157e38d5b",
+          "size": 7795
+        },
+        {
+          "archive_path": "09-Workflows-Automation/automation-engines.md",
+          "path": "docs/inbox/archive-2/09-Workflows-Automation/automation-engines.md",
+          "sha256": "5ce57ef6a8aa6404133f17e3742fd82f272e1c6f619754ed524b828dec885863",
+          "size": 11014
+        },
+        {
+          "archive_path": "09-Workflows-Automation/approvals.md",
+          "path": "docs/inbox/archive-2/09-Workflows-Automation/approvals.md",
+          "sha256": "eb5ed8a77183723583eba55fcd9d9dfd159e525c7cd0ddf4d2d1805ded53ff49",
+          "size": 9004
+        },
+        {
+          "archive_path": "09-Workflows-Automation/example-manifests.md",
+          "path": "docs/inbox/archive-2/09-Workflows-Automation/example-manifests.md",
+          "sha256": "e27587ce484ed609c6f347d25d8bb7957f18d6eaf30583123e07f0f75764320e",
+          "size": 7464
+        },
+        {
+          "archive_path": "09-Workflows-Automation/Titan_Automation_Engine.md",
+          "path": "docs/inbox/archive-2/09-Workflows-Automation/Titan_Automation_Engine.md",
+          "sha256": "d2fb846cd08d5a8e0094ea15970668dad120efd84050ee6020dd6d49989ab5d6",
+          "size": 11360
+        },
+        {
+          "archive_path": "09-Workflows-Automation/agent-06-automation-starter.md",
+          "path": "docs/inbox/archive-2/09-Workflows-Automation/agent-06-automation-starter.md",
+          "sha256": "61f7eb92657e50b75225ee29c7796b5ab53fb3f286b768ff6aecd46e77f6331a",
+          "size": 1150
+        },
+        {
+          "archive_path": "09-Workflows-Automation/mermaid-flow-diagrams.md",
+          "path": "docs/inbox/archive-2/09-Workflows-Automation/mermaid-flow-diagrams.md",
+          "sha256": "2c579210379bb7c367e6cbc9973029c81d7e7357676b94dc401a79edb5f50bf2",
+          "size": 6912
+        },
+        {
+          "archive_path": "09-Workflows-Automation/approval-runtime.md",
+          "path": "docs/inbox/archive-2/09-Workflows-Automation/approval-runtime.md",
+          "sha256": "ba508a03983018dd8bbabf592160e0055ab0c97bacceb96b9d8fad14076b30f1",
+          "size": 6011
+        },
+        {
+          "archive_path": "09-Workflows-Automation/operator-debug-playbooks.md",
+          "path": "docs/inbox/archive-2/09-Workflows-Automation/operator-debug-playbooks.md",
+          "sha256": "246869469b211056adf87c2f3220317586f2e9267bec05ef4bb38c373db4f150",
+          "size": 9205
+        },
+        {
+          "archive_path": "09-Workflows-Automation/decision-envelopes.md",
+          "path": "docs/inbox/archive-2/09-Workflows-Automation/decision-envelopes.md",
+          "sha256": "8f826dc138e9c20509180922088e522875d08acc1832380cdc9e73355150b045",
+          "size": 7704
+        },
+        {
+          "archive_path": "09-Workflows-Automation/process-record-integration.md",
+          "path": "docs/inbox/archive-2/09-Workflows-Automation/process-record-integration.md",
+          "sha256": "ade6d8ac7ccd8d1a540503456bfbb486c9d80cb81ffea0e243e3ffa443e536f3",
+          "size": 7246
+        },
+        {
+          "archive_path": "09-Workflows-Automation/metrics.md",
+          "path": "docs/inbox/archive-2/09-Workflows-Automation/metrics.md",
+          "sha256": "db28ceafec7867a328dc7500f3eb98dbdb46367c615d34b58eb91c1dd79a959c",
+          "size": 10847
+        },
+        {
+          "archive_path": "09-Workflows-Automation/runtime-state-store.md",
+          "path": "docs/inbox/archive-2/09-Workflows-Automation/runtime-state-store.md",
+          "sha256": "bea273bd477555b98ce0e4a993bf18ae5897869cd1fe7af7f13fce438363f93f",
+          "size": 5615
+        },
+        {
+          "archive_path": "09-Workflows-Automation/stuck-state-detection.md",
+          "path": "docs/inbox/archive-2/09-Workflows-Automation/stuck-state-detection.md",
+          "sha256": "e06dc56612680723a71ed8be8d4101ecd1dfbc6e4ea955f99b8b4c522946f47f",
+          "size": 13998
+        },
+        {
+          "archive_path": "09-Workflows-Automation/worked-engine-examples.md",
+          "path": "docs/inbox/archive-2/09-Workflows-Automation/worked-engine-examples.md",
+          "sha256": "df7e0cc562fdd49b65caec0da06a1f4b41aeb974475a6862af691f86321c8837",
+          "size": 7553
+        },
+        {
+          "archive_path": "09-Workflows-Automation/idempotency.md",
+          "path": "docs/inbox/archive-2/09-Workflows-Automation/idempotency.md",
+          "sha256": "ffa4364f98f6ba3b43c4d605d008981d449153ad6456a5c482965e976fcc13e2",
+          "size": 7980
+        },
+        {
+          "archive_path": "09-Workflows-Automation/escalation-engine.md",
+          "path": "docs/inbox/archive-2/09-Workflows-Automation/escalation-engine.md",
+          "sha256": "00e99f5fd7f0db22583b1f9727532a29c53c20439c8ef53d3c0d21fe11e01efd",
+          "size": 8713
+        },
+        {
+          "archive_path": "09-Workflows-Automation/reminder-engine.md",
+          "path": "docs/inbox/archive-2/09-Workflows-Automation/reminder-engine.md",
+          "sha256": "1ed28a164b5e5fce1b880aeeade06868463405fb85f98c23e616de51aaff62bb",
+          "size": 8766
+        },
+        {
+          "archive_path": "10-User-Interfaces/titan-solo.md",
+          "path": "docs/inbox/archive-2/10-User-Interfaces/titan-solo.md",
+          "sha256": "f6e1b92bbe024f42c1d01cf9148bcace6192b823cfcd200edd279031a03f79b3",
+          "size": 2458
+        },
+        {
+          "archive_path": "10-User-Interfaces/00-node-architecture.md",
+          "path": "docs/inbox/archive-2/10-User-Interfaces/00-node-architecture.md",
+          "sha256": "d053633f2e85f64ebc80d9096146076d5d1caa32f1a8045414acc3a5d62dea35",
+          "size": 6620
+        },
+        {
+          "archive_path": "10-User-Interfaces/widget-architecture.md",
+          "path": "docs/inbox/archive-2/10-User-Interfaces/widget-architecture.md",
+          "sha256": "7697afc5fadd0d322703b92b50c3c46e1656cd32334e0c6063087fed550dc662",
+          "size": 10607
+        },
+        {
+          "archive_path": "10-User-Interfaces/zeropay.md",
+          "path": "docs/inbox/archive-2/10-User-Interfaces/zeropay.md",
+          "sha256": "3e9c9c5efe2ec47667ee86fa388f3ad7965d5c9a63562fab2c370065f832caaa",
+          "size": 2341
+        },
+        {
+          "archive_path": "10-User-Interfaces/filament-admin.md",
+          "path": "docs/inbox/archive-2/10-User-Interfaces/filament-admin.md",
+          "sha256": "d4ed7f91a4f83ebba685bc0bc2cb4f01f54b0f6645d7f8c6385e9064a692640c",
+          "size": 10762
+        },
+        {
+          "archive_path": "10-User-Interfaces/navigation-shell.md",
+          "path": "docs/inbox/archive-2/10-User-Interfaces/navigation-shell.md",
+          "sha256": "4ca18710c67ea22125a9ee807a72f9c2447e3007b5852e1b3206f642ddf946db",
+          "size": 10295
+        },
+        {
+          "archive_path": "10-User-Interfaces/vertical-overlay-architecture.md",
+          "path": "docs/inbox/archive-2/10-User-Interfaces/vertical-overlay-architecture.md",
+          "sha256": "f8012151497de44bf1217148fddfa43506fe0a4197559f503f09020abd9f7714",
+          "size": 12088
+        },
+        {
+          "archive_path": "10-User-Interfaces/zero-fuss.md",
+          "path": "docs/inbox/archive-2/10-User-Interfaces/zero-fuss.md",
+          "sha256": "862bfed1c78e507d2e20d34ac99c699c521af4172757769365855d3b2c52251b",
+          "size": 2719
+        },
+        {
+          "archive_path": "10-User-Interfaces/titan-hello.md",
+          "path": "docs/inbox/archive-2/10-User-Interfaces/titan-hello.md",
+          "sha256": "bef2fb187ba550c3704c7fbcc864cc815e12350109ece80eb476fbc3bf7159ad",
+          "size": 3029
+        },
+        {
+          "archive_path": "10-User-Interfaces/vertical-registry.md",
+          "path": "docs/inbox/archive-2/10-User-Interfaces/vertical-registry.md",
+          "sha256": "8fc201c385b5df608d4c128db496dd9e9f7df00da36ebc20808cde1e2693a7bf",
+          "size": 7658
+        },
+        {
+          "archive_path": "10-User-Interfaces/filament-panels-and-control-surfaces.md",
+          "path": "docs/inbox/archive-2/10-User-Interfaces/filament-panels-and-control-surfaces.md",
+          "sha256": "28148e64b67937dbfb1d774aa20e1827b4d6bfd7ee5d336ff5210dd315ae4b76",
+          "size": 11135
+        },
+        {
+          "archive_path": "10-User-Interfaces/filament-user.md",
+          "path": "docs/inbox/archive-2/10-User-Interfaces/filament-user.md",
+          "sha256": "ffe8452e4d75686467b800ee6b57a5a5f36c74477dc85b522513473173bd6fe2",
+          "size": 10324
+        },
+        {
+          "archive_path": "10-User-Interfaces/dashboard-system.md",
+          "path": "docs/inbox/archive-2/10-User-Interfaces/dashboard-system.md",
+          "sha256": "007b479f8a3ae9bded71f7e0aeab3ffb009bd6474815a6529e50d17e4e9a63e8",
+          "size": 12390
+        },
+        {
+          "archive_path": "10-User-Interfaces/titan-studio.md",
+          "path": "docs/inbox/archive-2/10-User-Interfaces/titan-studio.md",
+          "sha256": "7f04b076b72c61c81e4301f6f8d7cdf4ebdea147fea4240d2468737ee0272b77",
+          "size": 2276
+        },
+        {
+          "archive_path": "10-User-Interfaces/voice-interface.md",
+          "path": "docs/inbox/archive-2/10-User-Interfaces/voice-interface.md",
+          "sha256": "c8e4cbb2b3d56635b8355155d3de9437df4e45cf4b99b7027b473c225a492620",
+          "size": 9797
+        },
+        {
+          "archive_path": "10-User-Interfaces/titan-pro.md",
+          "path": "docs/inbox/archive-2/10-User-Interfaces/titan-pro.md",
+          "sha256": "14f4f824dbdb1dd5b148ca2890fcfa597e48feee332d6977b58393946c6aa485",
+          "size": 2851
+        },
+        {
+          "archive_path": "10-User-Interfaces/ground-zero.md",
+          "path": "docs/inbox/archive-2/10-User-Interfaces/ground-zero.md",
+          "sha256": "20d064e38d57c580d4040079567fb9395b9abeb66ab581ca7b63cb03ca902e9d",
+          "size": 2375
+        },
+        {
+          "archive_path": "10-User-Interfaces/conversational-os-and-canvas-handoff.md",
+          "path": "docs/inbox/archive-2/10-User-Interfaces/conversational-os-and-canvas-handoff.md",
+          "sha256": "114abfa61857324dc1727821f24174a416f7b8ed21d585036af967c50608815f",
+          "size": 11494
+        },
+        {
+          "archive_path": "10-User-Interfaces/titan-zero-node.md",
+          "path": "docs/inbox/archive-2/10-User-Interfaces/titan-zero-node.md",
+          "sha256": "8457442de9ac6b0bc1626fc128746bb3b14363ab390194d83926f7fd961402a2",
+          "size": 2944
+        },
+        {
+          "archive_path": "10-User-Interfaces/TitanZero \u0393\u00c7\u00f6 Titan Go Mobile & PWA Interface System.pdf",
+          "path": "docs/inbox/archive-2/10-User-Interfaces/TitanZero \u0393\u00c7\u00f6 Titan Go Mobile & PWA Interface System.pdf",
+          "sha256": "983cde7a788fbdf2e1eb7f426da28dee2bf9dd204b4b42bd5792748c00180783",
+          "size": 92339
+        },
+        {
+          "archive_path": "10-User-Interfaces/titan-go.md",
+          "path": "docs/inbox/archive-2/10-User-Interfaces/titan-go.md",
+          "sha256": "af37d41c731251ccc37abc23216f21dac41281999ccd1bbb5ba3704ecad78e79",
+          "size": 3039
+        },
+        {
+          "archive_path": "11-Engine-Developer-Kit/TEDK_Volume_1_Platform_Constitution.md",
+          "path": "docs/inbox/archive-2/11-Engine-Developer-Kit/TEDK_Volume_1_Platform_Constitution.md",
+          "sha256": "5afa7f182f72425d01cf573a3767ca5aecbbaafb2078ff9b266ee58be2dce634",
+          "size": 33956
+        },
+        {
+          "archive_path": "11-Engine-Developer-Kit/TEDK_Volume_2_Engine_Standards.md",
+          "path": "docs/inbox/archive-2/11-Engine-Developer-Kit/TEDK_Volume_2_Engine_Standards.md",
+          "sha256": "437b41b182728317d639aebcaf07ec200426cb8b38db1750874049fa2b2e74b2",
+          "size": 30151
+        },
+        {
+          "archive_path": "11-Engine-Developer-Kit/README_START_HERE.md",
+          "path": "docs/inbox/archive-2/11-Engine-Developer-Kit/README_START_HERE.md",
+          "sha256": "af78909107f5a14982dad1e4d3a8be7212f368b11177fae25d86b24f548bde71",
+          "size": 13734
+        },
+        {
+          "archive_path": "11-Engine-Developer-Kit/TEDK_PROGRESS_REPORT.md",
+          "path": "docs/inbox/archive-2/11-Engine-Developer-Kit/TEDK_PROGRESS_REPORT.md",
+          "sha256": "f2f96dbce3ffd6cecabb16074197b219b4eb9e7be9647996b91b415e46452375",
+          "size": 14534
+        },
+        {
+          "archive_path": "11-Engine-Developer-Kit/TEDK-MASTER-INDEX.md",
+          "path": "docs/inbox/archive-2/11-Engine-Developer-Kit/TEDK-MASTER-INDEX.md",
+          "sha256": "13a5d266fe4047e8bb6444a821091318940a68dc036ddf2ae361359c6b6a50e4",
+          "size": 14413
+        },
+        {
+          "archive_path": "12-Engine-Doctor/UPGRADE_PLAN_PASS11.md",
+          "path": "docs/inbox/archive-2/12-Engine-Doctor/UPGRADE_PLAN_PASS11.md",
+          "sha256": "2911d97686eb5221dec915551e71e9578d0a47eaf88116decb5c56ceadeeda2a",
+          "size": 82
+        },
+        {
+          "archive_path": "12-Engine-Doctor/SAFE_AUTOFIX_MATRIX.json",
+          "path": "docs/inbox/archive-2/12-Engine-Doctor/SAFE_AUTOFIX_MATRIX.json",
+          "sha256": "ab5692366caca5e9b458a2e2e52ac2846f254332b499047480615d2f58879672",
+          "size": 88
+        },
+        {
+          "archive_path": "12-Engine-Doctor/ModuleManifestInspector.php",
+          "path": "docs/inbox/archive-2/12-Engine-Doctor/ModuleManifestInspector.php",
+          "sha256": "c9f1c1685bdc815a440aac4a8f5fce91713ea22862bbde943000991db74a6193",
+          "size": 591
+        },
+        {
+          "archive_path": "12-Engine-Doctor/UPGRADE_PLAN_PASS15.md",
+          "path": "docs/inbox/archive-2/12-Engine-Doctor/UPGRADE_PLAN_PASS15.md",
+          "sha256": "dcc4e6d645cfe8581720054399640e2e6d191b5d1f44da3541f1d20ae17a46e5",
+          "size": 70
+        },
+        {
+          "archive_path": "12-Engine-Doctor/Titan_Observability_and_Doctor_Deep_Spec.md",
+          "path": "docs/inbox/archive-2/12-Engine-Doctor/Titan_Observability_and_Doctor_Deep_Spec.md",
+          "sha256": "fb45aa887efc42e3b15e4a630707558c56499349ae3d36b010ce7a07a4922bba",
+          "size": 1219
+        },
+        {
+          "archive_path": "12-Engine-Doctor/ModuleDoctorManifest.php",
+          "path": "docs/inbox/archive-2/12-Engine-Doctor/ModuleDoctorManifest.php",
+          "sha256": "fd330022ff38e1ea069ab7cd6c66c279ddf6d607bbe3ca7f021301ba9626bf6b",
+          "size": 611
+        },
+        {
+          "archive_path": "12-Engine-Doctor/KnownIssueRegistry.php",
+          "path": "docs/inbox/archive-2/12-Engine-Doctor/KnownIssueRegistry.php",
+          "sha256": "c0ff568c5208811e3b5ee27b6f271e20d0d208d19bcf9c32b25ee80eaf6e3a81",
+          "size": 1183
+        },
+        {
+          "archive_path": "12-Engine-Doctor/CHECKLIST_PASS15.md",
+          "path": "docs/inbox/archive-2/12-Engine-Doctor/CHECKLIST_PASS15.md",
+          "sha256": "bcfce555ed57b112a91ec1b95a6f2e8e2deef420fc546df3c0afd36bda04742f",
+          "size": 112
+        },
+        {
+          "archive_path": "12-Engine-Doctor/CHECKLIST_PASS11.md",
+          "path": "docs/inbox/archive-2/12-Engine-Doctor/CHECKLIST_PASS11.md",
+          "sha256": "8473405b5dc2bdbbc173173f2e503b9e063cff8b66716d5145dcae6f9f7c5399",
+          "size": 125
+        },
+        {
+          "archive_path": "12-Engine-Doctor/role-profiles.php",
+          "path": "docs/inbox/archive-2/12-Engine-Doctor/role-profiles.php",
+          "sha256": "3802067041bfa987fc9baed2cbb75f8f8afc28e045bb6826ae27e4fb0243e295",
+          "size": 65
+        },
+        {
+          "archive_path": "12-Engine-Doctor/visibility-rules.php",
+          "path": "docs/inbox/archive-2/12-Engine-Doctor/visibility-rules.php",
+          "sha256": "51836648591d09160e216d53596249a80b4d1c9e8baef2d97bd0eb3413c0fc4a",
+          "size": 136
+        },
+        {
+          "archive_path": "12-Engine-Doctor/doctor-manifest-pass11.php",
+          "path": "docs/inbox/archive-2/12-Engine-Doctor/doctor-manifest-pass11.php",
+          "sha256": "54a7730c0445693efa4f7cc49cb7c344110c5621e30294e71dbdc2478124aa48",
+          "size": 80
+        },
+        {
+          "archive_path": "12-Engine-Doctor/UserMenuVisibilityChecklistService.php",
+          "path": "docs/inbox/archive-2/12-Engine-Doctor/UserMenuVisibilityChecklistService.php",
+          "sha256": "3544045b8f512ae514321fc2f36a4808273ff25d079e988f1db3d80ae04ca0cb",
+          "size": 1228
+        },
+        {
+          "archive_path": "12-Engine-Doctor/KNOWN_MENU_BLOCKERS.md",
+          "path": "docs/inbox/archive-2/12-Engine-Doctor/KNOWN_MENU_BLOCKERS.md",
+          "sha256": "7bd3edd9646f12dc42f4ea32979eff07c08b16b3e74ef4d1d8ff56f72a04e955",
+          "size": 140
+        },
+        {
+          "archive_path": "12-Engine-Doctor/README_PASS11.md",
+          "path": "docs/inbox/archive-2/12-Engine-Doctor/README_PASS11.md",
+          "sha256": "77664be980653cf3613b9b8ef41d3027b5cc58277f1cd47e0a4d03b472620e88",
+          "size": 114
+        },
+        {
+          "archive_path": "12-Engine-Doctor/README_PASS15.md",
+          "path": "docs/inbox/archive-2/12-Engine-Doctor/README_PASS15.md",
+          "sha256": "af92ad2449d665a80a16b1678b1711a23cf2f4708efdee5306cba1d4adb389df",
+          "size": 91
+        },
+        {
+          "archive_path": "12-Engine-Doctor/sidebar-workspaces.php",
+          "path": "docs/inbox/archive-2/12-Engine-Doctor/sidebar-workspaces.php",
+          "sha256": "e6f53ab2d107655ad48cefb37766d9955df8b00f9b76b451fe715eb0f76cfe28",
+          "size": 59
+        },
+        {
+          "archive_path": "12-Engine-Doctor/REPORT_SCHEMA_PASS11.json",
+          "path": "docs/inbox/archive-2/12-Engine-Doctor/REPORT_SCHEMA_PASS11.json",
+          "sha256": "cc2202762d44f345b48efeab50a7cbed250ead21d88fcaa784b9767a3efe82c5",
+          "size": 87
+        },
+        {
+          "archive_path": "12-Engine-Doctor/Truth/SAFE_DB_AUTOFIX_RULES.json",
+          "path": "docs/inbox/archive-2/12-Engine-Doctor/Truth/SAFE_DB_AUTOFIX_RULES.json",
+          "sha256": "d398416cb68ddda918633c7e2c75c0b582395a5282bea44d7640e8627212e9b7",
+          "size": 306
+        },
+        {
+          "archive_path": "12-Engine-Doctor/Truth/README_PASS12.md",
+          "path": "docs/inbox/archive-2/12-Engine-Doctor/Truth/README_PASS12.md",
+          "sha256": "8dd698bae61200e82ec5e7adb9274158bbd2ab2c5c7892cda214a7df980d2d36",
+          "size": 290
+        },
+        {
+          "archive_path": "12-Engine-Doctor/Truth/menu-status-codes.php",
+          "path": "docs/inbox/archive-2/12-Engine-Doctor/Truth/menu-status-codes.php",
+          "sha256": "9d8ce28c72b37b2b16931d0e6930888d54b0c281c14ed1bd3847131828a276ac",
+          "size": 135
+        },
+        {
+          "archive_path": "12-Engine-Doctor/Truth/role-priority.php",
+          "path": "docs/inbox/archive-2/12-Engine-Doctor/Truth/role-priority.php",
+          "sha256": "7e031b76b2625ce34ebd034300c32cc25e9fb76b276344a7350a6c3fe4372ba7",
+          "size": 99
+        },
+        {
+          "archive_path": "12-Engine-Doctor/Truth/visibility-truth-rules.php",
+          "path": "docs/inbox/archive-2/12-Engine-Doctor/Truth/visibility-truth-rules.php",
+          "sha256": "484673deaf45a4b7298872cb90a15e88e2b8e132862d2a5c546259a9f8e1672a",
+          "size": 636
+        },
+        {
+          "archive_path": "12-Engine-Doctor/Truth/REPORT_FIELDS_PASS12.json",
+          "path": "docs/inbox/archive-2/12-Engine-Doctor/Truth/REPORT_FIELDS_PASS12.json",
+          "sha256": "3f3b9b19089fe5766e3ba8b7d077127be3f0b2c83eb23d8dc821ef05119f11b1",
+          "size": 260
+        },
+        {
+          "archive_path": "12-Engine-Doctor/Truth/MenuTruthEngineReadme.md",
+          "path": "docs/inbox/archive-2/12-Engine-Doctor/Truth/MenuTruthEngineReadme.md",
+          "sha256": "6c8e850abf5d55f439c896a58344a543047072b6a69798b65ab71f9de060c61b",
+          "size": 160
+        },
+        {
+          "archive_path": "12-Engine-Doctor/Truth/menu-route-policy.php",
+          "path": "docs/inbox/archive-2/12-Engine-Doctor/Truth/menu-route-policy.php",
+          "sha256": "0910142923ea8ad7a0d57e396eca7463f1297b1f6613cc2de2a281c8c69ed67a",
+          "size": 63
+        },
+        {
+          "archive_path": "12-Engine-Doctor/Truth/menu-safe-fixes.json",
+          "path": "docs/inbox/archive-2/12-Engine-Doctor/Truth/menu-safe-fixes.json",
+          "sha256": "0f1e6b8f1e016c24868718e06967d1903a42443fae1a48dcab96ccd3a1f78810",
+          "size": 219
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/24-API-TOOLS-AND-EXTERNAL-SURFACES.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/24-API-TOOLS-AND-EXTERNAL-SURFACES.md",
+          "sha256": "2a2d80e3d40da44f53656352b34c09186d74d9248e5749426983bf2a3ad57d33",
+          "size": 1267
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/32-EVENT-JOB-NOTIFICATION-NAMING-CONVENTIONS.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/32-EVENT-JOB-NOTIFICATION-NAMING-CONVENTIONS.md",
+          "sha256": "65bb8b293d492e3c9ea7fe7cfadd826774c60ecf49ae97adcb9465a86e4a416c",
+          "size": 887
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/30-ROUTE-NAMING-AND-SURFACE-MATRIX.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/30-ROUTE-NAMING-AND-SURFACE-MATRIX.md",
+          "sha256": "de6ce2ae27ce07e9a36fb7251d1364b68c2a2b66204ff926864010f9cac7412a",
+          "size": 1095
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/13-SYNC-OFFLINE-NODE-BLUEPRINT.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/13-SYNC-OFFLINE-NODE-BLUEPRINT.md",
+          "sha256": "7b76056ba7aafcc52f5dc67518970c011cab97ca31aadaccb8c1c170967089ce",
+          "size": 1732
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/08-BOILERPLATE-SYSTEM.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/08-BOILERPLATE-SYSTEM.md",
+          "sha256": "3354e01014b906298fdf3ea639d545a75a859123e31cf9a19dbaaa5682d3a39d",
+          "size": 4876
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/Titan_Builder_Checklist.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/Titan_Builder_Checklist.md",
+          "sha256": "de0ac26aca41a7a880634bad914f959f03856f89c8c3ac5ab953064e34ef2ab9",
+          "size": 850
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/25-CMS-PWA-OMNI-SURFACE-MAP.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/25-CMS-PWA-OMNI-SURFACE-MAP.md",
+          "sha256": "5e480454e67588039e3cccb2de2e2b758ab90d1c015d139467543f74acaac840",
+          "size": 1236
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/19-TENANCY-IDENTITY-BOUNDARY-BLUEPRINT.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/19-TENANCY-IDENTITY-BOUNDARY-BLUEPRINT.md",
+          "sha256": "a1fbf08e6dde427bdb1ddab75bb697ccd336b0797a09280705fa6019566a1eee",
+          "size": 2518
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/23-OBSERVABILITY-HEALTH-DOCTOR-BLUEPRINT.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/23-OBSERVABILITY-HEALTH-DOCTOR-BLUEPRINT.md",
+          "sha256": "c3f0963b1c2856fc66ba9d11fdd7293577aa2bf32da7fb44b3eef8fa2eec448a",
+          "size": 1459
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/Titan_Manifest_and_Tool_Examples.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/Titan_Manifest_and_Tool_Examples.md",
+          "sha256": "4f2c5d7fe369aba65101b59444e4da1a055ee559b160b0fc83ec2911a4d72a5a",
+          "size": 1133
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/28-CANONICAL-MODULE-STARTER-PACK.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/28-CANONICAL-MODULE-STARTER-PACK.md",
+          "sha256": "b03569e01e1ba74ea7a824fec164465887f6140219ac67f1903cfe0921d9dcb2",
+          "size": 1486
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/29-CANONICAL-FILAMENT-STARTER-PACK.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/29-CANONICAL-FILAMENT-STARTER-PACK.md",
+          "sha256": "071edb63eeaabdb263eff60d9712ad613a16082f21d0ac3d6169eb0749f22a0f",
+          "size": 1010
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/00-INDEX.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/00-INDEX.md",
+          "sha256": "50ce7c40c4f71ba1433ea94a84cf1558f7f242f5fd03ec51e6b19a30d052eb1a",
+          "size": 5290
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/Titan Zero New system developers starter template.pdf",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/Titan Zero New system developers starter template.pdf",
+          "sha256": "83073a02fe7f2b04a5baddc2476ac2762aa3cbe892fb89f76ebdc8b47caa0164",
+          "size": 101291
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/01-FULL-SYSTEM-DIRECTORY-TREE.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/01-FULL-SYSTEM-DIRECTORY-TREE.md",
+          "sha256": "4fc5027ecdcf60ed2742e7442f65033b7c4a8de850f31b7c7ce385addd7b9faf",
+          "size": 2225
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/Titan_Signal_Envelope_Examples.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/Titan_Signal_Envelope_Examples.md",
+          "sha256": "5a8a97f873cc3b08c324b9b98afc9d784e532f60a6b604d54c3ca9261faa1cdf",
+          "size": 1395
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/26-MULTI-AGENT-DOCS-WORKSPLIT.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/26-MULTI-AGENT-DOCS-WORKSPLIT.md",
+          "sha256": "5ac5331bef025f9d126ad597253262158a403c5d35255c7ff8524e3bbd99e4ca",
+          "size": 1204
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/18-TESTING-DEPLOYMENT-BLUEPRINT.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/18-TESTING-DEPLOYMENT-BLUEPRINT.md",
+          "sha256": "2eb8c5af1220907e97872fc3068487db312b92035d2167f1aa9d56fd7d56462f",
+          "size": 1906
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/15-module-and-plugin-blueprint.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/15-module-and-plugin-blueprint.md",
+          "sha256": "49ac9f63da46b0e6cf78fd788f5cb0c900532d730cc917c92da4e8a560fd2d86",
+          "size": 10505
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/blueprints.txt",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/blueprints.txt",
+          "sha256": "8906935c96a13bff603a1caedde164f1cb0a287460cd88bd346d9f356d2c12ad",
+          "size": 23
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/10-WORKFLOW-STATE-MACHINE-BLUEPRINT.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/10-WORKFLOW-STATE-MACHINE-BLUEPRINT.md",
+          "sha256": "f2714a98d171fcb5568959d8ce2e3b8a9679ae4c3b7293cbb4244cb91060d293",
+          "size": 2094
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/31-DATABASE-TABLE-MATRIX-AND-NAMING.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/31-DATABASE-TABLE-MATRIX-AND-NAMING.md",
+          "sha256": "628448832e9469472160f93c927d31550983606f038dc88f3abdd3e084b6d434",
+          "size": 1031
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/12-SCHEDULING-RETRY-IDEMPOTENCY-BLUEPRINT.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/12-SCHEDULING-RETRY-IDEMPOTENCY-BLUEPRINT.md",
+          "sha256": "45c2636b5af111b8f4d1d2f9d33bef9714a92127b32a6e191d573a74fd136688",
+          "size": 1850
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/06-FILAMENT-PLUGIN-BLUEPRINT.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/06-FILAMENT-PLUGIN-BLUEPRINT.md",
+          "sha256": "cdf596bce484980fcf27a29a7477126f9a87500548a95eaffd47685104687f91",
+          "size": 1238
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/17-MANIFESTS-CONTRACTS-BLUEPRINT.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/17-MANIFESTS-CONTRACTS-BLUEPRINT.md",
+          "sha256": "78f3c0f16adfb6bbbfaaad040e561ce211b9cc917b22f7fca9c2fa6d68e5d679",
+          "size": 1586
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/03-FULL-ENGINE-BLUEPRINT.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/03-FULL-ENGINE-BLUEPRINT.md",
+          "sha256": "7d61beb3c779e948d08898a045babb936b09175622d756a8cd8c6bf3ada9926c",
+          "size": 2464
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/09-SIGNALS-ENGINE-BLUEPRINT.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/09-SIGNALS-ENGINE-BLUEPRINT.md",
+          "sha256": "395581007bde6db60e916805c897e27072589f2a79c9cabd31ce5f253bded5dc",
+          "size": 2435
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/05-MODULE-BLUEPRINT.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/05-MODULE-BLUEPRINT.md",
+          "sha256": "f143f9a0abff17b802af97c26c4090569a52f46f26f506cf724f4617a5d4d9d2",
+          "size": 2701
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/16-PROVIDER-REGISTRY-BOOTSTRAP-BLUEPRINT.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/16-PROVIDER-REGISTRY-BOOTSTRAP-BLUEPRINT.md",
+          "sha256": "e99813cd8608dafda812d57d1aa614c7d3a054a066317294f0107d98b6816494",
+          "size": 2026
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/21-FILAMENT-PANEL-INTEGRATION-BLUEPRINT.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/21-FILAMENT-PANEL-INTEGRATION-BLUEPRINT.md",
+          "sha256": "eadac931ec479db97ad45a846908aa95ed73c52439af52d798085f3785254f22",
+          "size": 1907
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/15-OMNI-CHANNEL-BLUEPRINT.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/15-OMNI-CHANNEL-BLUEPRINT.md",
+          "sha256": "d70e4a1b8f0f333bd9b500d1ea36eb4531b70b4976eaf8f8efde8c5971ba6061",
+          "size": 1423
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/Titan_Spec_Template_Library.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/Titan_Spec_Template_Library.md",
+          "sha256": "d6927f72caa3be329d3beb2ff07019a3e81e694bfac69b3ad10d078d6a3b3a2e",
+          "size": 916
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/14-PWA-SURFACE-BLUEPRINT.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/14-PWA-SURFACE-BLUEPRINT.md",
+          "sha256": "6f5b142ab118503744da3349825375fc154cdbf0917e73a1070d7d608cfefd99",
+          "size": 1468
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/07-MODULE-PLUS-PLUGIN-SPLIT-RULES.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/07-MODULE-PLUS-PLUGIN-SPLIT-RULES.md",
+          "sha256": "3374b40097c3d4ebfde7ad8f6b467f3c8d72c57ece3ec7597db61d602889ea92",
+          "size": 1315
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/11-COMMUNICATIONS-ENGINE-BLUEPRINT.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/11-COMMUNICATIONS-ENGINE-BLUEPRINT.md",
+          "sha256": "703f6a2aa4daa0da5902c83df18ac0502b8ba77c3d7583fd0df9e3866f46d05e",
+          "size": 1798
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/22-SECURITY-PERMISSIONS-AUDIT-BLUEPRINT.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/22-SECURITY-PERMISSIONS-AUDIT-BLUEPRINT.md",
+          "sha256": "dc2b01997326f90b5b0828e99d002fb4a8bd064e8966e02975b7c1674d60b170",
+          "size": 1594
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/04-AI-CORE-BLUEPRINT.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/04-AI-CORE-BLUEPRINT.md",
+          "sha256": "d34709b5a5510d4e70501c283105ef4396fcdd74f415e55d428ac4ec4834d115",
+          "size": 2747
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/33-GOLDEN-WORKED-EXAMPLE-BOOKING-MODULE.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/33-GOLDEN-WORKED-EXAMPLE-BOOKING-MODULE.md",
+          "sha256": "883e7f86c4ad756ec058d41e2224f7d8e05febbafdabfc80fa8fae4e1510717f",
+          "size": 1279
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/20-MODULE-INSTALL-UPGRADE-LIFECYCLE.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/20-MODULE-INSTALL-UPGRADE-LIFECYCLE.md",
+          "sha256": "15774c5abd6ebbc0bd10b764f54664a7de457ea5abb2c0c77bb3688899652a9c",
+          "size": 2086
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/34-PLATFORM-AND-MODULE-CHECKLIST-MASTER.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/34-PLATFORM-AND-MODULE-CHECKLIST-MASTER.md",
+          "sha256": "a3db63005b3ba555e42a77f9eec3e74305194dd18c2fad1e68f3c9662b4335d9",
+          "size": 1158
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/Titan Zero architecture blueprint .pdf",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/Titan Zero architecture blueprint .pdf",
+          "sha256": "9fa82779c65a181d35678d2a3c466805e6c0ffe935a7f5f9b82af99adc86cdfb",
+          "size": 118005
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/Titan Core Engine Map (Master Blueprint).pdf",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/Titan Core Engine Map (Master Blueprint).pdf",
+          "sha256": "535a24b35cec7e596057e338b714aa885edab3de535f82685cd52851fb767886",
+          "size": 83622
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/MERGE_NOTE_v10.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/MERGE_NOTE_v10.md",
+          "sha256": "2c32ac93e100ed829052267e51975ae8d042838d1eaf556b4fc1fe6563d66b08",
+          "size": 411
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/Titan Zero New engine developers starter template.pdf",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/Titan Zero New engine developers starter template.pdf",
+          "sha256": "2ef38e46e03ea7bf2c3c296d90d998eef9a0d6c071bc88b58a0324ce8986279f",
+          "size": 131431
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/02-PLATFORM-BLUEPRINT.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/02-PLATFORM-BLUEPRINT.md",
+          "sha256": "3557655afd7a13e05b05522a322e5257deb5d80d9e724e8adab4f4ef891df7e1",
+          "size": 3212
+        },
+        {
+          "archive_path": "13-Blueprints-Patterns/27-CANONICAL-PLATFORM-STARTER-PACK.md",
+          "path": "docs/inbox/archive-2/13-Blueprints-Patterns/27-CANONICAL-PLATFORM-STARTER-PACK.md",
+          "sha256": "b38a9c204e64135ee2dfa6952e06788fb023ef4288726e3015575c579adb7421",
+          "size": 1607
+        },
+        {
+          "archive_path": "14-Titan-OS/Titan OS.docx",
+          "path": "docs/inbox/archive-2/14-Titan-OS/Titan OS.docx",
+          "sha256": "d75122a874cd30cdb4b89de22b30addbbc7a2ba7a37089598963e98b3d738603",
+          "size": 11265
+        },
+        {
+          "archive_path": "14-Titan-OS/Titan_Zero_OS.docx",
+          "path": "docs/inbox/archive-2/14-Titan-OS/Titan_Zero_OS.docx",
+          "sha256": "ff8cbbd91087abdfe27c052e56d9bededfb6ffb9696c667fbf500e20c719f5fc",
+          "size": 28048
+        },
+        {
+          "archive_path": "14-Titan-OS/Titan OS developer guide.docx",
+          "path": "docs/inbox/archive-2/14-Titan-OS/Titan OS developer guide.docx",
+          "sha256": "c0a53fddee15b5d9e0b0b42ee6fcd91b719b18d02aebf766f91798096aa181f0",
+          "size": 75806
+        }
+      ],
+      "files_extracted": 204,
+      "label": "archive-2",
+      "sha256": "c6ff5549b1a87a04a59b8a1c63d4f04ca785a39f2849eef6c5569e9bc04df464",
+      "skipped_metadata": [],
+      "source": "docs/Archive 2.zip"
+    }
+  ]
+}

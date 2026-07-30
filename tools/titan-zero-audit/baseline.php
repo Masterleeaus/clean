@@ -13,7 +13,7 @@ final class TitanZeroBaselineAudit
         'package.json',
         'app/Domains/WorkCore/WorkCoreServiceProvider.php',
         'app/Extensions/Chatbot/extension.json',
-        'EXTENSIONS_IMPORT_MANIFEST.json',
+        'docs/provenance/root-imported/extensions_import_manifest.json',
     ];
 
     public function __construct(private readonly string $root)
@@ -72,7 +72,7 @@ final class TitanZeroBaselineAudit
     /** @return array<string, mixed> */
     private function extensionInventory(): array
     {
-        $manifest = $this->decodeJsonFile($this->path('EXTENSIONS_IMPORT_MANIFEST.json'));
+        $manifest = $this->decodeJsonFile($this->path('docs/provenance/root-imported/extensions_import_manifest.json'));
         $expected = [];
         foreach (($manifest['records'] ?? []) as $record) {
             $namespace = trim((string) ($record['namespace'] ?? ''));
