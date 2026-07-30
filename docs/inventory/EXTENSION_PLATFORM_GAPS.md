@@ -1,6 +1,6 @@
 # Extension Platform Registry Gaps
 
-Source inventory commit: `16eef612617d32b6c63380524f2d6ba5a0d793a0`
+Source inventory commit: `06b84cb7bb40d41d022372ecf0685d0a43ee1a95`
 
 ## Filesystem extensions not mapped by Marketplace
 
@@ -60,7 +60,7 @@ Source inventory commit: `16eef612617d32b6c63380524f2d6ba5a0d793a0`
 ## Manifest and test coverage
 
 - Extension directories without any recognised manifest: **0**
-- Invalid `extension.json` documents: **93**
+- Invalid `extension.json` documents: **0**
 - Extension directories with no detected test files: **88** of **95**
 
 ### No detected tests

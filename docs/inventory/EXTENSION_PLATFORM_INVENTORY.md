@@ -1,6 +1,6 @@
 # Extension Platform Runtime Inventory
 
-Source commit: `16eef612617d32b6c63380524f2d6ba5a0d793a0`
+Source commit: `06b84cb7bb40d41d022372ecf0685d0a43ee1a95`
 
 This inventory separates files present on disk, marketplace mappings, manifests and lifecycle behaviour from verified installation, qualification and activation.
 

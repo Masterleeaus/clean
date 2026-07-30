@@ -44,7 +44,7 @@ def files_under(path: Path) -> list[Path]:
 
 def safe_json(path: Path) -> Any:
     try:
-        return json.loads(path.read_text(encoding="utf-8"))
+        return json.loads(path.read_text(encoding="utf-8-sig"))
     except (OSError, json.JSONDecodeError):
         return {"invalid": True}
 

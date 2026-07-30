@@ -1,5 +1,5 @@
 {
-  "source_commit": "16eef612617d32b6c63380524f2d6ba5a0d793a0",
+  "source_commit": "06b84cb7bb40d41d022372ecf0685d0a43ee1a95",
   "extensions": [
     {
       "directory": "AdvancedImage",
@@ -11,11 +11,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Advanced Image",
+        "type": "extension",
+        "version": "2.14",
+        "description": "Advanced Image extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Advanced Image",
+      "manifest_version": "2.14",
+      "manifest_description": "Advanced Image extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/AdvancedImage/System/AdvancedImageServiceProvider.php"
       ],
@@ -53,7 +57,9 @@
         "extends"
       ],
       "php_symbol_count": 21,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Advanced Image"
+      ]
     },
     {
       "directory": "AIAgent",
@@ -65,11 +71,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "AI Agent",
+        "type": "extension",
+        "version": "1.1",
+        "description": "Autonomous AI agent with multi-channel messaging, workflow automation, and user memory — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "AI Agent",
+      "manifest_version": "1.1",
+      "manifest_description": "Autonomous AI agent with multi-channel messaging, workflow automation, and user memory — TG: @heew_support",
       "provider_files": [
         "app/Extensions/AIAgent/System/AIAgentServiceProvider.php"
       ],
@@ -181,7 +191,9 @@
         "extends"
       ],
       "php_symbol_count": 75,
-      "registration_keys": []
+      "registration_keys": [
+        "name:AI Agent"
+      ]
     },
     {
       "directory": "AIAgentGmail",
@@ -193,11 +205,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "AI Agent: Gmail",
+        "type": "extension",
+        "version": "1.0",
+        "description": "Integrates Gmail with AIAgent: email reading, composing, and management via Google Gmail API. — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "AI Agent: Gmail",
+      "manifest_version": "1.0",
+      "manifest_description": "Integrates Gmail with AIAgent: email reading, composing, and management via Google Gmail API. — TG: @heew_support",
       "provider_files": [
         "app/Extensions/AIAgentGmail/System/AIAgentGmailServiceProvider.php"
       ],
@@ -237,7 +253,9 @@
         "extends"
       ],
       "php_symbol_count": 24,
-      "registration_keys": []
+      "registration_keys": [
+        "name:AI Agent: Gmail"
+      ]
     },
     {
       "directory": "AIAgentSlackChannel",
@@ -249,11 +267,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "AI Agent: Slack Channel",
+        "type": "extension",
+        "version": "1.0",
+        "description": "Adds Slack channel support to AI Agent via Slack Web API. Requires the AI Agent extension. — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "AI Agent: Slack Channel",
+      "manifest_version": "1.0",
+      "manifest_description": "Adds Slack channel support to AI Agent via Slack Web API. Requires the AI Agent extension. — TG: @heew_support",
       "provider_files": [
         "app/Extensions/AIAgentSlackChannel/System/AIAgentSlackChannelServiceProvider.php"
       ],
@@ -271,7 +293,9 @@
         "App\\Extensions\\AIAgentSlackChannel\\System\\Http\\Controllers\\Webhook\\SlackWebhookController"
       ],
       "php_symbol_count": 4,
-      "registration_keys": []
+      "registration_keys": [
+        "name:AI Agent: Slack Channel"
+      ]
     },
     {
       "directory": "AIAgentToolChatbot",
@@ -283,11 +307,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "AI Agent Tool: Chatbot",
+        "type": "extension",
+        "version": "1.0",
+        "description": "Bridges AIAgent and Chatbot: enhanced reporting and Auto Tool Calling tools for chatbot and conversation management. — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "AI Agent Tool: Chatbot",
+      "manifest_version": "1.0",
+      "manifest_description": "Bridges AIAgent and Chatbot: enhanced reporting and Auto Tool Calling tools for chatbot and conversation management. — TG: @heew_support",
       "provider_files": [
         "app/Extensions/AIAgentToolChatbot/System/AIAgentToolChatbotServiceProvider.php"
       ],
@@ -311,7 +339,9 @@
         "App\\Extensions\\AIAgentToolChatbot\\System\\Actions\\so"
       ],
       "php_symbol_count": 10,
-      "registration_keys": []
+      "registration_keys": [
+        "name:AI Agent Tool: Chatbot"
+      ]
     },
     {
       "directory": "AIAgentToolMarketingBot",
@@ -323,11 +353,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "AI Agent Tool: Marketing Bot",
+        "type": "extension",
+        "version": "1.0",
+        "description": "Bridges AIAgent and MarketingBot: enhanced reporting and Auto Tool Calling tools for campaign and conversation management. — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "AI Agent Tool: Marketing Bot",
+      "manifest_version": "1.0",
+      "manifest_description": "Bridges AIAgent and MarketingBot: enhanced reporting and Auto Tool Calling tools for campaign and conversation management. — TG: @heew_support",
       "provider_files": [
         "app/Extensions/AIAgentToolMarketingBot/System/AIAgentToolMarketingBotServiceProvider.php"
       ],
@@ -350,7 +384,9 @@
         "App\\Extensions\\AIAgentToolMarketingBot\\System\\Actions\\so"
       ],
       "php_symbol_count": 9,
-      "registration_keys": []
+      "registration_keys": [
+        "name:AI Agent Tool: Marketing Bot"
+      ]
     },
     {
       "directory": "AIAgentToolSocialMediaAgent",
@@ -362,11 +398,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "AI Agent Tool: Social Media Agent",
+        "type": "extension",
+        "version": "1.0",
+        "description": "Bridges AIAgent and SocialMediaAgent: enhanced reporting and Auto Tool Calling tools for social media management. — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "AI Agent Tool: Social Media Agent",
+      "manifest_version": "1.0",
+      "manifest_description": "Bridges AIAgent and SocialMediaAgent: enhanced reporting and Auto Tool Calling tools for social media management. — TG: @heew_support",
       "provider_files": [
         "app/Extensions/AIAgentToolSocialMediaAgent/System/AIAgentToolSocialMediaAgentServiceProvider.php"
       ],
@@ -390,7 +430,9 @@
         "App\\Extensions\\AIAgentToolSocialMediaAgent\\System\\Actions\\adds"
       ],
       "php_symbol_count": 10,
-      "registration_keys": []
+      "registration_keys": [
+        "name:AI Agent Tool: Social Media Agent"
+      ]
     },
     {
       "directory": "AIAgentWhatsappChannel",
@@ -402,11 +444,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "AI Agent: WhatsApp Channel",
+        "type": "extension",
+        "version": "1.0",
+        "description": "Adds WhatsApp channel support to AI Agent via Meta Cloud API. Requires the AI Agent extension. — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "AI Agent: WhatsApp Channel",
+      "manifest_version": "1.0",
+      "manifest_description": "Adds WhatsApp channel support to AI Agent via Meta Cloud API. Requires the AI Agent extension. — TG: @heew_support",
       "provider_files": [
         "app/Extensions/AIAgentWhatsappChannel/System/AIAgentWhatsappChannelServiceProvider.php"
       ],
@@ -424,7 +470,9 @@
         "App\\Extensions\\AIAgentWhatsappChannel\\System\\Http\\Controllers\\Webhook\\WhatsappWebhookController"
       ],
       "php_symbol_count": 4,
-      "registration_keys": []
+      "registration_keys": [
+        "name:AI Agent: WhatsApp Channel"
+      ]
     },
     {
       "directory": "AiAvatar",
@@ -436,11 +484,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "AI Avatar",
+        "type": "extension",
+        "version": "2.5",
+        "description": "AI Avatar extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "AI Avatar",
+      "manifest_version": "2.5",
+      "manifest_description": "AI Avatar extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/AiAvatar/System/AiAvatarServiceProvider.php"
       ],
@@ -464,7 +516,9 @@
         "extends"
       ],
       "php_symbol_count": 8,
-      "registration_keys": []
+      "registration_keys": [
+        "name:AI Avatar"
+      ]
     },
     {
       "directory": "AiCaptions",
@@ -476,11 +530,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "AI Captions",
+        "type": "extension",
+        "version": "1.2",
+        "description": "AI Captions extension for magicai — automatically add stylized animated captions to videos via the Captions API. — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "AI Captions",
+      "manifest_version": "1.2",
+      "manifest_description": "AI Captions extension for magicai — automatically add stylized animated captions to videos via the Captions API. — TG: @heew_support",
       "provider_files": [
         "app/Extensions/AiCaptions/System/AiCaptionsServiceProvider.php"
       ],
@@ -509,7 +567,9 @@
         "extends"
       ],
       "php_symbol_count": 12,
-      "registration_keys": []
+      "registration_keys": [
+        "name:AI Captions"
+      ]
     },
     {
       "directory": "AIChatPro",
@@ -521,11 +581,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "AIChatPro",
+        "type": "extension",
+        "version": "3.7",
+        "description": "AIChatPro extension for MagicAI — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "AIChatPro",
+      "manifest_version": "3.7",
+      "manifest_description": "AIChatPro extension for MagicAI — TG: @heew_support",
       "provider_files": [
         "app/Extensions/AIChatPro/System/AIChatProServiceProvider.php"
       ],
@@ -565,7 +629,9 @@
         "notes"
       ],
       "php_symbol_count": 18,
-      "registration_keys": []
+      "registration_keys": [
+        "name:AIChatPro"
+      ]
     },
     {
       "directory": "AIChatProDeepResearch",
@@ -577,11 +643,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "AI Chat Pro Deep Research",
+        "type": "extension",
+        "version": "1.3",
+        "description": "Deep Research extension for AI Chat Pro using OpenAI and Gemini deep research APIs — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "AI Chat Pro Deep Research",
+      "manifest_version": "1.3",
+      "manifest_description": "Deep Research extension for AI Chat Pro using OpenAI and Gemini deep research APIs — TG: @heew_support",
       "provider_files": [
         "app/Extensions/AIChatProDeepResearch/System/AIChatProDeepResearchServiceProvider.php"
       ],
@@ -608,7 +678,9 @@
         "notes"
       ],
       "php_symbol_count": 10,
-      "registration_keys": []
+      "registration_keys": [
+        "name:AI Chat Pro Deep Research"
+      ]
     },
     {
       "directory": "AiChatProEntityHighlight",
@@ -620,11 +692,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "AI Chat Pro Entity Highlight",
+        "type": "extension",
+        "version": "1.3",
+        "description": "Clickable entity highlights in AI Chat Pro responses with side drawer details — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "AI Chat Pro Entity Highlight",
+      "manifest_version": "1.3",
+      "manifest_description": "Clickable entity highlights in AI Chat Pro responses with side drawer details — TG: @heew_support",
       "provider_files": [
         "app/Extensions/AiChatProEntityHighlight/System/AiChatProEntityHighlightServiceProvider.php"
       ],
@@ -648,7 +724,9 @@
         "extends"
       ],
       "php_symbol_count": 7,
-      "registration_keys": []
+      "registration_keys": [
+        "name:AI Chat Pro Entity Highlight"
+      ]
     },
     {
       "directory": "AIChatProFileChat",
@@ -660,11 +738,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "AIChatProFileChat",
+        "type": "extension",
+        "version": "1.4",
+        "description": "AIChatProFileChat extension for MagicAI — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "AIChatProFileChat",
+      "manifest_version": "1.4",
+      "manifest_description": "AIChatProFileChat extension for MagicAI — TG: @heew_support",
       "provider_files": [
         "app/Extensions/AIChatProFileChat/System/AIChatProFileChatServiceProvider.php"
       ],
@@ -680,7 +762,9 @@
         "App\\Extensions\\AIChatProFileChat\\System\\Services\\AIFileChatService"
       ],
       "php_symbol_count": 2,
-      "registration_keys": []
+      "registration_keys": [
+        "name:AIChatProFileChat"
+      ]
     },
     {
       "directory": "AIChatProFolders",
@@ -692,11 +776,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "AI Chat Pro Folders",
+        "type": "extension",
+        "version": "1.4",
+        "description": "AI Chat Pro Folders extension for MagicAI — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "AI Chat Pro Folders",
+      "manifest_version": "1.4",
+      "manifest_description": "AI Chat Pro Folders extension for MagicAI — TG: @heew_support",
       "provider_files": [
         "app/Extensions/AIChatProFolders/System/AIChatProFoldersServiceProvider.php"
       ],
@@ -717,7 +805,9 @@
         "extends"
       ],
       "php_symbol_count": 4,
-      "registration_keys": []
+      "registration_keys": [
+        "name:AI Chat Pro Folders"
+      ]
     },
     {
       "directory": "AiChatProHighlightToAsk",
@@ -729,11 +819,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "AI Chat Pro Highlight to Ask",
+        "type": "extension",
+        "version": "1.1",
+        "description": "Highlight any text in AI Chat Pro to quickly ask follow-up questions about it — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "AI Chat Pro Highlight to Ask",
+      "manifest_version": "1.1",
+      "manifest_description": "Highlight any text in AI Chat Pro to quickly ask follow-up questions about it — TG: @heew_support",
       "provider_files": [
         "app/Extensions/AiChatProHighlightToAsk/System/AiChatProHighlightToAskServiceProvider.php"
       ],
@@ -754,7 +848,9 @@
         "extends"
       ],
       "php_symbol_count": 4,
-      "registration_keys": []
+      "registration_keys": [
+        "name:AI Chat Pro Highlight to Ask"
+      ]
     },
     {
       "directory": "AIChatProSkills",
@@ -766,11 +862,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "AI Chat Pro Skills",
+        "type": "extension",
+        "version": "1.1",
+        "description": "AI Chat Pro Skills extension for MagicAI - Add reusable AI skills to chat — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "AI Chat Pro Skills",
+      "manifest_version": "1.1",
+      "manifest_description": "AI Chat Pro Skills extension for MagicAI - Add reusable AI skills to chat — TG: @heew_support",
       "provider_files": [
         "app/Extensions/AIChatProSkills/System/AIChatProSkillsServiceProvider.php"
       ],
@@ -799,7 +899,9 @@
         "extends"
       ],
       "php_symbol_count": 12,
-      "registration_keys": []
+      "registration_keys": [
+        "name:AI Chat Pro Skills"
+      ]
     },
     {
       "directory": "AiChatProSmartImage",
@@ -811,11 +913,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "AI Chat Pro Smart Image",
+        "type": "extension",
+        "version": "1.2",
+        "description": "AI Chat Pro Smart Image extension for MagicAI — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "AI Chat Pro Smart Image",
+      "manifest_version": "1.2",
+      "manifest_description": "AI Chat Pro Smart Image extension for MagicAI — TG: @heew_support",
       "provider_files": [
         "app/Extensions/AiChatProSmartImage/System/AiChatProSmartImageServiceProvider.php"
       ],
@@ -838,7 +944,9 @@
         "extends"
       ],
       "php_symbol_count": 7,
-      "registration_keys": []
+      "registration_keys": [
+        "name:AI Chat Pro Smart Image"
+      ]
     },
     {
       "directory": "AIImagePro",
@@ -850,11 +958,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "AIImagePro",
+        "type": "extension",
+        "version": "1.8",
+        "description": "AIImagePro extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "AIImagePro",
+      "manifest_version": "1.8",
+      "manifest_description": "AIImagePro extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/AIImagePro/System/AIImageProServiceProvider.php"
       ],
@@ -889,7 +1001,9 @@
         "extends"
       ],
       "php_symbol_count": 13,
-      "registration_keys": []
+      "registration_keys": [
+        "name:AIImagePro"
+      ]
     },
     {
       "directory": "AiMusic",
@@ -901,11 +1015,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "AI Music",
+        "type": "extension",
+        "version": "1.5",
+        "description": "AI Music extension for MagicAI — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "AI Music",
+      "manifest_version": "1.5",
+      "manifest_description": "AI Music extension for MagicAI — TG: @heew_support",
       "provider_files": [
         "app/Extensions/AiMusic/System/AiMusicServiceProvider.php"
       ],
@@ -926,7 +1044,9 @@
         "extends"
       ],
       "php_symbol_count": 5,
-      "registration_keys": []
+      "registration_keys": [
+        "name:AI Music"
+      ]
     },
     {
       "directory": "AiMusicPro",
@@ -938,11 +1058,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "AiMusicPro",
+        "type": "extension",
+        "version": "1.7",
+        "description": "AiMusicPro extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "AiMusicPro",
+      "manifest_version": "1.7",
+      "manifest_description": "AiMusicPro extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/AiMusicPro/System/AiMusicProServiceProvider.php"
       ],
@@ -966,7 +1090,9 @@
         "extends"
       ],
       "php_symbol_count": 6,
-      "registration_keys": []
+      "registration_keys": [
+        "name:AiMusicPro"
+      ]
     },
     {
       "directory": "AiPersona",
@@ -978,11 +1104,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "AI Persona",
+        "type": "extension",
+        "version": "2.9",
+        "description": "AI Persona extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "AI Persona",
+      "manifest_version": "2.9",
+      "manifest_description": "AI Persona extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/AiPersona/System/AiPersonaServiceProvider.php"
       ],
@@ -1011,7 +1141,9 @@
         "extends"
       ],
       "php_symbol_count": 8,
-      "registration_keys": []
+      "registration_keys": [
+        "name:AI Persona"
+      ]
     },
     {
       "directory": "AIPhotoshoot",
@@ -1023,11 +1155,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "AIPhotoshoot",
+        "type": "extension",
+        "version": "1.2",
+        "description": "AIPhotoshoot extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "AIPhotoshoot",
+      "manifest_version": "1.2",
+      "manifest_description": "AIPhotoshoot extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/AIPhotoshoot/System/AIPhotoshootServiceProvider.php"
       ],
@@ -1079,7 +1215,9 @@
         "extends"
       ],
       "php_symbol_count": 30,
-      "registration_keys": []
+      "registration_keys": [
+        "name:AIPhotoshoot"
+      ]
     },
     {
       "directory": "AIPlagiarism",
@@ -1091,11 +1229,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "AI Plagiarism",
+        "type": "extension",
+        "version": "2.2",
+        "description": "AI Plagiarism extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "AI Plagiarism",
+      "manifest_version": "2.2",
+      "manifest_description": "AI Plagiarism extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/AIPlagiarism/System/AIPlagiarismServiceProvider.php"
       ],
@@ -1115,7 +1257,9 @@
         "extends"
       ],
       "php_symbol_count": 4,
-      "registration_keys": []
+      "registration_keys": [
+        "name:AI Plagiarism"
+      ]
     },
     {
       "directory": "AiPresentation",
@@ -1127,11 +1271,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "AI Presentation",
+        "type": "extension",
+        "version": "1.4",
+        "description": "AI Presentation extension for MagicAI — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "AI Presentation",
+      "manifest_version": "1.4",
+      "manifest_description": "AI Presentation extension for MagicAI — TG: @heew_support",
       "provider_files": [
         "app/Extensions/AiPresentation/System/AiPresentationServiceProvider.php"
       ],
@@ -1156,7 +1304,9 @@
         "extends"
       ],
       "php_symbol_count": 7,
-      "registration_keys": []
+      "registration_keys": [
+        "name:AI Presentation"
+      ]
     },
     {
       "directory": "AIRealtimeImage",
@@ -1168,11 +1318,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "AI Realtime Image",
+        "type": "extension",
+        "version": "1.14",
+        "description": "AI Realtime Image extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "AI Realtime Image",
+      "manifest_version": "1.14",
+      "manifest_description": "AI Realtime Image extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/AIRealtimeImage/System/AIRealtimeImageServiceProvider.php"
       ],
@@ -1200,7 +1354,9 @@
         "extends"
       ],
       "php_symbol_count": 9,
-      "registration_keys": []
+      "registration_keys": [
+        "name:AI Realtime Image"
+      ]
     },
     {
       "directory": "AISocialMedia",
@@ -1212,11 +1368,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "AI Social Media",
+        "type": "extension",
+        "version": "4.12",
+        "description": "AI Social Media extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "AI Social Media",
+      "manifest_version": "4.12",
+      "manifest_description": "AI Social Media extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/AISocialMedia/System/AISocialMediaServiceProvider.php"
       ],
@@ -1275,7 +1435,9 @@
         "extends"
       ],
       "php_symbol_count": 31,
-      "registration_keys": []
+      "registration_keys": [
+        "name:AI Social Media"
+      ]
     },
     {
       "directory": "AiVideoPro",
@@ -1287,11 +1449,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "AI Avatar Pro",
+        "type": "extension",
+        "version": "3.6",
+        "description": "AI Avatar Pro extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "AI Avatar Pro",
+      "manifest_version": "3.6",
+      "manifest_description": "AI Avatar Pro extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/AiVideoPro/System/AiVideoProServiceProvider.php"
       ],
@@ -1321,7 +1487,9 @@
         "extends"
       ],
       "php_symbol_count": 9,
-      "registration_keys": []
+      "registration_keys": [
+        "name:AI Avatar Pro"
+      ]
     },
     {
       "directory": "AIVideoToVideo",
@@ -1333,11 +1501,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Video to Video",
+        "type": "extension",
+        "version": "1.6",
+        "description": "Video to Video extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Video to Video",
+      "manifest_version": "1.6",
+      "manifest_description": "Video to Video extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/AIVideoToVideo/System/AIVideoToVideoServiceProvider.php"
       ],
@@ -1363,7 +1535,9 @@
         "extends"
       ],
       "php_symbol_count": 9,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Video to Video"
+      ]
     },
     {
       "directory": "AiViralClips",
@@ -1375,11 +1549,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Example",
+        "type": "extension",
+        "version": "1.5",
+        "description": "Example extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Example",
+      "manifest_version": "1.5",
+      "manifest_description": "Example extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/AiViralClips/System/AiViralClipsServiceProvider.php"
       ],
@@ -1401,7 +1579,9 @@
         "App\\Extensions\\AiViralClips\\System\\Http\\Controllers\\VizardSettingController"
       ],
       "php_symbol_count": 5,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Example"
+      ]
     },
     {
       "directory": "AIVoiceIsolator",
@@ -1413,11 +1593,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "AI Voice Isolator",
+        "type": "extension",
+        "version": "2.3",
+        "description": "AI Voice Isolator extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "AI Voice Isolator",
+      "manifest_version": "2.3",
+      "manifest_description": "AI Voice Isolator extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/AIVoiceIsolator/System/AIVoiceIsolatorServiceProvider.php"
       ],
@@ -1432,7 +1616,9 @@
         "App\\Extensions\\AIVoiceIsolator\\System\\AIVoiceIsolatorServiceProvider"
       ],
       "php_symbol_count": 1,
-      "registration_keys": []
+      "registration_keys": [
+        "name:AI Voice Isolator"
+      ]
     },
     {
       "directory": "AIWebChat",
@@ -1444,11 +1630,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "AI Web Chat",
+        "type": "extension",
+        "version": "2.9",
+        "description": "AI Web Chat extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "AI Web Chat",
+      "manifest_version": "2.9",
+      "manifest_description": "AI Web Chat extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/AIWebChat/System/AIWebChatServiceProvider.php"
       ],
@@ -1468,7 +1658,9 @@
         "extends"
       ],
       "php_symbol_count": 3,
-      "registration_keys": []
+      "registration_keys": [
+        "name:AI Web Chat"
+      ]
     },
     {
       "directory": "AIWriterTemplates",
@@ -1480,11 +1672,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "AI Writer Templates",
+        "type": "extension",
+        "version": "2.1",
+        "description": "AI Writer Templates extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "AI Writer Templates",
+      "manifest_version": "2.1",
+      "manifest_description": "AI Writer Templates extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/AIWriterTemplates/System/AIWriterTemplateServiceProvider.php"
       ],
@@ -1502,7 +1698,9 @@
         "extends"
       ],
       "php_symbol_count": 2,
-      "registration_keys": []
+      "registration_keys": [
+        "name:AI Writer Templates"
+      ]
     },
     {
       "directory": "Announcement",
@@ -1514,11 +1712,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Announcement",
+        "type": "extension",
+        "version": "1.7",
+        "description": "Announcement extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Announcement",
+      "manifest_version": "1.7",
+      "manifest_description": "Announcement extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/Announcement/System/AnnouncementServiceProvider.php"
       ],
@@ -1540,7 +1742,9 @@
         "extends"
       ],
       "php_symbol_count": 6,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Announcement"
+      ]
     },
     {
       "directory": "AzureOpenai",
@@ -1552,11 +1756,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Example",
+        "type": "extension",
+        "version": "1.5",
+        "description": "Example extension for MagicAI — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Example",
+      "manifest_version": "1.5",
+      "manifest_description": "Example extension for MagicAI — TG: @heew_support",
       "provider_files": [
         "app/Extensions/AzureOpenai/System/AzureOpenaiServiceProvider.php"
       ],
@@ -1573,7 +1781,9 @@
         "App\\Extensions\\AzureOpenai\\System\\Services\\AzureOpenaiService"
       ],
       "php_symbol_count": 3,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Example"
+      ]
     },
     {
       "directory": "AzureTTS",
@@ -1585,11 +1795,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Azure TTS",
+        "type": "extension",
+        "version": "2.2",
+        "description": "Azure TTS extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Azure TTS",
+      "manifest_version": "2.2",
+      "manifest_description": "Azure TTS extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/AzureTTS/System/AzureTTSServiceProvider.php"
       ],
@@ -1605,7 +1819,9 @@
         "App\\Extensions\\AzureTTS\\System\\Services\\AzureService"
       ],
       "php_symbol_count": 2,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Azure TTS"
+      ]
     },
     {
       "directory": "BlogPilot",
@@ -1617,11 +1833,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "BlogPilot",
+        "type": "extension",
+        "version": "1.4",
+        "description": "BlogPilot extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "BlogPilot",
+      "manifest_version": "1.4",
+      "manifest_description": "BlogPilot extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/BlogPilot/System/BlogPilotServiceProvider.php"
       ],
@@ -1654,7 +1874,9 @@
         "extends"
       ],
       "php_symbol_count": 16,
-      "registration_keys": []
+      "registration_keys": [
+        "name:BlogPilot"
+      ]
     },
     {
       "directory": "Canvas",
@@ -1666,11 +1888,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "AI Chat Pro canvas",
+        "type": "extension",
+        "version": "1.11",
+        "description": "AI Chat Pro canvas extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "AI Chat Pro canvas",
+      "manifest_version": "1.11",
+      "manifest_description": "AI Chat Pro canvas extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/Canvas/System/CanvasServiceProvider.php"
       ],
@@ -1689,7 +1915,9 @@
         "notes"
       ],
       "php_symbol_count": 5,
-      "registration_keys": []
+      "registration_keys": [
+        "name:AI Chat Pro canvas"
+      ]
     },
     {
       "directory": "Chatbot",
@@ -2729,11 +2957,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Chatbot agent",
+        "type": "extension",
+        "version": "2.10",
+        "description": "Chatbot agent extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Chatbot agent",
+      "manifest_version": "2.10",
+      "manifest_description": "Chatbot agent extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/ChatbotAgent/System/ChatbotAgentServiceProvider.php"
       ],
@@ -2757,7 +2989,9 @@
         "App\\Extensions\\ChatbotAgent\\System\\Services\\Contracts\\AblyService"
       ],
       "php_symbol_count": 10,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Chatbot agent"
+      ]
     },
     {
       "directory": "ChatbotBooking",
@@ -2769,11 +3003,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Booking for External Chatbot",
+        "type": "extension",
+        "version": "1.0.0",
+        "description": "Chatbot booking extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Booking for External Chatbot",
+      "manifest_version": "1.0.0",
+      "manifest_description": "Chatbot booking extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/ChatbotBooking/System/ChatbotBookingServiceProvider.php"
       ],
@@ -2789,7 +3027,9 @@
         "App\\Extensions\\ChatbotBooking\\System\\Http\\Controllers\\ChatbotBookingController"
       ],
       "php_symbol_count": 2,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Booking for External Chatbot"
+      ]
     },
     {
       "directory": "ChatbotCustomerTag",
@@ -2801,11 +3041,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "ChatbotCustomerTag",
+        "type": "extension",
+        "version": "1.0.0",
+        "description": "Customer tag management tools for chatbot conversations — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "ChatbotCustomerTag",
+      "manifest_version": "1.0.0",
+      "manifest_description": "Customer tag management tools for chatbot conversations — TG: @heew_support",
       "provider_files": [
         "app/Extensions/ChatbotCustomerTag/System/ChatbotCustomerTagServiceProvider.php"
       ],
@@ -2827,7 +3071,9 @@
         "extends"
       ],
       "php_symbol_count": 5,
-      "registration_keys": []
+      "registration_keys": [
+        "name:ChatbotCustomerTag"
+      ]
     },
     {
       "directory": "ChatbotEcommerce",
@@ -2839,11 +3085,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Ecommerce for External Chatbot",
+        "type": "extension",
+        "version": "1.0.0",
+        "description": "Chatbot ecommerce extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Ecommerce for External Chatbot",
+      "manifest_version": "1.0.0",
+      "manifest_description": "Chatbot ecommerce extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/ChatbotEcommerce/System/ChatbotEcommerceServiceProvider.php"
       ],
@@ -2874,7 +3124,9 @@
         "extends"
       ],
       "php_symbol_count": 14,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Ecommerce for External Chatbot"
+      ]
     },
     {
       "directory": "ChatbotReview",
@@ -2886,11 +3138,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "ChatbotReview",
+        "type": "extension",
+        "version": "1.0.0",
+        "description": "Adds review and feedback configuration to the Chatbot extension. — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "ChatbotReview",
+      "manifest_version": "1.0.0",
+      "manifest_description": "Adds review and feedback configuration to the Chatbot extension. — TG: @heew_support",
       "provider_files": [
         "app/Extensions/ChatbotReview/System/ChatbotReviewServiceProvider.php"
       ],
@@ -2906,7 +3162,9 @@
         "App\\Extensions\\ChatbotReview\\System\\Services\\ChatbotReviewService"
       ],
       "php_symbol_count": 2,
-      "registration_keys": []
+      "registration_keys": [
+        "name:ChatbotReview"
+      ]
     },
     {
       "directory": "ChatbotVoice",
@@ -2918,11 +3176,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "External Voice Chatbot",
+        "type": "extension",
+        "version": "2.3",
+        "description": "external voice chatbot extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "External Voice Chatbot",
+      "manifest_version": "2.3",
+      "manifest_description": "external voice chatbot extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/ChatbotVoice/System/ChatbotVoiceServiceProvider.php"
       ],
@@ -2972,7 +3234,9 @@
         "extends"
       ],
       "php_symbol_count": 30,
-      "registration_keys": []
+      "registration_keys": [
+        "name:External Voice Chatbot"
+      ]
     },
     {
       "directory": "ChatbotVoiceCall",
@@ -2984,11 +3248,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Chatbot Voice Call",
+        "type": "extension",
+        "version": "1.1",
+        "description": "Voice call for chatbot — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Chatbot Voice Call",
+      "manifest_version": "1.1",
+      "manifest_description": "Voice call for chatbot — TG: @heew_support",
       "provider_files": [
         "app/Extensions/ChatbotVoiceCall/System/ChatbotVoiceCallServiceProvider.php"
       ],
@@ -3005,7 +3273,9 @@
         "App\\Extensions\\ChatbotVoiceCall\\System\\Http\\Controllers\\VoiceCallSettingController"
       ],
       "php_symbol_count": 3,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Chatbot Voice Call"
+      ]
     },
     {
       "directory": "ChatProTempChat",
@@ -3017,11 +3287,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "ChatProTempChat",
+        "type": "extension",
+        "version": "1.4",
+        "description": "ChatProTempChat extension for MagicAI — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "ChatProTempChat",
+      "manifest_version": "1.4",
+      "manifest_description": "ChatProTempChat extension for MagicAI — TG: @heew_support",
       "provider_files": [
         "app/Extensions/ChatProTempChat/System/ChatProTempChatServiceProvider.php"
       ],
@@ -3036,7 +3310,9 @@
         "App\\Extensions\\ChatProTempChat\\System\\ChatProTempChatServiceProvider"
       ],
       "php_symbol_count": 1,
-      "registration_keys": []
+      "registration_keys": [
+        "name:ChatProTempChat"
+      ]
     },
     {
       "directory": "ChatSetting",
@@ -3048,11 +3324,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Chat Setting",
+        "type": "extension",
+        "version": "3.3",
+        "description": "Chat Setting extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Chat Setting",
+      "manifest_version": "3.3",
+      "manifest_description": "Chat Setting extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/ChatSetting/System/ChatSettingServiceProvider.php"
       ],
@@ -3071,7 +3351,9 @@
         "App\\Extensions\\ChatSetting\\System\\Http\\Controllers\\Chatbot\\ChatbotTrainingController"
       ],
       "php_symbol_count": 5,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Chat Setting"
+      ]
     },
     {
       "directory": "ChatShare",
@@ -3083,11 +3365,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Chat share",
+        "type": "extension",
+        "version": "2.7",
+        "description": "Chat share extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Chat share",
+      "manifest_version": "2.7",
+      "manifest_description": "Chat share extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/ChatShare/System/ChatShareServiceProvider.php"
       ],
@@ -3104,7 +3390,9 @@
         "App\\Extensions\\ChatShare\\System\\Models\\ShareLink"
       ],
       "php_symbol_count": 3,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Chat share"
+      ]
     },
     {
       "directory": "CheckoutRegistration",
@@ -3116,11 +3404,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Checkout Registration",
+        "type": "extension",
+        "version": "1.5",
+        "description": "Registration with checkout process extension for MagicAI — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Checkout Registration",
+      "manifest_version": "1.5",
+      "manifest_description": "Registration with checkout process extension for MagicAI — TG: @heew_support",
       "provider_files": [
         "app/Extensions/CheckoutRegistration/System/RegistrationServiceProvider.php"
       ],
@@ -3144,7 +3436,9 @@
         "extends"
       ],
       "php_symbol_count": 8,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Checkout Registration"
+      ]
     },
     {
       "directory": "Cloudflare",
@@ -3156,11 +3450,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Cloudflare R2",
+        "type": "extension",
+        "version": "3.3",
+        "description": "Cloudflare R2 extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Cloudflare R2",
+      "manifest_version": "3.3",
+      "manifest_description": "Cloudflare R2 extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/Cloudflare/System/CloudflareServiceProvider.php"
       ],
@@ -3177,7 +3475,9 @@
         "App\\Extensions\\Cloudflare\\System\\Http\\Requests\\CloudflareR2Request"
       ],
       "php_symbol_count": 3,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Cloudflare R2"
+      ]
     },
     {
       "directory": "ContentManager",
@@ -3189,11 +3489,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "ContentManager",
+        "type": "extension",
+        "version": "1.6",
+        "description": "ContentManager extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "ContentManager",
+      "manifest_version": "1.6",
+      "manifest_description": "ContentManager extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/ContentManager/System/ContentManagerServiceProvider.php"
       ],
@@ -3209,7 +3513,9 @@
         "App\\Extensions\\ContentManager\\System\\Http\\Controllers\\ContentManagerSettingsController"
       ],
       "php_symbol_count": 2,
-      "registration_keys": []
+      "registration_keys": [
+        "name:ContentManager"
+      ]
     },
     {
       "directory": "CreativeSuite",
@@ -3221,11 +3527,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Creative Suite",
+        "type": "extension",
+        "version": "1.15",
+        "description": "Creative Suite extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Creative Suite",
+      "manifest_version": "1.15",
+      "manifest_description": "Creative Suite extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/CreativeSuite/System/CreativeSuiteServiceProvider.php"
       ],
@@ -3253,7 +3563,9 @@
         "extends"
       ],
       "php_symbol_count": 12,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Creative Suite"
+      ]
     },
     {
       "directory": "CreativeSuiteAITemplate",
@@ -3265,11 +3577,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Creative Suite AI Template",
+        "type": "extension",
+        "version": "1.2",
+        "description": "AI-powered template generation for Creative Suite — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Creative Suite AI Template",
+      "manifest_version": "1.2",
+      "manifest_description": "AI-powered template generation for Creative Suite — TG: @heew_support",
       "provider_files": [
         "app/Extensions/CreativeSuiteAITemplate/System/CreativeSuiteAITemplateServiceProvider.php"
       ],
@@ -3287,7 +3603,9 @@
         "App\\Extensions\\CreativeSuiteAITemplate\\System\\Jobs\\GenerateTemplateJob"
       ],
       "php_symbol_count": 4,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Creative Suite AI Template"
+      ]
     },
     {
       "directory": "CreativeSuiteAnnotations",
@@ -3299,11 +3617,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Creative Suite Annotations",
+        "type": "extension",
+        "version": "1.1",
+        "description": "Annotation mode for Creative Suite — mark regions and submit targeted AI edits with a per-region prompt. — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Creative Suite Annotations",
+      "manifest_version": "1.1",
+      "manifest_description": "Annotation mode for Creative Suite — mark regions and submit targeted AI edits with a per-region prompt. — TG: @heew_support",
       "provider_files": [
         "app/Extensions/CreativeSuiteAnnotations/System/CreativeSuiteAnnotationsServiceProvider.php"
       ],
@@ -3327,7 +3649,9 @@
         "App\\Extensions\\CreativeSuiteAnnotations\\System\\Services\\CreativeSuiteAnnotationsVisionService"
       ],
       "php_symbol_count": 10,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Creative Suite Annotations"
+      ]
     },
     {
       "directory": "Cryptomus",
@@ -3339,11 +3663,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Cryptomus",
+        "type": "extension",
+        "version": "3.3",
+        "description": "Cryptomus extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Cryptomus",
+      "manifest_version": "3.3",
+      "manifest_description": "Cryptomus extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/Cryptomus/System/CryptomusServiceProvider.php"
       ],
@@ -3359,7 +3687,9 @@
         "App\\Extensions\\Cryptomus\\System\\Services\\CryptomusService"
       ],
       "php_symbol_count": 2,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Cryptomus"
+      ]
     },
     {
       "directory": "DiscountManager",
@@ -3371,11 +3701,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Discount Manager",
+        "type": "extension",
+        "version": "1.4",
+        "description": "Discount Manager extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Discount Manager",
+      "manifest_version": "1.4",
+      "manifest_description": "Discount Manager extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/DiscountManager/System/DiscountManagerServiceProvider.php"
       ],
@@ -3409,7 +3743,9 @@
         "extends"
       ],
       "php_symbol_count": 14,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Discount Manager"
+      ]
     },
     {
       "directory": "ElevenLabsVoiceChat",
@@ -3421,11 +3757,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Elevenlabs Voice Chat",
+        "type": "extension",
+        "version": "1.7",
+        "description": "Elevenlabs voice chat extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Elevenlabs Voice Chat",
+      "manifest_version": "1.7",
+      "manifest_description": "Elevenlabs voice chat extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/ElevenLabsVoiceChat/System/ElevenLabsVoiceChatServiceProvider.php"
       ],
@@ -3458,7 +3798,9 @@
         "extends"
       ],
       "php_symbol_count": 16,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Elevenlabs Voice Chat"
+      ]
     },
     {
       "directory": "FashionStudio",
@@ -3470,11 +3812,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "FashionStudio",
+        "type": "extension",
+        "version": "1.7",
+        "description": "FashionStudio extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "FashionStudio",
+      "manifest_version": "1.7",
+      "manifest_description": "FashionStudio extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/FashionStudio/System/FashionStudioServiceProvider.php"
       ],
@@ -3527,7 +3873,9 @@
         "extends"
       ],
       "php_symbol_count": 27,
-      "registration_keys": []
+      "registration_keys": [
+        "name:FashionStudio"
+      ]
     },
     {
       "directory": "FluxPro",
@@ -3539,11 +3887,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Flux pro",
+        "type": "extension",
+        "version": "2.5",
+        "description": "Flux pro extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Flux pro",
+      "manifest_version": "2.5",
+      "manifest_description": "Flux pro extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/FluxPro/System/FluxProServiceProvider.php"
       ],
@@ -3559,7 +3911,9 @@
         "App\\Extensions\\FluxPro\\System\\Http\\Controllers\\FalAIWebhookController"
       ],
       "php_symbol_count": 2,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Flux pro"
+      ]
     },
     {
       "directory": "FocusMode",
@@ -3571,11 +3925,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Focus Mode",
+        "type": "extension",
+        "version": "2.5",
+        "description": "Focus Mode extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Focus Mode",
+      "manifest_version": "2.5",
+      "manifest_description": "Focus Mode extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/FocusMode/System/FocusModeServiceProvider.php"
       ],
@@ -3591,7 +3949,9 @@
         "App\\Extensions\\FocusMode\\System\\View\\Components\\DropDown"
       ],
       "php_symbol_count": 2,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Focus Mode"
+      ]
     },
     {
       "directory": "Hubspot",
@@ -3603,11 +3963,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Hubspot",
+        "type": "extension",
+        "version": "2.1",
+        "description": "Hubspot extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Hubspot",
+      "manifest_version": "2.1",
+      "manifest_description": "Hubspot extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/Hubspot/System/HubspotServiceProvider.php"
       ],
@@ -3624,7 +3988,9 @@
         "App\\Extensions\\Hubspot\\System\\Services\\HubspotService"
       ],
       "php_symbol_count": 3,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Hubspot"
+      ]
     },
     {
       "directory": "InfluencerAvatar",
@@ -3636,11 +4002,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Influencer Avatar",
+        "type": "extension",
+        "version": "1.6",
+        "description": "Influencer Avatar extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Influencer Avatar",
+      "manifest_version": "1.6",
+      "manifest_description": "Influencer Avatar extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/InfluencerAvatar/System/InfluencerAvatarServiceProvider.php"
       ],
@@ -3656,7 +4026,9 @@
         "App\\Extensions\\InfluencerAvatar\\System\\InfluencerAvatarServiceProvider"
       ],
       "php_symbol_count": 2,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Influencer Avatar"
+      ]
     },
     {
       "directory": "Introduction",
@@ -3668,11 +4040,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Introductions",
+        "type": "extension",
+        "version": "2.0.0",
+        "description": "Introductions extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Introductions",
+      "manifest_version": "2.0.0",
+      "manifest_description": "Introductions extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/Introduction/System/IntroductionServiceProvider.php"
       ],
@@ -3688,7 +4064,9 @@
         "App\\Extensions\\Introduction\\System\\IntroductionServiceProvider"
       ],
       "php_symbol_count": 2,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Introductions"
+      ]
     },
     {
       "directory": "LiveCustomizer",
@@ -3700,11 +4078,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Live Customizer",
+        "type": "extension",
+        "version": "1.5",
+        "description": "Live Customizer extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Live Customizer",
+      "manifest_version": "1.5",
+      "manifest_description": "Live Customizer extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/LiveCustomizer/System/LiveCustomizerServiceProvider.php"
       ],
@@ -3725,7 +4107,9 @@
         "extends"
       ],
       "php_symbol_count": 5,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Live Customizer"
+      ]
     },
     {
       "directory": "Mailchimp",
@@ -3737,11 +4121,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Mailchimp",
+        "type": "extension",
+        "version": "2.1",
+        "description": "Mailchimp extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Mailchimp",
+      "manifest_version": "2.1",
+      "manifest_description": "Mailchimp extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/Mailchimp/System/MailchimpServiceProvider.php"
       ],
@@ -3758,7 +4146,9 @@
         "App\\Extensions\\Mailchimp\\System\\MailchimpServiceProvider"
       ],
       "php_symbol_count": 3,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Mailchimp"
+      ]
     },
     {
       "directory": "Maintenance",
@@ -3770,11 +4160,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Maintenance",
+        "type": "extension",
+        "version": "2.4",
+        "description": "Maintenance extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Maintenance",
+      "manifest_version": "2.4",
+      "manifest_description": "Maintenance extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/Maintenance/System/MaintenanceServiceProvider.php"
       ],
@@ -3790,7 +4184,9 @@
         "App\\Extensions\\Maintenance\\System\\MaintenanceServiceProvider"
       ],
       "php_symbol_count": 2,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Maintenance"
+      ]
     },
     {
       "directory": "MarketingBot",
@@ -3802,11 +4198,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Marketing bot",
+        "type": "extension",
+        "version": "3.0",
+        "description": "Marketing bot extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Marketing bot",
+      "manifest_version": "3.0",
+      "manifest_description": "Marketing bot extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/MarketingBot/System/MarketingBotServiceProvider.php"
       ],
@@ -3946,7 +4346,9 @@
         "extends"
       ],
       "php_symbol_count": 101,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Marketing bot"
+      ]
     },
     {
       "directory": "MegaMenu",
@@ -3958,11 +4360,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Mega menu",
+        "type": "extension",
+        "version": "1.4",
+        "description": "Mega menu extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Mega menu",
+      "manifest_version": "1.4",
+      "manifest_description": "Mega menu extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/MegaMenu/System/MegaMenuServiceProvider.php"
       ],
@@ -3989,7 +4395,9 @@
         "extends"
       ],
       "php_symbol_count": 9,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Mega menu"
+      ]
     },
     {
       "directory": "Menu",
@@ -4001,11 +4409,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Menu",
+        "type": "extension",
+        "version": "3.0",
+        "description": "Menu extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Menu",
+      "manifest_version": "3.0",
+      "manifest_description": "Menu extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/Menu/System/MenuServiceProvider.php"
       ],
@@ -4021,7 +4433,9 @@
         "App\\Extensions\\Menu\\System\\MenuServiceProvider"
       ],
       "php_symbol_count": 2,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Menu"
+      ]
     },
     {
       "directory": "Midjourney",
@@ -4033,11 +4447,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Midjourney",
+        "type": "extension",
+        "version": "2.6",
+        "description": "Midjourney extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Midjourney",
+      "manifest_version": "2.6",
+      "manifest_description": "Midjourney extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/Midjourney/System/MidjourneyServiceProvider.php"
       ],
@@ -4056,7 +4474,9 @@
         "App\\Extensions\\Midjourney\\System\\Services\\PiAPIService"
       ],
       "php_symbol_count": 5,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Midjourney"
+      ]
     },
     {
       "directory": "Migration",
@@ -4068,11 +4488,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Migration",
+        "type": "extension",
+        "version": "1.4",
+        "description": "Migration extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Migration",
+      "manifest_version": "1.4",
+      "manifest_description": "Migration extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/Migration/System/MigrationServiceProvider.php"
       ],
@@ -4106,7 +4530,9 @@
         "extends"
       ],
       "php_symbol_count": 15,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Migration"
+      ]
     },
     {
       "directory": "ModelCouncil",
@@ -4118,11 +4544,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "ModelCouncil",
+        "type": "extension",
+        "version": "1.5",
+        "description": "Model Council extension for MagicAI — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "ModelCouncil",
+      "manifest_version": "1.5",
+      "manifest_description": "Model Council extension for MagicAI — TG: @heew_support",
       "provider_files": [
         "app/Extensions/ModelCouncil/System/ModelCouncilServiceProvider.php"
       ],
@@ -4144,7 +4574,9 @@
         "extends"
       ],
       "php_symbol_count": 5,
-      "registration_keys": []
+      "registration_keys": [
+        "name:ModelCouncil"
+      ]
     },
     {
       "directory": "MultiModel",
@@ -4156,11 +4588,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "MultiModel",
+        "type": "extension",
+        "version": "1.3",
+        "description": "MultiModel extension for MagicAI — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "MultiModel",
+      "manifest_version": "1.3",
+      "manifest_description": "MultiModel extension for MagicAI — TG: @heew_support",
       "provider_files": [
         "app/Extensions/MultiModel/System/MultiModelServiceProvider.php"
       ],
@@ -4179,7 +4615,9 @@
         "extends"
       ],
       "php_symbol_count": 3,
-      "registration_keys": []
+      "registration_keys": [
+        "name:MultiModel"
+      ]
     },
     {
       "directory": "NanoBanana",
@@ -4191,11 +4629,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Nano Banana",
+        "type": "extension",
+        "version": "1.6",
+        "description": "Nano Banana extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Nano Banana",
+      "manifest_version": "1.6",
+      "manifest_description": "Nano Banana extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/NanoBanana/System/NanoBananaServiceProvider.php"
       ],
@@ -4211,7 +4653,9 @@
         "App\\Extensions\\NanoBanana\\System\\NanoBananaServiceProvider"
       ],
       "php_symbol_count": 2,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Nano Banana"
+      ]
     },
     {
       "directory": "Newsletter",
@@ -4223,11 +4667,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Newsletter",
+        "type": "extension",
+        "version": "2.1",
+        "description": "Newsletter extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Newsletter",
+      "manifest_version": "2.1",
+      "manifest_description": "Newsletter extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/Newsletter/System/NewsletterServiceProvider.php"
       ],
@@ -4244,7 +4692,9 @@
         "App\\Extensions\\Newsletter\\System\\NewsletterServiceProvider"
       ],
       "php_symbol_count": 3,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Newsletter"
+      ]
     },
     {
       "directory": "OnboardingPro",
@@ -4256,11 +4706,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Onboarding Pro",
+        "type": "extension",
+        "version": "1.5",
+        "description": "Onboarding Pro extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Onboarding Pro",
+      "manifest_version": "1.5",
+      "manifest_description": "Onboarding Pro extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/OnboardingPro/System/OnboardingProServiceProvider.php"
       ],
@@ -4288,7 +4742,9 @@
         "extends"
       ],
       "php_symbol_count": 8,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Onboarding Pro"
+      ]
     },
     {
       "directory": "OpenAIRealtimeChat",
@@ -4300,11 +4756,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "OpenAI realtime chat",
+        "type": "extension",
+        "version": "1.10",
+        "description": "OpenAI realtime chat extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "OpenAI realtime chat",
+      "manifest_version": "1.10",
+      "manifest_description": "OpenAI realtime chat extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/OpenAIRealtimeChat/System/OpenAIRealtimeChatServiceProvider.php"
       ],
@@ -4323,7 +4783,9 @@
         "extends"
       ],
       "php_symbol_count": 3,
-      "registration_keys": []
+      "registration_keys": [
+        "name:OpenAI realtime chat"
+      ]
     },
     {
       "directory": "OpenRouter",
@@ -4335,11 +4797,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Open Router",
+        "type": "extension",
+        "version": "1.2",
+        "description": "Open Router extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Open Router",
+      "manifest_version": "1.2",
+      "manifest_description": "Open Router extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/OpenRouter/System/OpenRouterServiceProvider.php"
       ],
@@ -4357,7 +4823,9 @@
         "App\\Extensions\\OpenRouter\\System\\Services\\RouterAiService"
       ],
       "php_symbol_count": 4,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Open Router"
+      ]
     },
     {
       "directory": "Perplexity",
@@ -4369,11 +4837,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Perplexity",
+        "type": "extension",
+        "version": "1.1",
+        "description": "Perplexity extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Perplexity",
+      "manifest_version": "1.1",
+      "manifest_description": "Perplexity extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/Perplexity/System/PerplexityServiceProvider.php"
       ],
@@ -4389,7 +4861,9 @@
         "App\\Extensions\\Perplexity\\System\\PerplexityServiceProvider"
       ],
       "php_symbol_count": 2,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Perplexity"
+      ]
     },
     {
       "directory": "PhoneCallAgent",
@@ -4401,11 +4875,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Phone Call Agent",
+        "type": "extension",
+        "version": "1.0",
+        "description": "Inbound AI phone call agent using Twilio or ElevenLabs — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Phone Call Agent",
+      "manifest_version": "1.0",
+      "manifest_description": "Inbound AI phone call agent using Twilio or ElevenLabs — TG: @heew_support",
       "provider_files": [
         "app/Extensions/PhoneCallAgent/System/PhoneCallAgentServiceProvider.php"
       ],
@@ -4478,7 +4956,9 @@
         "extends"
       ],
       "php_symbol_count": 44,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Phone Call Agent"
+      ]
     },
     {
       "directory": "ProductPhotography",
@@ -4490,11 +4970,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Product Photography",
+        "type": "extension",
+        "version": "2.6",
+        "description": "Product Photography extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Product Photography",
+      "manifest_version": "2.6",
+      "manifest_description": "Product Photography extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/ProductPhotography/System/ProductPhotographyServiceProvider.php"
       ],
@@ -4519,7 +5003,9 @@
         "extends"
       ],
       "php_symbol_count": 8,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Product Photography"
+      ]
     },
     {
       "directory": "SeeDreamV4",
@@ -4531,11 +5017,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "SeeDream4",
+        "type": "extension",
+        "version": "1.3",
+        "description": "SeeDream4 extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "SeeDream4",
+      "manifest_version": "1.3",
+      "manifest_description": "SeeDream4 extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/SeeDreamV4/System/SeeDreamV4ServiceProvider.php"
       ],
@@ -4551,7 +5041,9 @@
         "App\\Extensions\\SeeDreamV4\\System\\SeeDreamV4ServiceProvider"
       ],
       "php_symbol_count": 2,
-      "registration_keys": []
+      "registration_keys": [
+        "name:SeeDream4"
+      ]
     },
     {
       "directory": "SEOTool",
@@ -4563,11 +5055,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "SEO tool",
+        "type": "extension",
+        "version": "3.6",
+        "description": "SEO tool extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "SEO tool",
+      "manifest_version": "3.6",
+      "manifest_description": "SEO tool extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/SEOTool/System/SEOToolServiceProvider.php"
       ],
@@ -4586,7 +5082,9 @@
         "App\\Extensions\\SEOTool\\System\\Services\\electric"
       ],
       "php_symbol_count": 5,
-      "registration_keys": []
+      "registration_keys": [
+        "name:SEO tool"
+      ]
     },
     {
       "directory": "SocialMedia",
@@ -4598,11 +5096,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "AI Social Media Pro",
+        "type": "extension",
+        "version": "5.13",
+        "description": "AI Social Media Pro extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "AI Social Media Pro",
+      "manifest_version": "5.13",
+      "manifest_description": "AI Social Media Pro extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/SocialMedia/System/SocialMediaServiceProvider.php"
       ],
@@ -4702,7 +5204,9 @@
         "extends"
       ],
       "php_symbol_count": 66,
-      "registration_keys": []
+      "registration_keys": [
+        "name:AI Social Media Pro"
+      ]
     },
     {
       "directory": "SocialMediaAgent",
@@ -4714,11 +5218,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Social Media Agent",
+        "type": "extension",
+        "version": "1.10",
+        "description": "Social Media Agent extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Social Media Agent",
+      "manifest_version": "1.10",
+      "manifest_description": "Social Media Agent extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/SocialMediaAgent/System/SocialMediaAgentServiceProvider.php"
       ],
@@ -4777,7 +5285,9 @@
         "extends"
       ],
       "php_symbol_count": 35,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Social Media Agent"
+      ]
     },
     {
       "directory": "SocialMediaAutomation",
@@ -4789,11 +5299,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Social Media Automation",
+        "type": "extension",
+        "version": "1.1",
+        "description": "Comment & DM automation for social media platforms — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Social Media Automation",
+      "manifest_version": "1.1",
+      "manifest_description": "Comment & DM automation for social media platforms — TG: @heew_support",
       "provider_files": [
         "app/Extensions/SocialMediaAutomation/System/SocialMediaAutomationServiceProvider.php"
       ],
@@ -4834,7 +5348,9 @@
         "extends"
       ],
       "php_symbol_count": 19,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Social Media Automation"
+      ]
     },
     {
       "directory": "TitanZeroChatbot",
@@ -5873,11 +6389,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "UGCCreator",
+        "type": "extension",
+        "version": "1.2",
+        "description": "UGC Creator extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "UGCCreator",
+      "manifest_version": "1.2",
+      "manifest_description": "UGC Creator extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/UGCCreator/System/UGCCreatorServiceProvider.php"
       ],
@@ -5913,7 +6433,9 @@
         "extends"
       ],
       "php_symbol_count": 17,
-      "registration_keys": []
+      "registration_keys": [
+        "name:UGCCreator"
+      ]
     },
     {
       "directory": "UGCFactory",
@@ -5925,11 +6447,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "UGCFactory",
+        "type": "extension",
+        "version": "1.1",
+        "description": "UGC Factory extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "UGCFactory",
+      "manifest_version": "1.1",
+      "manifest_description": "UGC Factory extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/UGCFactory/System/UGCFactoryServiceProvider.php"
       ],
@@ -5966,7 +6492,9 @@
         "extends"
       ],
       "php_symbol_count": 19,
-      "registration_keys": []
+      "registration_keys": [
+        "name:UGCFactory"
+      ]
     },
     {
       "directory": "UrlToVideo",
@@ -5978,11 +6506,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "URL to Video AD",
+        "type": "extension",
+        "version": "1.9",
+        "description": "URL to Video AD extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "URL to Video AD",
+      "manifest_version": "1.9",
+      "manifest_description": "URL to Video AD extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/UrlToVideo/System/UrlToVideoServiceProvider.php"
       ],
@@ -6006,7 +6538,9 @@
         "App\\Extensions\\UrlToVideo\\System\\UrlToVideoServiceProvider"
       ],
       "php_symbol_count": 7,
-      "registration_keys": []
+      "registration_keys": [
+        "name:URL to Video AD"
+      ]
     },
     {
       "directory": "VideoDubbing",
@@ -6018,11 +6552,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Video Dubbing",
+        "type": "extension",
+        "version": "1.2",
+        "description": "AI Video Dubbing extension for translating and dubbing videos into multiple languages using HeyGen and ElevenLabs. — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Video Dubbing",
+      "manifest_version": "1.2",
+      "manifest_description": "AI Video Dubbing extension for translating and dubbing videos into multiple languages using HeyGen and ElevenLabs. — TG: @heew_support",
       "provider_files": [
         "app/Extensions/VideoDubbing/System/VideoDubbingServiceProvider.php"
       ],
@@ -6051,7 +6589,9 @@
         "extends"
       ],
       "php_symbol_count": 12,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Video Dubbing"
+      ]
     },
     {
       "directory": "VideoEditor",
@@ -6063,11 +6603,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Video Editor",
+        "type": "extension",
+        "version": "1.0",
+        "description": "Timeline-based multi-track video editor with AI generation, drag-and-drop editing, and server-side export. — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Video Editor",
+      "manifest_version": "1.0",
+      "manifest_description": "Timeline-based multi-track video editor with AI generation, drag-and-drop editing, and server-side export. — TG: @heew_support",
       "provider_files": [
         "app/Extensions/VideoEditor/System/VideoEditorServiceProvider.php"
       ],
@@ -6108,7 +6652,9 @@
         "extends"
       ],
       "php_symbol_count": 20,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Video Editor"
+      ]
     },
     {
       "directory": "Wordpress",
@@ -6120,11 +6666,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Wordpress",
+        "type": "extension",
+        "version": "3.5",
+        "description": "Wordpress extension for magicai — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Wordpress",
+      "manifest_version": "3.5",
+      "manifest_description": "Wordpress extension for magicai — TG: @heew_support",
       "provider_files": [
         "app/Extensions/Wordpress/System/WordpressServiceProvider.php"
       ],
@@ -6143,7 +6693,9 @@
         "extends"
       ],
       "php_symbol_count": 3,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Wordpress"
+      ]
     },
     {
       "directory": "Xero",
@@ -6155,11 +6707,15 @@
         "extension.json"
       ],
       "extension_manifest": {
-        "invalid": true
+        "name": "Xero",
+        "type": "extension",
+        "version": "1.1",
+        "description": "Xero extension for the API Platform — TG: @heew_support",
+        "support_telegram": "heew_support"
       },
-      "manifest_name": null,
-      "manifest_version": null,
-      "manifest_description": null,
+      "manifest_name": "Xero",
+      "manifest_version": "1.1",
+      "manifest_description": "Xero extension for the API Platform — TG: @heew_support",
       "provider_files": [
         "app/Extensions/Xero/System/XeroServiceProvider.php"
       ],
@@ -6179,7 +6735,9 @@
         "extends"
       ],
       "php_symbol_count": 3,
-      "registration_keys": []
+      "registration_keys": [
+        "name:Xero"
+      ]
     }
   ],
   "marketplace": {
@@ -10060,12 +10618,20 @@
       ]
     },
     "duplicate_manifest_names": {
+      "Example": [
+        "AiViralClips",
+        "AzureOpenai"
+      ],
       "Chatbot": [
         "Chatbot",
         "TitanZeroChatbot"
       ]
     },
     "duplicate_registration_keys": {
+      "name:Example": [
+        "AiViralClips",
+        "AzureOpenai"
+      ],
       "name:Chatbot": [
         "Chatbot",
         "TitanZeroChatbot"
