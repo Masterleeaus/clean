@@ -1,0 +1,362 @@
+version: "1.0.0"
+name: "Global Capability Registry"
+description: |
+  Centralized registry of all capabilities provided by agents, tools, and services.
+  Used for agent selection, capability discovery, and policy enforcement.
+
+last_updated: 2025-08-15
+
+# ============================================================================
+# CODE ANALYSIS CAPABILITIES
+# ============================================================================
+
+capabilities:
+  - id: "code_analysis"
+    name: "Code Analysis"
+    category: "code_analysis"
+    description: "Analyze code structure, metrics, and quality"
+    providers:
+      - type: "agent"
+        id: "planner"
+        version: "1.0.0"
+      - type: "tool"
+        id: "phpstan"
+        version: "1.10.0"
+    risk_level: "low"
+    parameters:
+      - name: "file_path"
+        type: "string"
+        required: true
+        description: "Path to file to analyze"
+      - name: "include_metrics"
+        type: "boolean"
+        required: false
+        description: "Include complexity metrics"
+    returns:
+      type: "object"
+      description: "Analysis results with metrics"
+
+  - id: "code_search"
+    name: "Code Search"
+    category: "code_analysis"
+    description: "Search codebase for patterns and symbols"
+    providers:
+      - type: "tool"
+        id: "ripgrep"
+        version: "latest"
+      - type: "tool"
+        id: "php-ast"
+        version: "1.0.0"
+    risk_level: "low"
+    parameters:
+      - name: "query"
+        type: "string"
+        required: true
+        description: "Search pattern"
+      - name: "file_pattern"
+        type: "string"
+        required: false
+        description: "File glob pattern"
+
+  - id: "dependency_analysis"
+    name: "Dependency Analysis"
+    category: "code_analysis"
+    description: "Analyze dependencies and relationships"
+    providers:
+      - type: "tool"
+        id: "deptrac"
+        version: "1.0.0"
+    risk_level: "low"
+    parameters:
+      - name: "file_path"
+        type: "string"
+        required: true
+
+  - id: "knowledge_graph_query"
+    name: "Knowledge Graph Query"
+    category: "code_analysis"
+    description: "Query knowledge graph for relationships"
+    providers:
+      - type: "service"
+        id: "knowledge_graph"
+        version: "1.0.0"
+    risk_level: "low"
+
+# ============================================================================
+# CODE GENERATION CAPABILITIES
+# ============================================================================
+
+  - id: "code_generation"
+    name: "Code Generation"
+    category: "code_generation"
+    description: "Generate production-quality PHP code"
+    providers:
+      - type: "agent"
+        id: "implementer"
+        version: "1.0.0"
+    risk_level: "medium"
+    requires_approval: false
+    parameters:
+      - name: "spec"
+        type: "string"
+        required: true
+        description: "Code specification"
+      - name: "template"
+        type: "string"
+        required: false
+        description: "Template to follow"
+
+  - id: "test_generation"
+    name: "Test Generation"
+    category: "code_generation"
+    description: "Generate unit and feature tests"
+    providers:
+      - type: "agent"
+        id: "tester"
+        version: "1.0.0"
+    risk_level: "low"
+    parameters:
+      - name: "class_path"
+        type: "string"
+        required: true
+        description: "Class to test"
+
+# ============================================================================
+# TESTING CAPABILITIES
+# ============================================================================
+
+  - id: "unit_testing"
+    name: "Unit Testing"
+    category: "testing"
+    description: "Run unit tests with PHPUnit"
+    providers:
+      - type: "agent"
+        id: "tester"
+        version: "1.0.0"
+      - type: "tool"
+        id: "phpunit"
+        version: "11.0.0"
+    risk_level: "low"
+    parameters:
+      - name: "test_file"
+        type: "string"
+        required: false
+        description: "Specific test file"
+      - name: "coverage"
+        type: "boolean"
+        required: false
+        description: "Generate coverage report"
+
+  - id: "integration_testing"
+    name: "Integration Testing"
+    category: "testing"
+    description: "Run integration and feature tests"
+    providers:
+      - type: "agent"
+        id: "tester"
+        version: "1.0.0"
+      - type: "tool"
+        id: "phpunit"
+        version: "11.0.0"
+    risk_level: "low"
+
+  - id: "coverage_measurement"
+    name: "Coverage Measurement"
+    category: "testing"
+    description: "Measure code coverage"
+    providers:
+      - type: "tool"
+        id: "phpunit"
+        version: "11.0.0"
+    risk_level: "low"
+
+# ============================================================================
+# SECURITY CAPABILITIES
+# ============================================================================
+
+  - id: "vulnerability_scanning"
+    name: "Vulnerability Scanning"
+    category: "security"
+    description: "Scan code for security vulnerabilities"
+    providers:
+      - type: "agent"
+        id: "security_agent"
+        version: "1.0.0"
+      - type: "tool"
+        id: "psalm-security"
+        version: "5.0.0"
+    risk_level: "low"
+    requires_approval: false
+    parameters:
+      - name: "file_path"
+        type: "string"
+        required: false
+        description: "Specific file to scan"
+
+  - id: "secret_detection"
+    name: "Secret Detection"
+    category: "security"
+    description: "Detect hardcoded secrets"
+    providers:
+      - type: "agent"
+        id: "security_agent"
+        version: "1.0.0"
+      - type: "tool"
+        id: "gitleaks"
+        version: "8.0.0"
+    risk_level: "low"
+
+  - id: "dependency_audit"
+    name: "Dependency Audit"
+    category: "security"
+    description: "Check dependencies for known CVEs"
+    providers:
+      - type: "tool"
+        id: "composer-audit"
+        version: "latest"
+    risk_level: "low"
+
+# ============================================================================
+# DOCUMENTATION CAPABILITIES
+# ============================================================================
+
+  - id: "api_documentation"
+    name: "API Documentation"
+    category: "documentation"
+    description: "Generate API documentation"
+    providers:
+      - type: "agent"
+        id: "documentation_agent"
+        version: "1.0.0"
+    risk_level: "low"
+
+  - id: "adr_generation"
+    name: "Architecture Decision Record Generation"
+    category: "documentation"
+    description: "Generate ADRs"
+    providers:
+      - type: "agent"
+        id: "documentation_agent"
+        version: "1.0.0"
+    risk_level: "low"
+
+  - id: "changelog_generation"
+    name: "Changelog Generation"
+    category: "documentation"
+    description: "Generate changelog from commits"
+    providers:
+      - type: "agent"
+        id: "documentation_agent"
+        version: "1.0.0"
+    risk_level: "low"
+
+# ============================================================================
+# REPOSITORY MANAGEMENT CAPABILITIES
+# ============================================================================
+
+  - id: "git_operations"
+    name: "Git Operations"
+    category: "repository_management"
+    description: "Perform Git operations (commit, push, branch)"
+    providers:
+      - type: "agent"
+        id: "implementer"
+        version: "1.0.0"
+    risk_level: "medium"
+    requires_approval: false
+    parameters:
+      - name: "operation"
+        type: "string"
+        enum: ["commit", "push", "branch", "merge"]
+
+  - id: "branch_management"
+    name: "Branch Management"
+    category: "repository_management"
+    description: "Create and manage Git branches"
+    providers:
+      - type: "service"
+        id: "branch_manager"
+        version: "1.0.0"
+    risk_level: "medium"
+
+  - id: "pull_request_management"
+    name: "Pull Request Management"
+    category: "repository_management"
+    description: "Create and manage pull requests"
+    providers:
+      - type: "service"
+        id: "pr_manager"
+        version: "1.0.0"
+    risk_level: "high"
+    requires_approval: true
+
+# ============================================================================
+# DEPLOYMENT CAPABILITIES
+# ============================================================================
+
+  - id: "deployment_coordination"
+    name: "Deployment Coordination"
+    category: "deployment"
+    description: "Coordinate deployments"
+    providers:
+      - type: "agent"
+        id: "release_agent"
+        version: "1.0.0"
+    risk_level: "critical"
+    requires_approval: true
+
+  - id: "canary_deployment"
+    name: "Canary Deployment"
+    category: "deployment"
+    description: "Deploy to canary environment"
+    providers:
+      - type: "agent"
+        id: "release_agent"
+        version: "1.0.0"
+    risk_level: "high"
+    requires_approval: true
+
+  - id: "rollback"
+    name: "Rollback"
+    category: "deployment"
+    description: "Rollback deployment"
+    providers:
+      - type: "agent"
+        id: "release_agent"
+        version: "1.0.0"
+    risk_level: "critical"
+    requires_approval: true
+
+# ============================================================================
+# MONITORING CAPABILITIES
+# ============================================================================
+
+  - id: "health_checking"
+    name: "Health Checking"
+    category: "monitoring"
+    description: "Check application and deployment health"
+    providers:
+      - type: "service"
+        id: "health_checker"
+        version: "1.0.0"
+    risk_level: "low"
+
+  - id: "metric_collection"
+    name: "Metric Collection"
+    category: "monitoring"
+    description: "Collect system and application metrics"
+    providers:
+      - type: "service"
+        id: "metrics_collector"
+        version: "1.0.0"
+    risk_level: "low"
+
+  - id: "logging"
+    name: "Logging"
+    category: "monitoring"
+    description: "Log execution events and decisions"
+    providers:
+      - type: "service"
+        id: "ledger"
+        version: "1.0.0"
+    risk_level: "low"
