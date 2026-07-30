@@ -1,0 +1,204 @@
+name: ChatGPT Validate Code & Extensions
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'claude/**'
+      - 'agent/**'
+      - 'feature/**'
+    paths:
+      - 'app/**/*.php'
+      - 'app/Extensions/*/extension.json'
+      - 'packages/**/*.php'
+
+concurrency:
+  group: chatgpt-validate-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  php-syntax:
+    name: PHP Syntax & Lint Check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          tools: php-cs-fixer
+
+      - name: PHP Lint
+        run: |
+          mkdir -p validation
+          echo "Checking PHP syntax..."
+
+          find app routes packages -name "*.php" -type f 2>/dev/null | while read file; do
+            if ! php -l "$file" > /dev/null 2>&1; then
+              echo "SYNTAX_ERROR: $file" >> validation/php-errors.txt
+            fi
+          done
+
+          if [ -f validation/php-errors.txt ]; then
+            echo "❌ PHP Syntax Errors Found:"
+            cat validation/php-errors.txt
+            exit 1
+          else
+            echo "✓ All PHP files have valid syntax"
+          fi
+
+      - name: Upload Results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: php-lint-${{ github.run_id }}
+          path: validation/
+          retention-days: 7
+
+  extension-validation:
+    name: Extension Manifest Validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Validate extension.json files
+        run: |
+          mkdir -p validation
+          echo "Validating extension manifests..."
+
+          for file in app/Extensions/*/extension.json; do
+            if [ -f "$file" ]; then
+              name=$(basename $(dirname "$file"))
+              if node -e "JSON.parse(require('fs').readFileSync('$file', 'utf8'))" 2>/dev/null; then
+                echo "✓ $name: valid JSON"
+              else
+                echo "✗ $name: invalid JSON" >> validation/extension-errors.txt
+              fi
+            fi
+          done
+
+          if [ -f validation/extension-errors.txt ]; then
+            echo "❌ Extension Validation Errors:"
+            cat validation/extension-errors.txt
+            exit 1
+          else
+            echo "✓ All extension manifests are valid"
+          fi
+
+      - name: Check Required Fields
+        run: |
+          echo "Checking required extension fields..."
+
+          for file in app/Extensions/*/extension.json; do
+            if [ -f "$file" ]; then
+              name=$(basename $(dirname "$file"))
+
+              # Check for required fields
+              if ! node -e "
+                const ext = JSON.parse(require('fs').readFileSync('$file', 'utf8'));
+                if (!ext.name || !ext.version) throw new Error('Missing required fields');
+              " 2>/dev/null; then
+                echo "✗ $name: missing required fields (name, version)" >> validation/extension-errors.txt
+              fi
+            fi
+          done
+
+          if [ -f validation/extension-errors.txt ]; then
+            cat validation/extension-errors.txt
+            exit 1
+          fi
+
+      - name: Upload Results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: extension-validation-${{ github.run_id }}
+          path: validation/
+          retention-days: 7
+
+  architecture-check:
+    name: Architecture Compliance Check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check Extension Domain Isolation
+        run: |
+          mkdir -p validation
+          echo "Checking architecture compliance..."
+
+          # Extensions should not shadow WorkCore
+          for file in app/Extensions/*/System/*.php; do
+            if [ -f "$file" ]; then
+              ext=$(basename $(dirname $(dirname "$file")))
+              if grep -q "use App\\\\Domains\\\\WorkCore" "$file"; then
+                echo "⚠ $ext may depend on WorkCore (check if necessary)"
+              fi
+            fi
+          done
+
+          echo "✓ Architecture check complete"
+
+      - name: Check Namespace Consistency
+        run: |
+          echo "Checking namespace consistency..."
+
+          # Check for mismatched namespaces
+          find app/Domains -name "*.php" | while read file; do
+            dir=$(dirname "$file")
+            expected_ns=$(echo "$dir" | sed 's|app/|App/|g' | sed 's|/|\\|g')
+            declared_ns=$(grep -o "namespace [^;]*" "$file" | head -1 | sed 's/namespace //')
+
+            if [ -n "$declared_ns" ] && [ "$declared_ns" != "$expected_ns" ]; then
+              echo "⚠ Namespace mismatch: $file"
+            fi
+          done
+
+          echo "✓ Namespace check complete"
+
+      - name: Upload Results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: architecture-check-${{ github.run_id }}
+          path: validation/
+          retention-days: 7
+
+  summary:
+    name: Validation Summary
+    runs-on: ubuntu-latest
+    needs: [php-syntax, extension-validation, architecture-check]
+    if: always()
+
+    steps:
+      - name: Create Summary
+        run: |
+          cat >> $GITHUB_STEP_SUMMARY << 'EOF'
+          # Validation Results
+
+          ## PHP Syntax
+          Status: ${{ needs.php-syntax.result }}
+
+          ## Extensions
+          Status: ${{ needs.extension-validation.result }}
+
+          ## Architecture
+          Status: ${{ needs.architecture-check.result }}
+
+          View detailed results in artifacts.
+          EOF

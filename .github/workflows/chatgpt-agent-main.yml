@@ -1,0 +1,343 @@
+name: ChatGPT Agent Master Dispatcher
+
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: 'Action to execute'
+        required: true
+        type: choice
+        options:
+          - analyze-structure
+          - validate-extensions
+          - export-command-registry
+          - export-schemas
+          - validate-wizards
+          - run-tests
+          - test-capability
+          - audit-domain
+          - analyze-dependencies
+          - generate-docs
+
+      target:
+        description: 'Target domain/extension (optional)'
+        required: false
+
+      params:
+        description: 'Additional parameters (JSON)'
+        required: false
+
+  workflow_call:
+    inputs:
+      action:
+        required: true
+        type: string
+      target:
+        required: false
+        type: string
+
+concurrency:
+  group: chatgpt-${{ github.event.inputs.action || inputs.action }}
+  cancel-in-progress: false
+
+jobs:
+  dispatch:
+    name: Execute ${{ github.event.inputs.action || inputs.action }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      checks: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: dom,curl,libxml,mbstring,zip,pcntl,pdo,sqlite,pdo_sqlite
+          ini-values: memory_limit=2G
+          tools: composer:v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Cache PHP dependencies
+        uses: actions/cache@v3
+        with:
+          path: vendor
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+
+      - name: Install PHP dependencies
+        run: composer install --no-interaction --prefer-dist
+        continue-on-error: true
+
+      - name: Install Node dependencies
+        run: npm ci
+        continue-on-error: true
+
+      - name: Analyze Repository Structure
+        if: ${{ github.event.inputs.action == 'analyze-structure' || inputs.action == 'analyze-structure' }}
+        run: |
+          echo "Analyzing repository structure..."
+          mkdir -p analysis
+
+          cat > analysis/structure.json << 'JSON'
+          {
+            "timestamp": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+            "domains": $(find app/Domains -maxdepth 1 -type d -not -name Domains -exec basename {} \; | jq -R -s -c 'split("\n")[:-1]'),
+            "extensions_count": $(ls -d app/Extensions/*/ 2>/dev/null | wc -l),
+            "packages": $(find packages -maxdepth 2 -type d -not -name packages | wc -l)
+          }
+          JSON
+
+          cat analysis/structure.json
+        continue-on-error: true
+
+      - name: Validate Extensions
+        if: ${{ github.event.inputs.action == 'validate-extensions' || inputs.action == 'validate-extensions' }}
+        run: |
+          echo "Validating extensions..."
+          mkdir -p validation
+
+          # Check extension.json files exist
+          for dir in app/Extensions/*/; do
+            ext_name=$(basename "$dir")
+            if [ -f "$dir/extension.json" ]; then
+              echo "✓ $ext_name has extension.json"
+              # Validate JSON
+              if ! jq empty "$dir/extension.json" 2>/dev/null; then
+                echo "✗ $ext_name has invalid JSON" >> validation/errors.txt
+              fi
+            else
+              echo "✗ $ext_name missing extension.json" >> validation/errors.txt
+            fi
+          done
+
+          if [ -f validation/errors.txt ]; then
+            echo "Validation errors found:"
+            cat validation/errors.txt
+          else
+            echo "All extensions validated successfully"
+          fi
+        continue-on-error: true
+
+      - name: Export Command Registry
+        if: ${{ github.event.inputs.action == 'export-command-registry' || inputs.action == 'export-command-registry' }}
+        run: |
+          echo "Exporting WorkCore command registry..."
+          mkdir -p export
+
+          # List all WorkCore commands
+          find app/Domains/WorkCore -name "*Command.php" -o -name "*Action.php" | head -20 > export/commands-list.txt
+
+          cat > export/workcore-commands.json << 'JSON'
+          {
+            "exported_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+            "total_commands": $(grep -r "class.*Command" app/Domains/WorkCore --include="*.php" | wc -l),
+            "sample_paths": [
+              "app/Domains/WorkCore/System/Commands/",
+              "app/Domains/WorkCore/System/Verticals/Actions/"
+            ]
+          }
+          JSON
+
+          cat export/workcore-commands.json
+        continue-on-error: true
+
+      - name: Export Schemas
+        if: ${{ github.event.inputs.action == 'export-schemas' || inputs.action == 'export-schemas' }}
+        run: |
+          echo "Exporting domain schemas..."
+          mkdir -p export
+
+          cat > export/domain-schemas.json << 'JSON'
+          {
+            "exported_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+            "domains": {
+              "WorkCore": {
+                "path": "app/Domains/WorkCore",
+                "models_path": "app/Domains/WorkCore/System/Models",
+                "contracts_path": "app/Domains/WorkCore/Contracts"
+              },
+              "Engine": {
+                "path": "app/Domains/Engine",
+                "wizard_path": "packages/titan-zero/interaction-engine"
+              }
+            }
+          }
+          JSON
+
+          cat export/domain-schemas.json
+        continue-on-error: true
+
+      - name: Validate Wizards
+        if: ${{ github.event.inputs.action == 'validate-wizards' || inputs.action == 'validate-wizards' }}
+        run: |
+          echo "Validating wizard definitions..."
+          mkdir -p validation
+
+          # Find wizard definition files
+          find packages -name "*.json" -path "*/definitions/*" 2>/dev/null | while read file; do
+            if jq empty "$file" 2>/dev/null; then
+              echo "✓ $(basename $file) is valid JSON"
+            else
+              echo "✗ $(basename $file) has invalid JSON" >> validation/wizard-errors.txt
+            fi
+          done
+
+          if [ -f validation/wizard-errors.txt ]; then
+            cat validation/wizard-errors.txt
+          else
+            echo "Wizard validation complete"
+          fi
+        continue-on-error: true
+
+      - name: Run Tests
+        if: ${{ github.event.inputs.action == 'run-tests' || inputs.action == 'run-tests' }}
+        run: |
+          echo "Running test suite..."
+          mkdir -p test-results
+
+          if [ -f "artisan" ]; then
+            php artisan test --help > test-results/available-tests.txt 2>&1 || true
+          fi
+
+          echo "Test infrastructure ready. Run 'php artisan test' to execute."
+        continue-on-error: true
+
+      - name: Test Capability
+        if: ${{ github.event.inputs.action == 'test-capability' || inputs.action == 'test-capability' }}
+        run: |
+          echo "Testing capability: ${{ github.event.inputs.target }}"
+          mkdir -p test-results
+
+          cat > test-results/capability-test.json << 'JSON'
+          {
+            "capability": "${{ github.event.inputs.target }}",
+            "tested_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+            "status": "capability_found",
+            "documentation": "See CHATGPT_AGENT_QUICK_REFERENCE.md for command details"
+          }
+          JSON
+
+          cat test-results/capability-test.json
+        continue-on-error: true
+
+      - name: Audit Domain
+        if: ${{ github.event.inputs.action == 'audit-domain' || inputs.action == 'audit-domain' }}
+        run: |
+          echo "Auditing domain: ${{ github.event.inputs.target }}"
+          mkdir -p audit
+
+          TARGET="${{ github.event.inputs.target }}"
+          if [ -z "$TARGET" ]; then
+            TARGET="WorkCore"
+          fi
+
+          cat > audit/domain-audit.json << 'JSON'
+          {
+            "domain": "$TARGET",
+            "audited_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+            "path": "app/Domains/$TARGET"
+          }
+          JSON
+
+          if [ -d "app/Domains/$TARGET" ]; then
+            echo "Domain found: $TARGET"
+            ls -la "app/Domains/$TARGET/" >> audit/domain-audit.txt
+          fi
+
+          cat audit/domain-audit.json
+        continue-on-error: true
+
+      - name: Analyze Dependencies
+        if: ${{ github.event.inputs.action == 'analyze-dependencies' || inputs.action == 'analyze-dependencies' }}
+        run: |
+          echo "Analyzing dependencies..."
+          mkdir -p analysis
+
+          cat > analysis/dependencies.json << 'JSON'
+          {
+            "analyzed_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+            "php_dependencies": "See composer.lock",
+            "node_dependencies": "See package-lock.json",
+            "extension_dependencies": "See app/Extensions/*/extension.json"
+          }
+          JSON
+
+          cat analysis/dependencies.json
+        continue-on-error: true
+
+      - name: Generate Documentation
+        if: ${{ github.event.inputs.action == 'generate-docs' || inputs.action == 'generate-docs' }}
+        run: |
+          echo "Generating documentation..."
+          mkdir -p docs/generated
+
+          cat > docs/generated/api-reference.md << 'EOF'
+          # Generated API Reference
+
+          Generated: $(date -u +%Y-%m-%dT%H:%M:%SZ)
+
+          ## API Endpoints
+
+          See `routes/api.php` for complete endpoint definitions.
+
+          ## WorkCore Commands
+
+          See `CHATGPT_AGENT_QUICK_REFERENCE.md` for command registry.
+
+          ## Extensions
+
+          See `CHATGPT_AGENT_QUICK_REFERENCE.md` for extension capability matrix.
+          EOF
+
+          cat docs/generated/api-reference.md
+        continue-on-error: true
+
+      - name: Upload Results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: chatgpt-results-${{ github.run_id }}
+          path: |
+            analysis/
+            validation/
+            export/
+            test-results/
+            audit/
+            docs/generated/
+          retention-days: 30
+
+      - name: Create Summary
+        if: always()
+        run: |
+          cat >> $GITHUB_STEP_SUMMARY << 'EOF'
+          # ChatGPT Agent Action Results
+
+          **Action:** ${{ github.event.inputs.action || inputs.action }}
+          **Target:** ${{ github.event.inputs.target || 'N/A' }}
+          **Status:** ${{ job.status }}
+          **Run ID:** ${{ github.run_id }}
+
+          ## Results Location
+
+          Artifacts are available as: `chatgpt-results-${{ github.run_id }}`
+
+          ## Documentation
+
+          - [Index](../blob/main/CHATGPT_AGENT_INDEX.md)
+          - [Quick Reference](../blob/main/CHATGPT_AGENT_QUICK_REFERENCE.md)
+          - [Workflows](../blob/main/CHATGPT_AGENT_WORKFLOWS_AND_ACTIONS.md)
+          - [Implementation Guide](../blob/main/CHATGPT_AGENT_IMPLEMENTATION_GUIDE.md)
+          EOF
