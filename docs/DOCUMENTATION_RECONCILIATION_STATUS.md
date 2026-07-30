@@ -1,6 +1,6 @@
 # Documentation Reconciliation Status
 
-**Current coordination baseline:** `integration/current-main-reconciliation` at `fa607d769a4f72ba287801b027cc42dcf56aa549`.
+**Current coordination baseline:** `integration/current-main-reconciliation` at `49a563505a6f2706fb342a70b032c3170e0e480e`.
 
 ## Pass 1 — archive extraction and structural cleanup
 

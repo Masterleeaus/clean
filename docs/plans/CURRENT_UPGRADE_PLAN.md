@@ -1,7 +1,7 @@
 # Titan Zero Current Upgrade Plan
 
 > [!NOTE]
-> **Current coordination baseline:** `integration/current-main-reconciliation`, fast-forwarded to repository `main` at `fa607d769a4f72ba287801b027cc42dcf56aa549`. Agents preserve old branches as evidence, but port only unique, verified deltas onto fresh `reconcile/<scope>` branches. Old branches are not merged wholesale.
+> **Current coordination baseline:** `integration/current-main-reconciliation`, fast-forwarded to repository `main` at `49a563505a6f2706fb342a70b032c3170e0e480e`. Agents preserve old branches as evidence, but port only unique, verified deltas onto fresh `reconcile/<scope>` branches. Old branches are not merged wholesale.
 
 ## Purpose
 
