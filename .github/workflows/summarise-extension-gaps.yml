@@ -1,0 +1,37 @@
+name: Summarise extension registry gaps
+
+on:
+  push:
+    branches:
+      - agent/documentation-reconciliation
+    paths:
+      - '.github/workflows/summarise-extension-gaps.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  summary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/documentation-reconciliation
+          fetch-depth: 0
+
+      - name: Generate concise gap summary
+        run: python3 scripts/docs/summarise_extension_gaps.py
+
+      - name: Remove one-time workflow
+        run: rm -f .github/workflows/summarise-extension-gaps.yml
+
+      - name: Commit summary
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "docs: summarise extension registry drift and coverage"
+          git push origin HEAD:agent/documentation-reconciliation
