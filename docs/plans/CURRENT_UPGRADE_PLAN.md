@@ -18,7 +18,12 @@ The governing rule is simple: preserve real functionality, establish one authori
 - **Chatbot/PWA:** conversations, channels, presentation, generative UI, device storage, drafts, offline state, outbox and sync experience.
 - **Titan Money/payment surfaces:** operational finance and payment lifecycle under WorkCore governance, separate from MagicAI platform billing.
 
-See `docs/architecture/TITAN_ZERO_AUTHORITY_MAP.md`, `docs/architecture/TENANCY_TRUST_AND_ACTION_EXECUTION.md` and `docs/architecture/INTERACTION_WIZARD_AND_FIVE_TIER_INTELLIGENCE.md`.
+See:
+
+- `docs/architecture/TITAN_ZERO_AUTHORITY_MAP.md`
+- `docs/architecture/TENANCY_TRUST_AND_ACTION_EXECUTION.md`
+- `docs/architecture/INTERACTION_WIZARD_AND_FIVE_TIER_INTELLIGENCE.md`
+- `docs/architecture/PWA_OFFLINE_AND_CHATBOT_EXTENSION_ARCHITECTURE.md`
 
 ## Verified current-state findings
 
@@ -26,15 +31,24 @@ See `docs/architecture/TITAN_ZERO_AUTHORITY_MAP.md`, `docs/architecture/TENANCY_
 2. `App\Providers\TitanZeroServiceProvider` stages WorkCore and Chatbot providers through feature flags.
 3. WorkCore is enabled by default; Chatbot and Interaction Engine flags default to disabled.
 4. WorkCore provides scoped tenant/operation contexts and a governed `BusinessActionDispatcher` with entitlement, permission, confirmation, idempotency, audit and domain-event controls.
-5. The canonical Interaction Engine package source exists under `packages/titanzero/interaction-engine` and contains 386 files, including its provider, routes, migrations, tests, offline runtime and engine library.
+5. The canonical Interaction Engine package source exists under `packages/titanzero/interaction-engine` and contained 386 files before duplicate-path cleanup, including its provider, routes, migrations, tests, offline runtime and engine library.
 6. A metadata-only duplicate package root under `packages/titan-zero/interaction-engine` was removed after its unique metadata and conflict were recorded.
-7. The root `composer.json` currently does not register or require the canonical package.
+7. The root `composer.json` currently does not register or require the canonical Interaction Engine package.
 8. `interaction_engine_enabled` is stored by `TitanZeroFeatureFlags`, but `coreProviderClassNames()` does not currently register the Interaction Engine provider.
 9. WorkCore Wizards is a separate operational-domain module under canonical WorkCore and must not be conflated with the universal Interaction Engine.
-10. The TitanAI trees under `app/Extensions/Chatbot` and `app/Extensions/TitanZeroChatbot` contained 864 byte-identical files at Pass 3 inventory time; the second tree remains frozen compatibility/reference material pending focused source reconciliation.
-11. Embedded Chatbot WorkCore server code remains compatibility/reference-only and must not shadow `app/Domains/WorkCore`.
+10. The TitanAI trees under `app/Extensions/Chatbot` and `app/Extensions/TitanZeroChatbot` contained 864 byte-identical files at Pass 3 inventory time.
+11. Full Pass 4 comparison found 1,541 byte-identical files, one divergent provider and six primary-only Titan Train files across the complete extension trees.
+12. `app/Extensions/Chatbot` is the canonical intended PWA extension; the secondary tree remains frozen compatibility/reference material pending focused source reconciliation.
+13. The primary provider feature-gates WorkCore/TitanAI integration, while the secondary provider registers those integrations unconditionally and must not be activated.
+14. Each extension tree contains 93 migrations and 40 provider-like files, so parallel discovery would create a serious duplicate-registration risk.
+15. The PWA source contains IndexedDB version 5, an AES-256-GCM device vault, service-worker safeguards, outbox/conflict state, sync inbox and a cursor-based sync engine.
+16. The generic outbox stores headers and bodies directly, so queued payloads require a no-secrets guarantee or encryption before production release.
+17. The device ID is stored in localStorage and must be treated as an identifier only; the server must bind device trust to authenticated tenant and actor context.
+18. Embedded Chatbot WorkCore server code remains compatibility/reference-only and must not shadow `app/Domains/WorkCore`.
 
 The Interaction Engine is therefore **source-present but not yet proven active in the host**. Pass 3 established its canonical package path and removed the empty competing package root; connected activation remains implementation work.
+
+The PWA is **source-present with substantial offline foundations**, but production readiness is not proven until duplicate-extension activation, queued-payload secrecy, device trust, IndexedDB upgrades and tenant-safe sync are verified end to end.
 
 ## Delivery phases
 
@@ -49,6 +63,8 @@ The Interaction Engine is therefore **source-present but not yet proven active i
 5. Remove tracked runtime secrets and destructive import/sanitiser workflows.
 6. Rotate keys exposed in historical commits.
 7. Record every repair pass in focused commits and draft PRs.
+8. Require agents to read the root README, `AGENTS.md`, `docs/README.md` and relevant canonical documents before changing source.
+9. Require documentation changes under `docs/` in the same branch as material implementation changes.
 
 **Exit criteria**
 
@@ -56,6 +72,7 @@ The Interaction Engine is therefore **source-present but not yet proven active i
 - No workflow can rewrite `main` or create orphan history.
 - Every active agent branch starts from the coordination base.
 - Basic repository validation runs automatically.
+- No new project plans, status reports, audits or architecture notes are added to the repository root.
 
 ### Phase 1 — Boot, dependencies and provider graph
 
@@ -63,17 +80,19 @@ The Interaction Engine is therefore **source-present but not yet proven active i
 2. Confirm every referenced local package exists.
 3. Register `packages/titanzero/interaction-engine` deliberately or record a different canonical destination.
 4. Wire `interaction_engine_enabled` to exactly one loadable provider.
-5. Run PSR-4/autoload and PHP syntax validation.
-6. Boot Laravel under staged combinations: host only, WorkCore only, Chatbot only, Interaction Engine only and approved combinations.
-7. Verify config caching, package discovery, provider counts and route registration.
-8. Catalogue missing classes, duplicate symbols and dependency conflicts.
+5. Ensure only `app/Extensions/Chatbot/System/ChatbotServiceProvider.php` can be selected by the active host/extension graph.
+6. Prevent `app/Extensions/TitanZeroChatbot` from independently registering providers, routes or migrations.
+7. Run PSR-4/autoload and PHP syntax validation.
+8. Boot Laravel under staged combinations: host only, WorkCore only, Chatbot only, Interaction Engine only and approved combinations.
+9. Verify config caching, package discovery, provider counts and route registration.
+10. Catalogue missing classes, duplicate symbols and dependency conflicts.
 
 **Exit criteria**
 
 - `composer install` succeeds from a clean checkout.
 - Laravel boots without container-resolution failures.
 - WorkCore, Chatbot and Interaction Engine activate independently through explicit flags.
-- No provider, route or class is registered twice.
+- No provider, route, migration or class is registered twice.
 
 ### Phase 2 — Canonical WorkCore boundary
 
@@ -100,26 +119,31 @@ The Interaction Engine is therefore **source-present but not yet proven active i
 5. Consolidate tenant resolvers and company-scoping traits.
 6. Verify route binding, queues, schedules, AI tools and offline sync restore the same context.
 7. Establish one device/channel trust-state model.
-8. Add cross-company isolation and privilege-escalation tests.
+8. Bind PWA device registration to authenticated tenant and actor context; never trust a localStorage device ID as proof.
+9. Add cross-company isolation and privilege-escalation tests.
 
 **Exit criteria**
 
 - One host identity source and one WorkCore operational context are used everywhere.
 - Cross-company access fails closed across web, API, queue, AI and sync paths.
+- Device revocation and tenant switching invalidate inappropriate local and server sessions.
 
 ### Phase 4 — Provider, adapter and module wiring
 
 1. Audit every service-container binding.
 2. Replace production null adapters with explicit MagicAI adapters where required.
 3. Verify menu, notification, storage, payment, messaging, calendar and geocoding contracts.
-4. Classify each WorkCore module as enabled, optional, dormant, compatibility-only or obsolete.
-5. Disable unused verticals by manifest/config rather than premature deletion.
+4. Classify each WorkCore module and extension as enabled, optional, dormant, compatibility-only or obsolete.
+5. Disable unused verticals and extensions by manifest/config rather than premature deletion.
 6. Ensure retained modules register providers, migrations, routes, permissions and UI entries exactly once.
+7. Preserve the primary Chatbot provider’s feature-aware WorkCore/TitanAI registration.
+8. Reject the secondary provider’s unconditional WorkCore/TitanAI registration behaviour.
 
 **Exit criteria**
 
 - No required production interface resolves to an unintended null implementation.
 - Every enabled module is reachable, entitled and authorised.
+- Only one Chatbot provider and one Chatbot migration tree can activate.
 
 ### Phase 5 — Route and API consolidation
 
@@ -130,11 +154,13 @@ The Interaction Engine is therefore **source-present but not yet proven active i
 5. Keep controllers thin and move decisions into application actions.
 6. Version device sync and AI tool endpoints.
 7. Require signed, replay-protected external callbacks.
+8. Verify `/api/v2/chatbot` device, bootstrap, push, pull and acknowledgement endpoints derive tenant/actor authority on the server.
 
 **Exit criteria**
 
 - No duplicate route names or method/URI pairs exist.
 - All operational APIs enforce identity, tenant and capability context.
+- A device cannot pull, push or acknowledge another tenant’s records.
 
 ### Phase 6 — Database and migration repair
 
@@ -143,12 +169,15 @@ The Interaction Engine is therefore **source-present but not yet proven active i
 3. Validate foreign-key types, indexes, tenant keys and UUID strategy.
 4. Reconcile host users/companies with WorkCore membership/context tables.
 5. Mark Rewind and legacy models as canonical, compatibility-only or obsolete.
-6. Test fresh install and upgrade from the latest supported schema.
+6. Map the 93 Chatbot migration files and prove only the canonical extension loads them.
+7. Test fresh install and upgrade from the latest supported server schema.
+8. Test IndexedDB upgrades from every supported prior device-database version without data loss.
 
 **Exit criteria**
 
 - Fresh and upgrade migrations succeed.
 - No table has competing ownership without an explicit compatibility layer.
+- IndexedDB upgrades preserve unsynchronised records, attachments and conflicts.
 
 ### Phase 7 — Interaction Engine and five-tier intelligence
 
@@ -169,16 +198,25 @@ The Interaction Engine is therefore **source-present but not yet proven active i
 
 ### Phase 8 — PWA and offline alignment
 
-1. Match IndexedDB schemas to canonical WorkCore DTOs and versions.
-2. Standardise UUID, company, actor and device fields.
-3. Validate vault encryption, outbox retry, conflict handling and background sync.
-4. Prevent secrets and sensitive responses entering service-worker caches.
-5. Add local schema migrations and safe recovery.
-6. Test offline create/update/delete and later reconciliation through WorkCore.
+1. Retain `app/Extensions/Chatbot` as the canonical PWA extension and keep the secondary tree disabled until focused removal evidence exists.
+2. Match IndexedDB schemas to canonical WorkCore DTOs and versions.
+3. Standardise UUID, company, actor and device fields on local records and queued operations.
+4. Validate vault encryption, inactivity/logout locking, explicit reset behaviour, outbox retry, conflict handling and background sync.
+5. Prove queued headers and bodies contain no secrets or encrypt sensitive payloads before IndexedDB persistence.
+6. Prevent secrets, authenticated pages and sensitive responses entering service-worker caches.
+7. Add local schema migration, quota recovery and rollback handling.
+8. Test offline create/update/delete and later reconciliation through WorkCore.
+9. Verify device trust, revocation, multi-user browser isolation and tenant-switch behaviour.
+10. Verify push-before-pull, cursor partitioning, durable sync inbox and acknowledgement ownership.
+11. Remove the secondary extension only after provider, route, migration, asset, registry, installer, updater and rollback checks pass.
 
 **Exit criteria**
 
 - Offline operations reconcile without loss, duplication, false success or cross-tenant leakage.
+- Service-worker caches contain only approved public shell assets.
+- No secret or unrestricted sensitive payload is persisted unencrypted in the outbox.
+- Unsynchronised records and conflicts survive upgrades and failures.
+- Only the canonical Chatbot extension is active.
 
 ### Phase 9 — UI, menus and product surfaces
 
@@ -187,12 +225,14 @@ The Interaction Engine is therefore **source-present but not yet proven active i
 3. Use menus for operational domains rather than duplicate assistant links.
 4. Place settings behind the header gear and appropriate secondary navigation.
 5. Verify role-specific mobile, tablet and desktop layouts.
-6. Remove dead links and unreachable screens.
+6. Preserve the six primary-only Titan Train files and test their workspace integration.
+7. Remove dead links and unreachable screens.
 
 **Exit criteria**
 
 - Every enabled feature has a reachable, authorised UI path.
 - No placeholder menu or disconnected dashboard remains.
+- PWA install, update and offline fallback behave consistently across supported layouts.
 
 ### Phase 10 — Security, quality and release hardening
 
@@ -200,14 +240,16 @@ The Interaction Engine is therefore **source-present but not yet proven active i
 2. Test uploads, SSRF, path traversal, XSS, CSRF, SQL injection and mass-assignment controls.
 3. Review queue, scheduler, webhook and provider failure behaviour.
 4. Add observability for actions, sync, AI runs and tenant violations.
-5. Produce deployment, rollback and disaster-recovery documentation.
-6. Generate a verified release archive and checksums.
+5. Audit outbox payloads, service-worker caching, notification navigation and device registration.
+6. Produce deployment, rollback and disaster-recovery documentation.
+7. Generate a verified release archive and checksums.
 
 **Exit criteria**
 
 - CI is green.
 - No unresolved critical/high security finding remains.
 - The release installs from a clean environment and can be rolled back safely.
+- Secondary extension removal or quarantine is proven reversible.
 
 ## Working method
 
