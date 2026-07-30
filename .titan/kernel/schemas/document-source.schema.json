@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://titanzero.local/.titan/schemas/document-source.schema.json",
+  "title": "Titan Agent OS Document Source",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["type", "status"],
+  "properties": {
+    "type": {"type": "string", "enum": ["authored", "generated", "derived", "reference"]},
+    "status": {"type": "string", "enum": ["current", "stale", "historical", "reference-only", "failed"]},
+    "canonical_path": {"type": ["string", "null"]},
+    "external_name": {"type": ["string", "null"]},
+    "source_commit": {"type": ["string", "null"], "pattern": "^[0-9a-f]{7,40}$"},
+    "generator": {"type": ["string", "null"]},
+    "generator_version": {"type": ["string", "null"]},
+    "generated_at": {"type": ["string", "null"], "format": "date-time"},
+    "inputs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "confidence": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+    "last_verified": {"type": ["string", "null"], "format": "date"},
+    "owner": {"type": ["string", "null"]},
+    "notes": {"type": ["string", "null"]}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"type": {"const": "generated"}}},
+      "then": {"required": ["generator", "generator_version", "source_commit", "generated_at", "inputs"]}
+    },
+    {
+      "if": {"properties": {"type": {"const": "derived"}}},
+      "then": {"required": ["canonical_path", "source_commit"]}
+    },
+    {
+      "if": {"properties": {"type": {"const": "reference"}}},
+      "then": {"anyOf": [{"required": ["canonical_path"]}, {"required": ["external_name"]}]}
+    }
+  ]
+}
