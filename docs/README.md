@@ -13,8 +13,9 @@ Before changing code or documentation, read the root [`README.md`](../README.md)
 3. [Canonical authority map](architecture/TITAN_ZERO_AUTHORITY_MAP.md)
 4. [Tenancy, trust and governed action execution](architecture/TENANCY_TRUST_AND_ACTION_EXECUTION.md)
 5. [Interaction Engine, Wizard and five-tier intelligence architecture](architecture/INTERACTION_WIZARD_AND_FIVE_TIER_INTELLIGENCE.md)
-6. [Documentation policy](governance/DOCUMENTATION_POLICY.md)
-7. [Documentation reconciliation status](DOCUMENTATION_RECONCILIATION_STATUS.md)
+6. [PWA, offline runtime and Chatbot extension architecture](architecture/PWA_OFFLINE_AND_CHATBOT_EXTENSION_ARCHITECTURE.md)
+7. [Documentation policy](governance/DOCUMENTATION_POLICY.md)
+8. [Documentation reconciliation status](DOCUMENTATION_RECONCILIATION_STATUS.md)
 
 ## Evidence and provenance
 
@@ -23,10 +24,12 @@ Before changing code or documentation, read the root [`README.md`](../README.md)
 - [Pass 2 architecture consolidation](inventory/PASS2_ARCHITECTURE_CONSOLIDATION.md)
 - [Root document consolidation](inventory/ROOT_DOCUMENT_CONSOLIDATION.md)
 - [Interaction, Wizard and five-tier runtime inventory](inventory/INTERACTION_INTELLIGENCE_RUNTIME_INVENTORY.md)
+- [PWA, offline and Chatbot extension runtime inventory](inventory/PWA_OFFLINE_RUNTIME_INVENTORY.md)
 - `inventory/archive_inventory.json` records the two uploaded archive contents and hashes.
 - `inventory/documentation_catalogue.json` is the generated Pass 1 catalogue snapshot.
 - `inventory/root_document_moves.json` records documentation moved from the repository root.
 - `inventory/INTERACTION_INTELLIGENCE_RUNTIME_INVENTORY.json` contains the file-level Pass 3 evidence.
+- `inventory/PWA_OFFLINE_RUNTIME_INVENTORY.json` contains the file-level Pass 4 evidence.
 
 ## Where agents add documentation
 
@@ -68,4 +71,5 @@ Planned, source-present, partially wired and operational are different states. D
 - Pass 1: archives extracted, exact duplicates removed and historical records separated.
 - Pass 2: ownership, tenancy, trust and action execution consolidated into source-backed canonical documents.
 - Pass 3: Interaction Engine, WorkCore Wizards and five-tier intelligence inventoried; one metadata-only duplicate package root removed; canonical runtime roles established; connected Interaction Engine activation remains unverified.
-- Remaining clusters: PWA/offline, extensions/modules, communications, automation, data architecture and release/deployment guidance.
+- Pass 4: complete Chatbot extension trees and offline runtimes inventoried; primary Chatbot established as canonical intended extension; secondary near-exact tree frozen; service-worker, IndexedDB, vault, outbox and sync boundaries documented.
+- Remaining clusters: extensions/modules, communications, automation, data architecture and release/deployment guidance.
