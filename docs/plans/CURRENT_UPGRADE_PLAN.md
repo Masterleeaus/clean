@@ -1,7 +1,7 @@
 # Titan Zero Current Upgrade Plan
 
 > [!NOTE]
-> **Current coordination baseline:** `integration/current-main-reconciliation`, created from repository `main` at `e565d7594e062c6705be9747bee0bd6081beb137`. Agents preserve old branches as evidence, but port only unique, verified deltas onto fresh `reconcile/<scope>` branches. Old branches are not merged wholesale.
+> **Current coordination baseline:** `integration/current-main-reconciliation`, fast-forwarded to repository `main` at `fa607d769a4f72ba287801b027cc42dcf56aa549`. Agents preserve old branches as evidence, but port only unique, verified deltas onto fresh `reconcile/<scope>` branches. Old branches are not merged wholesale.
 
 ## Purpose
 
@@ -18,7 +18,7 @@ The governing rule is simple: preserve real functionality, establish one authori
 - **Chatbot/PWA:** conversations, channels, presentation, generative UI, device storage, drafts, offline state, outbox and sync experience.
 - **Titan Money/payment surfaces:** operational finance and payment lifecycle under WorkCore governance, separate from MagicAI platform billing.
 
-See `docs/architecture/TITAN_ZERO_AUTHORITY_MAP.md` and `docs/architecture/TENANCY_TRUST_AND_ACTION_EXECUTION.md`.
+See `docs/architecture/TITAN_ZERO_AUTHORITY_MAP.md`, `docs/architecture/TENANCY_TRUST_AND_ACTION_EXECUTION.md` and `docs/architecture/INTERACTION_WIZARD_AND_FIVE_TIER_INTELLIGENCE.md`.
 
 ## Verified current-state findings
 
@@ -26,12 +26,15 @@ See `docs/architecture/TITAN_ZERO_AUTHORITY_MAP.md` and `docs/architecture/TENAN
 2. `App\Providers\TitanZeroServiceProvider` stages WorkCore and Chatbot providers through feature flags.
 3. WorkCore is enabled by default; Chatbot and Interaction Engine flags default to disabled.
 4. WorkCore provides scoped tenant/operation contexts and a governed `BusinessActionDispatcher` with entitlement, permission, confirmation, idempotency, audit and domain-event controls.
-5. The Interaction Engine package source exists under `packages/titanzero/interaction-engine` and contains a provider and tests.
-6. The root `composer.json` currently does not register or require that package.
-7. `interaction_engine_enabled` is stored by `TitanZeroFeatureFlags`, but `coreProviderClassNames()` does not currently register the Interaction Engine provider.
-8. The repository contains parallel/embedded Chatbot and WorkCore runtime copies that require classification before deletion or activation.
+5. The canonical Interaction Engine package source exists under `packages/titanzero/interaction-engine` and contains 386 files, including its provider, routes, migrations, tests, offline runtime and engine library.
+6. A metadata-only duplicate package root under `packages/titan-zero/interaction-engine` was removed after its unique metadata and conflict were recorded.
+7. The root `composer.json` currently does not register or require the canonical package.
+8. `interaction_engine_enabled` is stored by `TitanZeroFeatureFlags`, but `coreProviderClassNames()` does not currently register the Interaction Engine provider.
+9. WorkCore Wizards is a separate operational-domain module under canonical WorkCore and must not be conflated with the universal Interaction Engine.
+10. The TitanAI trees under `app/Extensions/Chatbot` and `app/Extensions/TitanZeroChatbot` contained 864 byte-identical files at Pass 3 inventory time; the second tree remains frozen compatibility/reference material pending focused source reconciliation.
+11. Embedded Chatbot WorkCore server code remains compatibility/reference-only and must not shadow `app/Domains/WorkCore`.
 
-The Interaction Engine is therefore **source-present but not yet proven active in the host**.
+The Interaction Engine is therefore **source-present but not yet proven active in the host**. Pass 3 established its canonical package path and removed the empty competing package root; connected activation remains implementation work.
 
 ## Delivery phases
 
@@ -149,13 +152,15 @@ The Interaction Engine is therefore **source-present but not yet proven active i
 
 ### Phase 7 — Interaction Engine and five-tier intelligence
 
-1. Select one canonical Interaction Engine runtime and remove active parallel registration.
-2. Separate Titan Zero orchestration from WorkCore business authority.
-3. Consolidate agent, tool, memory, usage and governance registries.
-4. Route Chatbot, offline and hosted AI execution through Interaction Engine clarification/approval and WorkCore actions.
-5. Keep confidence separate from permission, entitlement and confirmation.
-6. Enforce idempotency, authorisation, audit and domain events.
-7. Add local/offline and cloud execution parity tests.
+1. Retain `packages/titanzero/interaction-engine` as the canonical universal runtime; the metadata-only competing package root has been removed.
+2. Select one coherent host activation model—explicit feature-gated registration or Composer auto-discovery—and load the provider exactly once.
+3. Separate Titan Zero orchestration from WorkCore business authority.
+4. Consolidate agent, tool, memory, usage and governance registries.
+5. Keep only one active Chatbot TitanAI tree and one canonical WorkCore authority; port unique deltas before removing compatibility copies.
+6. Route Chatbot, offline and hosted AI execution through Interaction Engine clarification/approval and WorkCore actions.
+7. Keep confidence separate from permission, entitlement and confirmation.
+8. Enforce idempotency, authorisation, audit and domain events.
+9. Add local/offline and cloud execution parity tests.
 
 **Exit criteria**
 
