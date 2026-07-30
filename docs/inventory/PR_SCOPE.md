@@ -61,6 +61,23 @@
 - Added the canonical PWA/offline and duplicate-extension architecture specification.
 - Did not bulk-delete either extension or any local/offline data implementation.
 
+## Pass 5 — extension platform, manifests and lifecycle
+
+- Inventoried all 95 extension directories and all 112 static marketplace provider mappings.
+- Identified `Introduction` and compatibility-only `TitanZeroChatbot` as filesystem extensions not mapped by Marketplace.
+- Identified 19 marketplace mappings whose provider source files are absent.
+- Confirmed extension discovery currently registers every loadable mapped provider when enabled rather than only qualified/installed/enabled extensions.
+- Identified 810 duplicated PHP symbols and 93 duplicate migration filenames, dominated by the copied Chatbot trees.
+- Confirmed all 95 extensions have recognised manifests and all `extension.json` files decode successfully with BOM-aware UTF-8 handling.
+- Recorded that the legacy manifest schema is valid but too small to qualify provider, compatibility, dependency, permission, capability, health, tenant and integrity behaviour.
+- Identified 88 extension directories with no detected extension-local test file.
+- Confirmed install/uninstall use authenticated GET routes.
+- Confirmed the current installer downloads and directly extracts remote ZIPs without detected entry traversal/symlink validation or signature verification.
+- Confirmed `0777` extension directories, forced migrations, forced asset publication and no detected transactional rollback path.
+- Confirmed uninstall deletes files but has no detected database rollback and may swallow lifecycle exceptions.
+- Added the canonical extension-platform, manifest, qualification, install, upgrade, disable, uninstall and quarantine architecture.
+- Did not delete any extension directory or stale mapping; runtime cleanup remains focused implementation work.
+
 ## Safety boundary
 
 This PR does not:
@@ -68,6 +85,8 @@ This PR does not:
 - activate the Interaction Engine;
 - change controllers, operational routes, server migrations or domain behaviour;
 - bulk-delete either Chatbot extension or its TitanAI/PWA runtime;
+- modify extension install/uninstall runtime behaviour;
+- remove stale marketplace provider mappings;
 - merge old agent branches;
 - delete non-identical doctrine or architecture documents;
 - clear or migrate any user IndexedDB data;
@@ -86,7 +105,10 @@ The only non-document source removal is the single metadata-only duplicate `comp
 - `docs/inventory/INTERACTION_INTELLIGENCE_RUNTIME_INVENTORY.json`
 - `docs/inventory/PWA_OFFLINE_RUNTIME_INVENTORY.md`
 - `docs/inventory/PWA_OFFLINE_RUNTIME_INVENTORY.json`
+- `docs/inventory/EXTENSION_PLATFORM_INVENTORY.md`
+- `docs/inventory/EXTENSION_PLATFORM_INVENTORY.json`
+- `docs/inventory/EXTENSION_PLATFORM_GAPS.md`
 
 ## Next pass
 
-Pass 5 will inventory extension registries, manifests, package gates, marketplace activation, providers, migrations, routes, menus, permissions and capability-key collisions. Runtime qualification or deletion remains focused implementation work with tests and rollback evidence.
+Pass 6 will inventory host messaging, Chatbot channels, voice/telephony, consent, delivery, retries, templates, presence and signed callback behaviour. Runtime changes remain focused implementation work with security and rollback evidence.
