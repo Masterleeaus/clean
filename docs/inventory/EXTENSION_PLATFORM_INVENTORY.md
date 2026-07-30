@@ -1,6 +1,6 @@
 # Extension Platform Runtime Inventory
 
-Source commit: `5326d8422f0f44b8076aab4d981e2062f0831a16`
+Source commit: `16eef612617d32b6c63380524f2d6ba5a0d793a0`
 
 This inventory separates files present on disk, marketplace mappings, manifests and lifecycle behaviour from verified installation, qualification and activation.
 
@@ -9,7 +9,7 @@ This inventory separates files present on disk, marketplace mappings, manifests 
 - Extension directories: **95**
 - Marketplace provider mappings: **112**
 - Filesystem directories not mapped: **2**
-- Missing mapped provider classes: **112**
+- Missing mapped provider classes: **19**
 - Duplicate PHP symbols across extension directories: **810**
 - Duplicate migration filenames across extension directories: **93**
 
@@ -154,7 +154,7 @@ This inventory separates files present on disk, marketplace mappings, manifests 
 - **confirmed upgrade rollback risk:** Installation runs forced migrations after extraction without a detected transactional install or rollback/restore path.
 - **confirmed uninstall residue risk:** Uninstall deletes extension files and invokes hooks but no database migration rollback was detected.
 - **registry drift:** 2 extension directories are not represented in the static marketplace provider map.
-- **registry drift:** 112 mapped provider classes are missing from expected paths.
+- **registry drift:** 19 mapped provider classes are missing from expected paths.
 - **duplicate class risk:** 810 PHP symbols occur in more than one extension directory.
 
 ## Required platform rule

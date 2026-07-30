@@ -1,5 +1,5 @@
 {
-  "source_commit": "5326d8422f0f44b8076aab4d981e2062f0831a16",
+  "source_commit": "16eef612617d32b6c63380524f2d6ba5a0d793a0",
   "extensions": [
     {
       "directory": "AdvancedImage",
@@ -10102,564 +10102,99 @@
     ],
     "missing_provider_classes": [
       {
-        "slug": "chatbot",
-        "provider": "App\\Extensions\\Chatbot\\System\\ChatbotServiceProvider",
-        "expected_path": "App/Extensions/Chatbot/System/ChatbotServiceProvider.php"
-      },
-      {
-        "slug": "focus-mode",
-        "provider": "App\\Extensions\\FocusMode\\System\\FocusModeServiceProvider",
-        "expected_path": "App/Extensions/FocusMode/System/FocusModeServiceProvider.php"
-      },
-      {
-        "slug": "newsletter",
-        "provider": "App\\Extensions\\Newsletter\\System\\NewsletterServiceProvider",
-        "expected_path": "App/Extensions/Newsletter/System/NewsletterServiceProvider.php"
-      },
-      {
         "slug": "photo-studio",
         "provider": "App\\Extensions\\PhotoStudio\\System\\PhotoStudioServiceProvider",
-        "expected_path": "App/Extensions/PhotoStudio/System/PhotoStudioServiceProvider.php"
-      },
-      {
-        "slug": "ai-product-shot",
-        "provider": "App\\Extensions\\ProductPhotography\\System\\ProductPhotographyServiceProvider",
-        "expected_path": "App/Extensions/ProductPhotography/System/ProductPhotographyServiceProvider.php"
-      },
-      {
-        "slug": "ai-avatar",
-        "provider": "App\\Extensions\\AiAvatar\\System\\AiAvatarServiceProvider",
-        "expected_path": "App/Extensions/AiAvatar/System/AiAvatarServiceProvider.php"
-      },
-      {
-        "slug": "ai-persona",
-        "provider": "App\\Extensions\\AiPersona\\System\\AiPersonaServiceProvider",
-        "expected_path": "App/Extensions/AiPersona/System/AiPersonaServiceProvider.php"
-      },
-      {
-        "slug": "ai-music",
-        "provider": "App\\Extensions\\AiMusic\\System\\AiMusicServiceProvider",
-        "expected_path": "App/Extensions/AiMusic/System/AiMusicServiceProvider.php"
-      },
-      {
-        "slug": "ai-video-pro",
-        "provider": "App\\Extensions\\AiVideoPro\\System\\AiVideoProServiceProvider",
-        "expected_path": "App/Extensions/AiVideoPro/System/AiVideoProServiceProvider.php"
-      },
-      {
-        "slug": "seo-tool",
-        "provider": "App\\Extensions\\SEOTool\\System\\SEOToolServiceProvider",
-        "expected_path": "App/Extensions/SEOTool/System/SEOToolServiceProvider.php"
-      },
-      {
-        "slug": "ai-social-media",
-        "provider": "App\\Extensions\\AISocialMedia\\System\\AISocialMediaServiceProvider",
-        "expected_path": "App/Extensions/AISocialMedia/System/AISocialMediaServiceProvider.php"
-      },
-      {
-        "slug": "webchat",
-        "provider": "App\\Extensions\\AIWebChat\\System\\AIWebChatServiceProvider",
-        "expected_path": "App/Extensions/AIWebChat/System/AIWebChatServiceProvider.php"
+        "expected_path": "app/Extensions/PhotoStudio/System/PhotoStudioServiceProvider.php"
       },
       {
         "slug": "onboarding",
         "provider": "App\\Extensions\\Onboarding\\System\\OnboardingServiceProvider",
-        "expected_path": "App/Extensions/Onboarding/System/OnboardingServiceProvider.php"
-      },
-      {
-        "slug": "flux-pro",
-        "provider": "App\\Extensions\\FluxPro\\System\\FluxProServiceProvider",
-        "expected_path": "App/Extensions/FluxPro/System/FluxProServiceProvider.php"
-      },
-      {
-        "slug": "chat-share",
-        "provider": "App\\Extensions\\ChatShare\\System\\ChatShareServiceProvider",
-        "expected_path": "App/Extensions/ChatShare/System/ChatShareServiceProvider.php"
-      },
-      {
-        "slug": "voice-isolator",
-        "provider": "App\\Extensions\\AIVoiceIsolator\\System\\AIVoiceIsolatorServiceProvider",
-        "expected_path": "App/Extensions/AIVoiceIsolator/System/AIVoiceIsolatorServiceProvider.php"
-      },
-      {
-        "slug": "chat-setting",
-        "provider": "App\\Extensions\\ChatSetting\\System\\ChatSettingServiceProvider",
-        "expected_path": "App/Extensions/ChatSetting/System/ChatSettingServiceProvider.php"
-      },
-      {
-        "slug": "hubspot",
-        "provider": "App\\Extensions\\Hubspot\\System\\HubspotServiceProvider",
-        "expected_path": "App/Extensions/Hubspot/System/HubspotServiceProvider.php"
-      },
-      {
-        "slug": "menu",
-        "provider": "App\\Extensions\\Menu\\System\\MenuServiceProvider",
-        "expected_path": "App/Extensions/Menu/System/MenuServiceProvider.php"
-      },
-      {
-        "slug": "azure-tts",
-        "provider": "App\\Extensions\\AzureTTS\\System\\AzureTTSServiceProvider",
-        "expected_path": "App/Extensions/AzureTTS/System/AzureTTSServiceProvider.php"
-      },
-      {
-        "slug": "plagiarism",
-        "provider": "App\\Extensions\\AIPlagiarism\\System\\AIPlagiarismServiceProvider",
-        "expected_path": "App/Extensions/AIPlagiarism/System/AIPlagiarismServiceProvider.php"
-      },
-      {
-        "slug": "cloudflare-r2",
-        "provider": "App\\Extensions\\Cloudflare\\System\\CloudflareServiceProvider",
-        "expected_path": "App/Extensions/Cloudflare/System/CloudflareServiceProvider.php"
-      },
-      {
-        "slug": "wordpress",
-        "provider": "App\\Extensions\\Wordpress\\System\\WordpressServiceProvider",
-        "expected_path": "App/Extensions/Wordpress/System/WordpressServiceProvider.php"
-      },
-      {
-        "slug": "cryptomus",
-        "provider": "App\\Extensions\\Cryptomus\\System\\CryptomusServiceProvider",
-        "expected_path": "App/Extensions/Cryptomus/System/CryptomusServiceProvider.php"
+        "expected_path": "app/Extensions/Onboarding/System/OnboardingServiceProvider.php"
       },
       {
         "slug": "affilate",
         "provider": "App\\Extensions\\Affilate\\System\\AffilateServiceProvider",
-        "expected_path": "App/Extensions/Affilate/System/AffilateServiceProvider.php"
-      },
-      {
-        "slug": "mailchimp-newsletter",
-        "provider": "App\\Extensions\\Mailchimp\\System\\MailchimpServiceProvider",
-        "expected_path": "App/Extensions/Mailchimp/System/MailchimpServiceProvider.php"
-      },
-      {
-        "slug": "ai-writer-templates",
-        "provider": "App\\Extensions\\AIWriterTemplates\\System\\AIWriterTemplateServiceProvider",
-        "expected_path": "App/Extensions/AIWriterTemplates/System/AIWriterTemplateServiceProvider.php"
-      },
-      {
-        "slug": "maintenance",
-        "provider": "App\\Extensions\\Maintenance\\System\\MaintenanceServiceProvider",
-        "expected_path": "App/Extensions/Maintenance/System/MaintenanceServiceProvider.php"
-      },
-      {
-        "slug": "open-router",
-        "provider": "App\\Extensions\\OpenRouter\\System\\OpenRouterServiceProvider",
-        "expected_path": "App/Extensions/OpenRouter/System/OpenRouterServiceProvider.php"
-      },
-      {
-        "slug": "advanced-image",
-        "provider": "App\\Extensions\\AdvancedImage\\System\\AdvancedImageServiceProvider",
-        "expected_path": "App/Extensions/AdvancedImage/System/AdvancedImageServiceProvider.php"
-      },
-      {
-        "slug": "mega-menu",
-        "provider": "App\\Extensions\\MegaMenu\\System\\MegaMenuServiceProvider",
-        "expected_path": "App/Extensions/MegaMenu/System/MegaMenuServiceProvider.php"
-      },
-      {
-        "slug": "onboarding-pro",
-        "provider": "App\\Extensions\\OnboardingPro\\System\\OnboardingProServiceProvider",
-        "expected_path": "App/Extensions/OnboardingPro/System/OnboardingProServiceProvider.php"
+        "expected_path": "app/Extensions/Affilate/System/AffilateServiceProvider.php"
       },
       {
         "slug": "ideogram",
         "provider": "App\\Extensions\\Ideogram\\System\\IdeogramServiceProvider",
-        "expected_path": "App/Extensions/Ideogram/System/IdeogramServiceProvider.php"
-      },
-      {
-        "slug": "perplexity",
-        "provider": "App\\Extensions\\Perplexity\\System\\PerplexityServiceProvider",
-        "expected_path": "App/Extensions/Perplexity/System/PerplexityServiceProvider.php"
-      },
-      {
-        "slug": "checkout-registration",
-        "provider": "App\\Extensions\\CheckoutRegistration\\System\\RegistrationServiceProvider",
-        "expected_path": "App/Extensions/CheckoutRegistration/System/RegistrationServiceProvider.php"
-      },
-      {
-        "slug": "openai-realtime-chat",
-        "provider": "App\\Extensions\\OpenAIRealtimeChat\\System\\OpenAIRealtimeChatServiceProvider",
-        "expected_path": "App/Extensions/OpenAIRealtimeChat/System/OpenAIRealtimeChatServiceProvider.php"
-      },
-      {
-        "slug": "ai-video-to-video",
-        "provider": "App\\Extensions\\AIVideoToVideo\\System\\AIVideoToVideoServiceProvider",
-        "expected_path": "App/Extensions/AIVideoToVideo/System/AIVideoToVideoServiceProvider.php"
-      },
-      {
-        "slug": "midjourney",
-        "provider": "App\\Extensions\\Midjourney\\System\\MidjourneyServiceProvider",
-        "expected_path": "App/Extensions/Midjourney/System/MidjourneyServiceProvider.php"
-      },
-      {
-        "slug": "social-media",
-        "provider": "App\\Extensions\\SocialMedia\\System\\SocialMediaServiceProvider",
-        "expected_path": "App/Extensions/SocialMedia/System/SocialMediaServiceProvider.php"
-      },
-      {
-        "slug": "social-media-agent",
-        "provider": "App\\Extensions\\SocialMediaAgent\\System\\SocialMediaAgentServiceProvider",
-        "expected_path": "App/Extensions/SocialMediaAgent/System/SocialMediaAgentServiceProvider.php"
-      },
-      {
-        "slug": "social-media-automation",
-        "provider": "App\\Extensions\\SocialMediaAutomation\\System\\SocialMediaAutomationServiceProvider",
-        "expected_path": "App/Extensions/SocialMediaAutomation/System/SocialMediaAutomationServiceProvider.php"
-      },
-      {
-        "slug": "blogpilot",
-        "provider": "App\\Extensions\\BlogPilot\\System\\BlogPilotServiceProvider",
-        "expected_path": "App/Extensions/BlogPilot/System/BlogPilotServiceProvider.php"
-      },
-      {
-        "slug": "chatbot-agent",
-        "provider": "App\\Extensions\\ChatbotAgent\\System\\ChatbotAgentServiceProvider",
-        "expected_path": "App/Extensions/ChatbotAgent/System/ChatbotAgentServiceProvider.php"
-      },
-      {
-        "slug": "chatbot-booking",
-        "provider": "App\\Extensions\\ChatbotBooking\\System\\ChatbotBookingServiceProvider",
-        "expected_path": "App/Extensions/ChatbotBooking/System/ChatbotBookingServiceProvider.php"
-      },
-      {
-        "slug": "chatbot-ecommerce",
-        "provider": "App\\Extensions\\ChatbotEcommerce\\System\\ChatbotEcommerceServiceProvider",
-        "expected_path": "App/Extensions/ChatbotEcommerce/System/ChatbotEcommerceServiceProvider.php"
-      },
-      {
-        "slug": "chatbot-customer-tag",
-        "provider": "App\\Extensions\\ChatbotCustomerTag\\System\\ChatbotCustomerTagServiceProvider",
-        "expected_path": "App/Extensions/ChatbotCustomerTag/System/ChatbotCustomerTagServiceProvider.php"
-      },
-      {
-        "slug": "chatbot-review",
-        "provider": "App\\Extensions\\ChatbotReview\\System\\ChatbotReviewServiceProvider",
-        "expected_path": "App/Extensions/ChatbotReview/System/ChatbotReviewServiceProvider.php"
-      },
-      {
-        "slug": "xero",
-        "provider": "App\\Extensions\\Xero\\System\\XeroServiceProvider",
-        "expected_path": "App/Extensions/Xero/System/XeroServiceProvider.php"
+        "expected_path": "app/Extensions/Ideogram/System/IdeogramServiceProvider.php"
       },
       {
         "slug": "speechify-tts",
         "provider": "App\\Extensions\\SpeechifyTTS\\System\\SpeechifyServiceProvider",
-        "expected_path": "App/Extensions/SpeechifyTTS/System/SpeechifyServiceProvider.php"
-      },
-      {
-        "slug": "ai-chat-pro",
-        "provider": "App\\Extensions\\AIChatPro\\System\\AIChatProServiceProvider",
-        "expected_path": "App/Extensions/AIChatPro/System/AIChatProServiceProvider.php"
-      },
-      {
-        "slug": "announcement",
-        "provider": "App\\Extensions\\Announcement\\System\\AnnouncementServiceProvider",
-        "expected_path": "App/Extensions/Announcement/System/AnnouncementServiceProvider.php"
-      },
-      {
-        "slug": "ai-realtime-image",
-        "provider": "App\\Extensions\\AIRealtimeImage\\System\\AIRealtimeImageServiceProvider",
-        "expected_path": "App/Extensions/AIRealtimeImage/System/AIRealtimeImageServiceProvider.php"
-      },
-      {
-        "slug": "azure-openai",
-        "provider": "App\\Extensions\\AzureOpenai\\System\\AzureOpenaiServiceProvider",
-        "expected_path": "App/Extensions/AzureOpenai/System/AzureOpenaiServiceProvider.php"
-      },
-      {
-        "slug": "chatbot-voice",
-        "provider": "App\\Extensions\\ChatbotVoice\\System\\ChatbotVoiceServiceProvider",
-        "expected_path": "App/Extensions/ChatbotVoice/System/ChatbotVoiceServiceProvider.php"
-      },
-      {
-        "slug": "chatbot-voice-call",
-        "provider": "App\\Extensions\\ChatbotVoiceCall\\System\\ChatbotVoiceCallServiceProvider",
-        "expected_path": "App/Extensions/ChatbotVoiceCall/System/ChatbotVoiceCallServiceProvider.php"
-      },
-      {
-        "slug": "phone-call-agent",
-        "provider": "App\\Extensions\\PhoneCallAgent\\System\\PhoneCallAgentServiceProvider",
-        "expected_path": "App/Extensions/PhoneCallAgent/System/PhoneCallAgentServiceProvider.php"
+        "expected_path": "app/Extensions/SpeechifyTTS/System/SpeechifyServiceProvider.php"
       },
       {
         "slug": "chatbot-telegram",
         "provider": "App\\Extensions\\ChatbotTelegram\\System\\ChatbotTelegramServiceProvider",
-        "expected_path": "App/Extensions/ChatbotTelegram/System/ChatbotTelegramServiceProvider.php"
+        "expected_path": "app/Extensions/ChatbotTelegram/System/ChatbotTelegramServiceProvider.php"
       },
       {
         "slug": "chatbot-whatsapp",
         "provider": "App\\Extensions\\ChatbotWhatsapp\\System\\ChatbotWhatsappServiceProvider",
-        "expected_path": "App/Extensions/ChatbotWhatsapp/System/ChatbotWhatsappServiceProvider.php"
+        "expected_path": "app/Extensions/ChatbotWhatsapp/System/ChatbotWhatsappServiceProvider.php"
       },
       {
         "slug": "chatbot-messenger",
         "provider": "App\\Extensions\\ChatbotMessenger\\System\\ChatbotMessengerServiceProvider",
-        "expected_path": "App/Extensions/ChatbotMessenger/System/ChatbotMessengerServiceProvider.php"
+        "expected_path": "app/Extensions/ChatbotMessenger/System/ChatbotMessengerServiceProvider.php"
       },
       {
         "slug": "chatbot-instagram",
         "provider": "App\\Extensions\\ChatbotInstagram\\System\\ChatbotInstagramServiceProvider",
-        "expected_path": "App/Extensions/ChatbotInstagram/System/ChatbotInstagramServiceProvider.php"
-      },
-      {
-        "slug": "marketing-bot",
-        "provider": "App\\Extensions\\MarketingBot\\System\\MarketingBotServiceProvider",
-        "expected_path": "App/Extensions/MarketingBot/System/MarketingBotServiceProvider.php"
-      },
-      {
-        "slug": "migration",
-        "provider": "App\\Extensions\\Migration\\System\\MigrationServiceProvider",
-        "expected_path": "App/Extensions/Migration/System/MigrationServiceProvider.php"
-      },
-      {
-        "slug": "live-customizer",
-        "provider": "App\\Extensions\\LiveCustomizer\\System\\LiveCustomizerServiceProvider",
-        "expected_path": "App/Extensions/LiveCustomizer/System/LiveCustomizerServiceProvider.php"
-      },
-      {
-        "slug": "elevenlabs-voice-chat",
-        "provider": "App\\Extensions\\ElevenLabsVoiceChat\\System\\ElevenLabsVoiceChatServiceProvider",
-        "expected_path": "App/Extensions/ElevenLabsVoiceChat/System/ElevenLabsVoiceChatServiceProvider.php"
-      },
-      {
-        "slug": "creative-suite",
-        "provider": "App\\Extensions\\CreativeSuite\\System\\CreativeSuiteServiceProvider",
-        "expected_path": "App/Extensions/CreativeSuite/System/CreativeSuiteServiceProvider.php"
-      },
-      {
-        "slug": "creative-suite-annotations",
-        "provider": "App\\Extensions\\CreativeSuiteAnnotations\\System\\CreativeSuiteAnnotationsServiceProvider",
-        "expected_path": "App/Extensions/CreativeSuiteAnnotations/System/CreativeSuiteAnnotationsServiceProvider.php"
-      },
-      {
-        "slug": "url-to-video",
-        "provider": "App\\Extensions\\UrlToVideo\\System\\UrlToVideoServiceProvider",
-        "expected_path": "App/Extensions/UrlToVideo/System/UrlToVideoServiceProvider.php"
-      },
-      {
-        "slug": "ai-viral-clips",
-        "provider": "App\\Extensions\\AiViralClips\\System\\AiViralClipsServiceProvider",
-        "expected_path": "App/Extensions/AiViralClips/System/AiViralClipsServiceProvider.php"
-      },
-      {
-        "slug": "influencer-avatar",
-        "provider": "App\\Extensions\\InfluencerAvatar\\System\\InfluencerAvatarServiceProvider",
-        "expected_path": "App/Extensions/InfluencerAvatar/System/InfluencerAvatarServiceProvider.php"
-      },
-      {
-        "slug": "content-manager",
-        "provider": "App\\Extensions\\ContentManager\\System\\ContentManagerServiceProvider",
-        "expected_path": "App/Extensions/ContentManager/System/ContentManagerServiceProvider.php"
-      },
-      {
-        "slug": "canvas",
-        "provider": "App\\Extensions\\Canvas\\System\\CanvasServiceProvider",
-        "expected_path": "App/Extensions/Canvas/System/CanvasServiceProvider.php"
-      },
-      {
-        "slug": "discount-manager",
-        "provider": "App\\Extensions\\DiscountManager\\System\\DiscountManagerServiceProvider",
-        "expected_path": "App/Extensions/DiscountManager/System/DiscountManagerServiceProvider.php"
+        "expected_path": "app/Extensions/ChatbotInstagram/System/ChatbotInstagramServiceProvider.php"
       },
       {
         "slug": "footer-menu",
         "provider": "App\\Extensions\\FooterMenu\\System\\FooterMenuServiceProvider",
-        "expected_path": "App/Extensions/FooterMenu/System/FooterMenuServiceProvider.php"
-      },
-      {
-        "slug": "chat-pro-temp-chat",
-        "provider": "App\\Extensions\\ChatProTempChat\\System\\ChatProTempChatServiceProvider",
-        "expected_path": "App/Extensions/ChatProTempChat/System/ChatProTempChatServiceProvider.php"
+        "expected_path": "app/Extensions/FooterMenu/System/FooterMenuServiceProvider.php"
       },
       {
         "slug": "demo-extension",
         "provider": "App\\Extensions\\DemoExtension\\System\\DemoExtensionServiceProvider",
-        "expected_path": "App/Extensions/DemoExtension/System/DemoExtensionServiceProvider.php"
-      },
-      {
-        "slug": "multi-model",
-        "provider": "App\\Extensions\\MultiModel\\System\\MultiModelServiceProvider",
-        "expected_path": "App/Extensions/MultiModel/System/MultiModelServiceProvider.php"
-      },
-      {
-        "slug": "model-council",
-        "provider": "App\\Extensions\\ModelCouncil\\System\\ModelCouncilServiceProvider",
-        "expected_path": "App/Extensions/ModelCouncil/System/ModelCouncilServiceProvider.php"
-      },
-      {
-        "slug": "ai-chat-pro-skills",
-        "provider": "App\\Extensions\\AIChatProSkills\\System\\AIChatProSkillsServiceProvider",
-        "expected_path": "App/Extensions/AIChatProSkills/System/AIChatProSkillsServiceProvider.php"
-      },
-      {
-        "slug": "ai-chat-pro-deep-research",
-        "provider": "App\\Extensions\\AIChatProDeepResearch\\System\\AIChatProDeepResearchServiceProvider",
-        "expected_path": "App/Extensions/AIChatProDeepResearch/System/AIChatProDeepResearchServiceProvider.php"
-      },
-      {
-        "slug": "nano-banana",
-        "provider": "App\\Extensions\\NanoBanana\\System\\NanoBananaServiceProvider",
-        "expected_path": "App/Extensions/NanoBanana/System/NanoBananaServiceProvider.php"
-      },
-      {
-        "slug": "ai-chat-pro-file-chat",
-        "provider": "App\\Extensions\\AIChatProFileChat\\System\\AIChatProFileChatServiceProvider",
-        "expected_path": "App/Extensions/AIChatProFileChat/System/AIChatProFileChatServiceProvider.php"
-      },
-      {
-        "slug": "ai-music-pro",
-        "provider": "App\\Extensions\\AiMusicPro\\System\\AiMusicProServiceProvider",
-        "expected_path": "App/Extensions/AiMusicPro/System/AiMusicProServiceProvider.php"
-      },
-      {
-        "slug": "see-dream-v4",
-        "provider": "App\\Extensions\\SeeDreamV4\\System\\SeeDreamV4ServiceProvider",
-        "expected_path": "App/Extensions/SeeDreamV4/System/SeeDreamV4ServiceProvider.php"
-      },
-      {
-        "slug": "ai-presentation",
-        "provider": "App\\Extensions\\AiPresentation\\System\\AiPresentationServiceProvider",
-        "expected_path": "App/Extensions/AiPresentation/System/AiPresentationServiceProvider.php"
-      },
-      {
-        "slug": "ai-image-pro",
-        "provider": "App\\Extensions\\AIImagePro\\System\\AIImageProServiceProvider",
-        "expected_path": "App/Extensions/AIImagePro/System/AIImageProServiceProvider.php"
+        "expected_path": "app/Extensions/DemoExtension/System/DemoExtensionServiceProvider.php"
       },
       {
         "slug": "ai-chat-pro-image-chat",
         "provider": "App\\Extensions\\AiChatProImageChat\\System\\AiChatProImageChatServiceProvider",
-        "expected_path": "App/Extensions/AiChatProImageChat/System/AiChatProImageChatServiceProvider.php"
-      },
-      {
-        "slug": "ai-chat-pro-folders",
-        "provider": "App\\Extensions\\AIChatProFolders\\System\\AIChatProFoldersServiceProvider",
-        "expected_path": "App/Extensions/AIChatProFolders/System/AIChatProFoldersServiceProvider.php"
+        "expected_path": "app/Extensions/AiChatProImageChat/System/AiChatProImageChatServiceProvider.php"
       },
       {
         "slug": "ai-chat-pro-memory",
         "provider": "App\\Extensions\\AIChatProMemory\\System\\AIChatProMemoryServiceProvider",
-        "expected_path": "App/Extensions/AIChatProMemory/System/AIChatProMemoryServiceProvider.php"
-      },
-      {
-        "slug": "ai-chat-pro-smart-image",
-        "provider": "App\\Extensions\\AiChatProSmartImage\\System\\AiChatProSmartImageServiceProvider",
-        "expected_path": "App/Extensions/AiChatProSmartImage/System/AiChatProSmartImageServiceProvider.php"
-      },
-      {
-        "slug": "fashion-studio",
-        "provider": "App\\Extensions\\FashionStudio\\System\\FashionStudioServiceProvider",
-        "expected_path": "App/Extensions/FashionStudio/System/FashionStudioServiceProvider.php"
-      },
-      {
-        "slug": "creative-suite-ai-template",
-        "provider": "App\\Extensions\\CreativeSuiteAITemplate\\System\\CreativeSuiteAITemplateServiceProvider",
-        "expected_path": "App/Extensions/CreativeSuiteAITemplate/System/CreativeSuiteAITemplateServiceProvider.php"
-      },
-      {
-        "slug": "ai-photoshoot",
-        "provider": "App\\Extensions\\AIPhotoshoot\\System\\AIPhotoshootServiceProvider",
-        "expected_path": "App/Extensions/AIPhotoshoot/System/AIPhotoshootServiceProvider.php"
-      },
-      {
-        "slug": "ai-chat-pro-entity-highlight",
-        "provider": "App\\Extensions\\AiChatProEntityHighlight\\System\\AiChatProEntityHighlightServiceProvider",
-        "expected_path": "App/Extensions/AiChatProEntityHighlight/System/AiChatProEntityHighlightServiceProvider.php"
-      },
-      {
-        "slug": "ai-chat-pro-highlight-to-ask",
-        "provider": "App\\Extensions\\AiChatProHighlightToAsk\\System\\AiChatProHighlightToAskServiceProvider",
-        "expected_path": "App/Extensions/AiChatProHighlightToAsk/System/AiChatProHighlightToAskServiceProvider.php"
-      },
-      {
-        "slug": "video-editor",
-        "provider": "App\\Extensions\\VideoEditor\\System\\VideoEditorServiceProvider",
-        "expected_path": "App/Extensions/VideoEditor/System/VideoEditorServiceProvider.php"
-      },
-      {
-        "slug": "ugc-factory",
-        "provider": "App\\Extensions\\UGCFactory\\System\\UGCFactoryServiceProvider",
-        "expected_path": "App/Extensions/UGCFactory/System/UGCFactoryServiceProvider.php"
-      },
-      {
-        "slug": "ugc-creator",
-        "provider": "App\\Extensions\\UGCCreator\\System\\UGCCreatorServiceProvider",
-        "expected_path": "App/Extensions/UGCCreator/System/UGCCreatorServiceProvider.php"
-      },
-      {
-        "slug": "video-dubbing",
-        "provider": "App\\Extensions\\VideoDubbing\\System\\VideoDubbingServiceProvider",
-        "expected_path": "App/Extensions/VideoDubbing/System/VideoDubbingServiceProvider.php"
-      },
-      {
-        "slug": "ai-captions",
-        "provider": "App\\Extensions\\AiCaptions\\System\\AiCaptionsServiceProvider",
-        "expected_path": "App/Extensions/AiCaptions/System/AiCaptionsServiceProvider.php"
-      },
-      {
-        "slug": "ai-agent",
-        "provider": "App\\Extensions\\AIAgent\\System\\AIAgentServiceProvider",
-        "expected_path": "App/Extensions/AIAgent/System/AIAgentServiceProvider.php"
-      },
-      {
-        "slug": "ai-agent-whatsapp-channel",
-        "provider": "App\\Extensions\\AIAgentWhatsappChannel\\System\\AIAgentWhatsappChannelServiceProvider",
-        "expected_path": "App/Extensions/AIAgentWhatsappChannel/System/AIAgentWhatsappChannelServiceProvider.php"
-      },
-      {
-        "slug": "ai-agent-slack-channel",
-        "provider": "App\\Extensions\\AIAgentSlackChannel\\System\\AIAgentSlackChannelServiceProvider",
-        "expected_path": "App/Extensions/AIAgentSlackChannel/System/AIAgentSlackChannelServiceProvider.php"
-      },
-      {
-        "slug": "ai-agent-tool-social-media",
-        "provider": "App\\Extensions\\AIAgentToolSocialMediaAgent\\System\\AIAgentToolSocialMediaAgentServiceProvider",
-        "expected_path": "App/Extensions/AIAgentToolSocialMediaAgent/System/AIAgentToolSocialMediaAgentServiceProvider.php"
-      },
-      {
-        "slug": "ai-agent-tool-marketing-bot",
-        "provider": "App\\Extensions\\AIAgentToolMarketingBot\\System\\AIAgentToolMarketingBotServiceProvider",
-        "expected_path": "App/Extensions/AIAgentToolMarketingBot/System/AIAgentToolMarketingBotServiceProvider.php"
-      },
-      {
-        "slug": "ai-agent-tool-chatbot",
-        "provider": "App\\Extensions\\AIAgentToolChatbot\\System\\AIAgentToolChatbotServiceProvider",
-        "expected_path": "App/Extensions/AIAgentToolChatbot/System/AIAgentToolChatbotServiceProvider.php"
-      },
-      {
-        "slug": "ai-agent-gmail",
-        "provider": "App\\Extensions\\AIAgentGmail\\System\\AIAgentGmailServiceProvider",
-        "expected_path": "App/Extensions/AIAgentGmail/System/AIAgentGmailServiceProvider.php"
+        "expected_path": "app/Extensions/AIChatProMemory/System/AIChatProMemoryServiceProvider.php"
       },
       {
         "slug": "ai-agent-outlook",
         "provider": "App\\Extensions\\AIAgentOutlook\\System\\AIAgentOutlookServiceProvider",
-        "expected_path": "App/Extensions/AIAgentOutlook/System/AIAgentOutlookServiceProvider.php"
+        "expected_path": "app/Extensions/AIAgentOutlook/System/AIAgentOutlookServiceProvider.php"
       },
       {
         "slug": "ai-chat-pro-gmail",
         "provider": "App\\Extensions\\AIChatProGmail\\System\\AIChatProGmailServiceProvider",
-        "expected_path": "App/Extensions/AIChatProGmail/System/AIChatProGmailServiceProvider.php"
+        "expected_path": "app/Extensions/AIChatProGmail/System/AIChatProGmailServiceProvider.php"
       },
       {
         "slug": "ai-chat-pro-outlook",
         "provider": "App\\Extensions\\AIChatProOutlook\\System\\AIChatProOutlookServiceProvider",
-        "expected_path": "App/Extensions/AIChatProOutlook/System/AIChatProOutlookServiceProvider.php"
+        "expected_path": "app/Extensions/AIChatProOutlook/System/AIChatProOutlookServiceProvider.php"
       },
       {
         "slug": "ai-chat-pro-notion",
         "provider": "App\\Extensions\\AIChatProNotion\\System\\AIChatProNotionServiceProvider",
-        "expected_path": "App/Extensions/AIChatProNotion/System/AIChatProNotionServiceProvider.php"
+        "expected_path": "app/Extensions/AIChatProNotion/System/AIChatProNotionServiceProvider.php"
       },
       {
         "slug": "ai-chat-pro-google-drive",
         "provider": "App\\Extensions\\AIChatProGoogleDrive\\System\\AIChatProGoogleDriveServiceProvider",
-        "expected_path": "App/Extensions/AIChatProGoogleDrive/System/AIChatProGoogleDriveServiceProvider.php"
+        "expected_path": "app/Extensions/AIChatProGoogleDrive/System/AIChatProGoogleDriveServiceProvider.php"
       },
       {
         "slug": "ai-chat-pro-google-calendar",
         "provider": "App\\Extensions\\AIChatProGoogleCalendar\\System\\AIChatProGoogleCalendarServiceProvider",
-        "expected_path": "App/Extensions/AIChatProGoogleCalendar/System/AIChatProGoogleCalendarServiceProvider.php"
+        "expected_path": "app/Extensions/AIChatProGoogleCalendar/System/AIChatProGoogleCalendarServiceProvider.php"
       }
     ],
     "provider_class_used_by_multiple_slugs": {}
@@ -10699,7 +10234,7 @@
     },
     {
       "classification": "registry drift",
-      "finding": "112 mapped provider classes are missing from expected paths."
+      "finding": "19 mapped provider classes are missing from expected paths."
     },
     {
       "classification": "duplicate class risk",

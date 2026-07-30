@@ -224,7 +224,11 @@ def reconcile_marketplace(items: list[dict[str, Any]], marketplace: dict[str, An
         directory = parts[2] if len(parts) > 2 and parts[0:2] == ["App", "Extensions"] else None
         if directory:
             mapped_directories.add(directory)
-        provider_path = ROOT / (fqcn.replace("\\", "/") + ".php")
+        if fqcn.startswith("App\\"):
+            provider_relative = "app/" + fqcn[len("App\\"):].replace("\\", "/") + ".php"
+        else:
+            provider_relative = fqcn.replace("\\", "/") + ".php"
+        provider_path = ROOT / provider_relative
         if not provider_path.is_file():
             missing_provider_classes.append({"slug": slug, "provider": fqcn, "expected_path": provider_path.relative_to(ROOT).as_posix()})
         duplicate_provider_targets[fqcn].append(slug)
