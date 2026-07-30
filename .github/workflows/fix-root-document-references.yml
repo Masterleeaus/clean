@@ -1,0 +1,130 @@
+name: Repair root document references
+
+on:
+  push:
+    branches:
+      - agent/documentation-reconciliation
+    paths:
+      - '.github/workflows/fix-root-document-references.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/documentation-reconciliation
+          fetch-depth: 0
+
+      - name: Repair references and inventories
+        shell: python
+        run: |
+          from pathlib import Path
+          import json
+
+          root = Path('.')
+          old_manifest = 'EXTENSIONS_IMPORT_MANIFEST.json'
+          new_manifest = 'docs/provenance/root-imported/extensions_import_manifest.json'
+
+          for relative in [
+              'tests/Architecture/SourceBaselineTest.php',
+              'tools/titan-zero-audit/baseline.php',
+              'app/Extensions/README.md',
+          ]:
+              path = root / relative
+              text = path.read_text(encoding='utf-8')
+              if old_manifest not in text:
+                  raise SystemExit(f'Expected reference missing in {relative}')
+              path.write_text(text.replace(old_manifest, new_manifest), encoding='utf-8')
+
+          moves_path = root / 'docs/inventory/root_document_moves.json'
+          moves = json.loads(moves_path.read_text(encoding='utf-8'))
+          moves['moves'] = [item for item in moves.get('moves', []) if item.get('source') != 'version.txt']
+          moves['moved_count'] = len(moves['moves'])
+          moves.get('remaining_references', {}).pop('version.txt', None)
+          moves_path.write_text(json.dumps(moves, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+
+          catalogue_path = root / 'docs/inventory/documentation_catalogue.json'
+          catalogue = json.loads(catalogue_path.read_text(encoding='utf-8'))
+          replacements = {
+              'EXTENSIONS_IMPORT_MANIFEST.json': new_manifest,
+              'KNOWN_BASELINE_GAPS.md': 'docs/provenance/root-imported/known_baseline_gaps.md',
+          }
+          for document in catalogue.get('documents', []):
+              current = document.get('path')
+              if current in replacements:
+                  document['path'] = replacements[current]
+                  if current == 'EXTENSIONS_IMPORT_MANIFEST.json':
+                      document['classification'] = 'provenance'
+                  else:
+                      document['classification'] = 'provenance'
+          catalogue_path.write_text(json.dumps(catalogue, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+
+          report = root / 'docs/inventory/ROOT_DOCUMENT_CONSOLIDATION.md'
+          text = report.read_text(encoding='utf-8')
+          text = text.replace('Documents moved in this pass: **3**.', 'Documents moved in this pass: **2**.')
+          text = '\n'.join(
+              line for line in text.splitlines()
+              if '`version.txt` | `docs/archive/root-documents/2026-07/version.txt`' not in line
+          )
+          text = text.replace(
+              '- recognised licence/notice files',
+              '- `version.txt` — application and updater version marker\n- recognised licence/notice files',
+          )
+          report.write_text(text.rstrip() + '\n', encoding='utf-8')
+
+          moved_names = [item['source'] for item in moves['moves']]
+          scan_extensions = {'.md', '.markdown', '.txt', '.json', '.yml', '.yaml', '.php', '.js', '.ts', '.tsx', '.jsx', '.xml'}
+          ignored = {'.git', 'vendor', 'node_modules', 'storage'}
+          reference_report_paths = {
+              'docs/inventory/ROOT_DOCUMENT_CONSOLIDATION.md',
+              'docs/inventory/root_document_moves.json',
+              'docs/inventory/ROOT_DOCUMENT_REFERENCE_CHECK.md',
+              'docs/inventory/documentation_catalogue.json',
+          }
+          references = {name: [] for name in moved_names}
+          for path in root.rglob('*'):
+              if not path.is_file() or path.suffix.lower() not in scan_extensions:
+                  continue
+              relative = path.as_posix().lstrip('./')
+              if relative in reference_report_paths or any(part in ignored for part in path.parts):
+                  continue
+              content = path.read_text(encoding='utf-8', errors='ignore')
+              for name in moved_names:
+                  if name in content:
+                      references[name].append(relative)
+
+          lines = [
+              '# Root Document Reference Check',
+              '',
+              'Generated: `2026-07-30`',
+              '',
+              'This report lists text files that still mention an old root document name after consolidation. A mention is not automatically a broken link; each result requires contextual review.',
+              '',
+          ]
+          nonempty = {name: sorted(set(paths)) for name, paths in references.items() if paths}
+          if not nonempty:
+              lines.append('No remaining textual references to moved root document names were found.')
+          else:
+              for name, paths in sorted(nonempty.items()):
+                  lines.extend([f'## `{name}`', ''])
+                  lines.extend(f'- `{path}`' for path in paths)
+                  lines.append('')
+          (root / 'docs/inventory/ROOT_DOCUMENT_REFERENCE_CHECK.md').write_text('\n'.join(lines).rstrip() + '\n', encoding='utf-8')
+
+      - name: Remove one-time workflow
+        run: rm -f .github/workflows/fix-root-document-references.yml
+
+      - name: Commit repairs
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "docs: repair references after root consolidation"
+          git push origin HEAD:agent/documentation-reconciliation
