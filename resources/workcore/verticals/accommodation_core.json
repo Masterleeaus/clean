@@ -1,0 +1,32 @@
+{
+  "key": "accommodation_core",
+  "label": "Accommodation Operations Core",
+  "version": "1.0.0",
+  "type": "foundation",
+  "extends": [
+    "premises_services_core"
+  ],
+  "capabilities": [
+    "workcore.dispatch",
+    "workcore.rosters",
+    "workcore.inventory",
+    "workcore.attendance",
+    "workcore.reviews"
+  ],
+  "features": {
+    "accommodation.units": true,
+    "accommodation.occupancy": true,
+    "housekeeping.enabled": true,
+    "maintenance.reactive": true,
+    "maintenance.preventive": true
+  },
+  "terminology": {
+    "entity.customer.singular": "Account",
+    "entity.customer.plural": "Accounts",
+    "entity.premises.singular": "Property",
+    "entity.premises.plural": "Properties",
+    "entity.worker.singular": "Team member",
+    "entity.worker.plural": "Team members"
+  },
+  "metadata": {}
+}

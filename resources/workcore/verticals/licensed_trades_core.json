@@ -1,0 +1,18 @@
+{
+  "key": "licensed_trades_core",
+  "label": "Licensed Trades Core",
+  "version": "1.0.0",
+  "type": "foundation",
+  "extends": [
+    "field_services_core"
+  ],
+  "capabilities": [],
+  "features": {
+    "trades.licence_tracking": true,
+    "trades.certificate_register": true,
+    "trades.compliance_forms": true,
+    "trades.emergency_dispatch": true
+  },
+  "terminology": {},
+  "metadata": {}
+}

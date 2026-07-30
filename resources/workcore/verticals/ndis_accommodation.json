@@ -1,0 +1,81 @@
+{
+  "key": "ndis_accommodation",
+  "label": "NDIS Accommodation Management",
+  "version": "1.0.0",
+  "type": "vertical",
+  "extends": [
+    "accommodation_core",
+    "regulated_care_core"
+  ],
+  "capabilities": [],
+  "features": {
+    "ndis.participants": true,
+    "ndis.service_agreements": true,
+    "ndis.incident_management": true,
+    "ndis.sda": true,
+    "ndis.sil": true,
+    "ndis.sta": true,
+    "ndis.support_coordination_links": true
+  },
+  "terminology": {
+    "entity.customer.singular": "Participant",
+    "entity.customer.plural": "Participants",
+    "entity.premises.singular": "Participant home",
+    "entity.premises.plural": "Participant homes",
+    "entity.work_order.singular": "Support or property task",
+    "entity.work_order.plural": "Support or property tasks"
+  },
+  "metadata": {},
+  "setup": {
+    "default_business_lines": [
+      {
+        "key": "ndis_accommodation_operations",
+        "name": "NDIS Accommodation Operations"
+      }
+    ],
+    "questions": [
+      {
+        "key": "ndis_accommodation.models",
+        "section": "vertical_details",
+        "prompt": "Which NDIS accommodation models should be configured?",
+        "type": "multiselect",
+        "required": true,
+        "options": [
+          "sda",
+          "sil",
+          "sta",
+          "mta",
+          "ilo",
+          "mixed"
+        ]
+      },
+      {
+        "key": "ndis.registration_status",
+        "section": "compliance",
+        "prompt": "What is the provider registration status?",
+        "type": "select",
+        "required": true,
+        "options": [
+          "registered",
+          "unregistered",
+          "registration_in_progress"
+        ]
+      },
+      {
+        "key": "ndis.worker_screening_required",
+        "section": "compliance",
+        "prompt": "Should worker-screening and qualification checks be mandatory?",
+        "type": "boolean",
+        "required": true,
+        "default": true
+      }
+    ],
+    "documents": [
+      "participant_service_agreement",
+      "resident_handbook",
+      "incident_report",
+      "emergency_procedure",
+      "staff_induction"
+    ]
+  }
+}

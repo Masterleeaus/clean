@@ -1,0 +1,72 @@
+{
+  "key": "student_accommodation",
+  "label": "Student Accommodation",
+  "version": "1.0.0",
+  "type": "vertical",
+  "extends": [
+    "accommodation_core"
+  ],
+  "capabilities": [],
+  "features": {
+    "student.residents": true,
+    "student.applications": true,
+    "student.allocations": true,
+    "student.academic_terms": true,
+    "student.wellbeing_referrals": true,
+    "student.incidents": true
+  },
+  "terminology": {
+    "entity.customer.singular": "Student resident",
+    "entity.customer.plural": "Student residents",
+    "entity.premises.singular": "Residence",
+    "entity.premises.plural": "Residences",
+    "entity.work_order.singular": "Resident request",
+    "entity.work_order.plural": "Resident requests"
+  },
+  "metadata": {},
+  "setup": {
+    "default_business_lines": [
+      {
+        "key": "student_accommodation_operations",
+        "name": "Student Accommodation Operations"
+      }
+    ],
+    "questions": [
+      {
+        "key": "student_accommodation.model",
+        "section": "vertical_details",
+        "prompt": "Which student-accommodation model is being configured?",
+        "type": "select",
+        "required": true,
+        "options": [
+          "purpose_built",
+          "university_managed",
+          "private_rooms",
+          "homestay",
+          "mixed"
+        ]
+      },
+      {
+        "key": "student_accommodation.beds",
+        "section": "vertical_details",
+        "prompt": "How many beds or resident places should be prepared?",
+        "type": "integer",
+        "required": true
+      },
+      {
+        "key": "student_accommodation.pastoral_support",
+        "section": "vertical_details",
+        "prompt": "Should wellbeing, welfare and escalation workflows be enabled?",
+        "type": "boolean",
+        "required": true,
+        "default": true
+      }
+    ],
+    "documents": [
+      "resident_handbook",
+      "incident_report",
+      "maintenance_report",
+      "emergency_procedure"
+    ]
+  }
+}
