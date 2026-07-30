@@ -1,0 +1,50 @@
+name: Enforce Integration Branch for PRs
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  enforce-integration-target:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+
+    steps:
+      - name: Check PR Target Branch
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+
+            // If PR targets main, comment and warn
+            if (pr.base.ref === 'main') {
+              await github.rest.pulls.createReview({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: pr.number,
+                event: 'COMMENT',
+                body: `⚠️ **Wrong Target Branch!**
+
+This PR targets \`main\`, but team PRs should target \`integration\`.
+
+**Workflow:**
+1. \`main\` = Protected, owner-only
+2. \`integration\` = Team staging area
+3. Feature branches → PR to integration → Owner merges to main
+
+**Please:**
+- Close this PR
+- Create new PR targeting \`integration\` instead
+- Run: \`git pull origin integration && git rebase origin/integration\`
+
+See: .titan/WORKFLOW.md for details.`
+              });
+
+              core.setFailed('PR targets main - should target integration');
+            }
+
+            // If PR targets integration from feature branch, approve
+            if (pr.base.ref === 'integration' && pr.head.ref.startsWith('feature/')) {
+              console.log('✅ Correct target: integration branch');
+            }

@@ -9,9 +9,9 @@
 ## 🌳 Branch Structure
 
 ```
-main (Protected)
+main (🔒 PROTECTED - Owner only)
   ↑
-  └─ integration (Shared staging)
+  └─ integration (📦 Team staging)
       ↑
       ├─ feature/auth-system
       ├─ feature/backup-automation
@@ -19,25 +19,31 @@ main (Protected)
       └─ feature/[your-feature]
 ```
 
-### Branch Purposes
+### Branch Purposes & Rules
 
-**main**
-- Production-ready code
-- Owner only
-- Tagged releases
-- Merge from integration only
+**main** (Protected)
+- ✅ Production-ready code
+- ✅ Owner only - no exceptions
+- ✅ Tagged releases go here
+- ✅ Never push directly
+- ❌ No PRs to main from team
+- ❌ Cannot be deleted
+- ❌ Cannot be force-pushed
 
-**integration**
-- Staging environment
-- Team collaboration point
-- All PRs target this
-- Synced to main by owner
+**integration** (Team Staging)
+- ✅ Team collaboration point
+- ✅ **ALL PRs target this branch**
+- ✅ Default branch for new clones
+- ✅ Owner merges to main from here
+- ✅ Synced to main by owner only
+- ⚠️ PRs to main are automatically blocked
 
-**feature/***
-- Individual work
-- Branch from integration
-- PR to integration when ready
-- Deleted after merge
+**feature/*** (Individual Work)
+- ✅ Created FROM integration (not main)
+- ✅ One feature branch per task
+- ✅ PR to integration when ready
+- ✅ Deleted automatically after merge
+- ✅ Multiple features can coexist
 
 ---
 
