@@ -149,6 +149,56 @@ Not deleted:
 
 The secondary extension requires a focused source PR with registry, provider, route, migration, asset, installer, updater and rollback evidence before removal.
 
+## Pass 5 — extension platform, manifests and lifecycle
+
+**Status:** Completed for documentation classification and evidence gathering. Registry and installer hardening remain implementation work.
+
+### Canonical documents and evidence
+
+- `docs/architecture/EXTENSION_PLATFORM_AND_LIFECYCLE_ARCHITECTURE.md`
+- `docs/inventory/EXTENSION_PLATFORM_INVENTORY.md`
+- `docs/inventory/EXTENSION_PLATFORM_INVENTORY.json`
+- `docs/inventory/EXTENSION_PLATFORM_GAPS.md`
+
+### Runtime findings
+
+1. There are 95 extension directories and 112 static marketplace provider mappings.
+2. `Introduction` and `TitanZeroChatbot` exist on disk but are not mapped; `TitanZeroChatbot` remains compatibility-only and must not be added to the active map.
+3. Nineteen static marketplace mappings reference provider classes whose source files are absent.
+4. Enabling extension discovery currently registers every loadable mapped provider rather than only installed, entitled, enabled and qualified extensions.
+5. The scan found 810 PHP symbols declared in more than one extension directory; 768 are the copied `Chatbot`/`TitanZeroChatbot` symbols.
+6. The scan found 93 duplicate migration filenames; 78 are shared between the two Chatbot trees.
+7. Every extension directory has a recognised manifest and all `extension.json` files decode successfully with BOM-aware UTF-8 handling.
+8. The legacy manifests are valid but minimal and do not declare provider, compatibility, dependencies, capabilities, permissions, migrations, secrets, health checks or integrity evidence.
+9. Eighty-eight of 95 extension directories have no detected extension-local test file.
+10. Marketplace install and uninstall are exposed as authenticated GET routes.
+11. The current installer downloads a remote ZIP and calls `extractTo()` without detected entry traversal/symlink validation or archive signature verification.
+12. New extension directories are created with mode `0777`.
+13. Installation clears caches, runs forced migrations and force-publishes assets without a detected transactional install or rollback path.
+14. The legacy installer can execute package SQL and copy controllers, routes and stubs into application paths.
+15. Uninstall deletes extension directories and invokes hooks, but no database rollback was detected and lifecycle exceptions may be swallowed.
+
+### Canonical policy established
+
+- Files on disk do not mean an extension is active.
+- Extensions progress through discovered, installed, qualified, enabled, disabled, dormant, compatibility-only, quarantined, superseded and removed states.
+- Provider registration must be computed from validated manifests, installed records, qualification, entitlement and enabled state.
+- A versioned manifest must declare identity, provider, compatibility, dependencies, capabilities, permissions, tenant scope, lifecycle, health and integrity information.
+- Install/uninstall must use authorised state-changing requests, signed archives, safe extraction, staging, rollback and auditable lifecycle records.
+- Providers, routes, migrations, permissions, menus and capability keys must register exactly once.
+
+### Pass 5 deletion policy
+
+Not deleted:
+
+- any extension directory;
+- any stale marketplace mapping;
+- `Introduction`;
+- any package manifest;
+- any duplicate symbol or migration source.
+
+Stale mappings, extension qualification and runtime removal require focused implementation PRs with dependency, database and rollback evidence.
+
 ## Pass 1 exact duplicates removed
 
 - `docs/reference/titan-library/collection-1/01-Ecosystem-Vision/Titan Zero Doctrine.pdf`
@@ -171,12 +221,12 @@ The complete per-file move register remains in the Pass 1 disposition report and
 
 ## Next pass
 
-### Pass 5 — extension platform, modules and capability manifests
+### Pass 6 — communications, channels and consent
 
-1. Inventory extension registries, discovery paths, manifests, package gates and marketplace activation.
-2. Classify extensions as canonical, optional, dormant, compatibility-only, donor/reference or superseded.
-3. Detect duplicate providers, migrations, routes, menus, permissions and capability keys.
-4. Establish one extension lifecycle and qualification specification.
-5. Map extension capabilities to host identity and WorkCore authority boundaries.
-6. Consolidate unique requirements from extension-platform reference documents.
-7. Remove only exact duplicates or fully preserved superseded documentation; runtime changes remain focused implementation PRs.
+1. Inventory host messaging, Chatbot channels, AI-agent channels, voice/telephony and communications reference documents.
+2. Establish one conversation, message, contact-binding, consent and delivery authority model.
+3. Detect duplicate WhatsApp, Telegram, Messenger, Instagram, SMS, email, voice and notification providers.
+4. Map channel credentials to Vault and external callbacks to signed/replay-protected adapters.
+5. Consolidate delivery status, retries, templates, presence, session transfer and audit requirements.
+6. Produce one source-backed communications architecture specification.
+7. Remove only exact duplicate or fully preserved superseded documentation; runtime changes remain focused implementation PRs.
