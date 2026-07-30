@@ -4,7 +4,7 @@
 source:
   type: authored
   canonical_path: docs/DOCUMENTATION_RECONCILIATION_STATUS.md
-  source_commit: fa607d769a4f72ba287801b027cc42dcf56aa549
+  source_commit: 49a563505a6f2706fb342a70b032c3170e0e480e
 status: active
 owner: architecture-authority
 last_verified: 2026-07-30
@@ -12,11 +12,12 @@ last_verified: 2026-07-30
 
 ## Where we are
 
-- Repository baseline: `main` at `fa607d769a4f72ba287801b027cc42dcf56aa549` when the documentation reconciliation base was last aligned.
-- Shared coordination base: `integration/current-main-reconciliation`.
+- Repository baseline: `main` at `49a563505a6f2706fb342a70b032c3170e0e480e`.
+- That commit merged the previous `integration/current-main-reconciliation` cycle into `main` through PR #53.
+- A fresh `integration/current-main-reconciliation` branch now starts exactly from that new `main` tip.
 - Active documentation branch: `agent/documentation-reconciliation`.
-- Review surface: draft PR #25.
-- Titan Agent OS state: **v1.0 bootstrap**.
+- Review surface: draft PR #25 targeting the fresh coordination branch.
+- Titan Agent OS state: **v1.0 bootstrap implemented and structurally verified**.
 
 ## Completed documentation reconciliation
 
@@ -25,25 +26,29 @@ last_verified: 2026-07-30
 - Superseded branch-era documents separated from current guidance.
 - Canonical authority, tenancy, Interaction/Wizard, five-tier AI, PWA/offline and extension-lifecycle documents established.
 - Root documentation consolidated under `/docs`.
-- Federated `/.titan/documentation` layer started.
+- Federated `/.titan/documentation` layer established.
 - Claude Architecture Authority mandate added.
+- Kernel constitution, source registry, metadata schemas, worker onboarding, event/mailbox contracts, Status Centre and Chronicle added.
+- Root `README.md`, `AGENTS.md` and `/docs/README.md` now direct agents through both documentation systems.
+- Agent OS structural CI passed on the PR merge ref.
 
 ## Current architecture truths
 
+- Humans remain final authority for business goals, strategic architecture and production releases.
 - WorkCore is the sole operational record and mutation authority.
 - MagicAI host owns authentication and platform membership lifecycle.
 - Titan Zero owns planning and orchestration.
-- Interaction Engine owns interaction governance and command preparation but connected host activation still requires implementation verification.
+- Interaction Engine owns interaction governance and command preparation, but connected host activation still requires implementation verification.
 - `app/Extensions/Chatbot` is the canonical intended Chatbot/PWA extension.
 - `app/Extensions/TitanZeroChatbot` remains a frozen compatibility/reference copy pending focused source reconciliation.
 - Extension discovery and install/uninstall require focused lifecycle hardening before production qualification.
 
 ## Active work
 
-1. Complete Titan Agent OS bootstrap structure and registries.
-2. Integrate the two-documentation model into root onboarding.
-3. Continue documentation reconciliation for communications, automation, data architecture and release/deployment.
-4. Keep runtime repairs in focused implementation PRs rather than the documentation PR.
+1. Review and merge the documentation reconciliation and Agent OS bootstrap through PR #25.
+2. Continue documentation reconciliation for communications, automation, data architecture and release/deployment.
+3. Build executable Agent OS capabilities in focused later passes rather than describing planned systems as operational.
+4. Keep application runtime repairs in focused implementation PRs rather than the documentation PR.
 
 ## Blockers and risks
 
@@ -51,11 +56,23 @@ last_verified: 2026-07-30
 - The secondary Chatbot extension creates duplicate-provider, route and migration risk if activated.
 - Generic PWA outbox payloads require a verified no-secrets guarantee or encryption before persistence.
 - Extension discovery can register every mapped provider and the lifecycle lacks complete archive verification and rollback.
-- Agent OS World Model, event bus, dashboards, trust scoring and self-healing are planned rather than operational.
+- Agent OS World Model, event bus, dashboards, trust scoring, scheduling and self-healing remain planned rather than operational.
+
+## Verification
+
+The `Validate Titan Agent OS` workflow passed with:
+
+- 23 required paths present;
+- 7 JSON schemas parsed;
+- 68 local Markdown links resolved;
+- required YAML markers present;
+- required Claude mandate sections present;
+- no unexpected manually authored system-generated output.
+
+Application runtime tests were not run because this bootstrap changes documentation, metadata schemas and structural validation tooling rather than application behaviour.
 
 ## Next
 
-- Finish the initial Kernel metadata schemas and documentation source registry.
-- Add repository links from root `README.md` and `/docs/README.md`.
-- Verify all `.titan` paths and metadata files.
-- Update PR #25 scope with the Agent OS bootstrap.
+- Complete review of PR #25 against the fresh coordination baseline.
+- Begin Pass 6: communications, channels, consent and delivery architecture.
+- Add executable registry validation and World Model generation only through separately reviewed implementation plans.
