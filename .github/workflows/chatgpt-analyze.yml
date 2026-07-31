@@ -108,7 +108,7 @@ jobs:
           cat analysis/dependencies.md
 
       - name: Upload Analysis
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: structure-analysis-${{ github.run_id }}
           path: analysis/
