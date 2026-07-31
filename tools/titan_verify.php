@@ -128,8 +128,8 @@ $requiredBySection = [
         'docs/integration/BASE_AI_EXTENSION_RECONCILIATION.md',
         'docs/integration/MARKETING_CREATIVE_RECONCILIATION.md',
         'APP_DIRECTORY_TREE.txt',
-        'APP_DIRECTORY_SUMMARY.md',
-        'BUILD_REPORT.md',
+        '.titan/docs/APP_DIRECTORY_SUMMARY.md',
+        '.titan/system/BUILD_REPORT.md',
         'README.md',
         'tools/titan_namespace_scan.php',
     ],
@@ -641,8 +641,8 @@ if ($section === null || $section === 'release') {
         'docs/integration/BASE_AI_EXTENSION_RECONCILIATION.md',
         'docs/integration/MARKETING_CREATIVE_RECONCILIATION.md',
         'APP_DIRECTORY_TREE.txt',
-        'APP_DIRECTORY_SUMMARY.md',
-        'BUILD_REPORT.md',
+        '.titan/docs/APP_DIRECTORY_SUMMARY.md',
+        '.titan/system/BUILD_REPORT.md',
     ];
     foreach ($releaseDocuments as $document) {
         $path = $root . '/' . $document;
@@ -662,7 +662,7 @@ if ($section === null || $section === 'release') {
         }
     }
 
-    $buildReportPath = $root . '/BUILD_REPORT.md';
+    $buildReportPath = $root . '/.titan/system/BUILD_REPORT.md';
     if (is_file($buildReportPath)) {
         $source = (string) file_get_contents($buildReportPath);
         $check(str_contains($source, 'Composer'), 'build report records Composer verification status');

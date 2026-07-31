@@ -9,7 +9,7 @@ Titan Agent OS has a second complementary documentation tree at [`/.titan/docume
 Before changing code or documentation, read:
 
 1. the root [`README.md`](../README.md);
-2. [`AGENTS.md`](../AGENTS.md);
+2. [`AGENTS.md`](../.titan/docs/AGENTS.md);
 3. [`.titan/README.md`](../.titan/README.md);
 4. [`.titan/MANDATE.md`](../.titan/MANDATE.md) when acting as Claude or architecture authority;
 5. the [Agent OS current status](../.titan/documentation/status/current.md);
@@ -22,7 +22,7 @@ New long-form project documentation belongs under `/docs`, not at the repository
 
 ## Start here
 
-1. [Agent working agreement](../AGENTS.md)
+1. [Agent working agreement](../.titan/docs/AGENTS.md)
 2. [Titan Agent OS](../.titan/README.md)
 3. [Claude Architecture Authority mandate](../.titan/MANDATE.md)
 4. [Current upgrade plan](plans/CURRENT_UPGRADE_PLAN.md)

@@ -20,7 +20,7 @@ sources:
 
   - id: repo.agent-working-agreement
     kind: authored
-    path: AGENTS.md
+    path: .titan/docs/AGENTS.md
     audience: [agent, human]
     authority: mandatory-working-agreement
     status: active

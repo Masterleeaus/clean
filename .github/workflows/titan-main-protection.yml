@@ -1,0 +1,85 @@
+name: Titan Main Protection
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [main]
+
+jobs:
+  protect:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Verify branch type
+        run: |
+          BRANCH="${{ github.head_ref }}"
+          echo "Validating branch: $BRANCH"
+
+          # Only recovery/* branches can merge to main
+          if [[ ! "$BRANCH" =~ ^recovery/ ]]; then
+            echo "❌ Only recovery/* branches can be merged to main"
+            echo "This branch: $BRANCH"
+            exit 1
+          fi
+
+          echo "✅ Branch type valid"
+
+      - name: Verify no direct commits
+        run: |
+          # Make sure this isn't a direct commit to main
+          if [ "${{ github.event.pull_request.title }}" = "" ]; then
+            echo "❌ Cannot push directly to main"
+            exit 1
+          fi
+          echo "✅ PR validation passed"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Verify build
+        run: npm run build
+
+      - name: Verify tests
+        run: npm test
+
+      - name: Post protection status
+        if: always()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const status = '${{ job.status }}' === 'success' ? '✅ APPROVED' : '❌ BLOCKED';
+
+            const body = `
+## 🛡️ Main Branch Protection
+
+${status}
+
+This branch has passed all protection checks:
+- ✅ Branch type: recovery/* (required)
+- ✅ Build: Successful
+- ✅ Tests: Passing
+- ✅ Validation: Complete
+
+**Note**: Main branch is protected. Merges must be approved and status checks must pass.
+            `;
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            });

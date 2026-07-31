@@ -1,0 +1,100 @@
+name: Titan Scan Branches
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Daily at 00:00 UTC
+  workflow_dispatch:      # Manual trigger
+  push:
+    branches:
+      - main
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Full history for branch comparison
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install --omit=dev
+
+      - name: Run branch scan
+        run: npm run titan:scan
+        continue-on-error: true
+
+      - name: Detect duplicates
+        run: npm run titan:detect-duplicates
+        continue-on-error: true
+
+      - name: Generate reports
+        run: npm run titan:report
+        continue-on-error: true
+
+      - name: Upload registry
+        uses: actions/upload-artifact@v3
+        with:
+          name: titan-registry
+          path: .titan/registry/
+          retention-days: 90
+
+      - name: Upload reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: titan-reports
+          path: .titan/reports/
+          retention-days: 30
+
+      - name: Post summary
+        if: always()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fs = require('fs');
+            const path = '.titan/registry/branches.json';
+
+            if (!fs.existsSync(path)) {
+              console.log('No registry found');
+              return;
+            }
+
+            const audit = JSON.parse(fs.readFileSync(path, 'utf-8'));
+
+            let summary = '## 🤖 Titan Branch Scan Results\n\n';
+            summary += `**Scan Date**: ${audit.scan_date}\n\n`;
+            summary += `| Category | Count |\n`;
+            summary += `|----------|-------|\n`;
+            summary += `| Total Branches | ${audit.total_branches} |\n`;
+            summary += `| Already Merged | ${audit.categories.already_merged} |\n`;
+            summary += `| Fast-Forward | ${audit.categories.fast_forward} |\n`;
+            summary += `| Cherry-Pick Candidate | ${audit.categories.cherry_pick_candidate} |\n`;
+            summary += `| Rebase Needed | ${audit.categories.rebase_needed} |\n`;
+            summary += `| Orphaned | ${audit.categories.orphaned} |\n`;
+
+            if (audit.categories.duplicate > 0) {
+              summary += `\n⚠️ **${audit.categories.duplicate} duplicate implementations detected**\n`;
+            }
+
+            summary += `\n[View Registry](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})`;
+
+            // Post as issue comment if on a PR, otherwise create/update summary issue
+            if (context.issue.number) {
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: summary
+              });
+            }

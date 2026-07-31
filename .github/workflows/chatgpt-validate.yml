@@ -53,7 +53,7 @@ jobs:
 
       - name: Upload Results
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: php-lint-${{ github.run_id }}
           path: validation/
@@ -122,7 +122,7 @@ jobs:
 
       - name: Upload Results
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: extension-validation-${{ github.run_id }}
           path: validation/
@@ -173,7 +173,7 @@ jobs:
 
       - name: Upload Results
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: architecture-check-${{ github.run_id }}
           path: validation/

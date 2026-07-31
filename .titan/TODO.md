@@ -9,33 +9,33 @@
 ## Phase 1: Foundation (Weeks 1-4) ⏳
 
 **Effort**: 4 weeks  
-**Status**: `[ ] Not Started`
+**Status**: `[✓] In Progress - Core services implemented`
 
-- [ ] **1.1** Agent Manifests & Capability Registry (2 weeks)
-  - [ ] Define manifest schema
-  - [ ] Create registry system
+- [✓] **1.1** Agent Manifests & Capability Registry (2 weeks)
+  - [✓] Define manifest schema (existing YAML files)
+  - [✓] Create registry system (ManifestLoader)
   - [ ] Build CLI tools
   - [ ] Write tests
 
-- [ ] **1.2** Typed Task Graphs & Plan-as-Code (2 weeks)
-  - [ ] Design task graph schema
-  - [ ] Implement parser/validator
-  - [ ] Build executor with resume
+- [✓] **1.2** Typed Task Graphs & Plan-as-Code (2 weeks)
+  - [✓] Design task graph schema (existing JSON Schema)
+  - [✓] Implement parser/validator (TaskGraphExecutor)
+  - [✓] Build executor with resume
   - [ ] Add approval gates
   - [ ] Write tests
 
-- [ ] **1.3** Durable Execution Engine (2 weeks)
-  - [ ] Design checkpoint schema
-  - [ ] Implement state persistence
-  - [ ] Build verification system
-  - [ ] Add rollback capability
+- [✓] **1.3** Durable Execution Engine (2 weeks)
+  - [✓] Design checkpoint schema
+  - [✓] Implement state persistence (DurableExecutor)
+  - [✓] Build verification system (hash verification)
+  - [✓] Add rollback capability
   - [ ] Write tests
 
-- [ ] **1.4** Agent Memory System (1.5 weeks)
-  - [ ] Design memory hierarchy
-  - [ ] Implement manager
-  - [ ] Build search system
-  - [ ] Create context builders
+- [✓] **1.4** Agent Memory System (1.5 weeks)
+  - [✓] Design memory hierarchy
+  - [✓] Implement manager (AgentMemory)
+  - [✓] Build search system
+  - [✓] Create context builders
   - [ ] Write tests
 
 ---

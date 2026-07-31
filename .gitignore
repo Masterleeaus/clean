@@ -41,3 +41,8 @@ id_dsa
 .DS_Store
 .idea/
 .vscode/
+
+# Source archives and zips (large binary files)
+/sources/
+*.zip
+!.gitkeep

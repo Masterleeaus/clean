@@ -1,0 +1,14 @@
+# Titan System Protection - Code Ownership
+# Only repository owner can modify these critical files
+
+# Titan Agent OS - Complete system
+.titan/                       @Masterleeaus
+
+# Backup storage - Protected from changes
+.backups/                     @Masterleeaus
+.titan-backup/                @Masterleeaus
+
+# GitHub configuration - Team workflow enforcement
+.github/branch-protection*    @Masterleeaus
+.github/workflows/titan*      @Masterleeaus
+.github/CODEOWNERS            @Masterleeaus
