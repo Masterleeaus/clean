@@ -1,0 +1,111 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Branch Registry Schema",
+  "description": "Central registry of all git branches and their metadata",
+  "type": "object",
+  "properties": {
+    "scan_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When this scan was performed"
+    },
+    "total_branches": {
+      "type": "integer",
+      "description": "Total number of branches scanned"
+    },
+    "categories": {
+      "type": "object",
+      "properties": {
+        "already_merged": { "type": "integer" },
+        "fast_forward": { "type": "integer" },
+        "cherry_pick_candidate": { "type": "integer" },
+        "rebase_needed": { "type": "integer" },
+        "unrelated": { "type": "integer" },
+        "duplicate": { "type": "integer" },
+        "orphaned": { "type": "integer" }
+      }
+    },
+    "branches": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Full branch name (e.g., feature/chatbot-offline)"
+          },
+          "parent": {
+            "type": "string",
+            "description": "Parent branch (typically main or develop)"
+          },
+          "ahead": {
+            "type": "integer",
+            "description": "Commits ahead of parent"
+          },
+          "behind": {
+            "type": "integer",
+            "description": "Commits behind parent"
+          },
+          "unique_commits": {
+            "type": "integer",
+            "description": "Number of unique commits on this branch"
+          },
+          "changed_files": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Files modified by this branch"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "already_merged",
+              "fast_forward",
+              "cherry_pick_candidate",
+              "rebase_needed",
+              "unrelated",
+              "duplicate",
+              "orphaned"
+            ]
+          },
+          "conflict_risk": {
+            "type": "string",
+            "enum": ["low", "medium", "high"],
+            "description": "Estimated merge conflict risk"
+          },
+          "last_modified": {
+            "type": "string",
+            "format": "date",
+            "description": "Last commit date on this branch"
+          },
+          "author": {
+            "type": "string",
+            "description": "Primary author/agent name"
+          },
+          "commit_count": {
+            "type": "integer",
+            "description": "Total commits on this branch"
+          },
+          "recovery_plan": {
+            "type": "string",
+            "description": "Recommended recovery strategy"
+          },
+          "duplicate_of": {
+            "type": "string",
+            "description": "Reference to duplicate branch if status is 'duplicate'"
+          },
+          "reason": {
+            "type": "string",
+            "description": "Reason for current status"
+          },
+          "tags": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Categorization tags"
+          }
+        },
+        "required": ["name", "parent", "ahead", "behind", "status", "author"]
+      }
+    }
+  },
+  "required": ["scan_date", "total_branches", "categories", "branches"]
+}

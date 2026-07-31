@@ -1,0 +1,88 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Duplicate Detection Schema",
+  "description": "Tracks duplicate implementations across branches",
+  "type": "object",
+  "properties": {
+    "scan_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "total_duplicates": {
+      "type": "integer"
+    },
+    "duplicate_sets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier (e.g., dup-001)"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "service_class",
+              "controller",
+              "route",
+              "migration",
+              "test",
+              "component",
+              "hook",
+              "utility"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "description": "What this duplicate implements"
+          },
+          "files": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "path": { "type": "string" },
+                "branch": { "type": "string" },
+                "lines": { "type": "integer" }
+              }
+            }
+          },
+          "similarity": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Similarity score (0-1, where 1 is identical)"
+          },
+          "lines_of_code": {
+            "type": "integer"
+          },
+          "hash": {
+            "type": "string",
+            "description": "Content hash for tracking identical implementations"
+          },
+          "recommendation": {
+            "type": "string",
+            "enum": [
+              "merge_into_one",
+              "keep_separate",
+              "refactor_shared",
+              "remove_older",
+              "review_manually"
+            ]
+          },
+          "reasoning": {
+            "type": "string",
+            "description": "Why this recommendation"
+          },
+          "severity": {
+            "type": "string",
+            "enum": ["critical", "high", "medium", "low"]
+          }
+        },
+        "required": ["id", "type", "files", "similarity", "recommendation"]
+      }
+    }
+  },
+  "required": ["scan_date", "duplicate_sets"]
+}

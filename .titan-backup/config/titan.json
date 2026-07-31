@@ -1,0 +1,130 @@
+{
+  "version": "1.0.0",
+  "system": "Titan Zero Branch Recovery",
+  "description": "Automated recovery and integration pipeline for AI-generated branches",
+  "configuration": {
+    "mainBranch": "main",
+    "integrationBranch": "integration",
+    "recoveryPrefix": "recovery/",
+    "featurePrefix": "feature/",
+    "excludedBranches": [
+      "main",
+      "master",
+      "develop",
+      "integration",
+      "release",
+      "recovery",
+      "HEAD"
+    ]
+  },
+  "workflow": {
+    "phases": [
+      {
+        "phase": 1,
+        "name": "Branch Scan",
+        "description": "Automatically inspect every branch and categorize",
+        "script": "scan-branches.ts",
+        "output": ".titan/registry/branches.json"
+      },
+      {
+        "phase": 2,
+        "name": "Duplicate Detection",
+        "description": "Identify duplicate implementations across branches",
+        "script": "detect-duplicates.ts",
+        "output": ".titan/registry/duplicates.json"
+      },
+      {
+        "phase": 3,
+        "name": "Recovery Planning",
+        "description": "Create detailed recovery plans",
+        "script": "plan-recovery.ts",
+        "output": ".titan/recovery/recovery-plan.json"
+      },
+      {
+        "phase": 4,
+        "name": "Commit Replay",
+        "description": "Execute cherry-pick sequences",
+        "script": "replay-commits.ts",
+        "output": ".titan/recovery/replay.json"
+      },
+      {
+        "phase": 5,
+        "name": "Merge Validation",
+        "description": "Validate recovery branches",
+        "script": "validate-merge.ts",
+        "output": ".titan/audits/validation.json"
+      },
+      {
+        "phase": 6,
+        "name": "Integration",
+        "description": "Merge into integration branch",
+        "manual": true
+      },
+      {
+        "phase": 7,
+        "name": "Regression Testing",
+        "description": "Run full regression suite",
+        "manual": true
+      },
+      {
+        "phase": 8,
+        "name": "Main Merge",
+        "description": "Promote to main with full audit trail",
+        "manual": true
+      }
+    ]
+  },
+  "categories": {
+    "already_merged": {
+      "description": "Already in main",
+      "action": "skip"
+    },
+    "fast_forward": {
+      "description": "Can merge cleanly",
+      "action": "direct_merge"
+    },
+    "cherry_pick_candidate": {
+      "description": "Needs cherry-pick recovery",
+      "action": "create_recovery"
+    },
+    "rebase_needed": {
+      "description": "History needs rewinding and replaying",
+      "action": "rebase_recovery"
+    },
+    "unrelated": {
+      "description": "No common ancestry",
+      "action": "review_manually"
+    },
+    "duplicate": {
+      "description": "Same functionality elsewhere",
+      "action": "merge_duplicates"
+    },
+    "orphaned": {
+      "description": "Broken lineage after rebases",
+      "action": "recover_or_remove"
+    }
+  },
+  "validation": {
+    "required_checks": [
+      "builds_successfully",
+      "tests_pass",
+      "no_duplicate_classes",
+      "no_orphaned_routes",
+      "di_valid",
+      "namespace_collisions_check",
+      "all_imports_valid"
+    ],
+    "merge_requirements": {
+      "coverage_minimum": 75,
+      "tests_required": true,
+      "lint_required": true,
+      "build_required": true
+    }
+  },
+  "reporting": {
+    "enabled": true,
+    "formats": ["json", "markdown"],
+    "outputDir": ".titan/reports",
+    "retention_days": 90
+  }
+}

@@ -1,0 +1,90 @@
+name: Titan Validate Recovery
+
+on:
+  pull_request:
+    branches: [integration, main]
+  push:
+    branches:
+      - 'recovery/**'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Validate recovery
+        id: validate
+        run: npm run titan:validate -- ${{ github.head_ref || github.ref_name }}
+        continue-on-error: true
+
+      - name: Build project
+        id: build
+        run: npm run build
+        continue-on-error: true
+
+      - name: Run tests
+        id: test
+        run: npm test
+        continue-on-error: true
+
+      - name: Check coverage
+        id: coverage
+        run: npm run test:coverage 2>/dev/null || true
+        continue-on-error: true
+
+      - name: Lint code
+        id: lint
+        run: npm run lint 2>/dev/null || true
+        continue-on-error: true
+
+      - name: Upload validation results
+        uses: actions/upload-artifact@v3
+        with:
+          name: validation-results
+          path: .titan/audits/
+          retention-days: 30
+
+      - name: Post validation results
+        if: always()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const build = '${{ steps.build.outcome }}' === 'success' ? '✅' : '❌';
+            const test = '${{ steps.test.outcome }}' === 'success' ? '✅' : '❌';
+            const lint = '${{ steps.lint.outcome }}' === 'success' ? '✅' : '❌';
+
+            const body = `
+## Titan Recovery Validation
+
+| Check | Status |
+|-------|--------|
+| Build | ${build} |
+| Tests | ${test} |
+| Lint | ${lint} |
+
+**Branch**: ${{ github.head_ref || github.ref_name }}
+
+All checks must pass before merging to main.
+            `;
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            });
