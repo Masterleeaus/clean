@@ -1,0 +1,25 @@
+{
+  "key": "field_services_core",
+  "label": "Field Services Core",
+  "version": "1.0.0",
+  "type": "foundation",
+  "extends": [
+    "premises_services_core"
+  ],
+  "capabilities": [
+    "workcore.dispatch",
+    "workcore.rosters",
+    "workcore.inventory",
+    "workcore.attendance",
+    "workcore.reviews"
+  ],
+  "features": {
+    "dispatch.enabled": true,
+    "rosters.enabled": true,
+    "inventory.materials": true,
+    "attendance.enabled": true,
+    "mobile.field_mode": true
+  },
+  "terminology": {},
+  "metadata": {}
+}

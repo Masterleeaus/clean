@@ -1,0 +1,54 @@
+version: "1.0.0"
+name: "security_agent"
+role: "security"
+
+description: |
+  Security agent scans code for vulnerabilities and security issues.
+  - Performs static security analysis
+  - Checks for common vulnerabilities (injection, XSS, CSRF, etc.)
+  - Reviews dependency vulnerabilities
+  - Validates security patterns
+  - Provides remediation guidance
+
+capabilities:
+  - name: "static_security_analysis"
+    description: "Scan code for vulnerabilities"
+    tools: ["sast_scanner", "vulnerability_database"]
+
+  - name: "dependency_scanning"
+    description: "Check dependencies for known CVEs"
+    tools: ["dependency_checker", "cve_database"]
+
+  - name: "secret_detection"
+    description: "Detect hardcoded secrets"
+    tools: ["secret_scanner", "entropy_analyzer"]
+
+  - name: "security_pattern_validation"
+    description: "Validate security patterns used"
+    tools: ["pattern_analyzer", "security_rules"]
+
+authority:
+  risk_level: "critical"
+  file_patterns: ["**"]
+  requires_approval: ["block_deployment"]
+
+constraints:
+  max_concurrent_tasks: 2
+  max_execution_time_minutes: 25
+  max_tokens_per_task: 30000
+  rate_limit_tasks_per_hour: 8
+
+memory_access:
+  global: true
+  repository: true
+  branch: false
+  task: true
+  agent: false
+
+handoff_rules:
+  - when: "vulnerabilities_found AND critical"
+    to_agent: "implementer"
+  - when: "security_approved"
+    to_agent: "documentation_agent"
+  - when: "blocker_found"
+    escalate_to: "security_lead"

@@ -1,0 +1,90 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Policy Schema",
+  "description": "Defines security and governance policies",
+  "type": "object",
+  "required": ["version", "policies"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "Policy version",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "last_updated": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When policies were last updated"
+    },
+    "policies": {
+      "type": "array",
+      "description": "List of policies",
+      "items": {
+        "type": "object",
+        "required": ["id", "description", "subject", "action"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Policy ID",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "description": {
+            "type": "string",
+            "description": "Policy description"
+          },
+          "enabled": {
+            "type": "boolean",
+            "description": "Whether policy is active",
+            "default": true
+          },
+          "subject": {
+            "type": "string",
+            "description": "Who this policy applies to (e.g., 'agent[role=implementer]')"
+          },
+          "action": {
+            "type": "string",
+            "description": "Action being controlled (e.g., 'modify_file', 'deploy')"
+          },
+          "resource": {
+            "type": "string",
+            "description": "Resource pattern (e.g., 'src/Payment/**')"
+          },
+          "effect": {
+            "type": "string",
+            "enum": ["allow", "deny", "require"],
+            "description": "Policy effect"
+          },
+          "condition": {
+            "type": "string",
+            "description": "Condition for policy (e.g., 'must_include(tests, documentation)')"
+          },
+          "exceptions": {
+            "type": "array",
+            "description": "Exceptions to this policy",
+            "items": {
+              "type": "object",
+              "properties": {
+                "subject": { "type": "string" },
+                "reason": { "type": "string" },
+                "expires": { "type": "string", "format": "date-time" }
+              }
+            }
+          },
+          "escalation": {
+            "type": "object",
+            "description": "Escalation path if policy violated",
+            "properties": {
+              "level_1": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "level_2": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

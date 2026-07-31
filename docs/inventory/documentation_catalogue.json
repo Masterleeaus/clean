@@ -1,0 +1,3024 @@
+{
+  "document_count": 377,
+  "documents": [
+    {
+      "classification": "canonical",
+      "extension": ".md",
+      "path": "AGENTS.md",
+      "sha256": "670929fcdc196eee724e06f340b0cfd4c7b809eb144b8c7a7d5cea4e9a9a020e",
+      "size": 2779,
+      "title": "Titan Zero Agent Working Agreement"
+    },
+    {
+      "classification": "provenance",
+      "extension": ".json",
+      "path": "docs/provenance/root-imported/extensions_import_manifest.json",
+      "sha256": "a29011a9f0088496c264d9e699b95039a4ac12831ffcd421ce0e9e032d8a7088",
+      "size": 53276,
+      "title": "{"
+    },
+    {
+      "classification": "provenance",
+      "extension": ".md",
+      "path": "docs/provenance/root-imported/known_baseline_gaps.md",
+      "sha256": "ed5b2ea0dc6a708e4473c08fe5d053e30882e73123559a31ede6faed3c194b26",
+      "size": 1322,
+      "title": "Known Baseline Gaps"
+    },
+    {
+      "classification": "canonical",
+      "extension": ".md",
+      "path": "README.md",
+      "sha256": "b9bfdda345cfbae0bb776798d7af977b0f9276398231442480299528c5afb139",
+      "size": 1252,
+      "title": "Titan Zero Clean Integration Workspace"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".json",
+      "path": "composer.json",
+      "sha256": "81e83016a053a944ee7a5565010e98d7bdc08ca53555d9bf8dc86138e06d7217",
+      "size": 5772,
+      "title": "{"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".md",
+      "path": "docs/Added Routes.md",
+      "sha256": "4671ff714a78956151cf6b53f481bed71e2dcaa92bdd4b379da5c982376d5235",
+      "size": 8846,
+      "title": "Cost Preview - Added Pages"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".md",
+      "path": "docs/DOCUMENTATION_RECONCILIATION_STATUS.md",
+      "sha256": "7a3f129256fb945580a450ff6046ab485fcfaab645bf1d7caca5e15abd7bacc6",
+      "size": 5178,
+      "title": "Documentation Reconciliation Status"
+    },
+    {
+      "classification": "canonical",
+      "extension": ".md",
+      "path": "docs/README.md",
+      "sha256": "18edd4f0e13e656f75f2bf4166cff864c2beaab6cad6f7621d44723e58438ce4",
+      "size": 1385,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".md",
+      "path": "docs/agent2/PASS1-PWA-RECONCILIATION.md",
+      "sha256": "1deac80385518400a1aa02cf7d68af89295fcd85cb313568ecf45689cb2f8415",
+      "size": 5240,
+      "title": "Agent 2 Pass 1 — PWA Reconciliation Report"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".md",
+      "path": "docs/agent2/PWA-AUTHORITY-AND-DEPENDENCY-MAP.md",
+      "sha256": "2dfdd175c4af07464cfe48a2309438c453241d4d67458e222ca31dd47f706030",
+      "size": 5073,
+      "title": "Agent 2 — PWA Authority and Dependency Map"
+    },
+    {
+      "classification": "canonical",
+      "extension": ".md",
+      "path": "docs/architecture/TITAN_ZERO_AUTHORITY_MAP.md",
+      "sha256": "d92a94a8f3f73a93fd102b91cabe2af0ea604d92a6135ceafcaf1790d933b399",
+      "size": 1142,
+      "title": "Titan Zero Authority Map"
+    },
+    {
+      "classification": "historical",
+      "extension": ".md",
+      "path": "docs/archive/plans/2026-07/agent2-pwa-offline-upgrade-plan.md",
+      "sha256": "42ab4c6e3d2fc85b712e5c38d6f01a5e64c0069153d2203b1246ca59bb5eeff8",
+      "size": 26733,
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+    },
+    {
+      "classification": "historical",
+      "extension": ".md",
+      "path": "docs/archive/plans/2026-07/creative-extensions-upgrade-plan.md",
+      "sha256": "7d7d6ce1a227ef630a2a7de01370119168ad17787c5b72250206e2c61ff08609",
+      "size": 6859,
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+    },
+    {
+      "classification": "historical",
+      "extension": ".md",
+      "path": "docs/archive/plans/2026-07/extension-platform-upgrade-plan.md",
+      "sha256": "3476d431b77cb013a932a96e4175dde84f32b3b83a2e6d5c3ac529633ec132e2",
+      "size": 10123,
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+    },
+    {
+      "classification": "historical",
+      "extension": ".md",
+      "path": "docs/archive/plans/2026-07/interaction-wizard-multi-pass-upgrade-plan.md",
+      "sha256": "cc92cf66c259e2beeee1987fb590e89928c3a0f6c4bfe4b9f0f586273413016a",
+      "size": 7096,
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+    },
+    {
+      "classification": "historical",
+      "extension": ".md",
+      "path": "docs/archive/plans/2026-07/titan-money-titan-pay-chat-upgrade-plan.md",
+      "sha256": "13712d1a1c5a80f8fab70197a2b8432f80002e492c67b0ffba8669229b4b1d67",
+      "size": 15069,
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+    },
+    {
+      "classification": "historical",
+      "extension": ".md",
+      "path": "docs/archive/plans/2026-07/titan-train-lms-upgrade-plan.md",
+      "sha256": "994fc996eb0673f8485516b371b2ba781ce7216fb3d8aaf0418c0658009329ae",
+      "size": 7857,
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+    },
+    {
+      "classification": "historical",
+      "extension": ".md",
+      "path": "docs/archive/plans/2026-07/titan-zero-chatbot-pwa-upgrade-plan.md",
+      "sha256": "779c6f1f2f9628a430a0912eb825f5b3543c851e06a6f780d9114630ccf0e4af",
+      "size": 15942,
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+    },
+    {
+      "classification": "historical",
+      "extension": ".md",
+      "path": "docs/archive/plans/2026-07/titan-zero-integrated-platform-upgrade-plan-v10.91.md",
+      "sha256": "9a48742273166b765f2f10f3bd389e2d2af30238f7ac01532a3f3484dcb811d1",
+      "size": 26289,
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+    },
+    {
+      "classification": "historical",
+      "extension": ".md",
+      "path": "docs/archive/plans/2026-07/titan-zero-wizard-upgrade-plan.md",
+      "sha256": "f5f8481db9252635ed7032517b7d5dbd2129211d3ac0e672fc51d3127e0d2402",
+      "size": 9620,
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+    },
+    {
+      "classification": "historical",
+      "extension": ".md",
+      "path": "docs/archive/provenance/interaction-engine-source-provenance-v10.91.md",
+      "sha256": "4d3a051ef3fc703ee6a1f7ccff4d048caa1379168b6dda4d9dff48dc3b418791",
+      "size": 1625,
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+    },
+    {
+      "classification": "historical",
+      "extension": ".md",
+      "path": "docs/archive/provenance/interaction-wizard-source-baseline-v10.91.md",
+      "sha256": "bb806b335587be53e4d535aa5623d0d338aedcc5cd076bba599e5fee5463f914",
+      "size": 1609,
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+    },
+    {
+      "classification": "historical",
+      "extension": ".txt",
+      "path": "docs/archive/provenance/magicai-v10.91-dev-package-manifest.txt",
+      "sha256": "06b8c9fe39159caaab38aea16472395e1f7d0140d15a2ee1aa6e168bcefef442",
+      "size": 400,
+      "title": "Source archive: codecanyon-Oy9ugums-magicai-openai-content-text-image-chat-code-generator-as-saas.zip"
+    },
+    {
+      "classification": "historical",
+      "extension": ".md",
+      "path": "docs/archive/provenance/source-import-note-v10.91.md",
+      "sha256": "33998fa517cf531d716b26b714ccd17d5f5f32c9b2d1370cde458792f1ef5c7f",
+      "size": 654,
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+    },
+    {
+      "classification": "historical",
+      "extension": ".md",
+      "path": "docs/archive/provenance/titan-zero-source-import-v10.91.md",
+      "sha256": "8af5a502ae63084c3b2d33eb5985d7b5eeace552685e7d32533bdd12737641dd",
+      "size": 935,
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+    },
+    {
+      "classification": "historical",
+      "extension": ".md",
+      "path": "docs/archive/reports/2026-07/interaction-engine-merge-report.md",
+      "sha256": "289adf933c6dcba30c51b89713a5efeeee42bf284894f158712ae43b33d4d28c",
+      "size": 3629,
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+    },
+    {
+      "classification": "historical",
+      "extension": ".md",
+      "path": "docs/archive/reports/2026-07/rejected-files-note.md",
+      "sha256": "a31253f1835d07885e5a8b6f75ebb814aaac42d16fc636e66586b51b729672be",
+      "size": 608,
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+    },
+    {
+      "classification": "historical",
+      "extension": ".md",
+      "path": "docs/archive/reports/2026-07/superseded-files-note.md",
+      "sha256": "b329e4e67a149de58d354e589c7bc0b9371ebc8c718998a84bc775d4979959d4",
+      "size": 547,
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+    },
+    {
+      "classification": "historical",
+      "extension": ".md",
+      "path": "docs/archive/reports/2026-07/workcore-merge-result-v10.91.md",
+      "sha256": "91cca30c7f15f8fa82d1f5c6cfa2a523d3d5052cc6cd5dd0a5181a6e31bfc3b0",
+      "size": 1315,
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+    },
+    {
+      "classification": "historical",
+      "extension": ".md",
+      "path": "docs/archive/setup/magicai-v10.91-development-setup.md",
+      "sha256": "ccf9dbb532aacbf1ed7a619ae5632618414862a09c79e29bd17c8957633b84a7",
+      "size": 1784,
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+    },
+    {
+      "classification": "historical",
+      "extension": ".md",
+      "path": "docs/archive/status/2026-07/agent2-pass1-status.md",
+      "sha256": "4b86b51dbb031ba872953344d5c5f96ba21a1564f3a6bb8166a283b7630abf36",
+      "size": 2509,
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+    },
+    {
+      "classification": "historical",
+      "extension": ".md",
+      "path": "docs/archive/status/2026-07/branch-preparation-status.md",
+      "sha256": "56cc524de63aeba0e0ca9afced8abd1ee1a16d434df1d3287acf937bb7985de1",
+      "size": 1583,
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+    },
+    {
+      "classification": "historical",
+      "extension": ".md",
+      "path": "docs/archive/status/2026-07/branch-preparation.md",
+      "sha256": "bfd4cc3cfa9ea7335b02345e6a30e9b11629a3225002980bcd0ae10eaf908bc4",
+      "size": 1828,
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+    },
+    {
+      "classification": "historical",
+      "extension": ".md",
+      "path": "docs/archive/status/2026-07/pwa-upgrade-status.md",
+      "sha256": "f1a750f27eb318f39e4d7c4dd3d503b4ff9b97f933274748b6da467730df6afc",
+      "size": 2217,
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+    },
+    {
+      "classification": "historical",
+      "extension": ".md",
+      "path": "docs/archive/status/2026-07/titan-money-titan-pay-branch-status.md",
+      "sha256": "ae97a47c0b877cc0eba10976ad6a97057792b27ffccc3f6504ad4ffa84ce50af",
+      "size": 3445,
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+    },
+    {
+      "classification": "historical",
+      "extension": ".md",
+      "path": "docs/archive/status/2026-07/titan-train-lms-branch.md",
+      "sha256": "2f91ff58a12cfa429c1829f13eb03ed7b07405a65f4e96c12b82b90b63603afa",
+      "size": 2255,
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+    },
+    {
+      "classification": "historical",
+      "extension": ".md",
+      "path": "docs/archive/status/2026-07/titan-train-pass1-status.md",
+      "sha256": "7249b5c84d08d4704ef3aef7f1fe7370e028359e06c2d35655a30f3b7680ffbb",
+      "size": 1320,
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+    },
+    {
+      "classification": "historical",
+      "extension": ".md",
+      "path": "docs/archive/status/2026-07/titan-train-pass2-status.md",
+      "sha256": "7a6537d09597c897ca183d56a342e5382c7f287718fde014e6a8c707bf7e291c",
+      "size": 1561,
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+    },
+    {
+      "classification": "historical",
+      "extension": ".md",
+      "path": "docs/archive/status/2026-07/titan-train-pass3-status.md",
+      "sha256": "23ab05e321fc7d467fa4919cf7f53ef644845a253acde71ab208b31abcec6fc8",
+      "size": 1642,
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+    },
+    {
+      "classification": "historical",
+      "extension": ".md",
+      "path": "docs/archive/status/2026-07/titan-zero-development-workspace.md",
+      "sha256": "e473c07bb237517dccd2cbdcacf8c8321f95414d905521b877999ac470794229",
+      "size": 3100,
+      "title": "> **Historical record — not current implementation guidance.** This document is retained for provenance because it describes an earlier branch, source version, import, or completed"
+    },
+    {
+      "classification": "evidence",
+      "extension": ".md",
+      "path": "docs/audits/magicai-v1100-source-inventory.md",
+      "sha256": "eb6f31e603f902806b53e3323a3459c05b24da4694a8b5e73406cac7801b68c7",
+      "size": 9752,
+      "title": "MagicAI v11.00 Source Import"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".md",
+      "path": "docs/creative-audit/01-source-inventory.md",
+      "sha256": "0a388f4e16ccdd1b116b5d7e30e501128869ff2aa21256ddd07419d0caec7a2a",
+      "size": 3915,
+      "title": "Scan 1 — Creative Extension Source Inventory"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".md",
+      "path": "docs/creative-audit/02-runtime-wiring.md",
+      "sha256": "3fbe48ce377a263769c4527340739a43f6a8abc43fd0328aea944b646f9281e1",
+      "size": 4586,
+      "title": "Scan 2 — Runtime Wiring (Active)"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".md",
+      "path": "docs/development/HOST_REQUIREMENTS.md",
+      "sha256": "c25d850b1a0f85907adc9146870062bf323961e5407f18efbc6c7d996ce22789",
+      "size": 1261,
+      "title": "Titan Zero Host Development Requirements"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".md",
+      "path": "docs/extension-platform/defect-register.md",
+      "sha256": "182528210bd1cf5b2770ee9983a9260e5ad34f170c261b04816cb97709c13825",
+      "size": 2855,
+      "title": "Extension Defect Register"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".md",
+      "path": "docs/extension-platform/duplication-map.md",
+      "sha256": "ce12560967a0dc4f5e22d4491c3f724f0638914be2deb4b344c56fb8963be30a",
+      "size": 3336,
+      "title": "Extension Duplication and Transformation Map"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".md",
+      "path": "docs/extension-platform/inventory.md",
+      "sha256": "a1f76d1c026bab7f446f583f568256bb5bd5fd6edd459a0bb49dc68b1a0e9845",
+      "size": 472,
+      "title": "Extension Source Inventory"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".md",
+      "path": "docs/extension-platform/target-architecture.md",
+      "sha256": "384d867897c42db3b521a5dc924d78b1b3bd53be4865318bdb73591b076c4439",
+      "size": 2140,
+      "title": "Target Extension Platform Architecture"
+    },
+    {
+      "classification": "canonical",
+      "extension": ".md",
+      "path": "docs/governance/DOCUMENTATION_POLICY.md",
+      "sha256": "2f0431662dc146c3a6e6f611efea5fad40e8dcdf3e96bf69dadf3fd00814ce2a",
+      "size": 1090,
+      "title": "Titan Zero Documentation Policy"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".md",
+      "path": "docs/integration/titan-money-titan-pay/README.md",
+      "sha256": "67c18a670a1d070b5687508072ced7acaa8925f9f5c6569b78151629fdc63b7f",
+      "size": 1194,
+      "title": "Titan Money + Titan Pay Integration Workspace"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".md",
+      "path": "docs/integrations/AI_SITE_BUILDER_SOURCE_IMPORT.md",
+      "sha256": "4e8a2e058e18c1acf2d3f240b64321bb31e115bbb0354a8ca8ecbc7f372d45e4",
+      "size": 38574,
+      "title": "Webby AI Site Builder source import"
+    },
+    {
+      "classification": "evidence",
+      "extension": ".json",
+      "path": "docs/inventory/archive_inventory.json",
+      "sha256": "e160a0059c5883a0dbe1b6b768a05691337c295bca701f4007ea56769520176e",
+      "size": 95266,
+      "title": "{"
+    },
+    {
+      "classification": "evidence",
+      "extension": ".json",
+      "path": "docs/inventory/documentation_catalogue.json",
+      "sha256": "d191d8f29f5e10f7e61431acf5c4a7e455b8a09f1417a45661434d9c1a9e5db1",
+      "size": 130715,
+      "title": "{"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".md",
+      "path": "docs/passes/PASS1_CI_DIAGNOSTICS.md",
+      "sha256": "b24cb9e2f57e36110b4fbf6046a512577e634dc26d50da1efff192e3b8472b91",
+      "size": 67332,
+      "title": "Pass 1 CI Diagnostics"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".md",
+      "path": "docs/passes/PASS1_HOST_BOOT_AND_DEPENDENCY_STABILISATION.md",
+      "sha256": "81435a7c2a10db519dc3a70760cf053548479896f702a0510898bed0d200aef0",
+      "size": 1527,
+      "title": "Pass 1 — Host Boot and Dependency Stabilisation"
+    },
+    {
+      "classification": "canonical",
+      "extension": ".md",
+      "path": "docs/plans/CURRENT_UPGRADE_PLAN.md",
+      "sha256": "b02c240da634c2efd853c3a117c86b157bc9ec434a66ddaadf50d9bbb4ad935f",
+      "size": 8739,
+      "title": "Titan Zero Current Upgrade Plan"
+    },
+    {
+      "classification": "evidence",
+      "extension": ".json",
+      "path": "docs/provenance/titan-money-titan-pay.json",
+      "sha256": "76a4642566f684437287ea756929e9dc6c83806f1e946aed56078c3aae1fefe3",
+      "size": 1694,
+      "title": "{"
+    },
+    {
+      "classification": "evidence",
+      "extension": ".md",
+      "path": "docs/provenance/titan-money-titan-pay.md",
+      "sha256": "43feba07c5cda81c2510fb2d86418a4bde7c6ab02881c6d9428cd4b0c6a4956a",
+      "size": 3335,
+      "title": "Titan Money + Titan Pay Source Provenance"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/README.md",
+      "sha256": "93d11cb55907d1674a9281c370c192bf93f488c66352d9b5908166548c44599f",
+      "size": 932,
+      "title": "Titan Reference Library"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/00-Foundation/00-zero-philosophy.md",
+      "sha256": "62b83ca6bec0f01862045b89761073ba9ac705a22debcda7c59139114ba34176",
+      "size": 3200,
+      "title": "Titan BOS — The Zero Philosophy"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/00-Foundation/01-system-doctrine.md",
+      "sha256": "fdd0b49b873ddb128f827cc3939610445f21123ade923cf9f4462312f11671d8",
+      "size": 8460,
+      "title": "01. System Doctrine"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/00-Foundation/16-duo-mode-and-cross-system-constitution.md",
+      "sha256": "cca3acc02f73b37da5eafdd6882e4e4922e9aa037e3c943a8a36c92ec46fff9e",
+      "size": 10437,
+      "title": "16. Duo Mode and Cross-System Constitution"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/00-Foundation/README.md",
+      "sha256": "a1a44fb9e0a71a66c30a4030603c755f3807fb9f6549780b7ddfe675a811845b",
+      "size": 1562,
+      "title": "00-Foundation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".pdf",
+      "path": "docs/reference/titan-library/collection-1/00-Foundation/Titan Data Architecture & Table Doctrine 2.pdf",
+      "sha256": "5d7393bf45d04277fb1624e40a0d89c3796c93a9e674cd8e01dde8aa48d02d91",
+      "size": 102330,
+      "title": "Titan Data Architecture & Table Doctrine 2"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".pdf",
+      "path": "docs/reference/titan-library/collection-1/00-Foundation/Titan Development Doctrine (Constitution) 2.pdf",
+      "sha256": "2ffd3c4f989ed164ef6a06f9afb77ae9df5d5fd7036a2eafe0004ae3c61b2fc6",
+      "size": 117881,
+      "title": "Titan Development Doctrine (Constitution) 2"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".pdf",
+      "path": "docs/reference/titan-library/collection-1/00-Foundation/Titan Doctrine.pdf",
+      "sha256": "33e6d990f30f82f6194f3a1ec17f4d9c324c68776744b08518986c9d87130897",
+      "size": 109190,
+      "title": "Titan Doctrine"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".pdf",
+      "path": "docs/reference/titan-library/collection-1/00-Foundation/Titan Zero Doctrine.pdf",
+      "sha256": "17593555378d49da38542b14c60c0fe817aaaeb4e32b051f7f3d24442ff286d2",
+      "size": 6068168,
+      "title": "Titan Zero Doctrine"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".docx",
+      "path": "docs/reference/titan-library/collection-1/00-Foundation/Titan canonical lexicon.docx",
+      "sha256": "719d946d66722c05cfcde6e95607c598857024472881829f506a81fbcfe90bad",
+      "size": 1009811,
+      "title": "Titan canonical lexicon"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".docx",
+      "path": "docs/reference/titan-library/collection-1/00-Foundation/Titan_Platform_System_Constitution_Volume_1.docx",
+      "sha256": "0c5f8b893be26d0d6222bf16385d7b40b33727816c229bef843b19ef2455a033",
+      "size": 370793,
+      "title": "Titan_Platform_System_Constitution_Volume_1"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".docx",
+      "path": "docs/reference/titan-library/collection-1/00-Foundation/Titan_System_Complete_CANONICAL_FINAL_FIXED_COVER_FULL_INTEGRATED_v2.docx",
+      "sha256": "99be7d1e97d377a499af0739fbeb8eb4accdaeb5ea2d93a1e47419445ae0860e",
+      "size": 542282,
+      "title": "Titan_System_Complete_CANONICAL_FINAL_FIXED_COVER_FULL_INTEGRATED_v2"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".pdf",
+      "path": "docs/reference/titan-library/collection-1/00-Foundation/Worksuite_Module_Doctrine_v1.0_LOCKED.pdf",
+      "sha256": "2d79c99fb499dfb8580d9cada8ec3db2e7bc2b2f0d9945388738f6e155f39965",
+      "size": 229999,
+      "title": "Worksuite_Module_Doctrine_v1.0_LOCKED"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/01-Ecosystem-Vision/07-build-roadmap.md",
+      "sha256": "c2306b8e57aa933903fe13db793968f290f1c35a1d38a824abdff5d0bdd1d6e7",
+      "size": 4150,
+      "title": "07. Build Roadmap"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/01-Ecosystem-Vision/08-unique-product-theses.md",
+      "sha256": "ed7ec5efd7d5f59f5aefcddb36b5dbeef7845437609e2ff3009d161715886182",
+      "size": 3848,
+      "title": "08. Unique Product Theses"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".docx",
+      "path": "docs/reference/titan-library/collection-1/01-Ecosystem-Vision/Titan Ecosystem V1.0.docx",
+      "sha256": "b1d907a3b31880c5fb483d06606e5c8b9f45a939bc4e966cf12036ef98fe0225",
+      "size": 615891,
+      "title": "Titan Ecosystem V1.0"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".pdf",
+      "path": "docs/reference/titan-library/collection-1/01-Ecosystem-Vision/Titan System Architecture Overview.pdf",
+      "sha256": "d0c0fc9aa5b71addfdcd25bee2ebc44a535c528a2940de87beee6020c9cc825f",
+      "size": 99345,
+      "title": "Titan System Architecture Overview"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".pdf",
+      "path": "docs/reference/titan-library/collection-1/01-Ecosystem-Vision/Titan Zero Marketing Guide.pdf",
+      "sha256": "4ee1299cb9093e509da725c4ca8f16fba14ba355243464ebd2582592365672a8",
+      "size": 90831,
+      "title": "Titan Zero Marketing Guide"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".pdf",
+      "path": "docs/reference/titan-library/collection-1/01-Ecosystem-Vision/Titan Zero system overview.pdf",
+      "sha256": "000e2357f6a658074bfe2260483946409087fafbcf1e271b014dbc021308c9b7",
+      "size": 126207,
+      "title": "Titan Zero system overview"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".docx",
+      "path": "docs/reference/titan-library/collection-1/01-Ecosystem-Vision/Titan zero product model.docx",
+      "sha256": "71706ae081f0a7d7ac44bebd0451470335dca2d299f8a1d415728a55e769d739",
+      "size": 192106,
+      "title": "Titan zero product model"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/02-Platform-Architecture/02-reference-architecture.md",
+      "sha256": "0f38969e652b2a2e07a9640faa4acb524d2e907d7c6ba07dbe88fd4e8a722584",
+      "size": 7158,
+      "title": "02. Reference Architecture"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/02-Platform-Architecture/11-security-identity-and-governance.md",
+      "sha256": "e30256eec12028e450f3ab64b8410d07ac7dc474edb53b20e5d85835a43b46c3",
+      "size": 5056,
+      "title": "11. Security, Identity, and Governance"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/02-Platform-Architecture/12-filament-control-plane-and-surface-design.md",
+      "sha256": "b6bcd26465f8e206a10c2d2b35e4d15e8645dabb5618bf256bdaa2b5e1fd917d",
+      "size": 4083,
+      "title": "12. Filament Control Plane and Surface Design"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/02-Platform-Architecture/20-filament-panels-operator-workflows-and-approval-surfaces.md",
+      "sha256": "7822049a7eaa9bdfa9ff33da1931aa472b4d4f2ffa6bc6b4350bd4941913f2e6",
+      "size": 10295,
+      "title": "20. Filament Panels, Operator Workflows, and Approval Surfaces"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/02-Platform-Architecture/24-security-identity-device-trust-and-tenant-boundary.md",
+      "sha256": "819c8c71d54f145e136d330cf76bdb0e3dab4e36e53a64542a0277251e5cbbfc",
+      "size": 12646,
+      "title": "24. Security, Identity, Device Trust, and Tenant Boundary"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/02-Platform-Architecture/26-rollout-strategy-environment-topology-and-evolution-roadmap.md",
+      "sha256": "10dd7acfcd666ff75d066f62e58685542580b753e19e2d1ae756c44c9b259372",
+      "size": 12975,
+      "title": "26. Rollout Strategy, Environment Topology, and Evolution Roadmap"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/02-Platform-Architecture/27-cms-portal-and-surface-composition-architecture.md",
+      "sha256": "a3f5c57f3c88c42465ea6a9eacb2118e85fa72bcabb2bc07a679ddda90564344",
+      "size": 8275,
+      "title": "27. CMS, Portal, and Surface Composition Architecture"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/02-Platform-Architecture/29-reference-implementation-sequence-and-first-working-slice.md",
+      "sha256": "a7218b68697cdc1630209df0eaeccc603b449bb7723dbee74006315a88de8391",
+      "size": 9779,
+      "title": "29. Reference Implementation Sequence and First Working Slice"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/02-Platform-Architecture/Titan_Admin_Package_and_Module_Rollout_Model.md",
+      "sha256": "ffdae82c4fd21204e2809b32d175c3aa0a7a9a65d5c0382f224ef24780640154",
+      "size": 967,
+      "title": "Titan Admin Package and Module Rollout Model"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/02-Platform-Architecture/Titan_Audit_Observability_and_Doctor_Model.md",
+      "sha256": "e8b5f401f96d0a8a2c2e8831cb691a0365dce458142ab2a24c57f3f34f08010b",
+      "size": 2326,
+      "title": "Titan Audit, Observability, and Doctor Model"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/02-Platform-Architecture/Titan_Permission_and_Tenant_Fence_Model.md",
+      "sha256": "317abfd9ca9ade5592d752fad77bb9a1cabcb35b14d35c100e75788ef811f9f9",
+      "size": 1807,
+      "title": "Titan Permission and Tenant Fence Model"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/03-Data-Layer/09-canonical-data-model.md",
+      "sha256": "f1af71ddfd885dc86edfbb47153c32c46d57348b5a8b4f98a9c4069cf3953da1",
+      "size": 6574,
+      "title": "09. Canonical Data Model"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".pdf",
+      "path": "docs/reference/titan-library/collection-1/03-Data-Layer/TitanZero ΓÇö Database Doctrine & Schema Model.pdf",
+      "sha256": "49d8c2ca57bee2543b7b4e1d58cfdece8bfa109f4a1a7cc055c5cb91d26f4e39",
+      "size": 107397,
+      "title": "TitanZero ΓÇö Database Doctrine & Schema Model"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/03-Data-Layer/Titan_Canonical_Status_and_Enum_Registry.md",
+      "sha256": "2d0f85e6a7e38720f208d2c72ea1ed3782b4736b6959ad7f358ccb80017e981d",
+      "size": 1864,
+      "title": "Titan Canonical Status and Enum Registry"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/03-Data-Layer/Titan_DB_Mapping_Guide.md",
+      "sha256": "28c9ba0938595ac031549ad1faef71a5827ddd769ab5caeae943ab49f3de11b1",
+      "size": 1295,
+      "title": "Titan DB Mapping Guide"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/04-ai-control-governance.md",
+      "sha256": "cf424adafd59c1ae338b0b6747b633c940297e7b1814c06e4d435e08d253fa1d",
+      "size": 5241,
+      "title": "04. AI Control and Governance"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/13-agent-tooling-and-execution-contracts.md",
+      "sha256": "ee406b8f1862d965ea06d472879555d0058fe0ba14164cbed9f4dedebe4db998",
+      "size": 3330,
+      "title": "13. Agent Tooling and Execution Contracts"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/22-ai-orchestration-memory-and-model-routing.md",
+      "sha256": "cca3dfd616303f31af0791a538ee134fb8e66b53f5b8f02338eed1db7dbb551d",
+      "size": 10919,
+      "title": "22. AI Orchestration, Memory, and Model Routing"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".pdf",
+      "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/TITAN OMNI VOICE CONTROLLED AI  PWA.pdf",
+      "sha256": "9a8cd33b0b6d4523cc3f280d4e148bc0037b7f19addbf81861d8d7e765f93b91",
+      "size": 442063,
+      "title": "TITAN OMNI VOICE CONTROLLED AI  PWA"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".docx",
+      "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/Titan AI integration guide .docx",
+      "sha256": "f1760421c7bc7227bfa2f55a4382bc1a98163c07eb27874037e160638b95911c",
+      "size": 11883,
+      "title": "Titan AI integration guide "
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".pdf",
+      "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/Titan Assistant Architecture.pdf",
+      "sha256": "244292b41c82e93f1b0c90b6e5691e012ebf4864e8191a872653b373a47ee339",
+      "size": 89857,
+      "title": "Titan Assistant Architecture"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".pdf",
+      "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/Titan Assistants.pdf",
+      "sha256": "7e03978b7d0d98b61586059ac5b1d95988a2d1c60ef1d39ef92e0197fae5724e",
+      "size": 393188,
+      "title": "Titan Assistants"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".pdf",
+      "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/Titan Core Engine Map (Master Blueprint).pdf",
+      "sha256": "535a24b35cec7e596057e338b714aa885edab3de535f82685cd52851fb767886",
+      "size": 83622,
+      "title": "Titan Core Engine Map (Master Blueprint)"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".pdf",
+      "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/Titan Core Engine Stack.pdf",
+      "sha256": "f079fab938ac28dd9d6c0f4a6290863d3c13db1cc9d984ebd1ecbef62202914e",
+      "size": 124654,
+      "title": "Titan Core Engine Stack"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".pdf",
+      "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/Titan Omni.pdf",
+      "sha256": "44e736b64bd7207e7777fdc32b7c169d4784f618758424cdf65835c195e6e8a6",
+      "size": 105969,
+      "title": "Titan Omni"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".pdf",
+      "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/Titan Zero Trinity Sytem Architecture .pdf",
+      "sha256": "ce9c757d67e741de3dd2777f44b42081c015c51d03056ceed3f31150ce8f7f65",
+      "size": 80232,
+      "title": "Titan Zero Trinity Sytem Architecture "
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".pdf",
+      "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/Titan Zero architecture blueprint .pdf",
+      "sha256": "9fa82779c65a181d35678d2a3c466805e6c0ffe935a7f5f9b82af99adc86cdfb",
+      "size": 118005,
+      "title": "Titan Zero architecture blueprint "
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".pdf",
+      "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/TitanZero ΓÇö Titan Duality & Lifecycle Assistants.pdf",
+      "sha256": "c57c9fcfd4a260a170cbd5c6a2632663c702a5393ed8bb21465ddce81b5f2da9",
+      "size": 96584,
+      "title": "TitanZero ΓÇö Titan Duality & Lifecycle Assistants"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/Titan_AI_Core_Architecture.md",
+      "sha256": "2499522666d2f9d82b28abd14125a506c4da3b12df6e4fa4369da91f04f63dea",
+      "size": 12475,
+      "title": "Titan AI Core Architecture"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/Titan_AI_Tool_Manifest_Spec.md",
+      "sha256": "2a592817984c1ad76ade20b7433f6b49c40e5f751b73dd39c27de0bbf0f9567a",
+      "size": 11132,
+      "title": "Titan AI Tool Manifest Specification"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/Titan_AI_Tool_Registry.md",
+      "sha256": "ca0c65087ba76ce646cf7b78aa9901d1ac2656ffbbc39cb941c34a5c1f32ad60",
+      "size": 2758,
+      "title": "Titan AI Tool Registry"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/Titan_Sentinel_Approval_Model.md",
+      "sha256": "2a3db127ffb92d79f25b0acc2c1229c3b6fe025d7d914a9c3dd27459632e3102",
+      "size": 374,
+      "title": "Titan Sentinel Approval Model"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/_folder-readme.md",
+      "sha256": "0a226a5d0d408d6d79d28b01193693c39a7f56b06558996f11a0e33dc1ca9ff5",
+      "size": 244,
+      "title": "ai Documentation Folder"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/aegis-core.md",
+      "sha256": "55ee3438feea1c95fb6c4fa71f1f94c122ca247a6d6383469d35033667d9312f",
+      "size": 10420,
+      "title": "AEGIS Core Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/agent-04-ai-gap-audit.md",
+      "sha256": "63b27393e7cd841debacf6d90175d2da802024d237ec7ca627143be597d9dc9f",
+      "size": 1640,
+      "title": "Agent 04 AI Gap Audit"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/agent-04-ai-starter.md",
+      "sha256": "5956c0a00047923ce002e3d59ea2179cc7179394322cc08d48d1dc272d758182",
+      "size": 1282,
+      "title": "Agent 04 Starter Kit — AI Platform"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/context-packs.md",
+      "sha256": "35c56910c315bb32ab955ccbdb9948caa29d6247c6387a2540cbea11cf5cb431",
+      "size": 9070,
+      "title": "Context Packs Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/evaluation.md",
+      "sha256": "50475e13b227dcc436c81e0106e853dce657fc7f6c4e97f1628ffb42df68d1e4",
+      "size": 7530,
+      "title": "Evaluation Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/first-ai-feature.md",
+      "sha256": "f671b2cb93d1848328a29321678a8db84de0d23b54e3c71f8d3be27458850cdc",
+      "size": 4056,
+      "title": "First AI Feature — Text Summarisation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/laravel-ai-sdk.md",
+      "sha256": "574a0eb2280842696c601c0428fd02516ab22634281a04e4c9a58c2239c987c6",
+      "size": 2287,
+      "title": "Laravel AI SDK setup"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/memory-architecture.md",
+      "sha256": "bf41bed6206a953b410b62ff82e1354422c89f9977adbc5efb78d689e6c30c53",
+      "size": 9215,
+      "title": "Memory Architecture Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/model-routing.md",
+      "sha256": "f9ccc1edf0c4204c3aab608ece2bf27239da033cf72802973eb5ca31f93d488f",
+      "size": 8384,
+      "title": "Model Routing Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/orchestration.md",
+      "sha256": "6430a5c1c2ac1998dae21bc3c877e81eab6ac159a479e1a00616066cbb623559",
+      "size": 10201,
+      "title": "Orchestration Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/quote-drafting.md",
+      "sha256": "29b9723295d0cf47042ba58093dd3ce06da85b268617917724380ae529cd4f7b",
+      "size": 6692,
+      "title": "Second AI Feature — Quote / Service Description Drafting"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/request-classification.md",
+      "sha256": "09e853804bca4eddd833252c5d97f300901e1931a99bc235cfc284b6a92cedbe",
+      "size": 7238,
+      "title": "Third AI Feature — Request / Enquiry Classification"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/specialist-cores.md",
+      "sha256": "df0f789e4fbdffdebf9ea0192760b4312a84d109a3e69ba0818bbbc2869fd724",
+      "size": 9548,
+      "title": "Specialist Cores Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/titan-zero.md",
+      "sha256": "28fc311f691ad70fb74835789ee27e2a79f5ce3c1312a406e8dfd00eaa066ebb",
+      "size": 17771,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/vertical-ai-training-architecture.md",
+      "sha256": "4676275fd617b570d62a8f5308274bb8a5a6e2063b940ff6c640840ae1990b74",
+      "size": 14748,
+      "title": "Vertical AI Training Architecture"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/visit-summary.md",
+      "sha256": "00e6f4a1351d4cf17ef71e11400e1896950ffc24da7bcde5a06af765d56da00d",
+      "size": 7014,
+      "title": "AI Visit / Job Summary Generation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/04-AI-Intelligence-Core/weighting-and-consensus.md",
+      "sha256": "13ff44f6686233f84827a919cc839bbab94299ccf09f7903b1da36d389b9c210",
+      "size": 7904,
+      "title": "Weighting and Consensus Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/05-Engine-Platform/05-modules-api-and-pwa-contract.md",
+      "sha256": "4cb1385c67c366023f4e4af8df247cb976b60c80f432eb2b0fdf4e3d857525b4",
+      "size": 6295,
+      "title": "05. Modules, APIs, and PWA Contract"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/05-Engine-Platform/19-module-registry-packages-and-capability-manifests.md",
+      "sha256": "de31a6b6668fe089198d014626b03eb391b3cefe9f25cc11b03ee24c9383cab7",
+      "size": 10759,
+      "title": "19. Module Registry, Packages, and Capability Manifests"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/05-Engine-Platform/25-developer-quality-gates-testing-and-module-acceptance.md",
+      "sha256": "164a7db4ea7dab5bdb2d0b54bf93457aaf9ab7faae7db5bbb0be2f707e42b7c0",
+      "size": 13709,
+      "title": "25. Developer Quality Gates, Testing, and Module Acceptance"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".docx",
+      "path": "docs/reference/titan-library/collection-1/05-Engine-Platform/Core Platform Modules .docx",
+      "sha256": "debe3f5cbf5e831b26ede38188be52c27e4a407e24ce2d29290648a6eec8396a",
+      "size": 194891,
+      "title": "Core Platform Modules "
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".pdf",
+      "path": "docs/reference/titan-library/collection-1/05-Engine-Platform/Titan Engine APIs & Contracts (Implementation Guide).pdf",
+      "sha256": "f5ada7170e8d988d83e406006fef8140f53c12d3bf8726223807267621dd48ea",
+      "size": 128619,
+      "title": "Titan Engine APIs & Contracts (Implementation Guide)"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".docx",
+      "path": "docs/reference/titan-library/collection-1/05-Engine-Platform/Titan Module developer guide.docx",
+      "sha256": "828ac40356fd4ec22960223bffc76837456b14188f9bb306135861501b904d4c",
+      "size": 272514,
+      "title": "Titan Module developer guide"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".pdf",
+      "path": "docs/reference/titan-library/collection-1/05-Engine-Platform/Titan Money.pdf",
+      "sha256": "f3a6ddc625171a34dc51b6ded5af6362afb555d5813726f7c1d2bd1105599171",
+      "size": 129221,
+      "title": "Titan Money"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/05-Engine-Platform/Titan_CMS_Manifest_Spec.md",
+      "sha256": "8bf3a4ef78b4df221848b932ebcce290457e3638c9f1384e09576c03588acbf1",
+      "size": 9588,
+      "title": "Titan CMS Manifest Specification"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/05-Engine-Platform/Titan_Module_Blueprint.md",
+      "sha256": "204483a3ee01199545780672242354aed885eb73cb65fcfd647f885e057caa5a",
+      "size": 11243,
+      "title": "Titan Module Blueprint"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/05-Engine-Platform/Titan_Module_Install_Lifecycle.md",
+      "sha256": "562c4844e8050c0ffd40cdf94b477043899637ef2e3019dbe04d15c6193f3907",
+      "size": 10536,
+      "title": "Titan Module Install Lifecycle"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/05-Engine-Platform/Titan_Module_Install_Upgrade_and_Rollback_Lifecycle.md",
+      "sha256": "a56aed73048bd383f34a4158a5b5aa3ea7716d3c238ee47a098c8931abf94dad",
+      "size": 4023,
+      "title": "Titan Module Install, Upgrade, and Rollback Lifecycle"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/05-Engine-Platform/Titan_Module_Manifest_and_Extension_Schema.md",
+      "sha256": "10f63968c8d43493f887fd52a09c8ce2de9e3859561dcfaf327b48e78d1e80fa",
+      "size": 9685,
+      "title": "Titan Module Manifest and Extension Schema"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/05-Engine-Platform/Titan_Module_Registry_Contract.md",
+      "sha256": "f23665bf2c16cd4c3a550066faaf6f00772eb5c8772dc571c3aaa61b72b73849",
+      "size": 9241,
+      "title": "Titan Module Registry Contract"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/05-Engine-Platform/Titan_PWA_Surface_Architecture.md",
+      "sha256": "eec74c892b947437a00e3af508f226df20dde7cb405e29aba25b4995825e931a",
+      "size": 9932,
+      "title": "Titan PWA Surface Architecture"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/05-Engine-Platform/Titan_Provider_and_Bootstrap_Registry.md",
+      "sha256": "19024a0053a05c39a00c323d89eb31a570aebd041e4da2ad09a7e1feafed933b",
+      "size": 9175,
+      "title": "Titan Provider and Bootstrap Registry"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/05-Engine-Platform/WORKSUITE_MODULE_MANAGER_SPEC_FROM_SITE_SCAN.md",
+      "sha256": "ecc8d6e9c86a7a7e4a63af6f3e35a29235dc5e7ca6b92faad4ee9fd2c435eb04",
+      "size": 941,
+      "title": "Worksuite Module Manager Spec"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/05-Engine-Platform/module-ai-surface-contract.md",
+      "sha256": "5423aa0a7235d4eac7c0eb5e286c80ccc7cdeb4c94fafb09ad3e4517cd1a06e1",
+      "size": 5323,
+      "title": "Module AI Surface Contract"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/05-Engine-Platform/module-api-exposure.md",
+      "sha256": "646a2161107421aee8fea4e1ec93e37cf6093a3a7fe0f8954d173d2b248b369e",
+      "size": 5028,
+      "title": "Module API Exposure"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/05-Engine-Platform/module-dependency-resolution.md",
+      "sha256": "5e0fce3cb07a6962054ff6e01d8eec96a52c4d1eddf2e3ce5e6043a5909bf151",
+      "size": 4430,
+      "title": "Module Dependency Resolution"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/05-Engine-Platform/module-discovery-registry.md",
+      "sha256": "7c714e6c85975852d496e5e075a72c422e2ab48d46b9cea88c8f3b66de23340d",
+      "size": 4518,
+      "title": "Module Discovery Registry"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/05-Engine-Platform/module-health-checks.md",
+      "sha256": "7869498293f75182aa2474c31454c420a1fcc6be696a423ca50ba5b496bbf62e",
+      "size": 5628,
+      "title": "Module Health Checks"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/05-Engine-Platform/module-installation.md",
+      "sha256": "934bcc4ebdd213bf2d6b89198d83f90a5fa1d393aa7c849f2404b26e4aaf364f",
+      "size": 5667,
+      "title": "Module Installation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/05-Engine-Platform/module-lifecycle-upgrade-repair.md",
+      "sha256": "c549d111d8170d5f60ad4a4a8c9f6d5eac2379180900dabe745d58cc12051f73",
+      "size": 5093,
+      "title": "Module Lifecycle Upgrade Repair"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/05-Engine-Platform/module-manifests.md",
+      "sha256": "883cd4010f93ef414073e8c02751adb1a4071d02b98138d6caa3ef6595436b54",
+      "size": 5451,
+      "title": "Module Manifests"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/05-Engine-Platform/module-packages.md",
+      "sha256": "26d7e3e1ad6101295f866a932fb09802d2506cf38f1883a05fe99b8cd02d8bc4",
+      "size": 5992,
+      "title": "Module Packages"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/05-Engine-Platform/module-permissions.md",
+      "sha256": "c9f8db0c4aec151162f6fbaafcb0a3d7c0fdaf26ba6173bf67e283f81fc5ced1",
+      "size": 5741,
+      "title": "Module Permissions"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/05-Engine-Platform/module-routing.md",
+      "sha256": "c96c230448c232bc7ca38d817b7f2a2c72ec18e5260a6b38fcb8f7917d037fe9",
+      "size": 6577,
+      "title": "Module Routing"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/05-Engine-Platform/module-settings.md",
+      "sha256": "d5f47d55b950449d673f3628d8a7724a7bdf736a362e3182d91e84b892879abe",
+      "size": 5103,
+      "title": "Module Settings"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/05-Engine-Platform/module-signal-registration.md",
+      "sha256": "6ce07fabda1af0c87d1f174c11baa2fc4affe45ef389f0a2f0cea0136956ef5d",
+      "size": 4381,
+      "title": "Module Signal Registration"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/05-Engine-Platform/module-structure.md",
+      "sha256": "c2a2ac7a232da1f05bbe6e6732801eacff1fc165b86feaa90f8a5aface2732cb",
+      "size": 5829,
+      "title": "Module Structure"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/05-Engine-Platform/module-ui-integration.md",
+      "sha256": "2047e9eea74372bdb5a7c35d3faaaae8b1d8bd27f2362d8608da78581fdb3879",
+      "size": 5935,
+      "title": "Module UI Integration"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-1/05-Engine-Platform/tenant-scoping.md",
+      "sha256": "5c96576e3159d3693b480630743efe43b20760e42341ba6398afa484103c8aff",
+      "size": 5964,
+      "title": "Tenant Scoping"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/03-worksuite-filament-pwa-model.md",
+      "sha256": "fbb7ab12b3f37ce164ee8adf05a87611c6f7d2439fc306aa41295da5f2af5450",
+      "size": 5635,
+      "title": "03. Worksuite + Filament + PWA Model"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/06-node-device-runtime.md",
+      "sha256": "282d60eeaad50e25719ab89eebef4a1a6f924ae630c1c66c6b7149e2ac3a1f0b",
+      "size": 5060,
+      "title": "06. Node and Device Runtime"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/10-sync-offline-and-conflict-resolution.md",
+      "sha256": "9f9f66c351b9889a402b86c5501561aba32e7fa8941d6812877a1cd605424664",
+      "size": 5189,
+      "title": "10. Sync, Offline, and Conflict Resolution"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/14-observability-performance-and-deployment.md",
+      "sha256": "add1b1762adabde4881a44992cfc8109badfa276b61eefac7f741509447e0032",
+      "size": 2829,
+      "title": "14. Observability, Performance, and Deployment"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/17-edge-node-and-pwa-runtime-contract.md",
+      "sha256": "3ca1961ccaa9dd13e2dc3375239f3b7c8b0254ecbade7f0ce4e9ceff6ebe8b31",
+      "size": 11581,
+      "title": "17. Edge Node and PWA Runtime Contract"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/18-signal-envelope-and-event-backfeed-contract.md",
+      "sha256": "d697f9c2fd53b49557afd875699ef023fd31497811e638314405f776c50afea3",
+      "size": 13034,
+      "title": "18. Signal Envelope and Event Backfeed Contract"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/21-communications-voice-and-consent-architecture.md",
+      "sha256": "42cb7fbaf7f3432bc3809b1efa830d95a7aaece8c5d2fda567b2614e24919fec",
+      "size": 11340,
+      "title": "21. Communications, Voice, and Consent Architecture"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/23-automation-workflow-and-reliability-engine.md",
+      "sha256": "97f9aa90eb32264b14498bfe70edf7101b5b4dec247d1c9d79aff8ffaae99329",
+      "size": 12327,
+      "title": "23. Automation, Workflow, and Reliability Engine"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/README 2.md",
+      "sha256": "f89a670f67ba68ed216a86262425916b820284c48fe556e3a999b5a6612b7005",
+      "size": 1687,
+      "title": "Agent5 Docs — Node/PWA Focused Set (v5)"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/README.md",
+      "sha256": "7707661841b6ee7dcf6436413da4378de31eb53c1e2ef8468559764f83e70ac4",
+      "size": 2687,
+      "title": "Worksuite → AI-Controlled Interconnected PWA System"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".pdf",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/Titan Command Mobile App.pdf",
+      "sha256": "ca7b6b00e29d803a6c586fa723616d9de8b3751bdfe7ca097b9c9e383ce28c71",
+      "size": 295888,
+      "title": "Titan Command Mobile App"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".pdf",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/Titan Go Mobile App.pdf",
+      "sha256": "d7027b6ee9df87bed6b0cc4a10b28c479568c55c3bb7e25814bf34f055c2ab8b",
+      "size": 178567,
+      "title": "Titan Go Mobile App"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".pdf",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/Titan Portal Mobile App.pdf",
+      "sha256": "5ce5f2de741efd65e0293335b01bc9a578ba7d4714f6e53b95611754dc357099",
+      "size": 297938,
+      "title": "Titan Portal Mobile App"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".pdf",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/Titan Pro Cloud & PWA Apps.pdf",
+      "sha256": "c5dae47b1c642ad5bf07e98bc192937943fa6d76e83f1a370cb6cbf60346ccd2",
+      "size": 509827,
+      "title": "Titan Pro Cloud & PWA Apps"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".pdf",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/Titan Studio Cloud Design App.pdf",
+      "sha256": "ad4ebc313e3c695c7eae188f9fe66bc39dec5ddf302e2e5ab54434ad18feb646",
+      "size": 532109,
+      "title": "Titan Studio Cloud Design App"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".pdf",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/Titan Trust Mobile App.pdf",
+      "sha256": "7a05e2555fee34b97c33e786373b293315e587cd4e93eef047e4e719382bf36a",
+      "size": 450963,
+      "title": "Titan Trust Mobile App"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/Titan_Node_Federation_Model.md",
+      "sha256": "3f6977af89ad4f61b3512d7fd2f5b9ad4d0847ba4109f56011618169362376fd",
+      "size": 469,
+      "title": "Titan Node Federation Model"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/Titan_Node_Runtime_and_Conflict_Resolution_Spec.md",
+      "sha256": "59ea0408afc4a4d95b0b9d05f7640f80e9bf601eca3684e1167308be3d9cab4b",
+      "size": 3256,
+      "title": "Titan Node Runtime and Conflict Resolution Spec"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/Titan_Node_Sync_and_Conflict_Examples.md",
+      "sha256": "b9afe9650a703021b3ce1a168199dd858fc15312171c759ea954297813bde1ea",
+      "size": 1162,
+      "title": "Titan Node Sync and Conflict Examples"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/node-api-envelope-contract.md",
+      "sha256": "199e0e02331544af6297f785c39d1cd42fa73f63f40dcf975018059a9a4c46ab",
+      "size": 1287,
+      "title": "Titan PWA Node API Envelope Contract"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/node-architecture.md",
+      "sha256": "52902cba99e6e7e25bfc8aefbfaf63eba7752f94c6176bec9c59308a5628c114",
+      "size": 5371,
+      "title": "Titan PWA Node Architecture"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/node-auth-session-rotation.md",
+      "sha256": "f4f721d0dc9afdf7e5aadc8622b775d6eb7880ce80c0c5db2fc809c98b644d91",
+      "size": 1242,
+      "title": "Titan PWA Node Auth and Session Rotation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/node-capability-manifest.md",
+      "sha256": "64acb9ac50d3d509aa8f3816cb8c763ddf70b85cd4811f220e4293e9dccfebb3",
+      "size": 1193,
+      "title": "Titan PWA Node Capability Manifest"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/node-edge-ai-runtime.md",
+      "sha256": "1eff1a8874164fff3b3fb58caf9c655ecdfc0ee3ef0339c9070229d0a8b76812",
+      "size": 1331,
+      "title": "Titan PWA Edge AI Runtime"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/node-governance-runtime.md",
+      "sha256": "b44fb1fdcd56dd54f0923398dab69aa12c187a8f71bb296d97a5787ce906bb7a",
+      "size": 1068,
+      "title": "Titan PWA Node Governance Runtime"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/node-indexeddb-schema.md",
+      "sha256": "f47b3bccf6834fd3d593bf0062cc90a56cacf7759100e01c2838c805f2efeb2a",
+      "size": 3506,
+      "title": "Titan PWA Node IndexedDB Schema"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/node-installation-and-deployment.md",
+      "sha256": "ebb41021287e59523b66e53169b5bfddbb183e6fbfc3234ec4b96107fa2c0bdf",
+      "size": 1979,
+      "title": "Node Installation and Deployment"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/node-media-capture-pipeline.md",
+      "sha256": "49840388719125d25491a2279037bbf109219e224c90c210de7f41ab2061337c",
+      "size": 1280,
+      "title": "Node Media Capture Pipeline"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/node-network-resilience-and-recovery.md",
+      "sha256": "ecf6138343b05535c77448bddefa56468b1c10d0e0484234b00f27f4f2af5395",
+      "size": 1024,
+      "title": "Node Network Resilience and Recovery"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/node-observability.md",
+      "sha256": "6a6224cfc90f27d551ac42392b4dfc1e888ac9959763051de522a792109d52bd",
+      "size": 1141,
+      "title": "Titan PWA Node Observability"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/node-operator-recovery-flows.md",
+      "sha256": "c8f423bfb3e37c5eb1462b9667aefeffe0b6790f7a20689750741764ab91930f",
+      "size": 5295,
+      "title": "Titan PWA Node Operator Recovery Flows"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/node-policy-overlays.md",
+      "sha256": "97c1f94397d13db0f4374be3ecb3f73a8cfdc327437651d15097a75e2568b69d",
+      "size": 6023,
+      "title": "Titan PWA Node Policy Overlays"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/node-push-subscription-contract.md",
+      "sha256": "ec933e8bd2edad09d9f03836ad00fb19fd1116a80fa8d07ae850ff9fc262a39d",
+      "size": 1309,
+      "title": "Titan PWA Node Push Subscription Contract"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/node-release-and-migration-playbook.md",
+      "sha256": "2b788e4a96ae0b65bdddfb9551898686ba071dd0181cda207478c78fe242e688",
+      "size": 1042,
+      "title": "Node Release and Migration Playbook"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/node-role-shell-map.md",
+      "sha256": "d92cdc3500ee6007051390b058a5b385368ef23c1e5e4263c84d036ad1b0e964",
+      "size": 1316,
+      "title": "Node Role and Shell Map"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/node-runtime-health-checks.md",
+      "sha256": "3e8bcd2c4747c6404e76257e80a5f6d9696eae320e2a7bf405d5ad2ba6b03d59",
+      "size": 1476,
+      "title": "Node Runtime Health Checks"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/node-runtime-storage-and-arbitration.md",
+      "sha256": "397062b43c323a8815e3f4ab825eb94c80f11509e2248029a6004bb76d4376a0",
+      "size": 1113,
+      "title": "Titan PWA Node Runtime Storage and Arbitration"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/node-service-worker-contract.md",
+      "sha256": "195cc8d57fcf64d4f554efbc8fbd2fa4ec87b33f025beaa0e04abb4e49b30ddc",
+      "size": 1621,
+      "title": "Titan PWA Node Service Worker Contract"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/node-service-worker-runtime.md",
+      "sha256": "7cd722d0cb0fa8c73e033facd7280261e2ead0b65cb6a71fa005b149850f84cf",
+      "size": 1056,
+      "title": "Titan PWA Service Worker Runtime"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/node-signal-envelope.md",
+      "sha256": "3b97be344fb91222de20b25fd8afadda0b47dc82d64d3005b5ddf4777ab04e33",
+      "size": 6333,
+      "title": "Titan PWA Node Signal Envelope"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/node-sync-engine.md",
+      "sha256": "e86ee534d796e42dfd87eca47f2e3a6a1017faa211e3de09670244fb74e03e20",
+      "size": 4471,
+      "title": "Titan PWA Node Sync Engine"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/node-sync-payload-spec.md",
+      "sha256": "31105085feae2b0d7ca75d2fd4c94dfc85b3be1af7e8263f26a5d205d34b8a29",
+      "size": 2357,
+      "title": "Titan PWA Node Sync Payload Spec"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/node-testing-and-debug-matrix.md",
+      "sha256": "9d1f2cd732c5437f1bf416d94aaf29154709594801fa2c4021e98e5294a1ee6d",
+      "size": 1194,
+      "title": "Node Testing and Debug Matrix"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/07-Nodes-PWA-Mobile/node-upgrade-coordination.md",
+      "sha256": "f7ee18a592e31ab5a0a8961c2e9d9589862d338d7eb7faa91643ef13002cbf13",
+      "size": 1145,
+      "title": "Titan PWA Node Upgrade Coordination"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".pdf",
+      "path": "docs/reference/titan-library/collection-2/08-Communications-Channels/TitanZero ΓÇö Titan Talk Communication System.pdf",
+      "sha256": "f2f3ca8e1526311bc7dc8590cdbc1ec4fa2d2c4fa880b734df621f38dbc114d4",
+      "size": 90341,
+      "title": "TitanZero ΓÇö Titan Talk Communication System"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/08-Communications-Channels/Titan_Channel_Architecture.md",
+      "sha256": "9f36c9cae954412e4f15ce8bfb6bb7571454bb66475ddbb5bf35029390b394c8",
+      "size": 7503,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/08-Communications-Channels/Titan_Channel_Permissions_Model.md",
+      "sha256": "6f40e983d18c9cc1e6522d5f949283ae362da33264d612c95f6e1666c6925e62",
+      "size": 5589,
+      "title": "Titan Channel Permissions Model"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/08-Communications-Channels/Titan_Channel_Webhooks.md",
+      "sha256": "58ca3df40e5e34a754b0c2771bee6ed3eade71688a5c94374dfc3649c0b4af5d",
+      "size": 5759,
+      "title": "Titan Channel Webhooks"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/08-Communications-Channels/Titan_Communications_Engine.md",
+      "sha256": "d47eb64c69f48a5b6eb660820a7ad9c242f5afb927ddf5734d3df5810e857ff3",
+      "size": 9983,
+      "title": "Titan Communications Engine"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/08-Communications-Channels/Titan_Communications_Governance_and_Compliance.md",
+      "sha256": "d7716b8071e412b75c4eae9189cb48006ebe91c569b89f5966c316ec8f32c901",
+      "size": 5099,
+      "title": "Titan Communications Governance and Compliance"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/08-Communications-Channels/Titan_Communications_Handoff_Contracts.md",
+      "sha256": "29137cb8d48660e79ebbd4aed5c9d30044d78954340afb3e651b1b4a84bcbc40",
+      "size": 6029,
+      "title": "Titan Communications Handoff Contracts"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/08-Communications-Channels/Titan_Communications_Operations_and_Observability.md",
+      "sha256": "3ac88df962abc8cd10ba6c0357c0eaddfd592b24ed1cdb00f696588d7513e666",
+      "size": 4807,
+      "title": "Titan Communications Operations and Observability"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/08-Communications-Channels/Titan_Conversation_State_Model.md",
+      "sha256": "18795c58b8436cc69fb6ba2bf9e1d90d22641fc2822e378130a33eedc4f8061e",
+      "size": 5482,
+      "title": "Titan Conversation State Model"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/08-Communications-Channels/Titan_Delivery_Tracking_and_Retries.md",
+      "sha256": "fbfa61041b4ecd36d6f6d29ffa804aa397532a062bc34eed26fe2b567da8a383",
+      "size": 4426,
+      "title": "Titan Delivery Tracking and Retries"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/08-Communications-Channels/Titan_Email_Engine.md",
+      "sha256": "7dd6b90aac791bd2c19eb7d9e7d788ce7cfbaeb562c48fd1db80028f49c1cb4b",
+      "size": 4865,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/08-Communications-Channels/Titan_Message_Templates.md",
+      "sha256": "2a4e4a8e732eb619569fe9bc48fd724ee5f0f466828cbac734f5f2129efaa9a6",
+      "size": 5559,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/08-Communications-Channels/Titan_Messenger_Engine.md",
+      "sha256": "e3f2cf958577973a23f4fb7e4107e9cecc109e554862afb326d19e9982a27a65",
+      "size": 5886,
+      "title": "Titan Messenger Engine"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/08-Communications-Channels/Titan_Omni_Bridge_Layer.md",
+      "sha256": "baeb2ca56bd486fad8a603904a2cf6d95c8525b0be599f9fa12e9af73a2b1eca",
+      "size": 5902,
+      "title": "Titan Omni Bridge Layer"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/08-Communications-Channels/Titan_Presence_and_Session_Sync.md",
+      "sha256": "85ff6e955d9c64ebbc8591ff829ccea0ada29eb32707469780a3fe8ed55d6ebd",
+      "size": 4618,
+      "title": "Titan Presence and Session Sync"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/08-Communications-Channels/Titan_Push_Engine.md",
+      "sha256": "69190fea4ac551116f39290284cf397e1cdebb10ca080d7338f3bc3180be8a57",
+      "size": 5647,
+      "title": "Titan Push Engine"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/08-Communications-Channels/Titan_Routing_and_Failover.md",
+      "sha256": "856737fc14a5bf29ac9e69b2fcfb79b99b7f26c121463133c994933dd912daa5",
+      "size": 6726,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/08-Communications-Channels/Titan_SMS_Engine.md",
+      "sha256": "745bf5e6cf9a956795ec4c10e4275138f24709aa9ab36d95aaa65f8a64db1b31",
+      "size": 5562,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/08-Communications-Channels/Titan_Talk_Voice_and_Telephony_Layer.md",
+      "sha256": "a95077c0243ed5a4871e55517e50d5b7c0d4a03de1ed28d179eff4960bb9c4a4",
+      "size": 4342,
+      "title": "Titan Talk Voice and Telephony Layer"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/08-Communications-Channels/Titan_Telegram_Engine.md",
+      "sha256": "225d86c87cb2b47a67ca248db35d35dc974fe00961ceb190ca4c6c1b2f6fe6ff",
+      "size": 5841,
+      "title": "Titan Telegram Engine"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/08-Communications-Channels/Titan_Unified_Inbox.md",
+      "sha256": "24fa756d82c3cb8914a582bf787aec74cf116a4a0026103578c8dcc33df30014",
+      "size": 5381,
+      "title": "Titan Unified Inbox"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/08-Communications-Channels/Titan_WhatsApp_Engine.md",
+      "sha256": "cc96183bb3a91df0815be058e823e72d24f5b476e75bfd07210131b6048aa093",
+      "size": 5964,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".pdf",
+      "path": "docs/reference/titan-library/collection-2/09-Workflows-Automation/Titan Automation Rule Model.pdf",
+      "sha256": "9830de62ba126b310c7721f2aa153ce206037d93e1f8af299e2cec96d31fd3e0",
+      "size": 93766,
+      "title": "Titan Automation Rule Model"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".pdf",
+      "path": "docs/reference/titan-library/collection-2/09-Workflows-Automation/TitanZero ΓÇö Titan Pulse Automation Engine.pdf",
+      "sha256": "3e16375c72229174deb6a3ff0fd39b134465ec7a2b288a6fe906530f03ce5cd8",
+      "size": 94717,
+      "title": "TitanZero ΓÇö Titan Pulse Automation Engine"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/09-Workflows-Automation/Titan_Automation_Engine.md",
+      "sha256": "d2fb846cd08d5a8e0094ea15970668dad120efd84050ee6020dd6d49989ab5d6",
+      "size": 11360,
+      "title": "Titan Automation Engine"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/09-Workflows-Automation/Titan_Workflow_Engine.md",
+      "sha256": "31b596f8660f5ae40992e6df08daf5c7bb55deeb3d784ef290d6a8654d9e1aba",
+      "size": 9912,
+      "title": "Titan Workflow Engine"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/09-Workflows-Automation/_folder-readme.md",
+      "sha256": "d4041673178c3b2a72cc960ec3411aca6ce82fdb5fae9cf0ae6a4a8ff5a45e79",
+      "size": 252,
+      "title": "automation Documentation Folder"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/09-Workflows-Automation/agent-06-automation-starter.md",
+      "sha256": "61f7eb92657e50b75225ee29c7796b5ab53fb3f286b768ff6aecd46e77f6331a",
+      "size": 1150,
+      "title": "Agent 06 Starter Kit — Automation Engines"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/09-Workflows-Automation/approval-runtime.md",
+      "sha256": "ba508a03983018dd8bbabf592160e0055ab0c97bacceb96b9d8fad14076b30f1",
+      "size": 6011,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/09-Workflows-Automation/approvals.md",
+      "sha256": "eb5ed8a77183723583eba55fcd9d9dfd159e525c7cd0ddf4d2d1805ded53ff49",
+      "size": 9004,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/09-Workflows-Automation/automation-engines.md",
+      "sha256": "5ce57ef6a8aa6404133f17e3742fd82f272e1c6f619754ed524b828dec885863",
+      "size": 11014,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/09-Workflows-Automation/dead-letter-queues.md",
+      "sha256": "f7ac14825330f7afcd92b6167976accf24196c2b233e06ee0b0705f1f1b8552f",
+      "size": 5899,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/09-Workflows-Automation/decision-envelopes.md",
+      "sha256": "8f826dc138e9c20509180922088e522875d08acc1832380cdc9e73355150b045",
+      "size": 7704,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/09-Workflows-Automation/engine-coordination-patterns.md",
+      "sha256": "70eabbdaf8560b2b4b42606f8e7377da69f448e8c2509791502987a48fdc2eda",
+      "size": 5332,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/09-Workflows-Automation/escalation-engine.md",
+      "sha256": "00e99f5fd7f0db22583b1f9727532a29c53c20439c8ef53d3c0d21fe11e01efd",
+      "size": 8713,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/09-Workflows-Automation/example-database-schemas.md",
+      "sha256": "5589737be8556b1d6c94633cc2c073850ff4e0dff6826825fe43bfa831a7d622",
+      "size": 9524,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/09-Workflows-Automation/example-manifests.md",
+      "sha256": "e27587ce484ed609c6f347d25d8bb7957f18d6eaf30583123e07f0f75764320e",
+      "size": 7464,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/09-Workflows-Automation/guards.md",
+      "sha256": "a2ef872331283f899057202a6314d158f53ad5968ede1b1c4d2cfeb1aef995d1",
+      "size": 8296,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/09-Workflows-Automation/idempotency.md",
+      "sha256": "ffa4364f98f6ba3b43c4d605d008981d449153ad6456a5c482965e976fcc13e2",
+      "size": 7980,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/09-Workflows-Automation/lifecycle-engine.md",
+      "sha256": "5e7e98762a9bc4b1a5155f76ad49aacbc315df7ecafc84c7c4a0a2fd66d2ec18",
+      "size": 8472,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/09-Workflows-Automation/mermaid-flow-diagrams.md",
+      "sha256": "2c579210379bb7c367e6cbc9973029c81d7e7357676b94dc401a79edb5f50bf2",
+      "size": 6912,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/09-Workflows-Automation/metrics.md",
+      "sha256": "db28ceafec7867a328dc7500f3eb98dbdb46367c615d34b58eb91c1dd79a959c",
+      "size": 10847,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/09-Workflows-Automation/operator-debug-playbooks.md",
+      "sha256": "246869469b211056adf87c2f3220317586f2e9267bec05ef4bb38c373db4f150",
+      "size": 9205,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/09-Workflows-Automation/outbox-inbox-relays.md",
+      "sha256": "8c8d13a44b3baf593ca632d8f9fc4d35ec9bb4aac04432715c5c363950ed2745",
+      "size": 6569,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/09-Workflows-Automation/process-record-integration.md",
+      "sha256": "ade6d8ac7ccd8d1a540503456bfbb486c9d80cb81ffea0e243e3ffa443e536f3",
+      "size": 7246,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/09-Workflows-Automation/recovery-engine.md",
+      "sha256": "3bd4a942e1b21fe1dcaec1876be5825331bfaf3a08a6693de348d8c5a58515ee",
+      "size": 5250,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/09-Workflows-Automation/reminder-engine.md",
+      "sha256": "1ed28a164b5e5fce1b880aeeade06868463405fb85f98c23e616de51aaff62bb",
+      "size": 8766,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/09-Workflows-Automation/retry-strategy.md",
+      "sha256": "1ef989666fd870077ac80056772cddbf307014ac98f9ff07c6b6c70f6f8b9ec3",
+      "size": 4859,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/09-Workflows-Automation/runtime-state-store.md",
+      "sha256": "bea273bd477555b98ce0e4a993bf18ae5897869cd1fe7af7f13fce438363f93f",
+      "size": 5615,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/09-Workflows-Automation/state-machines.md",
+      "sha256": "e14a32be5b7a52122b0b6c002d5fe4b44c9b597eeb5afdd17ea0042f61177c6d",
+      "size": 7892,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/09-Workflows-Automation/stuck-state-detection.md",
+      "sha256": "e06dc56612680723a71ed8be8d4101ecd1dfbc6e4ea955f99b8b4c522946f47f",
+      "size": 13998,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/09-Workflows-Automation/templates.md",
+      "sha256": "c0ae5f7bd161d0ef75e93fae5f850da675d72fafd880efc923182e1bd855b137",
+      "size": 7649,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/09-Workflows-Automation/titan-governance-flow-mapping.md",
+      "sha256": "05f4bdabd37f11ba904f69097c3d6dd9be8221ee367c607b4b3dd18157e38d5b",
+      "size": 7795,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/09-Workflows-Automation/transitions.md",
+      "sha256": "eb7b9724f7694f78d945870acaf051550785e4bb437a7ab090fea61b93225b06",
+      "size": 7696,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/09-Workflows-Automation/trigger-evaluation.md",
+      "sha256": "c7f59971b2e689f42cccaa44e09033151778b927c95fd16dc0cf583c5aa296ef",
+      "size": 6504,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/09-Workflows-Automation/worked-engine-examples.md",
+      "sha256": "df7e0cc562fdd49b65caec0da06a1f4b41aeb974475a6862af691f86321c8837",
+      "size": 7553,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/09-Workflows-Automation/workflow-definitions.md",
+      "sha256": "52f36af982094b86ddecd6b4a105e6e21a66b61ea751bc71f82cbcae684c0913",
+      "size": 10823,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/10-User-Interfaces/00-node-architecture.md",
+      "sha256": "d053633f2e85f64ebc80d9096146076d5d1caa32f1a8045414acc3a5d62dea35",
+      "size": 6620,
+      "title": "Titan BOS — 9-Node + 12-Vertical Architecture"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".pdf",
+      "path": "docs/reference/titan-library/collection-2/10-User-Interfaces/TitanZero ΓÇö Titan Go Mobile & PWA Interface System.pdf",
+      "sha256": "983cde7a788fbdf2e1eb7f426da28dee2bf9dd204b4b42bd5792748c00180783",
+      "size": 92339,
+      "title": "TitanZero ΓÇö Titan Go Mobile & PWA Interface System"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/10-User-Interfaces/conversational-os-and-canvas-handoff.md",
+      "sha256": "114abfa61857324dc1727821f24174a416f7b8ed21d585036af967c50608815f",
+      "size": 11494,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/10-User-Interfaces/dashboard-system.md",
+      "sha256": "007b479f8a3ae9bded71f7e0aeab3ffb009bd6474815a6529e50d17e4e9a63e8",
+      "size": 12390,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/10-User-Interfaces/filament-admin.md",
+      "sha256": "d4ed7f91a4f83ebba685bc0bc2cb4f01f54b0f6645d7f8c6385e9064a692640c",
+      "size": 10762,
+      "title": "Filament Admin Surface"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/10-User-Interfaces/filament-panels-and-control-surfaces.md",
+      "sha256": "28148e64b67937dbfb1d774aa20e1827b4d6bfd7ee5d336ff5210dd315ae4b76",
+      "size": 11135,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/10-User-Interfaces/filament-user.md",
+      "sha256": "ffe8452e4d75686467b800ee6b57a5a5f36c74477dc85b522513473173bd6fe2",
+      "size": 10324,
+      "title": "Filament User Surface"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/10-User-Interfaces/ground-zero.md",
+      "sha256": "20d064e38d57c580d4040079567fb9395b9abeb66ab581ca7b63cb03ca902e9d",
+      "size": 2375,
+      "title": "Ground Zero — Dispatch Control Panel"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/10-User-Interfaces/navigation-shell.md",
+      "sha256": "4ca18710c67ea22125a9ee807a72f9c2447e3007b5852e1b3206f642ddf946db",
+      "size": 10295,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/10-User-Interfaces/titan-go.md",
+      "sha256": "af37d41c731251ccc37abc23216f21dac41281999ccd1bbb5ba3704ecad78e79",
+      "size": 3039,
+      "title": "Titan Go — Field Worker App"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/10-User-Interfaces/titan-hello.md",
+      "sha256": "bef2fb187ba550c3704c7fbcc864cc815e12350109ece80eb476fbc3bf7159ad",
+      "size": 3029,
+      "title": "Titan Hello — Receptionist & Omni Gateway"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/10-User-Interfaces/titan-pro.md",
+      "sha256": "14f4f824dbdb1dd5b148ca2890fcfa597e48feee332d6977b58393946c6aa485",
+      "size": 2851,
+      "title": "Titan Pro — Owner Command Centre"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/10-User-Interfaces/titan-solo.md",
+      "sha256": "f6e1b92bbe024f42c1d01cf9148bcace6192b823cfcd200edd279031a03f79b3",
+      "size": 2458,
+      "title": "Titan Solo — Single Operator Mode"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/10-User-Interfaces/titan-studio.md",
+      "sha256": "7f04b076b72c61c81e4301f6f8d7cdf4ebdea147fea4240d2468737ee0272b77",
+      "size": 2276,
+      "title": "Titan Studio — Growth Surface"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/10-User-Interfaces/titan-zero-node.md",
+      "sha256": "8457442de9ac6b0bc1626fc128746bb3b14363ab390194d83926f7fd961402a2",
+      "size": 2944,
+      "title": "Titan Zero — AI Operating Assistant"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/10-User-Interfaces/vertical-overlay-architecture.md",
+      "sha256": "f8012151497de44bf1217148fddfa43506fe0a4197559f503f09020abd9f7714",
+      "size": 12088,
+      "title": "Vertical Overlay Architecture"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/10-User-Interfaces/vertical-registry.md",
+      "sha256": "8fc201c385b5df608d4c128db496dd9e9f7df00da36ebc20808cde1e2693a7bf",
+      "size": 7658,
+      "title": "Titan BOS — Vertical Registry"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/10-User-Interfaces/voice-interface.md",
+      "sha256": "c8e4cbb2b3d56635b8355155d3de9437df4e45cf4b99b7027b473c225a492620",
+      "size": 9797,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/10-User-Interfaces/widget-architecture.md",
+      "sha256": "7697afc5fadd0d322703b92b50c3c46e1656cd32334e0c6063087fed550dc662",
+      "size": 10607,
+      "title": "Titan Zero Documentation"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/10-User-Interfaces/zero-fuss.md",
+      "sha256": "862bfed1c78e507d2e20d34ac99c699c521af4172757769365855d3b2c52251b",
+      "size": 2719,
+      "title": "Zero Fuss — Customer App"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/10-User-Interfaces/zeropay.md",
+      "sha256": "3e9c9c5efe2ec47667ee86fa388f3ad7965d5c9a63562fab2c370065f832caaa",
+      "size": 2341,
+      "title": "ZeroPay — Financial Engine"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/11-Engine-Developer-Kit/README_START_HERE.md",
+      "sha256": "af78909107f5a14982dad1e4d3a8be7212f368b11177fae25d86b24f548bde71",
+      "size": 13734,
+      "title": "Titan Engine Developer Kit (TEDK)"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/11-Engine-Developer-Kit/TEDK-MASTER-INDEX.md",
+      "sha256": "13a5d266fe4047e8bb6444a821091318940a68dc036ddf2ae361359c6b6a50e4",
+      "size": 14413,
+      "title": "Titan Engine Developer Kit (TEDK)"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/11-Engine-Developer-Kit/TEDK_PROGRESS_REPORT.md",
+      "sha256": "f2f96dbce3ffd6cecabb16074197b219b4eb9e7be9647996b91b415e46452375",
+      "size": 14534,
+      "title": "TEDK Consolidation: Progress Report"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/11-Engine-Developer-Kit/TEDK_Volume_1_Platform_Constitution.md",
+      "sha256": "5afa7f182f72425d01cf573a3767ca5aecbbaafb2078ff9b266ee58be2dce634",
+      "size": 33956,
+      "title": "TEDK Volume 1: Platform Constitution"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/11-Engine-Developer-Kit/TEDK_Volume_2_Engine_Standards.md",
+      "sha256": "437b41b182728317d639aebcaf07ec200426cb8b38db1750874049fa2b2e74b2",
+      "size": 30151,
+      "title": "TEDK Volume 2: Engine Standards"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/12-Engine-Doctor/CHECKLIST_PASS11.md",
+      "sha256": "8473405b5dc2bdbbc173173f2e503b9e063cff8b66716d5145dcae6f9f7c5399",
+      "size": 125,
+      "title": "- Sidebar include chain"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/12-Engine-Doctor/CHECKLIST_PASS15.md",
+      "sha256": "bcfce555ed57b112a91ec1b95a6f2e8e2deef420fc546df3c0afd36bda04742f",
+      "size": 112,
+      "title": "- Provider boot\\n- Runtime routes\\n- Menu eligibility\\n- Workspace inclusion\\n- SQL preview\\n- Sidebar preview\\n"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/12-Engine-Doctor/KNOWN_MENU_BLOCKERS.md",
+      "sha256": "7bd3edd9646f12dc42f4ea32979eff07c08b16b3e74ef4d1d8ff56f72a04e955",
+      "size": 140,
+      "title": "- No sidebar include"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/12-Engine-Doctor/README_PASS11.md",
+      "sha256": "77664be980653cf3613b9b8ef41d3027b5cc58277f1cd47e0a4d03b472620e88",
+      "size": 114,
+      "title": "Pass 11"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/12-Engine-Doctor/README_PASS15.md",
+      "sha256": "af92ad2449d665a80a16b1678b1711a23cf2f4708efdee5306cba1d4adb389df",
+      "size": 91,
+      "title": "Pass 15\\nMenu truth engine v2 with provider boot verification and SQL/sidebar previews.\\n"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".json",
+      "path": "docs/reference/titan-library/collection-2/12-Engine-Doctor/REPORT_SCHEMA_PASS11.json",
+      "sha256": "cc2202762d44f345b48efeab50a7cbed250ead21d88fcaa784b9767a3efe82c5",
+      "size": 87,
+      "title": "{\"version\":11,\"sections\":[\"sidebar\",\"routes\",\"permissions\",\"package_bridge\",\"tenant\"]}"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".json",
+      "path": "docs/reference/titan-library/collection-2/12-Engine-Doctor/SAFE_AUTOFIX_MATRIX.json",
+      "sha256": "ab5692366caca5e9b458a2e2e52ac2846f254332b499047480615d2f58879672",
+      "size": 88,
+      "title": "{\"seed_permissions\":\"safe\",\"attach_packages\":\"safe\",\"rewrite_sidebar_routes\":\"confirm\"}"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/12-Engine-Doctor/Titan_Observability_and_Doctor_Deep_Spec.md",
+      "sha256": "fb45aa887efc42e3b15e4a630707558c56499349ae3d36b010ce7a07a4922bba",
+      "size": 1219,
+      "title": "Titan Observability and Doctor Deep Specification"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/12-Engine-Doctor/Truth/MenuTruthEngineReadme.md",
+      "sha256": "6c8e850abf5d55f439c896a58344a543047072b6a69798b65ab71f9de060c61b",
+      "size": 160,
+      "title": "Pass 15\\nAdds provider boot verification, menu eligibility scanning, runtime route truth, workspace anchor audit, SQL preview, and sidebar injector preview.\\n"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/12-Engine-Doctor/Truth/README_PASS12.md",
+      "sha256": "8dd698bae61200e82ec5e7adb9274158bbd2ab2c5c7892cda214a7df980d2d36",
+      "size": 290,
+      "title": "Pass 12 expands the installer from static menu analysis into database-backed visibility truth."
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".json",
+      "path": "docs/reference/titan-library/collection-2/12-Engine-Doctor/Truth/REPORT_FIELDS_PASS12.json",
+      "sha256": "3f3b9b19089fe5766e3ba8b7d077127be3f0b2c83eb23d8dc821ef05119f11b1",
+      "size": 260,
+      "title": "{"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".json",
+      "path": "docs/reference/titan-library/collection-2/12-Engine-Doctor/Truth/SAFE_DB_AUTOFIX_RULES.json",
+      "sha256": "d398416cb68ddda918633c7e2c75c0b582395a5282bea44d7640e8627212e9b7",
+      "size": 306,
+      "title": "{"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".json",
+      "path": "docs/reference/titan-library/collection-2/12-Engine-Doctor/Truth/menu-safe-fixes.json",
+      "sha256": "0f1e6b8f1e016c24868718e06967d1903a42443fae1a48dcab96ccd3a1f78810",
+      "size": 219,
+      "title": "{"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/12-Engine-Doctor/UPGRADE_PLAN_PASS11.md",
+      "sha256": "2911d97686eb5221dec915551e71e9578d0a47eaf88116decb5c56ceadeeda2a",
+      "size": 82,
+      "title": "Pass 11 focuses on real user-menu visibility blockers in Worksuite base installs."
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/12-Engine-Doctor/UPGRADE_PLAN_PASS15.md",
+      "sha256": "dcc4e6d645cfe8581720054399640e2e6d191b5d1f44da3541f1d20ae17a46e5",
+      "size": 70,
+      "title": "- Pass 15 complete\\n- Pass 16: dry-run provider/migration simulation\\n"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/00-INDEX.md",
+      "sha256": "50ce7c40c4f71ba1433ea94a84cf1558f7f242f5fd03ec51e6b19a30d052eb1a",
+      "size": 5290,
+      "title": "Titan Blueprints Index"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/01-FULL-SYSTEM-DIRECTORY-TREE.md",
+      "sha256": "4fc5027ecdcf60ed2742e7442f65033b7c4a8de850f31b7c7ce385addd7b9faf",
+      "size": 2225,
+      "title": "Full System Directory Tree"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/02-PLATFORM-BLUEPRINT.md",
+      "sha256": "3557655afd7a13e05b05522a322e5257deb5d80d9e724e8adab4f4ef891df7e1",
+      "size": 3212,
+      "title": "Platform Blueprint"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/03-FULL-ENGINE-BLUEPRINT.md",
+      "sha256": "7d61beb3c779e948d08898a045babb936b09175622d756a8cd8c6bf3ada9926c",
+      "size": 2464,
+      "title": "Full Engine Blueprint"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/04-AI-CORE-BLUEPRINT.md",
+      "sha256": "d34709b5a5510d4e70501c283105ef4396fcdd74f415e55d428ac4ec4834d115",
+      "size": 2747,
+      "title": "AI Core Blueprint"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/05-MODULE-BLUEPRINT.md",
+      "sha256": "f143f9a0abff17b802af97c26c4090569a52f46f26f506cf724f4617a5d4d9d2",
+      "size": 2701,
+      "title": "Module Blueprint"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/06-FILAMENT-PLUGIN-BLUEPRINT.md",
+      "sha256": "cdf596bce484980fcf27a29a7477126f9a87500548a95eaffd47685104687f91",
+      "size": 1238,
+      "title": "Filament Plugin Blueprint"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/07-MODULE-PLUS-PLUGIN-SPLIT-RULES.md",
+      "sha256": "3374b40097c3d4ebfde7ad8f6b467f3c8d72c57ece3ec7597db61d602889ea92",
+      "size": 1315,
+      "title": "Module + Plugin Split Rules"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/08-BOILERPLATE-SYSTEM.md",
+      "sha256": "3354e01014b906298fdf3ea639d545a75a859123e31cf9a19dbaaa5682d3a39d",
+      "size": 4876,
+      "title": "Boilerplate System"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/09-SIGNALS-ENGINE-BLUEPRINT.md",
+      "sha256": "395581007bde6db60e916805c897e27072589f2a79c9cabd31ce5f253bded5dc",
+      "size": 2435,
+      "title": "Signals Engine Blueprint"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/10-WORKFLOW-STATE-MACHINE-BLUEPRINT.md",
+      "sha256": "f2714a98d171fcb5568959d8ce2e3b8a9679ae4c3b7293cbb4244cb91060d293",
+      "size": 2094,
+      "title": "Workflow + State Machine Blueprint"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/11-COMMUNICATIONS-ENGINE-BLUEPRINT.md",
+      "sha256": "703f6a2aa4daa0da5902c83df18ac0502b8ba77c3d7583fd0df9e3866f46d05e",
+      "size": 1798,
+      "title": "Communications Engine Blueprint"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/12-SCHEDULING-RETRY-IDEMPOTENCY-BLUEPRINT.md",
+      "sha256": "45c2636b5af111b8f4d1d2f9d33bef9714a92127b32a6e191d573a74fd136688",
+      "size": 1850,
+      "title": "Scheduling + Retry + Idempotency Blueprint"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/13-SYNC-OFFLINE-NODE-BLUEPRINT.md",
+      "sha256": "7b76056ba7aafcc52f5dc67518970c011cab97ca31aadaccb8c1c170967089ce",
+      "size": 1732,
+      "title": "Sync + Offline + Node Blueprint"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/14-PWA-SURFACE-BLUEPRINT.md",
+      "sha256": "6f5b142ab118503744da3349825375fc154cdbf0917e73a1070d7d608cfefd99",
+      "size": 1468,
+      "title": "PWA Surface Blueprint"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/15-OMNI-CHANNEL-BLUEPRINT.md",
+      "sha256": "d70e4a1b8f0f333bd9b500d1ea36eb4531b70b4976eaf8f8efde8c5971ba6061",
+      "size": 1423,
+      "title": "Omni Channel Blueprint"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/15-module-and-plugin-blueprint.md",
+      "sha256": "49ac9f63da46b0e6cf78fd788f5cb0c900532d730cc917c92da4e8a560fd2d86",
+      "size": 10505,
+      "title": "15. Module and Plugin Blueprint"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/16-PROVIDER-REGISTRY-BOOTSTRAP-BLUEPRINT.md",
+      "sha256": "e99813cd8608dafda812d57d1aa614c7d3a054a066317294f0107d98b6816494",
+      "size": 2026,
+      "title": "Provider + Registry + Bootstrap Blueprint"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/17-MANIFESTS-CONTRACTS-BLUEPRINT.md",
+      "sha256": "78f3c0f16adfb6bbbfaaad040e561ce211b9cc917b22f7fca9c2fa6d68e5d679",
+      "size": 1586,
+      "title": "Manifests + Contracts Blueprint"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/18-TESTING-DEPLOYMENT-BLUEPRINT.md",
+      "sha256": "2eb8c5af1220907e97872fc3068487db312b92035d2167f1aa9d56fd7d56462f",
+      "size": 1906,
+      "title": "Testing + Deployment Blueprint"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/19-TENANCY-IDENTITY-BOUNDARY-BLUEPRINT.md",
+      "sha256": "a1fbf08e6dde427bdb1ddab75bb697ccd336b0797a09280705fa6019566a1eee",
+      "size": 2518,
+      "title": "Tenancy + Identity Boundary Blueprint"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/20-MODULE-INSTALL-UPGRADE-LIFECYCLE.md",
+      "sha256": "15774c5abd6ebbc0bd10b764f54664a7de457ea5abb2c0c77bb3688899652a9c",
+      "size": 2086,
+      "title": "Module Install + Upgrade Lifecycle"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/21-FILAMENT-PANEL-INTEGRATION-BLUEPRINT.md",
+      "sha256": "eadac931ec479db97ad45a846908aa95ed73c52439af52d798085f3785254f22",
+      "size": 1907,
+      "title": "Filament Panel Integration Blueprint"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/22-SECURITY-PERMISSIONS-AUDIT-BLUEPRINT.md",
+      "sha256": "dc2b01997326f90b5b0828e99d002fb4a8bd064e8966e02975b7c1674d60b170",
+      "size": 1594,
+      "title": "Security, Permissions, and Audit Blueprint"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/23-OBSERVABILITY-HEALTH-DOCTOR-BLUEPRINT.md",
+      "sha256": "c3f0963b1c2856fc66ba9d11fdd7293577aa2bf32da7fb44b3eef8fa2eec448a",
+      "size": 1459,
+      "title": "Observability, Health, and Doctor Blueprint"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/24-API-TOOLS-AND-EXTERNAL-SURFACES.md",
+      "sha256": "2a2d80e3d40da44f53656352b34c09186d74d9248e5749426983bf2a3ad57d33",
+      "size": 1267,
+      "title": "API, Tooling, and External Surface Blueprint"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/25-CMS-PWA-OMNI-SURFACE-MAP.md",
+      "sha256": "5e480454e67588039e3cccb2de2e2b758ab90d1c015d139467543f74acaac840",
+      "size": 1236,
+      "title": "CMS + PWA + Omni Surface Map"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/26-MULTI-AGENT-DOCS-WORKSPLIT.md",
+      "sha256": "5ac5331bef025f9d126ad597253262158a403c5d35255c7ff8524e3bbd99e4ca",
+      "size": 1204,
+      "title": "Multi-Agent Documentation Worksplit"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/27-CANONICAL-PLATFORM-STARTER-PACK.md",
+      "sha256": "b38a9c204e64135ee2dfa6952e06788fb023ef4288726e3015575c579adb7421",
+      "size": 1607,
+      "title": "Canonical Platform Starter Pack"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/28-CANONICAL-MODULE-STARTER-PACK.md",
+      "sha256": "b03569e01e1ba74ea7a824fec164465887f6140219ac67f1903cfe0921d9dcb2",
+      "size": 1486,
+      "title": "Canonical Module Starter Pack"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/29-CANONICAL-FILAMENT-STARTER-PACK.md",
+      "sha256": "071edb63eeaabdb263eff60d9712ad613a16082f21d0ac3d6169eb0749f22a0f",
+      "size": 1010,
+      "title": "Canonical Filament Starter Pack"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/30-ROUTE-NAMING-AND-SURFACE-MATRIX.md",
+      "sha256": "de6ce2ae27ce07e9a36fb7251d1364b68c2a2b66204ff926864010f9cac7412a",
+      "size": 1095,
+      "title": "Route Naming and Surface Matrix"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/31-DATABASE-TABLE-MATRIX-AND-NAMING.md",
+      "sha256": "628448832e9469472160f93c927d31550983606f038dc88f3abdd3e084b6d434",
+      "size": 1031,
+      "title": "Database Table Matrix and Naming"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/32-EVENT-JOB-NOTIFICATION-NAMING-CONVENTIONS.md",
+      "sha256": "65bb8b293d492e3c9ea7fe7cfadd826774c60ecf49ae97adcb9465a86e4a416c",
+      "size": 887,
+      "title": "Event, Job, and Notification Naming Conventions"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/33-GOLDEN-WORKED-EXAMPLE-BOOKING-MODULE.md",
+      "sha256": "883e7f86c4ad756ec058d41e2224f7d8e05febbafdabfc80fa8fae4e1510717f",
+      "size": 1279,
+      "title": "Golden Worked Example: Booking Module"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/34-PLATFORM-AND-MODULE-CHECKLIST-MASTER.md",
+      "sha256": "a3db63005b3ba555e42a77f9eec3e74305194dd18c2fad1e68f3c9662b4335d9",
+      "size": 1158,
+      "title": "Platform and Module Checklist Master"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/MERGE_NOTE_v10.md",
+      "sha256": "2c32ac93e100ed829052267e51975ae8d042838d1eaf556b4fc1fe6563d66b08",
+      "size": 411,
+      "title": "Merge Note v10"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".pdf",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/Titan Zero New engine developers starter template.pdf",
+      "sha256": "2ef38e46e03ea7bf2c3c296d90d998eef9a0d6c071bc88b58a0324ce8986279f",
+      "size": 131431,
+      "title": "Titan Zero New engine developers starter template"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".pdf",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/Titan Zero New system developers starter template.pdf",
+      "sha256": "83073a02fe7f2b04a5baddc2476ac2762aa3cbe892fb89f76ebdc8b47caa0164",
+      "size": 101291,
+      "title": "Titan Zero New system developers starter template"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/Titan_Builder_Checklist.md",
+      "sha256": "de0ac26aca41a7a880634bad914f959f03856f89c8c3ac5ab953064e34ef2ab9",
+      "size": 850,
+      "title": "Titan Builder Checklist"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/Titan_Manifest_and_Tool_Examples.md",
+      "sha256": "4f2c5d7fe369aba65101b59444e4da1a055ee559b160b0fc83ec2911a4d72a5a",
+      "size": 1133,
+      "title": "Titan Manifest and Tool Examples"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/Titan_Signal_Envelope_Examples.md",
+      "sha256": "5a8a97f873cc3b08c324b9b98afc9d784e532f60a6b604d54c3ca9261faa1cdf",
+      "size": 1395,
+      "title": "Titan Signal Envelope Examples"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".md",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/Titan_Spec_Template_Library.md",
+      "sha256": "d6927f72caa3be329d3beb2ff07019a3e81e694bfac69b3ad10d078d6a3b3a2e",
+      "size": 916,
+      "title": "Titan Spec Template Library"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".txt",
+      "path": "docs/reference/titan-library/collection-2/13-Blueprints-Patterns/blueprints.txt",
+      "sha256": "8906935c96a13bff603a1caedde164f1cb0a287460cd88bd346d9f356d2c12ad",
+      "size": 23,
+      "title": "the system bkueprints"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".docx",
+      "path": "docs/reference/titan-library/collection-2/14-Titan-OS/Titan OS developer guide.docx",
+      "sha256": "c0a53fddee15b5d9e0b0b42ee6fcd91b719b18d02aebf766f91798096aa181f0",
+      "size": 75806,
+      "title": "Titan OS developer guide"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".docx",
+      "path": "docs/reference/titan-library/collection-2/14-Titan-OS/Titan OS.docx",
+      "sha256": "d75122a874cd30cdb4b89de22b30addbbc7a2ba7a37089598963e98b3d738603",
+      "size": 11265,
+      "title": "Titan OS"
+    },
+    {
+      "classification": "reference-only",
+      "extension": ".docx",
+      "path": "docs/reference/titan-library/collection-2/14-Titan-OS/Titan_Zero_OS.docx",
+      "sha256": "ff8cbbd91087abdfe27c052e56d9bededfb6ffb9696c667fbf500e20c719f5fc",
+      "size": 28048,
+      "title": "Titan_Zero_OS"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".md",
+      "path": "docs/shared-credit/cost-preview-plan.md",
+      "sha256": "fb15eb266e2cd135fe8a338aa9e80e9f74e1f366de69d5ddb1325f500f1964fd",
+      "size": 7455,
+      "title": "Cost Preview Component - Implementation Plan"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".md",
+      "path": "docs/shared-credit/faz1.md",
+      "sha256": "6303a58e59b71496841f69f48e1b43065239b4c80048eefffb122f1d2a1e9723",
+      "size": 8984,
+      "title": "Faz 1: Backend Altyapisi [TAMAMLANDI]"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".md",
+      "path": "docs/shared-credit/faz2.md",
+      "sha256": "381d17dfeaae98f5d882e0e1a32fe0677d78d8e3d7b9d002b0989e6c0ccfe08f",
+      "size": 7035,
+      "title": "Faz 2: Admin Panel - Plan Yonetimi"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".md",
+      "path": "docs/shared-credit/faz3.md",
+      "sha256": "e5120edceed3b2d3e635179075d119e82c78618b22743ea7536cee9e567ed434",
+      "size": 14793,
+      "title": "Faz 3: Admin Panel - Maliyet ve Kullanici Yonetimi"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".md",
+      "path": "docs/shared-credit/faz4.md",
+      "sha256": "d0efc51e5c6e7817d8351fb7dccbceb5a9b29bf78edf5afd175eb571ababb3af",
+      "size": 13122,
+      "title": "Faz 4: Kullanici Dashboard Frontend"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".md",
+      "path": "docs/shared-credit/faz5.md",
+      "sha256": "4d8508db7f81bd895bcb1ed02b215342df86f9eea89146551bc600e028b80724",
+      "size": 12061,
+      "title": "Faz 5: Team Shared Credits"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".md",
+      "path": "docs/shared-credit/faz6.md",
+      "sha256": "c906e79159613e26e23a1bbc4715748ba263ae8e2650486876a6299abdd96734",
+      "size": 16116,
+      "title": "Faz 6: Gelismis Ozellikler"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".md",
+      "path": "docs/shared-credit/roadmap.md",
+      "sha256": "32f5bd3ae256ea8847cabeb3a38a4e0315ec13b26dd3907800f8bdfe4d2a62b8",
+      "size": 2409,
+      "title": "Shared Credit Pool - Roadmap"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".md",
+      "path": "docs/shared-credit-migration-plan.md",
+      "sha256": "4eb33eaa0aed2feb84ef35f257b2663042489e662cd044137616a7e15a4ab974",
+      "size": 25669,
+      "title": "Shared Credit Migration Plan"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".md",
+      "path": "docs/shared-credit-pool-teknik-plan.md",
+      "sha256": "75a695c231652e8d35f31072675d3017d1573d73240e6f19e65892908f8fc357",
+      "size": 36456,
+      "title": "Shared Credit Pool (Paylasilmis Kredi Havuzu) - Teknik Implementasyon Plani"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".md",
+      "path": "docs/shared-credit-pool-v2.md",
+      "sha256": "c06da162261930ff8f1e92d16110f40473764f7a434d3af4208dc48ab5134369",
+      "size": 59570,
+      "title": "Shared Credit Pool - Anlayis & Teknik Plan v2"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".md",
+      "path": "docs/source/MOBILE_BUILDER_DONOR_REGISTER.md",
+      "sha256": "2a946297ef16a2461b8793b2f3b1f63361c8f1b688e920f80c19191b60cca176",
+      "size": 1019,
+      "title": "Mobile Builder Donor Register"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".md",
+      "path": "docs/source/SOURCE_PROVENANCE.md",
+      "sha256": "9c7fb8e36c67a45efbf8740afd4f71a34215942bf1eab4accb7b0dd889839df5",
+      "size": 1180,
+      "title": "Source Provenance"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".md",
+      "path": "docs/superpowers/specs/2026-07-29-titan-zero-integrated-upgrade-design.md",
+      "sha256": "7958ff76f25873bd439a64c583e800ad8473420cdcf0b14b83b8d7a335a964d4",
+      "size": 4490,
+      "title": "Titan Zero Integrated Upgrade Design"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".md",
+      "path": "docs/superpowers/specs/2026-07-30-pwa-mobilekit-upgrade-design.md",
+      "sha256": "84600a57ad4586dab6931ece9e93883fa10d11335d8f3b44f43f2b055d73e6ca",
+      "size": 3973,
+      "title": "Titan Zero PWA and MobileKit Upgrade Design"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".md",
+      "path": "docs/titan-train/CHATBOT-PWA-NATIVE-INTEGRATION.md",
+      "sha256": "ad0588b47b5895cacd900bab3717e81cf4e920f86aa6ddff0a05cb5625b25fb0",
+      "size": 1016,
+      "title": "Native Chatbot PWA integration"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".md",
+      "path": "docs/titan-train/PASS2-INSTALL.md",
+      "sha256": "31371a559249f658b253798fc1f86d7857787f58050bd0c426be9dc44f6bd026",
+      "size": 569,
+      "title": "Titan Train Pass 2 Installation"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".md",
+      "path": "docs/titan-train/PASS2-RUN-VERIFICATION.md",
+      "sha256": "06c434262b0dd6680aa2bdea7f2faf4fc3ed993ffd6a223a8eaee9222ccd426e",
+      "size": 795,
+      "title": "Titan Train Pass 2 Runner Verification"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".md",
+      "path": "docs/titan-train/PASS2-VERIFICATION.md",
+      "sha256": "c2c5fb6eec761e924de61417c7b3d6f7edc32bcfc8f2c820eec2af38c044d713",
+      "size": 897,
+      "title": "Titan Train LMS — Pass 2 Verification"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".md",
+      "path": "docs/titan-train/PASS3-ASSET-HASHES.md",
+      "sha256": "a21ebee17c3cbcc0e117cdf68aeb0dd485602019cf25881c59ee1a7d60ff5c51",
+      "size": 423,
+      "title": "Pass 3 asset hashes"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".md",
+      "path": "docs/titan-train/PASS3-VERIFICATION.md",
+      "sha256": "7178e689d80fc42fad367696f997fa712f779ca9ffc4fbaab8aabbbf329eaced",
+      "size": 1313,
+      "title": "Titan Train LMS — Pass 3 Verification"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".md",
+      "path": "docs/titan-train/PWA-INTEGRATION.md",
+      "sha256": "88bb908b6fd3e2041af995df578170f21c9742a00de45c13ec1717727ce41493",
+      "size": 651,
+      "title": "Titan Train chatbot PWA integration"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".json",
+      "path": "ide.json",
+      "sha256": "53fcabd6ed0802c155ae318a589549e885826c6fc8bcd70fa78b24f0d34b0234",
+      "size": 963,
+      "title": "{"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".json",
+      "path": "package-lock.json",
+      "sha256": "0a79a039b13ed423076d7136f8fe87b8e370e1a1d30a2c5a96d712a2b0403bf8",
+      "size": 288734,
+      "title": "{"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".json",
+      "path": "package.json",
+      "sha256": "d15faf0fb6093f5af75a9146807125229d5219c657e37ca7d9c16a914f9f7ebd",
+      "size": 1792,
+      "title": "{"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".xml",
+      "path": "phpunit.xml",
+      "sha256": "05a1f1684fb41bd164bab868237df4f9b5de3c5fa061fafc788ea2792e197dba",
+      "size": 1180,
+      "title": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".json",
+      "path": "pint.json",
+      "sha256": "d55c39fa39bacfde4132de8d542bac0da9ba238d1b12f628a0d7bea4f1464a64",
+      "size": 2339,
+      "title": "{"
+    },
+    {
+      "classification": "review-required",
+      "extension": ".txt",
+      "path": "version.txt",
+      "sha256": "ca797403796678cf00d9ca8c442f675cd19c23f65d1fe4d3ee367c26bf15bb80",
+      "size": 6,
+      "title": "10.91"
+    }
+  ],
+  "duplicate_group_count": 0,
+  "exact_duplicate_groups": [],
+  "generated_from_main_sha": "e565d7594e062c6705be9747bee0bd6081beb137"
+}

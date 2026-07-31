@@ -1,0 +1,15 @@
+{
+  "host_files": 6902,
+  "host_php_files": 4676,
+  "donor_files": 8128,
+  "donor_php_files": 6696,
+  "source_disposition_entries": 53,
+  "duplicate_table_targets": 554,
+  "duplicate_explicit_route_names": 606,
+  "duplicate_fqcn_symbols": 1277,
+  "duplicate_service_provider_symbols": 29,
+  "duplicate_config_or_env_keys": 595,
+  "host_has_titan_train": false,
+  "host_has_workcore": true,
+  "host_has_vendor_autoload": false
+}

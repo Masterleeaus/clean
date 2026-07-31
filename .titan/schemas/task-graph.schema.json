@@ -1,0 +1,167 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Task Graph Schema",
+  "description": "Defines an executable directed acyclic graph (DAG) of tasks with dependencies, checkpoints, and approval gates",
+  "type": "object",
+  "required": ["version", "name", "tasks"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "Schema version",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "name": {
+      "type": "string",
+      "description": "Task graph name"
+    },
+    "description": {
+      "type": "string",
+      "description": "What this task graph accomplishes"
+    },
+    "goal": {
+      "type": "string",
+      "description": "High-level goal in user terms"
+    },
+    "tasks": {
+      "type": "array",
+      "description": "List of tasks in the graph",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "type"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique task ID",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "name": {
+            "type": "string",
+            "description": "Human-readable task name"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["plan", "implement", "test", "review", "security_scan", "document", "deploy"],
+            "description": "Task type"
+          },
+          "description": {
+            "type": "string",
+            "description": "What this task does"
+          },
+          "agent_role": {
+            "type": "string",
+            "description": "Preferred agent role"
+          },
+          "depends_on": {
+            "type": "array",
+            "description": "Task IDs this task depends on",
+            "items": { "type": "string" }
+          },
+          "inputs": {
+            "type": "object",
+            "description": "Input parameters for this task",
+            "additionalProperties": {}
+          },
+          "outputs": {
+            "type": "array",
+            "description": "Expected outputs",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": { "type": "string" },
+                "type": { "type": "string" },
+                "required": { "type": "boolean" }
+              }
+            }
+          },
+          "timeout_minutes": {
+            "type": "integer",
+            "description": "Task timeout in minutes"
+          },
+          "retry": {
+            "type": "object",
+            "description": "Retry strategy",
+            "properties": {
+              "max_attempts": {
+                "type": "integer",
+                "default": 1
+              },
+              "backoff_multiplier": {
+                "type": "number",
+                "default": 2
+              },
+              "backoff_base_seconds": {
+                "type": "integer",
+                "default": 5
+              }
+            }
+          },
+          "checkpoint": {
+            "type": "boolean",
+            "description": "Whether to create checkpoint after this task",
+            "default": false
+          },
+          "approval_gate": {
+            "type": "object",
+            "description": "Approval required before proceeding",
+            "properties": {
+              "required": { "type": "boolean" },
+              "approvers": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "evidence_required": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            }
+          },
+          "completion_criteria": {
+            "type": "array",
+            "description": "Criteria to mark task complete",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": { "type": "string" },
+                "description": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "checkpoints": {
+      "type": "array",
+      "description": "Checkpoint definitions",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "after_task": { "type": "string" },
+          "evidence_required": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+    "approval_gates": {
+      "type": "array",
+      "description": "Global approval gates",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "description": { "type": "string" },
+          "approvers": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "applies_to_tasks": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

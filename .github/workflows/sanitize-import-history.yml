@@ -1,0 +1,63 @@
+name: Sanitize Imported Source History
+
+on:
+  pull_request:
+    branches:
+      - main
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
+
+jobs:
+  sanitize:
+    if: github.head_ref == 'agent/sanitize-import-history'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout source branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/sanitize-import-history
+          fetch-depth: 0
+
+      - name: Remove environment and credential files
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f .env
+          find . -type f -name '.env.*' ! -name '.env.example' -delete
+          rm -f auth.json .npmrc .pypirc
+          find . -type f \( -name 'id_rsa' -o -name 'id_dsa' -o -name '*.pem' \) -delete
+
+      - name: Verify sensitive runtime configuration is absent
+        shell: bash
+        run: |
+          set -euo pipefail
+          test ! -e .env
+          if find . -type f -name '.env.*' ! -name '.env.example' | grep -q .; then
+            echo 'Unexpected environment file remains.' >&2
+            exit 1
+          fi
+          if grep -RIlE 'APP_KEY=base64:[A-Za-z0-9+/=]{20,}' . \
+              --exclude='.env.example' \
+              --exclude='sanitize-import-history.yml' \
+              --exclude-dir=.git | grep -q .; then
+            echo 'A populated Laravel APP_KEY remains in tracked source.' >&2
+            exit 1
+          fi
+
+      - name: Rewrite repository as clean source-only history
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'Titan Zero Security Bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git checkout --orphan sanitized-source
+          git rm -rf --cached . >/dev/null 2>&1 || true
+          rm -f .github/workflows/sanitize-import-history.yml
+          git add -A
+          git commit -m 'Import sanitized MagicAI, WorkCore and Titan Zero Chatbot source'
+          git push --force origin HEAD:refs/heads/main
+          git push --force origin HEAD:refs/heads/agent/import-magicai-workcore-chatbot

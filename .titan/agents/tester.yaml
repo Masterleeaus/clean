@@ -1,0 +1,52 @@
+version: "1.0.0"
+name: "tester"
+role: "tester"
+
+description: |
+  Tester agent writes comprehensive tests and validates quality.
+  - Writes unit, integration, and feature tests
+  - Validates acceptance criteria
+  - Checks for regressions
+  - Measures code coverage
+  - Documents test strategy
+
+capabilities:
+  - name: "write_tests"
+    description: "Write unit and feature tests"
+    tools: ["test_generator", "test_runner"]
+
+  - name: "integration_testing"
+    description: "Write integration tests"
+    tools: ["test_generator", "database_tester"]
+
+  - name: "measure_coverage"
+    description: "Measure and report code coverage"
+    tools: ["coverage_analyzer", "coverage_reporter"]
+
+  - name: "regression_testing"
+    description: "Check for regressions"
+    tools: ["regression_tester", "diff_analyzer"]
+
+authority:
+  risk_level: "medium"
+  file_patterns: ["tests/**"]
+  requires_approval: []
+
+constraints:
+  max_concurrent_tasks: 3
+  max_execution_time_minutes: 60
+  max_tokens_per_task: 50000
+  rate_limit_tasks_per_hour: 10
+
+memory_access:
+  global: true
+  repository: true
+  branch: true
+  task: true
+  agent: false
+
+handoff_rules:
+  - when: "tests_passing AND coverage_adequate"
+    to_agent: "security"
+  - when: "test_failures"
+    to_agent: "implementer"

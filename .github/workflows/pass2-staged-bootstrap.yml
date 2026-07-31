@@ -1,0 +1,122 @@
+name: Titan Zero Pass 2 Staged Bootstrap
+
+on:
+  pull_request:
+    branches:
+      - agent/gpt56-titan-zero-upgrade-review-base
+
+permissions:
+  contents: read
+
+jobs:
+  staged-bootstrap:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      APP_ENV: testing
+      APP_DEBUG: 'false'
+      APP_URL: http://localhost
+      APP_KEY: base64:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+      CACHE_DRIVER: array
+      DB_CONNECTION: sqlite
+      DB_DATABASE: ':memory:'
+      LOG_CHANNEL: stderr
+      MAIL_MAILER: array
+      QUEUE_CONNECTION: sync
+      SESSION_DRIVER: array
+      TITAN_ZERO_EXTENSION_DISCOVERY_ENABLED: 'false'
+      TITAN_ZERO_INTERACTION_ENGINE_ENABLED: 'false'
+
+    steps:
+      - name: Checkout work branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+
+      - name: Set up PHP 8.2
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: mbstring, dom, xml, xmlwriter, curl, zip, sqlite3
+          coverage: none
+          tools: composer:v2
+
+      - name: Install PHP dependencies without application scripts
+        run: composer install --no-interaction --prefer-dist --no-progress --no-scripts
+
+      - name: Clear configuration cache
+        run: php artisan config:clear
+
+      - name: Run provider contract tests
+        run: vendor/bin/phpunit tests/Feature/Bootstrap/TitanZeroFeatureFlagTest.php tests/Feature/Bootstrap/RouteInspectionSafetyTest.php tests/Feature/Extensions/ExtensionProviderDiscoveryTest.php tests/Feature/Console/TitanZeroProviderAuditCommandTest.php
+
+      - name: Boot with all Titan Zero cores disabled
+        env:
+          TITAN_ZERO_WORKCORE_ENABLED: 'false'
+          TITAN_ZERO_CHATBOT_ENABLED: 'false'
+        run: php tools/titan-zero-audit/boot-probe.php
+
+      - name: Boot with WorkCore only
+        env:
+          TITAN_ZERO_WORKCORE_ENABLED: 'true'
+          TITAN_ZERO_CHATBOT_ENABLED: 'false'
+        run: php tools/titan-zero-audit/boot-probe.php
+
+      - name: Boot with chatbot only
+        env:
+          TITAN_ZERO_WORKCORE_ENABLED: 'false'
+          TITAN_ZERO_CHATBOT_ENABLED: 'true'
+        run: php tools/titan-zero-audit/boot-probe.php
+
+      - name: Boot with WorkCore and chatbot
+        env:
+          TITAN_ZERO_WORKCORE_ENABLED: 'true'
+          TITAN_ZERO_CHATBOT_ENABLED: 'true'
+        run: php tools/titan-zero-audit/boot-probe.php
+
+      - name: Boot safely with an invalid enabled extension
+        env:
+          TITAN_ZERO_WORKCORE_ENABLED: 'false'
+          TITAN_ZERO_CHATBOT_ENABLED: 'false'
+          TITAN_ZERO_EXTENSION_DISCOVERY_ENABLED: 'true'
+          TITAN_ZERO_ENABLED_EXTENSIONS: not-real
+        run: php tools/titan-zero-audit/boot-probe.php
+
+      - name: Boot one validated enabled extension
+        env:
+          TITAN_ZERO_WORKCORE_ENABLED: 'false'
+          TITAN_ZERO_CHATBOT_ENABLED: 'false'
+          TITAN_ZERO_EXTENSION_DISCOVERY_ENABLED: 'true'
+          TITAN_ZERO_ENABLED_EXTENSIONS: focus-mode
+        run: php tools/titan-zero-audit/boot-probe.php
+
+      - name: Verify Artisan about and route listing for staged combinations
+        shell: bash
+        run: |
+          set -euo pipefail
+          for combination in "false false" "true false" "false true" "true true"; do
+            read -r workcore chatbot <<< "$combination"
+            echo "Checking workcore=$workcore chatbot=$chatbot"
+            if ! TITAN_ZERO_WORKCORE_ENABLED="$workcore" TITAN_ZERO_CHATBOT_ENABLED="$chatbot" php artisan about --no-ansi > /tmp/titan-about.log 2>&1; then
+              cat /tmp/titan-about.log
+              exit 1
+            fi
+            if ! TITAN_ZERO_WORKCORE_ENABLED="$workcore" TITAN_ZERO_CHATBOT_ENABLED="$chatbot" php artisan route:list --except-vendor --no-ansi -vvv > /tmp/titan-routes.log 2>&1; then
+              cat /tmp/titan-routes.log
+              exit 1
+            fi
+          done
+
+      - name: Generate real extension provider audit
+        run: |
+          mkdir -p storage/app/audits
+          php artisan titan-zero:provider-audit --json > storage/app/audits/provider-audit.json
+          php -r '$audit=json_decode(file_get_contents("storage/app/audits/provider-audit.json"), true, 512, JSON_THROW_ON_ERROR); if (($audit["summary"]["total"] ?? 0) !== 104) { fwrite(STDERR, "Provider audit did not inspect 104 extensions.\n"); exit(1); }'
+
+      - name: Upload provider audit evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: titan-zero-provider-audit
+          path: storage/app/audits/provider-audit.json
+          if-no-files-found: error

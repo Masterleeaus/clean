@@ -1,0 +1,125 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Capability Registry Schema",
+  "description": "Global registry of all capabilities provided by agents and tools",
+  "type": "object",
+  "required": ["version", "capabilities"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "Registry version",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "last_updated": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When registry was last updated"
+    },
+    "capabilities": {
+      "type": "array",
+      "description": "List of capabilities",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "category"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique capability ID",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "name": {
+            "type": "string",
+            "description": "Capability name"
+          },
+          "description": {
+            "type": "string",
+            "description": "What this capability does"
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "code_analysis",
+              "code_generation",
+              "testing",
+              "security",
+              "documentation",
+              "repository_management",
+              "deployment",
+              "monitoring"
+            ],
+            "description": "Capability category"
+          },
+          "providers": {
+            "type": "array",
+            "description": "Agents/tools that provide this capability",
+            "items": {
+              "type": "object",
+              "required": ["type", "id"],
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": ["agent", "tool", "service"],
+                  "description": "Provider type"
+                },
+                "id": {
+                  "type": "string",
+                  "description": "Provider ID"
+                },
+                "version": {
+                  "type": "string",
+                  "description": "Minimum version required"
+                },
+                "status": {
+                  "type": "string",
+                  "enum": ["stable", "beta", "deprecated"],
+                  "default": "stable"
+                }
+              }
+            }
+          },
+          "requires_approval": {
+            "type": "boolean",
+            "description": "Whether use requires approval",
+            "default": false
+          },
+          "risk_level": {
+            "type": "string",
+            "enum": ["low", "medium", "high", "critical"],
+            "description": "Risk level of this capability"
+          },
+          "parameters": {
+            "type": "array",
+            "description": "Parameters this capability accepts",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": { "type": "string" },
+                "type": { "type": "string" },
+                "required": { "type": "boolean" },
+                "description": { "type": "string" }
+              }
+            }
+          },
+          "returns": {
+            "type": "object",
+            "description": "What this capability returns",
+            "properties": {
+              "type": { "type": "string" },
+              "description": { "type": "string" }
+            }
+          },
+          "examples": {
+            "type": "array",
+            "description": "Usage examples",
+            "items": { "type": "string" }
+          },
+          "related_capabilities": {
+            "type": "array",
+            "description": "Related capability IDs",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

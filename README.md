@@ -1,3 +1,5 @@
-# Titan Zero Clean Integration Workspace
+# Clean
 
-Controlled integration workspace for MagicAI, WorkCore, the Titan Zero Interaction/Wizard Engine, and the offline Chatbot PWA.
+Titan Zero cleaning-platform development repository.
+
+Active development is performed on feature branches. The `main` branch remains the stable integration base.

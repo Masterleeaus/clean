@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$ROOT"
+
+failures=0
+fail() { printf 'FAIL: %s\n' "$1" >&2; failures=$((failures + 1)); }
+pass() { printf 'PASS: %s\n' "$1"; }
+
+for command in php composer node npm; do
+    if command -v "$command" >/dev/null 2>&1; then pass "$command is available"; else fail "$command is missing"; fi
+done
+
+if command -v php >/dev/null 2>&1; then
+    php -r 'exit(version_compare(PHP_VERSION, "8.2.0", ">=") ? 0 : 1);' \
+        && pass "PHP version is supported" || fail "PHP 8.2 or newer is required"
+    for extension in ctype curl dom fileinfo mbstring openssl pdo pdo_sqlite pdo_pgsql session simplexml tokenizer xml xmlwriter; do
+        php -r "exit(extension_loaded('${extension}') ? 0 : 1);" \
+            && pass "PHP extension ${extension}" || fail "Missing PHP extension ${extension}"
+    done
+fi
+
+for path in composer.json composer.lock package.json artisan bootstrap/app.php; do
+    [[ -f "$path" ]] && pass "$path exists" || fail "$path is missing"
+done
+
+for path in storage/framework/cache storage/framework/sessions storage/framework/views storage/logs bootstrap/cache database; do
+    mkdir -p "$path"
+    [[ -w "$path" ]] && pass "$path is writable" || fail "$path is not writable"
+done
+
+if [[ -f .env ]]; then
+    app_env="$(grep -E '^APP_ENV=' .env | tail -1 | cut -d= -f2- | tr -d '"' | tr -d "'" || true)"
+    app_key="$(grep -E '^APP_KEY=' .env | tail -1 | cut -d= -f2- | tr -d '"' | tr -d "'" || true)"
+    app_debug="$(grep -E '^APP_DEBUG=' .env | tail -1 | cut -d= -f2- | tr -d '"' | tr -d "'" || true)"
+    if [[ "$app_env" == "production" ]]; then
+        [[ "$app_key" == base64:* ]] || fail "Production APP_KEY is missing"
+        [[ "$app_debug" == "false" ]] || fail "Production APP_DEBUG must be false"
+    fi
+fi
+
+if [[ ! -f package-lock.json ]]; then
+    printf 'WARN: package-lock.json is absent; the first connected npm install will create it. Commit that lockfile before production release.\n' >&2
+fi
+
+if (( failures > 0 )); then
+    printf 'Preflight failed with %d issue(s).\n' "$failures" >&2
+    exit 1
+fi
+
+printf 'Titan preflight passed.\n'

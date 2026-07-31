@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "repository_full_name": "Masterleeaus/clean",
+  "release": "Titan-Zero-Meetup-WorkCore-Integrated-v0.7.0",
+  "archive_file": "Titan-Zero-source-v0.7.0.zip",
+  "archive_url": "https://titan-zero-v070-source-transfer.miniup.app/Titan-Zero-source-v0.7.0.zip",
+  "transfer_site": "https://titan-zero-v070-source-transfer.miniup.app",
+  "sha256": "4a64ad4b2d0b141aeb3dd91fe19c618c0caeb2fedcea7820ced8694ea62bf6ed",
+  "expected_file_count": 1128,
+  "archive_wrapper_directory": "Titan-Zero-Meetup-WorkCore-Integrated-v0.7.0",
+  "target_branch": "agent/v070-upgrade-base",
+  "protected_paths": [
+    "UPGRADE_PLAN.md",
+    "AGENTS.md",
+    "SOURCE_IMPORT_MANIFEST.json",
+    ".github/workflows/import-v070-source.yml"
+  ],
+  "forbidden_import_paths": [
+    ".env",
+    "vendor",
+    "node_modules",
+    "storage/logs",
+    "storage/framework/cache",
+    "storage/framework/sessions",
+    "storage/framework/views"
+  ]
+}
