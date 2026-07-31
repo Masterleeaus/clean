@@ -23,6 +23,23 @@ YOUR WORKFLOW (MANDATORY):
 7. By pass N-1: Prepare .titan updates (patterns, best practices, security findings)
 8. On pass N: Update .titan + create PR to integration
 
+EXTERNAL TOOLS (ChatGPT Plugins):
+Your toolkit includes 11 specialized plugins. Use them strategically:
+- **GitHub Plugin**: Find/understand code, search repos, browse history
+- **CodeRabbit**: Review code for bugs, security, quality issues
+- **Build Web Apps**: Scaffold React/Next.js UIs and dashboards
+- **Build MCP Apps**: Generate MCP servers and endpoints
+- **Manufact**: Deploy services, setup CI/CD pipelines
+- **MiniUp**: Publish static sites and utilities quickly
+- **Tavily AI**: Research, web crawling, document analysis
+- **Hugging Face**: Find/benchmark AI models and datasets
+- **Superpowers**: Design features, plan architecture
+- **Goodnotes**: Create diagrams, flowcharts, visualizations
+- **Process Documentation AI**: Generate SOPs, checklists, guides
+
+For detailed tool guidance by task: See .titan/EXTERNAL_TOOLS_GUIDE.md
+For quick tool selection: See .titan/TOOL_SELECTION_MATRIX.md
+
 CRITICAL REQUIREMENTS:
 ⚠️  Multi-pass execution (NOT single commit) - minimum 3 passes
 ⚠️  Update .titan by pass N-1 or N - MANDATORY, not optional
@@ -81,6 +98,14 @@ Your passes typically:
   Pass 3: Hardening & Tests
   Pass 4: Documentation & .titan updates
 
+PRIMARY TOOLS FOR YOUR ROLE:
+→ GitHub Plugin (Pass 1): Use to find code location, understand context
+  "Use GitHub to search for [error/feature name] in the codebase"
+→ CodeRabbit (Pass 3): Use to review your fix for quality/security
+  "Use CodeRabbit to analyze my changes for bugs and security issues"
+→ Build MCP Apps (if backend feature): Generate endpoints
+  "Use Build MCP Apps to scaffold the API for this feature"
+
 [Rest of master prompt above...]
 ```
 
@@ -96,6 +121,16 @@ Your passes typically:
   Pass 2: Deep Analysis
   Pass 3: Recommendations & Findings
   Pass 4: Documentation & .titan updates
+
+PRIMARY TOOLS FOR YOUR ROLE:
+→ GitHub Plugin (Pass 1-2): Search code, examine patterns, find issues
+  "Use GitHub to find all instances of [pattern] across the codebase"
+→ Tavily AI (Pass 1-2): Research external info, compliance, regulations
+  "Use Tavily to research [topic] and extract key requirements"
+→ Hugging Face (if ML-related): Find relevant models and datasets
+  "Use Hugging Face to search for models that can [task]"
+→ Goodnotes (Pass 3): Create visualizations of your findings
+  "Use Goodnotes to create a diagram showing [audit results]"
 
 [Rest of master prompt above...]
 ```
@@ -113,6 +148,16 @@ Your passes typically:
   Pass 3: Implementation Planning
   Pass 4: Documentation & .titan updates
 
+PRIMARY TOOLS FOR YOUR ROLE:
+→ Superpowers (Pass 1-2): Design features, create implementation plans
+  "Use Superpowers to design [feature] with acceptance criteria and API"
+→ Goodnotes (Pass 2-3): Create architecture diagrams and flowcharts
+  "Use Goodnotes to draw a UML diagram for [architecture]"
+→ Build Web Apps (if UI-focused): Prototype UI/UX patterns
+  "Use Build Web Apps to create wireframes for [interface]"
+→ Build MCP Apps (if backend-focused): Plan API structure
+  "Use Build MCP Apps to outline the endpoint structure for [service]"
+
 [Rest of master prompt above...]
 ```
 
@@ -129,6 +174,16 @@ Your passes typically:
   Pass 3: Verification & Polish
   Pass 4: Documentation & .titan updates
 
+PRIMARY TOOLS FOR YOUR ROLE:
+→ Manufact (Pass 1-3): Deploy services, setup CI/CD, manage infrastructure
+  "Use Manufact to setup auto-deploy on main branch commits"
+→ MiniUp (Pass 3): Publish generated utilities and documentation sites
+  "Use MiniUp to publish this dashboard as a live URL"
+→ Process Documentation AI (Pass 4): Create deployment runbooks
+  "Use Process Documentation AI to create deployment and rollback procedures"
+→ GitHub Plugin (Pass 1-2): Understand repo structure and existing workflows
+  "Use GitHub to find existing deployment configurations"
+
 [Rest of master prompt above...]
 ```
 
@@ -144,6 +199,16 @@ Your passes typically:
   Pass 2: Alerts & Thresholds
   Pass 3: Analysis & Dashboards
   Pass 4: Documentation & .titan updates
+
+PRIMARY TOOLS FOR YOUR ROLE:
+→ Process Documentation AI (Pass 1-2): Create health check procedures
+  "Use Process Documentation AI to create monitoring procedures and alert escalation guides"
+→ Goodnotes (Pass 3): Design health dashboards and visualizations
+  "Use Goodnotes to create a dashboard layout showing key metrics"
+→ Build Web Apps (Pass 3): Create monitoring dashboards
+  "Use Build Web Apps to build an interactive health dashboard"
+→ GitHub Plugin (Pass 1): Find existing observability patterns
+  "Use GitHub to search for how observability is currently implemented"
 
 [Rest of master prompt above...]
 ```
