@@ -3,7 +3,7 @@
 `.titan/` is the governed engineering operating layer for the Titan Zero repository. It defines architectural rules, planning and review contracts, agent onboarding, machine-readable registries, runtime boundaries, project status and long-term engineering memory.
 
 > [!IMPORTANT]
-> **Every architecture-control agent starts here.** Claude must read [`MANDATE.md`](MANDATE.md) in full. Every worker agent must read the root [`README.md`](../README.md), [`AGENTS.md`](../AGENTS.md), [`docs/README.md`](../docs/README.md), this file and [`documentation/agents/START-HERE.md`](documentation/agents/START-HERE.md) before changing the repository.
+> **Every architecture-control agent starts here.** Claude must read [`MANDATE.md`](MANDATE.md) in full. Every worker agent must read the root [`README.md`](../README.md), [`AGENTS.md`](docs/AGENTS.md), [`docs/README.md`](../docs/README.md), this file and [`documentation/agents/START-HERE.md`](documentation/agents/START-HERE.md) before changing the repository.
 
 ## Current maturity
 
