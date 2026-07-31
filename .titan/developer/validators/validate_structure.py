@@ -13,7 +13,7 @@ TITAN = ROOT / ".titan"
 
 REQUIRED_PATHS = [
     ROOT / "README.md",
-    ROOT / "AGENTS.md",
+    TITAN / "docs" / "AGENTS.md",
     ROOT / "docs" / "README.md",
     TITAN / "README.md",
     TITAN / "MANDATE.md",
@@ -39,7 +39,7 @@ REQUIRED_PATHS = [
 
 MARKDOWN_ENTRY_POINTS = [
     ROOT / "README.md",
-    ROOT / "AGENTS.md",
+    TITAN / "docs" / "AGENTS.md",
     ROOT / "docs" / "README.md",
     TITAN / "README.md",
     TITAN / "documentation" / "README.md",

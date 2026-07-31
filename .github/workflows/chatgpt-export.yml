@@ -54,7 +54,7 @@ jobs:
           echo '```' >> export/api-routes.md
 
       - name: Upload Routes Export
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: routes-export-${{ github.run_id }}
           path: export/
@@ -98,7 +98,7 @@ jobs:
           cat export/models.md
 
       - name: Upload Models Export
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: models-export-${{ github.run_id }}
           path: export/
@@ -186,7 +186,7 @@ jobs:
           cat export/extensions.md
 
       - name: Upload Extensions Export
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: extensions-export-${{ github.run_id }}
           path: export/
@@ -225,7 +225,7 @@ jobs:
           cat export/migrations.md
 
       - name: Upload Migrations Export
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: migrations-export-${{ github.run_id }}
           path: export/
