@@ -6,6 +6,7 @@ use App\Domains\Marketplace\MarketplaceServiceProvider;
 use App\Providers\AppServiceProvider;
 use App\TitanOS\Foundation\Services\TitanFoundationServiceProvider;
 use App\TitanOS\Knowledge\Services\TitanKnowledgeServiceProvider;
+use App\Providers\TitanExecutionServiceProvider;
 use App\Providers\AwsServiceProvider;
 use App\Providers\EventServiceProvider;
 use App\Providers\MacrosServiceProvider;
@@ -259,6 +260,11 @@ return [
          * Titan OS Knowledge Layer
          */
         TitanKnowledgeServiceProvider::class,
+
+        /**
+         * Titan OS Execution Control
+         */
+        TitanExecutionServiceProvider::class,
 
         /**
          * Laravel Json Localization Manager
