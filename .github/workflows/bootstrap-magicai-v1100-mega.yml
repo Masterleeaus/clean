@@ -1,109 +1,205 @@
-name: Bootstrap MagicAI v11.00 source from MEGA
+name: Bootstrap MagicAI WorkCore and Webby on isolated branch
 
 on:
-  issues:
-    types: [opened]
+  workflow_dispatch:
+  push:
+    branches:
+      - agent/ai-site-builder-bridge
+  pull_request:
+    branches:
+      - main
+    types: [opened, synchronize, reopened]
 
 permissions:
   contents: write
-  issues: write
 
 concurrency:
-  group: magicai-v1100-main-bootstrap
+  group: ai-site-builder-bridge-bootstrap
   cancel-in-progress: false
 
 jobs:
-  import-source:
-    if: github.event.issue.title == 'BOOTSTRAP MAGICAI V1100 SOURCE'
+  import-sources:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
 
     env:
-      TARGET_BRANCH: main
-      ARCHIVE_URL: https://mega.nz/file/edcEzSJZ#iHrQEPJb8E7xDcg0QUatncsokg_GTarzpNwjo5GwXwE
-      ARCHIVE_FILE: MagicAI-v11.00-source-clean.zip
-      ARCHIVE_SHA256: ed6ce50730150601ccea6577fa72c65c3e33db127e2af0064d18e7738fe57d57
-      EXPECTED_FILE_COUNT: '5020'
+      TARGET_BRANCH: agent/ai-site-builder-bridge
+      MAGICAI_WORKCORE_SOURCE_BRANCH: agent/import-magicai-workcore-chatbot
+      SITE_BUILDER_URL: https://mega.nz/file/jEkGlYLQ#5JGOpAIrTHd761L8TDGzgzO5grne6bN5t-U1MuxWwbY
+      SITE_BUILDER_FILE: webby-v1.0.6.zip
+      SITE_BUILDER_SHA256: e2515af9a689e1699b110e5404d8ecaa54a2a53517a6d04e35ac6eb6dac115eb
 
     steps:
-      - name: Check out main
+      - name: Check out isolated branch
         uses: actions/checkout@v4
         with:
           ref: ${{ env.TARGET_BRANCH }}
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Install MEGA downloader
+      - name: Install archive tools
         shell: bash
         run: |
           set -euo pipefail
           sudo apt-get update
-          sudo apt-get install -y megatools
+          sudo apt-get install -y megatools p7zip-full rsync unzip
 
-      - name: Download and verify archive
+      - name: Materialise verified MagicAI WorkCore source branch
         shell: bash
         run: |
           set -euo pipefail
-          rm -f "/tmp/$ARCHIVE_FILE"
-          megadl "$ARCHIVE_URL" --path "/tmp/$ARCHIVE_FILE"
-          printf '%s  %s\n' "$ARCHIVE_SHA256" "/tmp/$ARCHIVE_FILE" | sha256sum --check --strict
-          unzip -t "/tmp/$ARCHIVE_FILE"
-          actual_count="$(zipinfo -1 "/tmp/$ARCHIVE_FILE" | awk 'substr($0, length($0), 1) != "/"' | wc -l | tr -d ' ')"
-          test "$actual_count" = "$EXPECTED_FILE_COUNT"
+          source=/tmp/magicai-workcore-source
+          rm -rf "$source"
+          git fetch origin "$MAGICAI_WORKCORE_SOURCE_BRANCH:refs/remotes/origin/$MAGICAI_WORKCORE_SOURCE_BRANCH"
+          git worktree add --detach "$source" "origin/$MAGICAI_WORKCORE_SOURCE_BRANCH"
+          git -C "$source" rev-parse HEAD | tee /tmp/magicai-workcore-source.sha
+          test -f "$source/artisan"
+          test -f "$source/composer.json"
+          test -f "$source/composer.lock"
+          test -f "$source/public/index.php"
+          test -f "$source/app/Domains/WorkCore/WorkCoreServiceProvider.php"
+          test -f "$source/app/Domains/WorkCore/System/Contracts/TenantContextContract.php"
+          test -f "$source/app/Domains/WorkCore/System/Contracts/PermissionResolverContract.php"
+          ! find "$source" -type d \( -name vendor -o -name node_modules \) -print -quit | grep -q .
+          ! find "$source" -type f \( -name '.env' -o -name '*.pem' -o -name '*.p12' -o -name '*.pfx' -o -name 'id_rsa' -o -name 'id_ed25519' \) -print -quit | grep -q .
 
-      - name: Extract and validate Laravel source
+      - name: Download and verify Webby archive
         shell: bash
         run: |
           set -euo pipefail
-          extract_dir=/tmp/magicai-v1100-source
-          rm -rf "$extract_dir"
-          mkdir -p "$extract_dir"
-          unzip -q "/tmp/$ARCHIVE_FILE" -d "$extract_dir"
-          test -f "$extract_dir/artisan"
-          test -f "$extract_dir/composer.json"
-          test -f "$extract_dir/composer.lock"
-          test -d "$extract_dir/app"
-          test -d "$extract_dir/routes"
-          test -d "$extract_dir/database"
-          test -f "$extract_dir/public/index.php"
-          ! find "$extract_dir" -type d \( -name vendor -o -name node_modules \) -print -quit | grep -q .
-          ! find "$extract_dir" -type f \( -name '.env' -o -name '*.pem' -o -name '*.p12' -o -name '*.pfx' \) -print -quit | grep -q .
+          rm -f "/tmp/$SITE_BUILDER_FILE"
+          megadl "$SITE_BUILDER_URL" --path "/tmp/$SITE_BUILDER_FILE"
+          test -s "/tmp/$SITE_BUILDER_FILE"
+          printf '%s  %s\n' "$SITE_BUILDER_SHA256" "/tmp/$SITE_BUILDER_FILE" | sha256sum --check --strict
+          7z t "/tmp/$SITE_BUILDER_FILE"
 
-      - name: Merge source into repository root
+      - name: Discover and sanitise Webby Laravel source
+        shell: bash
+        run: |
+          set -euo pipefail
+          raw=/tmp/webby-raw
+          source=/tmp/webby-source
+          rm -rf "$raw" "$source"
+          mkdir -p "$raw" "$source"
+          7z x -y -o"$raw" "/tmp/$SITE_BUILDER_FILE" >/dev/null
+
+          mapfile -t candidates < <(find "$raw" -maxdepth 10 -type f -name artisan -printf '%h\n' | sort -u)
+          webby_root=''
+          for candidate in "${candidates[@]}"; do
+            if [[ -f "$candidate/composer.json" && -d "$candidate/app" && -d "$candidate/routes" && -d "$candidate/database" && -f "$candidate/public/index.php" ]]; then
+              webby_root="$candidate"
+              break
+            fi
+          done
+
+          if [[ -z "$webby_root" ]]; then
+            echo 'Unable to locate the Webby Laravel application root.' >&2
+            find "$raw" -maxdepth 8 -type f \( -name artisan -o -name composer.json -o -name package.json -o -name go.mod \) -print | head -200 >&2
+            exit 1
+          fi
+
+          printf '%s\n' "$webby_root" | tee /tmp/webby-source-path.txt
+          rsync -a \
+            --exclude='.git/' \
+            --exclude='.env' \
+            --exclude='vendor/' \
+            --exclude='node_modules/' \
+            --exclude='storage/logs/*' \
+            --exclude='storage/framework/cache/*' \
+            --exclude='storage/framework/sessions/*' \
+            --exclude='storage/framework/views/*' \
+            "$webby_root/" "$source/"
+
+          test -f "$source/artisan"
+          test -f "$source/composer.json"
+          test -f "$source/composer.lock"
+          test -d "$source/app"
+          test -d "$source/routes"
+          test -d "$source/database"
+          test -f "$source/public/index.php"
+          test "$(find "$source" -type f | wc -l)" -gt 100
+
+          if find "$source" -type f \( -name '.env' -o -name '*.pem' -o -name '*.p12' -o -name '*.pfx' -o -name 'id_rsa' -o -name 'id_ed25519' \) -print -quit | grep -q .; then
+            echo 'Secret-bearing files remain in the sanitised Webby source.' >&2
+            exit 1
+          fi
+
+          if find "$source" -type f -size +95M -print -quit | grep -q .; then
+            echo 'A Webby source file exceeds GitHub safe file limits.' >&2
+            find "$source" -type f -size +95M -printf '%p %s bytes\n' >&2
+            exit 1
+          fi
+
+          find "$webby_root" -maxdepth 5 -type f \( -name package.json -o -name go.mod -o -name codemagic.yaml -o -name docker-compose.yml \) -printf '%P\n' | sort | tee /tmp/webby-builder-components.txt
+
+      - name: Merge source trees into isolated branch
         shell: bash
         run: |
           set -euo pipefail
           rsync -a --delete-delay \
-            --exclude='.git/' \
+            --exclude='.git' \
             --exclude='.github/' \
             --exclude='.env' \
             --exclude='vendor/' \
             --exclude='node_modules/' \
-            /tmp/magicai-v1100-source/ ./
-          rm -f .github/workflows/bootstrap-magicai-v1100-mega.yml
-          cat > MAGICAI_V1100_IMPORT.md <<'NOTICE'
-          # MagicAI v11.00 source import
+            --exclude='integrations/' \
+            --exclude='external/' \
+            /tmp/magicai-workcore-source/ ./
 
-          MagicAI v11.00 cleaned Laravel source was imported from the verified archive supplied for Titan Zero integration.
+          rm -rf external/ai-site-builder
+          mkdir -p external/ai-site-builder docs/integrations
+          rsync -a /tmp/webby-source/ external/ai-site-builder/
 
-          - Archive SHA-256: `ed6ce50730150601ccea6577fa72c65c3e33db127e2af0064d18e7738fe57d57`
-          - Expected archive file count: `5020`
-          - Excluded from import: `.env`, `vendor/`, `node_modules/`, private key formats, and `.github/`
-          NOTICE
+          builder_count="$(find external/ai-site-builder -type f | wc -l | tr -d ' ')"
+          builder_bytes="$(du -sb external/ai-site-builder | cut -f1)"
+          source_sha="$(cat /tmp/magicai-workcore-source.sha)"
+          archive_path="$(cat /tmp/webby-source-path.txt)"
 
-      - name: Commit merged source to main
+          cat > docs/integrations/AI_SITE_BUILDER_SOURCE_IMPORT.md <<EOF
+          # Webby AI Site Builder source import
+
+          Imported only on branch \`agent/ai-site-builder-bridge\`.
+
+          - MagicAI WorkCore source branch: \`$MAGICAI_WORKCORE_SOURCE_BRANCH\`
+          - MagicAI WorkCore source commit: \`$source_sha\`
+          - Builder package: Webby v1.0.6
+          - Builder archive SHA-256: \`$SITE_BUILDER_SHA256\`
+          - Discovered archive application path: \`$archive_path\`
+          - Sanitised builder source files: \`$builder_count\`
+          - Sanitised builder source bytes: \`$builder_bytes\`
+          - Removed: \`.env\`, private-key formats, \`.git/\`, \`vendor/\`, \`node_modules/\`, and runtime caches
+          - Builder install target: \`external/ai-site-builder/\`
+
+          ## Builder component markers
+
+          \`\`\`
+          $(cat /tmp/webby-builder-components.txt)
+          \`\`\`
+          EOF
+
+      - name: Validate imported source boundaries
         shell: bash
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          test -f artisan
+          test -f app/Domains/WorkCore/System/Contracts/TenantContextContract.php
+          test -f external/ai-site-builder/artisan
+          test -f external/ai-site-builder/composer.json
+          ! find external/ai-site-builder -type f \( -name '.env' -o -name '*.pem' -o -name '*.p12' -o -name '*.pfx' \) -print -quit | grep -q .
+          if command -v php >/dev/null; then
+            php -l external/ai-site-builder/artisan >/dev/null
+          fi
+
+      - name: Commit branch-only source import
+        shell: bash
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
           if git diff --cached --quiet; then
-            gh issue close "${{ github.event.issue.number }}" --comment 'No source changes were detected after verification.'
+            echo 'No source changes were detected.'
             exit 0
           fi
-          git commit -m 'feat: merge verified MagicAI v11.00 source into main'
-          git push origin HEAD:main
-          gh issue close "${{ github.event.issue.number }}" --comment 'Verified MagicAI v11.00 source merge completed on `main`.'
+          git commit -m 'feat: import sanitised Webby source on isolated branch'
+          git push origin HEAD:"$TARGET_BRANCH"

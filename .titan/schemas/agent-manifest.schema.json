@@ -1,0 +1,127 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Agent Manifest Schema",
+  "description": "Defines an agent's role, capabilities, authority, constraints, and memory access",
+  "type": "object",
+  "required": ["version", "name", "role", "capabilities", "authority"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "Manifest version (semantic versioning)",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "name": {
+      "type": "string",
+      "description": "Agent name (lowercase, hyphens)",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "role": {
+      "type": "string",
+      "enum": ["planner", "implementer", "reviewer", "tester", "security", "documentation", "release"],
+      "description": "Agent's primary role"
+    },
+    "description": {
+      "type": "string",
+      "description": "What this agent does"
+    },
+    "capabilities": {
+      "type": "array",
+      "description": "What this agent can do",
+      "items": {
+        "type": "object",
+        "required": ["name"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Capability name"
+          },
+          "description": {
+            "type": "string",
+            "description": "What this capability does"
+          },
+          "tools": {
+            "type": "array",
+            "description": "Tools required for this capability",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+    "authority": {
+      "type": "object",
+      "description": "What this agent is authorized to do",
+      "properties": {
+        "risk_level": {
+          "type": "string",
+          "enum": ["low", "medium", "high", "critical"],
+          "description": "Maximum risk level allowed"
+        },
+        "file_patterns": {
+          "type": "array",
+          "description": "File patterns this agent can modify",
+          "items": { "type": "string" }
+        },
+        "forbidden_patterns": {
+          "type": "array",
+          "description": "File patterns this agent cannot modify",
+          "items": { "type": "string" }
+        },
+        "requires_approval": {
+          "type": "array",
+          "description": "Actions requiring approval",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "constraints": {
+      "type": "object",
+      "description": "Operational constraints",
+      "properties": {
+        "max_concurrent_tasks": {
+          "type": "integer",
+          "description": "Maximum parallel tasks"
+        },
+        "max_execution_time_minutes": {
+          "type": "integer",
+          "description": "Max execution time per task"
+        },
+        "max_tokens_per_task": {
+          "type": "integer",
+          "description": "Max LLM tokens per task"
+        },
+        "rate_limit_tasks_per_hour": {
+          "type": "integer",
+          "description": "Tasks per hour limit"
+        }
+      }
+    },
+    "memory_access": {
+      "type": "object",
+      "description": "What memory this agent can access",
+      "properties": {
+        "global": { "type": "boolean", "description": "Access to global memory" },
+        "repository": { "type": "boolean", "description": "Access to repository memory" },
+        "branch": { "type": "boolean", "description": "Access to branch memory" },
+        "task": { "type": "boolean", "description": "Access to task memory" },
+        "agent": { "type": "boolean", "description": "Access to own agent memory" }
+      }
+    },
+    "handoff_rules": {
+      "type": "array",
+      "description": "When to pass to next agent",
+      "items": {
+        "type": "object",
+        "properties": {
+          "when": {
+            "type": "string",
+            "description": "Condition for handoff"
+          },
+          "to_agent": {
+            "type": "string",
+            "description": "Agent to handoff to"
+          }
+        }
+      }
+    }
+  }
+}

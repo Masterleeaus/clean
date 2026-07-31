@@ -1,0 +1,176 @@
+name: Import verified Titan Zero v0.7.0 source
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - agent/v070-upgrade-base
+    paths:
+      - .github/workflows/import-v070-source.yml
+      - SOURCE_IMPORT_MANIFEST.json
+
+permissions:
+  contents: write
+
+concurrency:
+  group: titan-zero-v070-source-import
+  cancel-in-progress: false
+
+jobs:
+  import-source:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out prepared branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/v070-upgrade-base
+          fetch-depth: 0
+
+      - name: Read import manifest
+        id: manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import json
+          from pathlib import Path
+
+          manifest = json.loads(Path('SOURCE_IMPORT_MANIFEST.json').read_text())
+          print(f"archive_url={manifest['archive_url']}")
+          print(f"archive_file={manifest['archive_file']}")
+          print(f"sha256={manifest['sha256']}")
+          print(f"expected_file_count={manifest['expected_file_count']}")
+          print(f"wrapper={manifest['archive_wrapper_directory']}")
+          print(f"target_branch={manifest['target_branch']}")
+          PY
+
+      - name: Verify branch target
+        shell: bash
+        run: |
+          set -euo pipefail
+          current_branch="$(git branch --show-current)"
+          expected_branch="${{ steps.manifest.outputs.target_branch }}"
+          test "$current_branch" = "$expected_branch" || {
+            echo "Expected branch $expected_branch, found $current_branch" >&2
+            exit 1
+          }
+
+      - name: Download source archive from MiniUp
+        shell: bash
+        run: |
+          set -euo pipefail
+          archive="/tmp/${{ steps.manifest.outputs.archive_file }}"
+          curl --fail --location \
+            --retry 5 --retry-delay 3 --retry-all-errors \
+            "${{ steps.manifest.outputs.archive_url }}" \
+            --output "$archive"
+          test -s "$archive"
+
+      - name: Verify checksum, ZIP integrity and file count
+        shell: bash
+        run: |
+          set -euo pipefail
+          archive="/tmp/${{ steps.manifest.outputs.archive_file }}"
+          printf '%s  %s\n' "${{ steps.manifest.outputs.sha256 }}" "$archive" | sha256sum --check --strict
+          unzip -t "$archive"
+
+          actual_count="$(zipinfo -1 "$archive" | awk 'substr($0, length($0), 1) != "/"' | wc -l | tr -d ' ')"
+          expected_count="${{ steps.manifest.outputs.expected_file_count }}"
+          test "$actual_count" = "$expected_count" || {
+            echo "Expected $expected_count files, archive contains $actual_count" >&2
+            exit 1
+          }
+
+      - name: Extract and inspect source
+        shell: bash
+        run: |
+          set -euo pipefail
+          archive="/tmp/${{ steps.manifest.outputs.archive_file }}"
+          extract_dir="/tmp/titan-zero-v070-source"
+          wrapper="${{ steps.manifest.outputs.wrapper }}"
+
+          rm -rf "$extract_dir"
+          mkdir -p "$extract_dir"
+          unzip -q "$archive" -d "$extract_dir"
+
+          source_root="$extract_dir/$wrapper"
+          test -d "$source_root"
+          test -f "$source_root/composer.json"
+          test -f "$source_root/artisan"
+          test -d "$source_root/app"
+          test -d "$source_root/database/migrations"
+
+          if find "$source_root" -type d \( -name vendor -o -name node_modules \) -print -quit | grep -q .; then
+            echo 'Archive contains generated dependency directories.' >&2
+            exit 1
+          fi
+
+          if find "$source_root" -type f \( -name '.env' -o -name '*.pem' -o -name '*.p12' -o -name '*.pfx' \) -print -quit | grep -q .; then
+            echo 'Archive contains a forbidden secret-bearing file.' >&2
+            exit 1
+          fi
+
+          if grep -RIl --exclude='*.example' --exclude='*.testing' --exclude='*.verification' \
+             -E '-----BEGIN (RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----' "$source_root" | grep -q .; then
+            echo 'Archive contains private-key material.' >&2
+            exit 1
+          fi
+
+      - name: Import source while preserving branch controls
+        shell: bash
+        run: |
+          set -euo pipefail
+          source_root="/tmp/titan-zero-v070-source/${{ steps.manifest.outputs.wrapper }}"
+
+          rsync -a --delete \
+            --exclude='.git/' \
+            --exclude='UPGRADE_PLAN.md' \
+            --exclude='AGENTS.md' \
+            --exclude='SOURCE_IMPORT_MANIFEST.json' \
+            --exclude='.github/workflows/import-v070-source.yml' \
+            "$source_root/" ./
+
+          test -f UPGRADE_PLAN.md
+          test -f AGENTS.md
+          test -f SOURCE_IMPORT_MANIFEST.json
+          test -f .github/workflows/import-v070-source.yml
+          test -f composer.json
+          test -f artisan
+
+      - name: Record source provenance
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat > SOURCE_IMPORT_COMPLETE.md <<EOF
+          # Titan Zero v0.7.0 Source Import
+
+          Imported through the checksum-verified GitHub Actions workflow.
+
+          - Source release: \`${{ steps.manifest.outputs.wrapper }}\`
+          - MiniUp transfer: <https://titan-zero-v070-source-transfer.miniup.app>
+          - SHA-256: \`${{ steps.manifest.outputs.sha256 }}\`
+          - Imported archive files: \`${{ steps.manifest.outputs.expected_file_count }}\`
+          - Target branch: \`${{ steps.manifest.outputs.target_branch }}\`
+          - Workflow run: <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}>
+
+          The archive was checked for ZIP integrity, generated dependency directories, runtime environment files and private-key material before extraction.
+          EOF
+
+      - name: Commit imported source
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+
+          if git diff --cached --quiet; then
+            echo 'Verified source is already imported; no commit required.'
+            exit 0
+          fi
+
+          git commit -m 'chore: import verified Titan Zero v0.7.0 source'
+          git push origin HEAD:agent/v070-upgrade-base

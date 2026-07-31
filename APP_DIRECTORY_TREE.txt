@@ -1,0 +1,1452 @@
+Titan-Zero-Meetup-WorkCore-Integrated-v0.7.0/
+├── .github/
+│   └── workflows/
+│       └── titan-verify.yml
+├── app/
+│   ├── Domains/
+│   │   └── WorkCore/
+│   │       ├── System/
+│   │       │   ├── Actions/
+│   │       │   │   ├── Contracts/
+│   │       │   │   │   ├── ActionAuditRecorderContract.php
+│   │       │   │   │   ├── ActionIdempotencyStoreContract.php
+│   │       │   │   │   ├── BusinessActionHandlerContract.php
+│   │       │   │   │   ├── ConfirmationVerifierContract.php
+│   │       │   │   │   ├── DomainEventRecorderContract.php
+│   │       │   │   │   └── EntitlementResolverContract.php
+│   │       │   │   ├── Exceptions/
+│   │       │   │   │   ├── ActionConflictException.php
+│   │       │   │   │   └── ActionDispatchException.php
+│   │       │   │   ├── Infrastructure/
+│   │       │   │   │   ├── DatabaseActionAuditRecorder.php
+│   │       │   │   │   ├── DatabaseActionIdempotencyStore.php
+│   │       │   │   │   └── DatabaseDomainEventRecorder.php
+│   │       │   │   ├── Policies/
+│   │       │   │   │   ├── ExplicitConfirmationVerifier.php
+│   │       │   │   │   └── RegisteredCapabilityEntitlementResolver.php
+│   │       │   │   ├── ActionDefinition.php
+│   │       │   │   ├── ActionHandlerResult.php
+│   │       │   │   ├── ActionRequest.php
+│   │       │   │   ├── ActionResult.php
+│   │       │   │   ├── BusinessActionDispatcher.php
+│   │       │   │   ├── BusinessActionRegistry.php
+│   │       │   │   └── PendingDomainEvent.php
+│   │       │   ├── Api/
+│   │       │   │   ├── Middleware/
+│   │       │   │   │   └── WorkCoreApiExceptionMiddleware.php
+│   │       │   │   ├── Resources/
+│   │       │   │   │   ├── AppointmentResource.php
+│   │       │   │   │   ├── AssetResource.php
+│   │       │   │   │   ├── AttendanceResource.php
+│   │       │   │   │   ├── AvailabilityRuleResource.php
+│   │       │   │   │   ├── ContactResource.php
+│   │       │   │   │   ├── CustomerResource.php
+│   │       │   │   │   ├── DispatchAssignmentResource.php
+│   │       │   │   │   ├── FormSubmissionResource.php
+│   │       │   │   │   ├── FormTemplateResource.php
+│   │       │   │   │   ├── InventoryItemResource.php
+│   │       │   │   │   ├── KnowledgeArticleResource.php
+│   │       │   │   │   ├── LeadResource.php
+│   │       │   │   │   ├── LeaveRequestResource.php
+│   │       │   │   │   ├── PremisesResource.php
+│   │       │   │   │   ├── RosterResource.php
+│   │       │   │   │   ├── ServiceResource.php
+│   │       │   │   │   ├── SupportTicketResource.php
+│   │       │   │   │   ├── WorkerResource.php
+│   │       │   │   │   └── WorkOrderResource.php
+│   │       │   │   └── ApiResponseFactory.php
+│   │       │   ├── Authorization/
+│   │       │   │   ├── CompanyRecordAuthorizer.php
+│   │       │   │   └── WorkCoreAccessLevel.php
+│   │       │   ├── Capabilities/
+│   │       │   │   ├── CapabilityDefinition.php
+│   │       │   │   └── CapabilityRegistry.php
+│   │       │   ├── Company/
+│   │       │   │   ├── Actions/
+│   │       │   │   │   ├── AcceptCompanyInvitation.php
+│   │       │   │   │   ├── CreateCompany.php
+│   │       │   │   │   ├── InviteCompanyMember.php
+│   │       │   │   │   ├── SuspendCompany.php
+│   │       │   │   │   └── TransferCompanyOwnership.php
+│   │       │   │   └── DTOs/
+│   │       │   │       └── CreateCompanyData.php
+│   │       │   ├── Console/
+│   │       │   │   └── Commands/
+│   │       │   │       ├── PublishWorkCoreOutboxCommand.php
+│   │       │   │       └── WorkCoreDiagnoseCommand.php
+│   │       │   ├── Context/
+│   │       │   │   ├── CompanyOperatingContext.php
+│   │       │   │   ├── CompanyOperatingContextResolver.php
+│   │       │   │   ├── ContextIdNormalizer.php
+│   │       │   │   ├── OperationContext.php
+│   │       │   │   ├── OperationContextSnapshot.php
+│   │       │   │   └── TenantContextSnapshot.php
+│   │       │   ├── Contracts/
+│   │       │   │   ├── Records/
+│   │       │   │   │   ├── Adapters/
+│   │       │   │   │   │   ├── AbstractDatabaseRecordAccess.php
+│   │       │   │   │   │   ├── AppointmentAccessAdapter.php
+│   │       │   │   │   │   ├── AssetAccessAdapter.php
+│   │       │   │   │   │   ├── AttendanceAccessAdapter.php
+│   │       │   │   │   │   ├── AvailabilityAccessAdapter.php
+│   │       │   │   │   │   ├── CompanyAccessAdapter.php
+│   │       │   │   │   │   ├── CompanyMemberAccessAdapter.php
+│   │       │   │   │   │   ├── ContactAccessAdapter.php
+│   │       │   │   │   │   ├── CustomerAccessAdapter.php
+│   │       │   │   │   │   ├── DispatchAssignmentAccessAdapter.php
+│   │       │   │   │   │   ├── FormSubmissionAccessAdapter.php
+│   │       │   │   │   │   ├── FormTemplateAccessAdapter.php
+│   │       │   │   │   │   ├── ItemAccessAdapter.php
+│   │       │   │   │   │   ├── KnowledgeArticleAccessAdapter.php
+│   │       │   │   │   │   ├── LeadAccessAdapter.php
+│   │       │   │   │   │   ├── LeaveRequestAccessAdapter.php
+│   │       │   │   │   │   ├── PremisesAccessAdapter.php
+│   │       │   │   │   │   ├── ReviewAccessAdapter.php
+│   │       │   │   │   │   ├── RosterAccessAdapter.php
+│   │       │   │   │   │   ├── ServiceAccessAdapter.php
+│   │       │   │   │   │   ├── ShiftAccessAdapter.php
+│   │       │   │   │   │   ├── SupportTicketAccessAdapter.php
+│   │       │   │   │   │   ├── TaskAccessAdapter.php
+│   │       │   │   │   │   ├── WorkerAccessAdapter.php
+│   │       │   │   │   │   └── WorkOrderAccessAdapter.php
+│   │       │   │   │   ├── AppointmentAccessContract.php
+│   │       │   │   │   ├── AssetAccessContract.php
+│   │       │   │   │   ├── AttendanceAccessContract.php
+│   │       │   │   │   ├── AvailabilityAccessContract.php
+│   │       │   │   │   ├── BusinessRecordAccessContract.php
+│   │       │   │   │   ├── BusinessRecordSnapshot.php
+│   │       │   │   │   ├── CompanyAccessContract.php
+│   │       │   │   │   ├── CompanyMemberAccessContract.php
+│   │       │   │   │   ├── ContactAccessContract.php
+│   │       │   │   │   ├── CustomerAccessContract.php
+│   │       │   │   │   ├── DispatchAssignmentAccessContract.php
+│   │       │   │   │   ├── DocumentAccessContract.php
+│   │       │   │   │   ├── EvidenceAccessContract.php
+│   │       │   │   │   ├── ExpenseAccessContract.php
+│   │       │   │   │   ├── FormSubmissionAccessContract.php
+│   │       │   │   │   ├── FormTemplateAccessContract.php
+│   │       │   │   │   ├── InspectionAccessContract.php
+│   │       │   │   │   ├── InvoiceAccessContract.php
+│   │       │   │   │   ├── ItemAccessContract.php
+│   │       │   │   │   ├── KnowledgeArticleAccessContract.php
+│   │       │   │   │   ├── LeadAccessContract.php
+│   │       │   │   │   ├── LeaveRequestAccessContract.php
+│   │       │   │   │   ├── PaymentAccessContract.php
+│   │       │   │   │   ├── PremisesAccessContract.php
+│   │       │   │   │   ├── QuoteAccessContract.php
+│   │       │   │   │   ├── ReviewAccessContract.php
+│   │       │   │   │   ├── RosterAccessContract.php
+│   │       │   │   │   ├── ServiceAccessContract.php
+│   │       │   │   │   ├── ShiftAccessContract.php
+│   │       │   │   │   ├── SupportTicketAccessContract.php
+│   │       │   │   │   ├── TaskAccessContract.php
+│   │       │   │   │   ├── WorkerAccessContract.php
+│   │       │   │   │   └── WorkOrderAccessContract.php
+│   │       │   │   ├── OperationContextContract.php
+│   │       │   │   ├── PermissionResolverContract.php
+│   │       │   │   ├── TenantContextContract.php
+│   │       │   │   └── TenantResolverContract.php
+│   │       │   ├── Events/
+│   │       │   │   ├── DomainEventContract.php
+│   │       │   │   ├── DomainEventEnvelope.php
+│   │       │   │   ├── EventIdempotencyStoreContract.php
+│   │       │   │   └── RecordsDomainEvents.php
+│   │       │   ├── External/
+│   │       │   │   └── ExternalCandidateLookup.php
+│   │       │   ├── Host/
+│   │       │   │   └── Contracts/
+│   │       │   │       ├── MenuAdapterContract.php
+│   │       │   │       ├── NotificationAdapterContract.php
+│   │       │   │       ├── StorageAdapterContract.php
+│   │       │   │       └── ToolBridgeContract.php
+│   │       │   ├── Identity/
+│   │       │   │   └── MagicAIUserCompanyAdapter.php
+│   │       │   ├── Models/
+│   │       │   │   ├── Company.php
+│   │       │   │   ├── CompanyInvitation.php
+│   │       │   │   ├── CompanyMember.php
+│   │       │   │   ├── CompanyMemberPermission.php
+│   │       │   │   ├── CompanyRole.php
+│   │       │   │   └── CompanyRolePermission.php
+│   │       │   ├── Modules/
+│   │       │   │   ├── Assets/
+│   │       │   │   │   ├── Actions/
+│   │       │   │   │   │   ├── AssignAsset.php
+│   │       │   │   │   │   ├── ChangeAssetStatus.php
+│   │       │   │   │   │   ├── CheckinAsset.php
+│   │       │   │   │   │   ├── CheckoutAsset.php
+│   │       │   │   │   │   ├── CompleteAssetMaintenance.php
+│   │       │   │   │   │   ├── CreateAsset.php
+│   │       │   │   │   │   ├── CreateAssetCategory.php
+│   │       │   │   │   │   ├── CreateAssetFromSupplyReceipt.php
+│   │       │   │   │   │   ├── CreateAssetMaintenancePlan.php
+│   │       │   │   │   │   ├── CreateAssetWarranty.php
+│   │       │   │   │   │   ├── CreateAssetWarrantyClaim.php
+│   │       │   │   │   │   ├── GetAssetAvailability.php
+│   │       │   │   │   │   ├── LinkAssetDocument.php
+│   │       │   │   │   │   ├── LookupAssetIdentifier.php
+│   │       │   │   │   │   ├── OverrideAssetStatus.php
+│   │       │   │   │   │   ├── RecordAssetCalibration.php
+│   │       │   │   │   │   ├── RecordAssetCondition.php
+│   │       │   │   │   │   ├── RecordAssetMaintenance.php
+│   │       │   │   │   │   ├── RecordAssetMeterReading.php
+│   │       │   │   │   │   ├── RegisterAssetIdentifier.php
+│   │       │   │   │   │   ├── ReportAssetDamage.php
+│   │       │   │   │   │   ├── SearchAssets.php
+│   │       │   │   │   │   ├── SearchOverdueAssetCustody.php
+│   │       │   │   │   │   ├── StartAssetMaintenance.php
+│   │       │   │   │   │   ├── TransferAsset.php
+│   │       │   │   │   │   ├── UpdateAssetWarrantyClaim.php
+│   │       │   │   │   │   └── WriteOffAsset.php
+│   │       │   │   │   ├── Console/
+│   │       │   │   │   │   ├── ListOverdueAssetCustodyCommand.php
+│   │       │   │   │   │   ├── ProcessAssetDueCommand.php
+│   │       │   │   │   │   └── ProcessOverdueAssetCustodyCommand.php
+│   │       │   │   │   ├── Contracts/
+│   │       │   │   │   │   └── AssetRepositoryContract.php
+│   │       │   │   │   ├── Providers/
+│   │       │   │   │   │   └── WorkAssetsServiceProvider.php
+│   │       │   │   │   ├── Repositories/
+│   │       │   │   │   │   └── EloquentAssetRepository.php
+│   │       │   │   │   └── Services/
+│   │       │   │   │       ├── AssetAssignmentPolicy.php
+│   │       │   │   │       ├── AssetQualificationPolicy.php
+│   │       │   │   │       ├── AssetSchedulePolicy.php
+│   │       │   │   │       ├── AssetStatusPolicy.php
+│   │       │   │   │       └── WarrantyClaimPolicy.php
+│   │       │   │   ├── Assurance/
+│   │       │   │   │   ├── Actions/
+│   │       │   │   │   │   ├── CompleteInspection.php
+│   │       │   │   │   │   ├── CreateCorrectiveAction.php
+│   │       │   │   │   │   ├── CreateFinding.php
+│   │       │   │   │   │   ├── CreateInspectionTemplate.php
+│   │       │   │   │   │   ├── GetAssuranceSummary.php
+│   │       │   │   │   │   ├── RecordIncident.php
+│   │       │   │   │   │   ├── RecordInspectionResult.php
+│   │       │   │   │   │   ├── RecordRisk.php
+│   │       │   │   │   │   ├── SearchFindings.php
+│   │       │   │   │   │   ├── SearchIncidents.php
+│   │       │   │   │   │   ├── SearchInspections.php
+│   │       │   │   │   │   ├── SearchRisks.php
+│   │       │   │   │   │   ├── StartInspection.php
+│   │       │   │   │   │   └── UpdateCorrectiveAction.php
+│   │       │   │   │   ├── Contracts/
+│   │       │   │   │   │   └── AssuranceRepositoryContract.php
+│   │       │   │   │   ├── Providers/
+│   │       │   │   │   │   └── WorkAssuranceServiceProvider.php
+│   │       │   │   │   ├── Repositories/
+│   │       │   │   │   │   └── EloquentAssuranceRepository.php
+│   │       │   │   │   └── Services/
+│   │       │   │   │       ├── InspectionScoringPolicy.php
+│   │       │   │   │       └── RiskMatrix.php
+│   │       │   │   ├── Attendance/
+│   │       │   │   │   ├── Actions/
+│   │       │   │   │   │   ├── ChangeLeaveRequestStatus.php
+│   │       │   │   │   │   ├── ClockInAttendance.php
+│   │       │   │   │   │   ├── ClockOutAttendance.php
+│   │       │   │   │   │   ├── CreateLeaveRequest.php
+│   │       │   │   │   │   ├── CreateLeaveType.php
+│   │       │   │   │   │   ├── DecideTimesheet.php
+│   │       │   │   │   │   ├── EndAttendanceBreak.php
+│   │       │   │   │   │   ├── SearchAttendance.php
+│   │       │   │   │   │   ├── SearchLeaveRequests.php
+│   │       │   │   │   │   ├── StartAttendanceBreak.php
+│   │       │   │   │   │   └── SubmitTimesheet.php
+│   │       │   │   │   ├── Contracts/
+│   │       │   │   │   │   └── AttendanceRepositoryContract.php
+│   │       │   │   │   ├── Providers/
+│   │       │   │   │   │   └── WorkAttendanceServiceProvider.php
+│   │       │   │   │   ├── Repositories/
+│   │       │   │   │   │   └── EloquentAttendanceRepository.php
+│   │       │   │   │   └── Services/
+│   │       │   │   │       ├── AttendanceClockPolicy.php
+│   │       │   │   │       ├── LeaveRequestPolicy.php
+│   │       │   │   │       └── TimesheetStatusPolicy.php
+│   │       │   │   ├── Catalogue/
+│   │       │   │   │   ├── Actions/
+│   │       │   │   │   │   ├── CreateJobTemplate.php
+│   │       │   │   │   │   ├── CreateService.php
+│   │       │   │   │   │   ├── CreateServiceCategory.php
+│   │       │   │   │   │   └── SearchServices.php
+│   │       │   │   │   ├── Contracts/
+│   │       │   │   │   │   └── ServiceCatalogueRepositoryContract.php
+│   │       │   │   │   ├── Providers/
+│   │       │   │   │   │   └── WorkCatalogueServiceProvider.php
+│   │       │   │   │   └── Repositories/
+│   │       │   │   │       └── EloquentServiceCatalogueRepository.php
+│   │       │   │   ├── CRM/
+│   │       │   │   │   ├── Actions/
+│   │       │   │   │   │   ├── ConvertLeadToCustomer.php
+│   │       │   │   │   │   ├── CreateContact.php
+│   │       │   │   │   │   ├── CreateCustomer.php
+│   │       │   │   │   │   ├── CreateLead.php
+│   │       │   │   │   │   ├── SearchCustomers.php
+│   │       │   │   │   │   ├── SearchLeads.php
+│   │       │   │   │   │   ├── SetPrimaryContact.php
+│   │       │   │   │   │   └── UpdateLead.php
+│   │       │   │   │   ├── Contracts/
+│   │       │   │   │   │   ├── ContactRepositoryContract.php
+│   │       │   │   │   │   ├── CustomerRepositoryContract.php
+│   │       │   │   │   │   └── LeadRepositoryContract.php
+│   │       │   │   │   ├── Data/
+│   │       │   │   │   │   ├── ContactData.php
+│   │       │   │   │   │   ├── CustomerData.php
+│   │       │   │   │   │   └── LeadData.php
+│   │       │   │   │   ├── Providers/
+│   │       │   │   │   │   └── WorkCRMServiceProvider.php
+│   │       │   │   │   ├── Repositories/
+│   │       │   │   │   │   ├── EloquentContactRepository.php
+│   │       │   │   │   │   ├── EloquentCustomerRepository.php
+│   │       │   │   │   │   └── EloquentLeadRepository.php
+│   │       │   │   │   ├── Services/
+│   │       │   │   │   │   ├── CrmDuplicateDetector.php
+│   │       │   │   │   │   └── LeadLifecycleService.php
+│   │       │   │   │   └── Support/
+│   │       │   │   │       └── CrmNormalizer.php
+│   │       │   │   ├── Dispatch/
+│   │       │   │   │   ├── Actions/
+│   │       │   │   │   │   ├── ChangeDispatchStatus.php
+│   │       │   │   │   │   ├── CreateDispatchAssignment.php
+│   │       │   │   │   │   ├── ReassignDispatchAssignment.php
+│   │       │   │   │   │   └── SearchDispatchBoard.php
+│   │       │   │   │   ├── Contracts/
+│   │       │   │   │   │   └── DispatchRepositoryContract.php
+│   │       │   │   │   ├── Providers/
+│   │       │   │   │   │   └── WorkDispatchServiceProvider.php
+│   │       │   │   │   ├── Repositories/
+│   │       │   │   │   │   └── EloquentDispatchRepository.php
+│   │       │   │   │   └── Services/
+│   │       │   │   │       ├── DispatchStatusPolicy.php
+│   │       │   │   │       └── DispatchWindowPolicy.php
+│   │       │   │   ├── Documents/
+│   │       │   │   │   ├── Actions/
+│   │       │   │   │   │   ├── AddDocumentComment.php
+│   │       │   │   │   │   ├── AddDocumentVersion.php
+│   │       │   │   │   │   ├── CreateDocument.php
+│   │       │   │   │   │   ├── DecideDocumentApproval.php
+│   │       │   │   │   │   ├── LinkDocument.php
+│   │       │   │   │   │   ├── RegisterEvidence.php
+│   │       │   │   │   │   ├── RequestDocumentApproval.php
+│   │       │   │   │   │   ├── SearchDocuments.php
+│   │       │   │   │   │   ├── SearchEvidence.php
+│   │       │   │   │   │   └── SignoffEvidence.php
+│   │       │   │   │   ├── Contracts/
+│   │       │   │   │   │   └── DocumentRepositoryContract.php
+│   │       │   │   │   ├── Providers/
+│   │       │   │   │   │   └── WorkDocumentsServiceProvider.php
+│   │       │   │   │   ├── Repositories/
+│   │       │   │   │   │   └── EloquentDocumentRepository.php
+│   │       │   │   │   └── Services/
+│   │       │   │   │       ├── CanonicalPayloadHasher.php
+│   │       │   │   │       ├── EvidenceSignoffPolicy.php
+│   │       │   │   │       └── OperationalSubjectResolver.php
+│   │       │   │   ├── Finance/
+│   │       │   │   │   ├── Actions/
+│   │       │   │   │   │   ├── AllocateFinanceCredit.php
+│   │       │   │   │   │   ├── AllocateFinanceReceivable.php
+│   │       │   │   │   │   ├── ApproveFinanceExpense.php
+│   │       │   │   │   │   ├── ChangeFinanceInvoiceStatus.php
+│   │       │   │   │   │   ├── ChangeFinanceQuoteStatus.php
+│   │       │   │   │   │   ├── CloseFinanceAccountingPeriod.php
+│   │       │   │   │   │   ├── CreateFinanceAccount.php
+│   │       │   │   │   │   ├── CreateFinanceAccountingPeriod.php
+│   │       │   │   │   │   ├── CreateFinanceCreditNote.php
+│   │       │   │   │   │   ├── CreateFinanceInvoice.php
+│   │       │   │   │   │   ├── CreateFinanceQuote.php
+│   │       │   │   │   │   ├── IssueFinanceInvoice.php
+│   │       │   │   │   │   ├── PostFinanceJournal.php
+│   │       │   │   │   │   └── RecordFinanceExpense.php
+│   │       │   │   │   ├── Contracts/
+│   │       │   │   │   │   └── FinanceRepositoryContract.php
+│   │       │   │   │   ├── Domain/
+│   │       │   │   │   │   ├── BalancedJournal.php
+│   │       │   │   │   │   ├── InvoiceCalculator.php
+│   │       │   │   │   │   ├── InvoiceState.php
+│   │       │   │   │   │   ├── Money.php
+│   │       │   │   │   │   └── QuoteState.php
+│   │       │   │   │   ├── Providers/
+│   │       │   │   │   │   └── WorkFinanceServiceProvider.php
+│   │       │   │   │   ├── ReadModels/
+│   │       │   │   │   │   ├── GetFinanceSummary.php
+│   │       │   │   │   │   ├── GetInvoiceProfile.php
+│   │       │   │   │   │   ├── GetQuoteProfile.php
+│   │       │   │   │   │   └── SearchReceivables.php
+│   │       │   │   │   └── Repositories/
+│   │       │   │   │       └── EloquentFinanceRepository.php
+│   │       │   │   ├── Fleet/
+│   │       │   │   │   ├── Actions/
+│   │       │   │   │   │   ├── AssignFleetVehicle.php
+│   │       │   │   │   │   ├── CreateFleetVehicle.php
+│   │       │   │   │   │   ├── RecordFleetMileage.php
+│   │       │   │   │   │   ├── ReturnFleetVehicle.php
+│   │       │   │   │   │   └── SearchFleetVehicles.php
+│   │       │   │   │   ├── Contracts/
+│   │       │   │   │   │   └── FleetRepositoryContract.php
+│   │       │   │   │   ├── Providers/
+│   │       │   │   │   │   └── WorkFleetServiceProvider.php
+│   │       │   │   │   └── Repositories/
+│   │       │   │   │       └── EloquentFleetRepository.php
+│   │       │   │   ├── Forms/
+│   │       │   │   │   ├── Actions/
+│   │       │   │   │   │   ├── ConvertFormFailureToWorkOrder.php
+│   │       │   │   │   │   ├── CreateFormTemplate.php
+│   │       │   │   │   │   ├── PublishFormTemplate.php
+│   │       │   │   │   │   ├── SaveFormResponse.php
+│   │       │   │   │   │   ├── SearchFormSubmissions.php
+│   │       │   │   │   │   ├── SearchFormTemplates.php
+│   │       │   │   │   │   ├── StartFormSubmission.php
+│   │       │   │   │   │   └── SubmitFormSubmission.php
+│   │       │   │   │   ├── Contracts/
+│   │       │   │   │   │   └── FormRepositoryContract.php
+│   │       │   │   │   ├── Providers/
+│   │       │   │   │   │   └── WorkFormsServiceProvider.php
+│   │       │   │   │   ├── Repositories/
+│   │       │   │   │   │   └── EloquentFormRepository.php
+│   │       │   │   │   └── Services/
+│   │       │   │   │       ├── FormFieldPolicy.php
+│   │       │   │   │       └── FormSubmissionPolicy.php
+│   │       │   │   ├── Inventory/
+│   │       │   │   │   ├── Actions/
+│   │       │   │   │   │   ├── ConsumeStockReservation.php
+│   │       │   │   │   │   ├── CreateInventoryItem.php
+│   │       │   │   │   │   ├── CreateStockLocation.php
+│   │       │   │   │   │   ├── ListStockLocations.php
+│   │       │   │   │   │   ├── RecordStockMovement.php
+│   │       │   │   │   │   ├── ReleaseStockReservation.php
+│   │       │   │   │   │   ├── ReserveInventoryItem.php
+│   │       │   │   │   │   ├── SearchInventory.php
+│   │       │   │   │   │   └── SetInventoryReorderRule.php
+│   │       │   │   │   ├── Contracts/
+│   │       │   │   │   │   └── InventoryRepositoryContract.php
+│   │       │   │   │   ├── Providers/
+│   │       │   │   │   │   └── WorkInventoryServiceProvider.php
+│   │       │   │   │   ├── Repositories/
+│   │       │   │   │   │   └── EloquentInventoryRepository.php
+│   │       │   │   │   └── Services/
+│   │       │   │   │       ├── InventoryQuantityPolicy.php
+│   │       │   │   │       └── StockMovementPolicy.php
+│   │       │   │   ├── KnowledgeBase/
+│   │       │   │   │   ├── Actions/
+│   │       │   │   │   │   ├── ChangeKnowledgeArticleStatus.php
+│   │       │   │   │   │   ├── CreateKnowledgeArticle.php
+│   │       │   │   │   │   ├── CreateKnowledgeArticleFromSupportTicket.php
+│   │       │   │   │   │   ├── CreateKnowledgeCategory.php
+│   │       │   │   │   │   ├── RecordKnowledgeFeedback.php
+│   │       │   │   │   │   ├── SearchKnowledgeArticles.php
+│   │       │   │   │   │   └── UpdateKnowledgeArticle.php
+│   │       │   │   │   ├── Contracts/
+│   │       │   │   │   │   └── KnowledgeBaseRepositoryContract.php
+│   │       │   │   │   ├── Providers/
+│   │       │   │   │   │   └── WorkKnowledgeBaseServiceProvider.php
+│   │       │   │   │   ├── Repositories/
+│   │       │   │   │   │   └── EloquentKnowledgeBaseRepository.php
+│   │       │   │   │   └── Services/
+│   │       │   │   │       ├── ArticleStatusPolicy.php
+│   │       │   │   │       └── ArticleVisibilityPolicy.php
+│   │       │   │   ├── NDIS/
+│   │       │   │   │   ├── Application/
+│   │       │   │   │   │   ├── Actions/
+│   │       │   │   │   │   │   ├── AddNDISCaseNote.php
+│   │       │   │   │   │   │   ├── LinkNDISParticipantIncident.php
+│   │       │   │   │   │   │   ├── MatchNDISWorker.php
+│   │       │   │   │   │   │   ├── PrepareNDISClaimLine.php
+│   │       │   │   │   │   │   ├── RecordNDISSupportDelivery.php
+│   │       │   │   │   │   │   ├── UpsertNDISGoal.php
+│   │       │   │   │   │   │   ├── UpsertNDISParticipant.php
+│   │       │   │   │   │   │   ├── UpsertNDISParticipantContact.php
+│   │       │   │   │   │   │   ├── UpsertNDISPlan.php
+│   │       │   │   │   │   │   └── UpsertNDISServiceAgreement.php
+│   │       │   │   │   │   ├── ReadModels/
+│   │       │   │   │   │   │   ├── GetNDISBudgetPosition.php
+│   │       │   │   │   │   │   ├── GetNDISParticipantProfile.php
+│   │       │   │   │   │   │   └── ListNDISClaimQueue.php
+│   │       │   │   │   │   └── Services/
+│   │       │   │   │   │       └── NDISActionSupport.php
+│   │       │   │   │   └── Domain/
+│   │       │   │   │       ├── ClaimLineState.php
+│   │       │   │   │       ├── ParticipantStatus.php
+│   │       │   │   │       ├── PlanState.php
+│   │       │   │   │       ├── RecordVisibility.php
+│   │       │   │   │       ├── ServiceAgreementState.php
+│   │       │   │   │       └── ServiceDeliveryCalculator.php
+│   │       │   │   ├── Operations/
+│   │       │   │   │   ├── Actions/
+│   │       │   │   │   │   ├── AddTimeEntry.php
+│   │       │   │   │   │   ├── ChangeWorkOrderStatus.php
+│   │       │   │   │   │   ├── CreateWorkOrder.php
+│   │       │   │   │   │   ├── SearchWorkOrders.php
+│   │       │   │   │   │   └── UpdateWorkOrderTaskStatus.php
+│   │       │   │   │   ├── Contracts/
+│   │       │   │   │   │   └── WorkOrderRepositoryContract.php
+│   │       │   │   │   ├── Providers/
+│   │       │   │   │   │   └── WorkOperationsServiceProvider.php
+│   │       │   │   │   ├── Repositories/
+│   │       │   │   │   │   └── EloquentWorkOrderRepository.php
+│   │       │   │   │   └── Services/
+│   │       │   │   │       ├── WorkOrderStatusPolicy.php
+│   │       │   │   │       ├── WorkOrderTaskStatusPolicy.php
+│   │       │   │   │       └── WorkOrderTemplateExpander.php
+│   │       │   │   ├── Payments/
+│   │       │   │   │   ├── Actions/
+│   │       │   │   │   │   ├── CreatePaymentSession.php
+│   │       │   │   │   │   ├── ProposePaymentMatches.php
+│   │       │   │   │   │   ├── ReconcilePayment.php
+│   │       │   │   │   │   ├── RecordPaymentAttempt.php
+│   │       │   │   │   │   └── RecordPaymentObservation.php
+│   │       │   │   │   ├── Contracts/
+│   │       │   │   │   │   └── PaymentRepositoryContract.php
+│   │       │   │   │   ├── Domain/
+│   │       │   │   │   │   └── PaymentMatchScorer.php
+│   │       │   │   │   ├── Providers/
+│   │       │   │   │   │   └── WorkPaymentsServiceProvider.php
+│   │       │   │   │   ├── ReadModels/
+│   │       │   │   │   │   ├── GetPaymentSession.php
+│   │       │   │   │   │   └── GetPaymentSummary.php
+│   │       │   │   │   └── Repositories/
+│   │       │   │   │       └── EloquentPaymentRepository.php
+│   │       │   │   ├── Premises/
+│   │       │   │   │   ├── Actions/
+│   │       │   │   │   │   ├── AddPremisesHazard.php
+│   │       │   │   │   │   ├── AllocatePremisesOccupancy.php
+│   │       │   │   │   │   ├── ApprovePremises.php
+│   │       │   │   │   │   ├── ArchivePremises.php
+│   │       │   │   │   │   ├── ChangePremisesAgreementStatus.php
+│   │       │   │   │   │   ├── CreatePremises.php
+│   │       │   │   │   │   ├── CreatePremisesAccessPoint.php
+│   │       │   │   │   │   ├── CreatePremisesAgreement.php
+│   │       │   │   │   │   ├── CreatePremisesPartyRole.php
+│   │       │   │   │   │   ├── CreatePremisesServicePlan.php
+│   │       │   │   │   │   ├── CreatePremisesServiceWindow.php
+│   │       │   │   │   │   ├── CreatePremisesSpace.php
+│   │       │   │   │   │   ├── EndPremisesOccupancy.php
+│   │       │   │   │   │   ├── GetPremisesProfile.php
+│   │       │   │   │   │   ├── GetPremisesReadiness.php
+│   │       │   │   │   │   ├── LinkPremisesContact.php
+│   │       │   │   │   │   ├── LinkPremisesDocument.php
+│   │       │   │   │   │   ├── RecordPremisesMeterReading.php
+│   │       │   │   │   │   ├── RegisterPremisesIdentifier.php
+│   │       │   │   │   │   ├── ResolvePremisesHazard.php
+│   │       │   │   │   │   └── SearchPremises.php
+│   │       │   │   │   ├── Application/
+│   │       │   │   │   │   └── Accommodation/
+│   │       │   │   │   │       ├── Actions/
+│   │       │   │   │   │       │   ├── AddAccommodationCharge.php
+│   │       │   │   │   │       │   ├── ChangeAccommodationReservationStatus.php
+│   │       │   │   │   │       │   ├── CheckInAccommodationStay.php
+│   │       │   │   │   │       │   ├── CheckOutAccommodationStay.php
+│   │       │   │   │   │       │   ├── CreateAccommodationReservation.php
+│   │       │   │   │   │       │   ├── UpdateAccommodationHousekeeping.php
+│   │       │   │   │   │       │   └── UpsertAccommodationRatePlan.php
+│   │       │   │   │   │       └── ReadModels/
+│   │       │   │   │   │           ├── GetAccommodationBoard.php
+│   │       │   │   │   │           ├── GetAccommodationFolio.php
+│   │       │   │   │   │           ├── GetPremisesAgreementProfile.php
+│   │       │   │   │   │           ├── GetPremisesOccupancyBoard.php
+│   │       │   │   │   │           └── SearchAccommodationAvailability.php
+│   │       │   │   │   ├── Contracts/
+│   │       │   │   │   │   ├── PremisesRepositoryContract.php
+│   │       │   │   │   │   └── PropertyAccommodationRepositoryContract.php
+│   │       │   │   │   ├── Data/
+│   │       │   │   │   │   └── PremisesData.php
+│   │       │   │   │   ├── Domain/
+│   │       │   │   │   │   ├── Accommodation/
+│   │       │   │   │   │   │   ├── AccommodationDateWindow.php
+│   │       │   │   │   │   │   ├── AccommodationRateCalculator.php
+│   │       │   │   │   │   │   ├── AccommodationReservationState.php
+│   │       │   │   │   │   │   ├── AccommodationStayState.php
+│   │       │   │   │   │   │   └── HousekeepingState.php
+│   │       │   │   │   │   └── Property/
+│   │       │   │   │   │       ├── AgreementState.php
+│   │       │   │   │   │       └── OccupancyWindow.php
+│   │       │   │   │   ├── Providers/
+│   │       │   │   │   │   └── WorkPremisesServiceProvider.php
+│   │       │   │   │   └── Repositories/
+│   │       │   │   │       ├── EloquentPremisesRepository.php
+│   │       │   │   │       └── EloquentPropertyAccommodationRepository.php
+│   │       │   │   ├── Repairs/
+│   │       │   │   │   ├── Actions/
+│   │       │   │   │   │   ├── CompleteRepairOrder.php
+│   │       │   │   │   │   ├── CreateRepairTemplate.php
+│   │       │   │   │   │   ├── ReportRepairOrder.php
+│   │       │   │   │   │   ├── SearchRepairOrders.php
+│   │       │   │   │   │   └── StartRepairOrder.php
+│   │       │   │   │   ├── Contracts/
+│   │       │   │   │   │   └── RepairRepositoryContract.php
+│   │       │   │   │   ├── Providers/
+│   │       │   │   │   │   └── WorkRepairsServiceProvider.php
+│   │       │   │   │   └── Repositories/
+│   │       │   │   │       └── EloquentRepairRepository.php
+│   │       │   │   ├── Reviews/
+│   │       │   │   │   ├── Actions/
+│   │       │   │   │   │   ├── CreateReviewRequest.php
+│   │       │   │   │   │   ├── CreateServiceRecovery.php
+│   │       │   │   │   │   ├── PublishReview.php
+│   │       │   │   │   │   ├── RecordReview.php
+│   │       │   │   │   │   ├── RequestRebooking.php
+│   │       │   │   │   │   └── SearchReviews.php
+│   │       │   │   │   ├── Contracts/
+│   │       │   │   │   │   └── ReviewRepositoryContract.php
+│   │       │   │   │   ├── Providers/
+│   │       │   │   │   │   └── WorkReviewsServiceProvider.php
+│   │       │   │   │   ├── Repositories/
+│   │       │   │   │   │   └── EloquentReviewRepository.php
+│   │       │   │   │   └── Services/
+│   │       │   │   │       └── ReviewPolicy.php
+│   │       │   │   ├── Rosters/
+│   │       │   │   │   ├── Actions/
+│   │       │   │   │   │   ├── AssignRosterShift.php
+│   │       │   │   │   │   ├── CreateAvailabilityRule.php
+│   │       │   │   │   │   ├── CreateRoster.php
+│   │       │   │   │   │   ├── CreateRosterShift.php
+│   │       │   │   │   │   ├── PublishRoster.php
+│   │       │   │   │   │   ├── SearchAvailability.php
+│   │       │   │   │   │   └── SearchRosters.php
+│   │       │   │   │   ├── Contracts/
+│   │       │   │   │   │   └── RosterRepositoryContract.php
+│   │       │   │   │   ├── Providers/
+│   │       │   │   │   │   └── WorkRostersServiceProvider.php
+│   │       │   │   │   ├── Repositories/
+│   │       │   │   │   │   └── EloquentRosterRepository.php
+│   │       │   │   │   └── Services/
+│   │       │   │   │       ├── AvailabilityRulePolicy.php
+│   │       │   │   │       ├── RosterStatusPolicy.php
+│   │       │   │   │       └── RosterWindowPolicy.php
+│   │       │   │   ├── Scheduling/
+│   │       │   │   │   ├── Actions/
+│   │       │   │   │   │   ├── ChangeAppointmentStatus.php
+│   │       │   │   │   │   ├── CreateAppointment.php
+│   │       │   │   │   │   ├── RescheduleAppointment.php
+│   │       │   │   │   │   └── SearchAppointments.php
+│   │       │   │   │   ├── Contracts/
+│   │       │   │   │   │   └── AppointmentRepositoryContract.php
+│   │       │   │   │   ├── Providers/
+│   │       │   │   │   │   └── WorkSchedulingServiceProvider.php
+│   │       │   │   │   ├── Repositories/
+│   │       │   │   │   │   └── EloquentAppointmentRepository.php
+│   │       │   │   │   └── Services/
+│   │       │   │   │       ├── AppointmentSchedulePolicy.php
+│   │       │   │   │       └── AppointmentStatusPolicy.php
+│   │       │   │   ├── Supply/
+│   │       │   │   │   ├── Actions/
+│   │       │   │   │   │   ├── ApprovePurchaseOrder.php
+│   │       │   │   │   │   ├── CompleteStockCount.php
+│   │       │   │   │   │   ├── CreateInventoryCategory.php
+│   │       │   │   │   │   ├── CreatePurchaseOrder.php
+│   │       │   │   │   │   ├── CreateStockAdjustment.php
+│   │       │   │   │   │   ├── CreateStockCount.php
+│   │       │   │   │   │   ├── CreateStockTransfer.php
+│   │       │   │   │   │   ├── CreateSupplier.php
+│   │       │   │   │   │   ├── DispatchStockTransfer.php
+│   │       │   │   │   │   ├── PostStockAdjustment.php
+│   │       │   │   │   │   ├── RateSupplier.php
+│   │       │   │   │   │   ├── ReceiveGoods.php
+│   │       │   │   │   │   ├── ReceiveStockTransfer.php
+│   │       │   │   │   │   ├── SearchPurchaseOrders.php
+│   │       │   │   │   │   └── SearchSuppliers.php
+│   │       │   │   │   ├── Contracts/
+│   │       │   │   │   │   └── SupplyRepositoryContract.php
+│   │       │   │   │   ├── Providers/
+│   │       │   │   │   │   └── WorkSupplyServiceProvider.php
+│   │       │   │   │   └── Repositories/
+│   │       │   │   │       └── EloquentSupplyRepository.php
+│   │       │   │   ├── Support/
+│   │       │   │   │   ├── Actions/
+│   │       │   │   │   │   ├── AddSupportTicketMessage.php
+│   │       │   │   │   │   ├── AssignSupportTicket.php
+│   │       │   │   │   │   ├── ChangeSupportTicketStatus.php
+│   │       │   │   │   │   ├── ConvertSupportTicketToWorkOrder.php
+│   │       │   │   │   │   ├── CreateSupportQueue.php
+│   │       │   │   │   │   ├── CreateSupportTicket.php
+│   │       │   │   │   │   └── SearchSupportTickets.php
+│   │       │   │   │   ├── Contracts/
+│   │       │   │   │   │   └── SupportTicketRepositoryContract.php
+│   │       │   │   │   ├── Providers/
+│   │       │   │   │   │   └── WorkSupportServiceProvider.php
+│   │       │   │   │   ├── Repositories/
+│   │       │   │   │   │   └── EloquentSupportTicketRepository.php
+│   │       │   │   │   └── Services/
+│   │       │   │   │       ├── TicketPriorityPolicy.php
+│   │       │   │   │       └── TicketStatusPolicy.php
+│   │       │   │   ├── TrustAccounting/
+│   │       │   │   │   ├── Actions/
+│   │       │   │   │   │   ├── AllocateTrustReceipt.php
+│   │       │   │   │   │   ├── ApproveTrustDisbursement.php
+│   │       │   │   │   │   ├── CreateTrustAccount.php
+│   │       │   │   │   │   ├── CreateTrustMatter.php
+│   │       │   │   │   │   ├── RecordTrustReceipt.php
+│   │       │   │   │   │   ├── ReleaseTrustDisbursement.php
+│   │       │   │   │   │   ├── RequestTrustDisbursement.php
+│   │       │   │   │   │   └── ReverseTrustLedgerEntry.php
+│   │       │   │   │   ├── Contracts/
+│   │       │   │   │   │   └── TrustAccountingRepositoryContract.php
+│   │       │   │   │   ├── Domain/
+│   │       │   │   │   │   └── TrustLedgerPolicy.php
+│   │       │   │   │   ├── Providers/
+│   │       │   │   │   │   └── WorkTrustAccountingServiceProvider.php
+│   │       │   │   │   ├── ReadModels/
+│   │       │   │   │   │   ├── GetTrustMatterLedger.php
+│   │       │   │   │   │   └── GetTrustSummary.php
+│   │       │   │   │   └── Repositories/
+│   │       │   │   │       └── EloquentTrustAccountingRepository.php
+│   │       │   │   └── Workforce/
+│   │       │   │       ├── Actions/
+│   │       │   │       │   ├── AddWorkerCertification.php
+│   │       │   │       │   ├── AssignWorkerSkill.php
+│   │       │   │       │   ├── CreateSkill.php
+│   │       │   │       │   ├── CreateWorker.php
+│   │       │   │       │   └── SearchWorkers.php
+│   │       │   │       ├── Contracts/
+│   │       │   │       │   └── WorkerRepositoryContract.php
+│   │       │   │       ├── Providers/
+│   │       │   │       │   └── WorkWorkforceServiceProvider.php
+│   │       │   │       ├── Repositories/
+│   │       │   │       │   └── EloquentWorkerRepository.php
+│   │       │   │       └── Services/
+│   │       │   │           ├── CertificationStatusPolicy.php
+│   │       │   │           └── WorkerQualificationMatcher.php
+│   │       │   ├── Notifications/
+│   │       │   │   ├── NotificationDispatcherContract.php
+│   │       │   │   └── NotificationIntent.php
+│   │       │   ├── Outbox/
+│   │       │   │   ├── DatabaseOutboxPublisher.php
+│   │       │   │   ├── NullOutboxTransport.php
+│   │       │   │   ├── OutboxMessage.php
+│   │       │   │   ├── OutboxPublisherContract.php
+│   │       │   │   └── OutboxTransportContract.php
+│   │       │   ├── Permissions/
+│   │       │   │   ├── DenyByDefaultPermissionResolver.php
+│   │       │   │   └── MagicAIPermissionResolver.php
+│   │       │   ├── Persistence/
+│   │       │   │   └── TenantScopedRepository.php
+│   │       │   ├── Queue/
+│   │       │   │   ├── CarriesWorkCoreContext.php
+│   │       │   │   ├── HasWorkCoreContext.php
+│   │       │   │   ├── RestoreWorkCoreContext.php
+│   │       │   │   ├── WorkCoreContextPayloadFactory.php
+│   │       │   │   └── WorkCoreJob.php
+│   │       │   ├── ReadModels/
+│   │       │   │   ├── ReadModelDefinition.php
+│   │       │   │   ├── ReadModelExecutionException.php
+│   │       │   │   ├── ReadModelExecutor.php
+│   │       │   │   └── ReadModelRegistry.php
+│   │       │   ├── References/
+│   │       │   │   ├── RecordTypeRegistry.php
+│   │       │   │   └── TypedReference.php
+│   │       │   ├── Registry/
+│   │       │   │   └── WorkModuleRegistry.php
+│   │       │   ├── Support/
+│   │       │   │   ├── HasPublicId.php
+│   │       │   │   └── helpers.php
+│   │       │   ├── Tenancy/
+│   │       │   │   ├── BelongsToCompany.php
+│   │       │   │   ├── MagicAITenantResolver.php
+│   │       │   │   ├── NullTenantResolver.php
+│   │       │   │   ├── ResolveWorkCoreTenant.php
+│   │       │   │   └── TenantContext.php
+│   │       │   ├── Validation/
+│   │       │   │   └── CompanyScopedReferenceValidator.php
+│   │       │   └── Verticals/
+│   │       │       └── TradeCompliance/
+│   │       │           ├── Actions/
+│   │       │           │   ├── AddWorkOrderEvidence.php
+│   │       │           │   ├── CreateWorkOrderCallback.php
+│   │       │           │   ├── PrepareWorkOrderCompliance.php
+│   │       │           │   ├── RecordWorkOrderPermit.php
+│   │       │           │   ├── RecordWorkOrderSafetyControl.php
+│   │       │           │   ├── RecordWorkOrderTestResult.php
+│   │       │           │   ├── RegisterWorkOrderWarranty.php
+│   │       │           │   └── UpsertTradeComplianceProfile.php
+│   │       │           ├── ReadModels/
+│   │       │           │   ├── GetWorkOrderTradeCompliance.php
+│   │       │           │   └── ListTradeComplianceProfiles.php
+│   │       │           ├── TradeComplianceActionSupport.php
+│   │       │           ├── TradeCompliancePolicy.php
+│   │       │           ├── TradeComplianceProfileResolver.php
+│   │       │           └── WorkOrderComplianceGate.php
+│   │       ├── QUARANTINED_COMPONENTS.md
+│   │       └── WorkCoreServiceProvider.php
+│   ├── Events/
+│   │   ├── ConversationCreated.php
+│   │   ├── MessageRead.php
+│   │   ├── MessageSent.php
+│   │   └── UserTyping.php
+│   ├── Extensions/
+│   │   └── TitanMapsIntelligence/
+│   │       ├── config/
+│   │       │   └── titan_maps_intelligence.php
+│   │       ├── Contracts/
+│   │       │   ├── AuditRecorder.php
+│   │       │   ├── AuthorisedCompanyContext.php
+│   │       │   ├── CandidateRepository.php
+│   │       │   ├── CapabilityRegistrar.php
+│   │       │   ├── ExportWriter.php
+│   │       │   ├── PermissionAuthorizer.php
+│   │       │   ├── PlacesProvider.php
+│   │       │   ├── PrivateExportStore.php
+│   │       │   ├── ProviderHttpTransport.php
+│   │       │   ├── SecretResolver.php
+│   │       │   ├── WorkCoreCandidateGateway.php
+│   │       │   └── WorkCoreCandidateLookup.php
+│   │       ├── docs/
+│   │       │   ├── superpowers/
+│   │       │   │   ├── plans/
+│   │       │   │   │   └── 2026-07-24-titan-maps-intelligence.md
+│   │       │   │   └── specs/
+│   │       │   │       └── 2026-07-24-titan-maps-intelligence-design.md
+│   │       │   ├── API_AND_AI_TOOLS.md
+│   │       │   ├── ARCHITECTURE.md
+│   │       │   ├── DOMAIN_MODEL.md
+│   │       │   ├── EXAMPLE_CONVERSATIONS.md
+│   │       │   ├── EXAMPLE_PROVIDER_ADAPTER.md
+│   │       │   ├── GOOGLE_PLACES_TERMS_CHECKLIST.md
+│   │       │   ├── HOST_INTEGRATION_GAPS.md
+│   │       │   ├── INSTALLATION.md
+│   │       │   ├── MANIFEST.md
+│   │       │   ├── MEETUP_UI_INTEGRATION.md
+│   │       │   ├── OPERATIONS.md
+│   │       │   ├── PROVIDER_ADAPTER_GUIDE.md
+│   │       │   ├── SECURITY_AND_PRIVACY.md
+│   │       │   ├── TESTING.md
+│   │       │   ├── TITAN_VAULT_INTEGRATION.md
+│   │       │   ├── UPGRADE_AND_MIGRATION.md
+│   │       │   └── WORKCORE_INTEGRATION.md
+│   │       ├── DTO/
+│   │       │   ├── Coordinates.php
+│   │       │   ├── ExternalPlaceData.php
+│   │       │   ├── MatchResult.php
+│   │       │   ├── NearbySearchRequest.php
+│   │       │   ├── PlaceSearchPage.php
+│   │       │   ├── PlaceSearchRequest.php
+│   │       │   ├── ProviderCapabilities.php
+│   │       │   ├── ProviderUsage.php
+│   │       │   └── RankedCandidate.php
+│   │       ├── Enums/
+│   │       │   ├── CandidateStatus.php
+│   │       │   ├── CandidateType.php
+│   │       │   ├── SearchStatus.php
+│   │       │   └── VerificationStatus.php
+│   │       ├── Events/
+│   │       │   ├── CandidateApproved.php
+│   │       │   ├── CandidateClassified.php
+│   │       │   ├── CandidateCreated.php
+│   │       │   ├── CandidateMatched.php
+│   │       │   ├── CandidatePromoted.php
+│   │       │   ├── CandidatePromotionFailed.php
+│   │       │   ├── CandidatePromotionRequested.php
+│   │       │   ├── CandidateRejected.php
+│   │       │   ├── ExternalPlaceObserved.php
+│   │       │   ├── MapsDomainEvent.php
+│   │       │   ├── ProviderConnectionFailed.php
+│   │       │   ├── ProviderRateLimited.php
+│   │       │   ├── ProviderUsageRecorded.php
+│   │       │   ├── SearchCancelled.php
+│   │       │   ├── SearchCompleted.php
+│   │       │   ├── SearchCreated.php
+│   │       │   ├── SearchFailed.php
+│   │       │   ├── SearchProgressed.php
+│   │       │   ├── SearchStarted.php
+│   │       │   └── TerritoryAnalysisCompleted.php
+│   │       ├── Exceptions/
+│   │       │   ├── MapsIntelligenceException.php
+│   │       │   ├── MissingHostContractException.php
+│   │       │   └── ProviderException.php
+│   │       ├── Exports/
+│   │       │   ├── CsvExportWriter.php
+│   │       │   ├── JsonExportWriter.php
+│   │       │   └── XlsxExportWriter.php
+│   │       ├── Http/
+│   │       │   ├── Controllers/
+│   │       │   │   ├── CandidateController.php
+│   │       │   │   ├── ExportController.php
+│   │       │   │   ├── SearchController.php
+│   │       │   │   ├── TerritoryController.php
+│   │       │   │   └── UsageController.php
+│   │       │   ├── Requests/
+│   │       │   │   ├── AnalyseTerritoryRequest.php
+│   │       │   │   ├── ClassifyCandidateRequest.php
+│   │       │   │   ├── ExportSearchRequest.php
+│   │       │   │   ├── MatchCandidateRequest.php
+│   │       │   │   ├── PromoteCandidateRequest.php
+│   │       │   │   ├── RejectCandidateRequest.php
+│   │       │   │   └── StoreSearchRequest.php
+│   │       │   └── Resources/
+│   │       │       ├── CandidateResource.php
+│   │       │       ├── SearchResource.php
+│   │       │       ├── TerritoryAnalysisResource.php
+│   │       │       └── UsageResource.php
+│   │       ├── Jobs/
+│   │       │   ├── ExecuteDiscoverySearch.php
+│   │       │   └── ProcessDiscoveryPage.php
+│   │       ├── Models/
+│   │       │   ├── CandidateMatch.php
+│   │       │   ├── CandidatePromotion.php
+│   │       │   ├── CompanyScopedModel.php
+│   │       │   ├── DiscoveryCandidate.php
+│   │       │   ├── DiscoveryRun.php
+│   │       │   ├── DiscoverySearch.php
+│   │       │   ├── ExternalPlace.php
+│   │       │   ├── ExternalPlaceContact.php
+│   │       │   ├── FieldObservation.php
+│   │       │   ├── MapProviderConnection.php
+│   │       │   ├── MapsSuppression.php
+│   │       │   ├── MapsUsageRecord.php
+│   │       │   └── TerritoryAnalysis.php
+│   │       ├── Policies/
+│   │       │   ├── DiscoveryCandidatePolicy.php
+│   │       │   └── DiscoverySearchPolicy.php
+│   │       ├── Providers/
+│   │       │   ├── GooglePlacesProvider.php
+│   │       │   ├── LaravelProviderHttpTransport.php
+│   │       │   └── PlacesProviderRegistry.php
+│   │       ├── Repositories/
+│   │       │   └── EloquentCandidateRepository.php
+│   │       ├── resources/
+│   │       │   ├── js/
+│   │       │   │   └── titan-maps-intelligence.js
+│   │       │   ├── lang/
+│   │       │   │   └── en/
+│   │       │   │       └── messages.php
+│   │       │   └── views/
+│   │       │       └── components/
+│   │       │           ├── candidate-card.blade.php
+│   │       │           ├── search-composer.blade.php
+│   │       │           ├── search-progress-card.blade.php
+│   │       │           └── territory-summary.blade.php
+│   │       ├── routes/
+│   │       │   └── api.php
+│   │       ├── Services/
+│   │       │   ├── CandidateClassificationService.php
+│   │       │   ├── CandidateExportService.php
+│   │       │   ├── CandidateMatchingService.php
+│   │       │   ├── CandidateMatchWorkflow.php
+│   │       │   ├── CandidatePromotionService.php
+│   │       │   ├── CandidateReviewService.php
+│   │       │   ├── CandidateTypeValidator.php
+│   │       │   ├── DiscoveryRunService.php
+│   │       │   ├── DiscoverySearchService.php
+│   │       │   ├── DiscoverySearchStateMachine.php
+│   │       │   ├── ExternalPlaceRepository.php
+│   │       │   ├── GeoDistanceService.php
+│   │       │   ├── MapsCapabilityService.php
+│   │       │   ├── PlaceCanonicalizer.php
+│   │       │   ├── ProvenanceService.php
+│   │       │   ├── ProviderRankingService.php
+│   │       │   ├── ProviderUsageService.php
+│   │       │   ├── ResultLimitService.php
+│   │       │   ├── SuppressionService.php
+│   │       │   ├── TerritoryAnalysisManager.php
+│   │       │   └── TerritoryAnalysisService.php
+│   │       ├── Support/
+│   │       │   ├── GooglePlacesNormalizer.php
+│   │       │   └── RequiredHostContract.php
+│   │       ├── Tools/
+│   │       │   ├── AnalyseTerritoryTool.php
+│   │       │   ├── ApproveCandidateTool.php
+│   │       │   ├── CancelSearchTool.php
+│   │       │   ├── ClassifyCandidateTool.php
+│   │       │   ├── ExportSearchTool.php
+│   │       │   ├── GetSearchTool.php
+│   │       │   ├── ListCandidatesTool.php
+│   │       │   ├── MatchCandidateTool.php
+│   │       │   ├── PromoteCandidateTool.php
+│   │       │   ├── ReadUsageTool.php
+│   │       │   ├── RejectCandidateTool.php
+│   │       │   └── SearchBusinessesTool.php
+│   │       ├── extension.json
+│   │       └── TitanMapsIntelligenceServiceProvider.php
+│   ├── Helpers/
+│   │   ├── FileUploader.php
+│   │   └── helpers.php
+│   ├── Http/
+│   │   ├── Controllers/
+│   │   │   ├── Titan/
+│   │   │   │   ├── AiConfigurationController.php
+│   │   │   │   ├── CapabilityController.php
+│   │   │   │   ├── CompanyContextController.php
+│   │   │   │   ├── CompanySetupController.php
+│   │   │   │   ├── MessageAttachmentController.php
+│   │   │   │   ├── OperationsController.php
+│   │   │   │   ├── WorkCoreActionController.php
+│   │   │   │   ├── WorkCoreReadController.php
+│   │   │   │   └── WorkCoreSummaryController.php
+│   │   │   ├── AuthController.php
+│   │   │   ├── ChatController.php
+│   │   │   ├── Controller.php
+│   │   │   ├── DashboardController.php
+│   │   │   ├── SettingController.php
+│   │   │   ├── SettingsController.php
+│   │   │   └── UserManagementController.php
+│   │   ├── Middleware/
+│   │   │   ├── IsAdmin.php
+│   │   │   ├── UpdateLastSeen.php
+│   │   │   └── UpdateUserLastSeen.php
+│   │   └── Requests/
+│   │       └── ImportUsersRequest.php
+│   ├── Models/
+│   │   ├── Company.php
+│   │   ├── CompanyMembership.php
+│   │   ├── CompanyPermission.php
+│   │   ├── CompanyRole.php
+│   │   ├── Conversation.php
+│   │   ├── Message.php
+│   │   ├── MessageRead.php
+│   │   ├── Participant.php
+│   │   ├── Setting.php
+│   │   └── User.php
+│   ├── Providers/
+│   │   ├── AppServiceProvider.php
+│   │   └── TitanServiceProvider.php
+│   ├── Services/
+│   │   └── AIAssistantService.php
+│   └── Titan/
+│       ├── AI/
+│       │   ├── ConversationContextBuilder.php
+│       │   ├── TitanZeroOrchestrator.php
+│       │   └── ToolRouter.php
+│       ├── Audit/
+│       │   ├── AuditRecorder.php
+│       │   └── DatabaseAuditRecorder.php
+│       ├── Capabilities/
+│       │   └── CapabilityRegistry.php
+│       ├── Creative/
+│       │   ├── Actions/
+│       │   │   ├── CreateAudienceAction.php
+│       │   │   ├── CreateAutomationAction.php
+│       │   │   ├── CreateBrandKitAction.php
+│       │   │   ├── CreateCampaignAction.php
+│       │   │   ├── CreateContentAction.php
+│       │   │   ├── CreateNewsletterAction.php
+│       │   │   ├── CreateProjectAction.php
+│       │   │   ├── CreatePublicationChannelAction.php
+│       │   │   ├── CreateSeoBriefAction.php
+│       │   │   ├── CreateTemplateAction.php
+│       │   │   ├── CreativeSummaryAction.php
+│       │   │   ├── DecideApprovalAction.php
+│       │   │   ├── QueueGenerationAction.php
+│       │   │   ├── RecordAnalyticsAction.php
+│       │   │   ├── RegisterAssetAction.php
+│       │   │   ├── RequestPublicationAction.php
+│       │   │   ├── ScheduleContentAction.php
+│       │   │   ├── TransitionGenerationAction.php
+│       │   │   └── TransitionPublicationAction.php
+│       │   ├── Contracts/
+│       │   │   └── CreativeRepository.php
+│       │   ├── Domain/
+│       │   │   ├── CampaignSchedulePolicy.php
+│       │   │   ├── ContentApprovalPolicy.php
+│       │   │   ├── GenerationJobState.php
+│       │   │   ├── ProviderReferencePolicy.php
+│       │   │   └── PublicationState.php
+│       │   ├── Providers/
+│       │   │   └── TitanCreativeServiceProvider.php
+│       │   └── Repositories/
+│       │       └── DatabaseCreativeRepository.php
+│       ├── Extensions/
+│       │   ├── ExtensionDefinition.php
+│       │   ├── ExtensionManager.php
+│       │   └── ExtensionRegistry.php
+│       ├── Intelligence/
+│       │   ├── Actions/
+│       │   │   ├── AssignAgentToolAction.php
+│       │   │   ├── AssignSkillAction.php
+│       │   │   ├── CreateAgentAction.php
+│       │   │   ├── CreateCanvasAction.php
+│       │   │   ├── CreateConnectionAction.php
+│       │   │   ├── CreateFolderAction.php
+│       │   │   ├── CreateOnboardingFlowAction.php
+│       │   │   ├── CreateProviderConnectionAction.php
+│       │   │   ├── CreateRoutingPolicyAction.php
+│       │   │   ├── CreateShareAction.php
+│       │   │   ├── CreateSkillAction.php
+│       │   │   ├── CreateVoiceProfileAction.php
+│       │   │   ├── IntelligenceSummaryAction.php
+│       │   │   ├── PublishAnnouncementAction.php
+│       │   │   ├── RecordOnboardingProgressAction.php
+│       │   │   ├── StartCouncilRunAction.php
+│       │   │   ├── StartVoiceSessionAction.php
+│       │   │   ├── StoreMemoryAction.php
+│       │   │   └── UpsertModelAction.php
+│       │   ├── Contracts/
+│       │   │   └── IntelligenceRepository.php
+│       │   ├── Domain/
+│       │   │   ├── AgentRunState.php
+│       │   │   ├── MemoryRetentionPolicy.php
+│       │   │   ├── ModelRoutingPolicy.php
+│       │   │   ├── ShareToken.php
+│       │   │   └── VoiceSessionState.php
+│       │   ├── Providers/
+│       │   │   └── TitanIntelligenceServiceProvider.php
+│       │   └── Repositories/
+│       │       └── DatabaseIntelligenceRepository.php
+│       ├── Maps/
+│       │   ├── MapsAuditGateway.php
+│       │   ├── MapsCapabilityRegistrar.php
+│       │   ├── MapsCompanyContext.php
+│       │   ├── MapsCredentialResolver.php
+│       │   ├── MapsExportController.php
+│       │   ├── MapsPermissionGateway.php
+│       │   ├── MapsPrivateExportStore.php
+│       │   └── MapsWorkCoreGateway.php
+│       ├── Permissions/
+│       │   └── PermissionResolver.php
+│       ├── Tenancy/
+│       │   ├── ActiveCompanyContext.php
+│       │   ├── CompanyContextResolver.php
+│       │   └── EnsureActiveCompany.php
+│       ├── Vault/
+│       │   ├── DatabaseVault.php
+│       │   └── Vault.php
+│       └── WorkCore/
+│           ├── MeetupEntitlementResolver.php
+│           ├── MeetupMenuAdapter.php
+│           ├── MeetupNotificationAdapter.php
+│           ├── MeetupPermissionResolver.php
+│           ├── MeetupStorageAdapter.php
+│           ├── MeetupTenantResolver.php
+│           └── MeetupToolBridge.php
+├── bin/
+│   ├── titan-build
+│   ├── titan-preflight
+│   ├── titan-verify-connected
+│   └── titan-verify-offline
+├── bootstrap/
+│   ├── cache/
+│   │   └── .gitignore
+│   ├── app.php
+│   └── providers.php
+├── config/
+│   ├── app.php
+│   ├── auth.php
+│   ├── broadcasting.php
+│   ├── cache.php
+│   ├── database.php
+│   ├── filesystems.php
+│   ├── logging.php
+│   ├── mail.php
+│   ├── queue.php
+│   ├── sanctum.php
+│   ├── services.php
+│   ├── session.php
+│   ├── titan.php
+│   ├── titan_creative.php
+│   ├── titan_intelligence.php
+│   ├── trade_compliance.php
+│   └── workcore.php
+├── database/
+│   ├── factories/
+│   │   └── UserFactory.php
+│   ├── migrations/
+│   │   ├── extensions/
+│   │   │   └── titan_maps/
+│   │   │       ├── 2026_07_25_020001_create_maps_provider_connections_table.php
+│   │   │       ├── 2026_07_25_020002_create_discovery_searches_table.php
+│   │   │       ├── 2026_07_25_020003_create_discovery_runs_table.php
+│   │   │       ├── 2026_07_25_020004_create_external_places_table.php
+│   │   │       ├── 2026_07_25_020005_create_external_place_contacts_table.php
+│   │   │       ├── 2026_07_25_020006_create_field_observations_table.php
+│   │   │       ├── 2026_07_25_020007_create_discovery_candidates_table.php
+│   │   │       ├── 2026_07_25_020008_create_candidate_matches_table.php
+│   │   │       ├── 2026_07_25_020009_create_candidate_promotions_table.php
+│   │   │       ├── 2026_07_25_020010_create_territory_analyses_table.php
+│   │   │       ├── 2026_07_25_020011_create_maps_usage_records_table.php
+│   │   │       ├── 2026_07_25_020012_create_maps_suppressions_table.php
+│   │   │       └── 2026_07_25_020013_create_maps_private_exports_table.php
+│   │   ├── 0001_01_01_000000_create_users_table.php
+│   │   ├── 0001_01_01_000001_create_cache_table.php
+│   │   ├── 0001_01_01_000002_create_jobs_table.php
+│   │   ├── 2025_11_24_083018_create_settings_table.php
+│   │   ├── 2025_11_24_185342_create_conversations_table.php
+│   │   ├── 2025_11_24_185343_create_messages_table.php
+│   │   ├── 2025_11_24_185343_create_participants_table.php
+│   │   ├── 2025_11_24_185634_create_personal_access_tokens_table.php
+│   │   ├── 2025_11_27_154923_add_attachment_fields_to_messages_table.php
+│   │   ├── 2025_11_30_130136_create_message_reads_table.php
+│   │   ├── 2025_12_06_074908_make_user_id_nullable_in_messages_table.php
+│   │   ├── 2025_12_06_075858_add_ai_assistant_type_to_conversations_table.php
+│   │   ├── 2026_07_25_000100_create_titan_company_foundation.php
+│   │   ├── 2026_07_25_000110_create_titan_platform_tables.php
+│   │   ├── 2026_07_25_000120_add_company_scope_to_conversations.php
+│   │   ├── 2026_07_25_010000_create_workcore_crm_tables.php
+│   │   ├── 2026_07_25_010010_create_tz_company_invitations_table.php
+│   │   ├── 2026_07_25_010020_create_tz_action_governance_tables.php
+│   │   ├── 2026_07_25_010030_create_tz_outbox_messages_table.php
+│   │   ├── 2026_07_25_010040_complete_tz_crm_foundation.php
+│   │   ├── 2026_07_25_010050_create_tz_premises_table.php
+│   │   ├── 2026_07_25_010060_create_tz_service_catalogue_tables.php
+│   │   ├── 2026_07_25_010070_create_tz_work_order_tables.php
+│   │   ├── 2026_07_25_010080_create_tz_appointment_tables.php
+│   │   ├── 2026_07_25_010090_create_tz_dispatch_tables.php
+│   │   ├── 2026_07_25_010100_create_tz_worker_tables.php
+│   │   ├── 2026_07_25_010110_create_tz_availability_and_roster_tables.php
+│   │   ├── 2026_07_25_010120_create_tz_asset_and_equipment_tables.php
+│   │   ├── 2026_07_25_010130_create_tz_inventory_and_material_tables.php
+│   │   ├── 2026_07_25_010140_create_tz_forms_and_checklists_tables.php
+│   │   ├── 2026_07_25_010150_create_tz_attendance_and_leave_tables.php
+│   │   ├── 2026_07_25_010160_create_tz_support_ticket_tables.php
+│   │   ├── 2026_07_25_010170_create_tz_knowledge_base_tables.php
+│   │   ├── 2026_07_25_010180_create_tz_reviews_and_rebooking_tables.php
+│   │   ├── 2026_07_25_010190_merge_titan_assets_into_workcore.php
+│   │   ├── 2026_07_25_010200_integrate_assets_with_scheduling.php
+│   │   ├── 2026_07_25_010210_harden_asset_runtime_wiring.php
+│   │   ├── 2026_07_25_010220_expand_premises_supply_fleet_and_repairs.php
+│   │   ├── 2026_07_25_010225_create_tz_vertical_system_tables.php
+│   │   ├── 2026_07_25_010226_create_tz_vertical_operations_tables.php
+│   │   ├── 2026_07_25_010230_create_tz_trade_field_compliance_tables.php
+│   │   ├── 2026_07_25_010240_register_trade_field_compliance_permissions.php
+│   │   ├── 2026_07_26_020000_create_tz_documents_and_evidence_tables.php
+│   │   ├── 2026_07_26_020010_create_tz_assurance_tables.php
+│   │   ├── 2026_07_26_030000_create_tz_property_accommodation_tables.php
+│   │   ├── 2026_07_26_040000_create_tz_finance_payment_trust_tables.php
+│   │   ├── 2026_07_26_050000_create_titan_intelligence_runtime_tables.php
+│   │   └── 2026_07_26_060000_create_titan_creative_marketing_tables.php
+│   ├── seeders/
+│   │   ├── DatabaseSeeder.php
+│   │   ├── SettingSeeder.php
+│   │   └── UserSeeder.php
+│   └── .gitignore
+├── docker/
+│   └── php/
+│       ├── Dockerfile
+│       └── entrypoint.sh
+├── docs/
+│   ├── integration/
+│   │   ├── AUTHORITY_AND_PROVENANCE.md
+│   │   ├── BASE_AI_EXTENSION_RECONCILIATION.md
+│   │   ├── BOS_ASSURANCE_EVIDENCE_DELTA.md
+│   │   ├── CONNECTED_VERIFICATION_HARNESS.md
+│   │   ├── EXTENSION_REGISTRY.md
+│   │   ├── FINANCE_ZEROPAY_TRUST_DELTA.md
+│   │   ├── MARKETING_CREATIVE_RECONCILIATION.md
+│   │   ├── MEETUP_HOST_ADAPTERS.md
+│   │   ├── PROPERTY_ACCOMMODATION_DELTA.md
+│   │   ├── REMAINING_WORK.md
+│   │   └── WORKCORE_REPAIR_REPORT.md
+│   └── superpowers/
+│       ├── plans/
+│       │   ├── 2026-07-25-meetup-workcore-integration.md
+│       │   ├── 2026-07-26-finance-zeropay-trust.md
+│       │   ├── 2026-07-26-property-accommodation-execution.md
+│       │   ├── 2026-07-26-titan-creative-marketing-v060.md
+│       │   ├── 2026-07-26-titan-intelligence-runtime-v050.md
+│       │   ├── 2026-07-26-workcore-assurance-evidence.md
+│       │   └── 2026-07-27-connected-verification-v070.md
+│       └── specs/
+│           ├── 2026-07-25-meetup-workcore-integration-design.md
+│           ├── 2026-07-26-finance-zeropay-trust-design.md
+│           ├── 2026-07-26-property-accommodation-execution-design.md
+│           ├── 2026-07-26-titan-creative-marketing-design.md
+│           ├── 2026-07-26-titan-intelligence-runtime-v050-design.md
+│           └── 2026-07-26-workcore-assurance-evidence-design.md
+├── public/
+│   ├── css/
+│   │   ├── chat.css
+│   │   ├── custom.css
+│   │   ├── login.css
+│   │   ├── responsive.css
+│   │   └── titan-operations.css
+│   ├── js/
+│   │   ├── chat-app.js
+│   │   ├── chat.js
+│   │   ├── echo.iife.js
+│   │   ├── jquery-3.7.1.min.js
+│   │   ├── lucide.min.js
+│   │   ├── pusher.min.js
+│   │   ├── pwa.js
+│   │   └── titan-operations.js
+│   ├── pwa-icons/
+│   │   ├── 128.png
+│   │   ├── 144.png
+│   │   ├── 152.png
+│   │   ├── 192.png
+│   │   ├── 48.png
+│   │   ├── 512.png
+│   │   ├── 72.png
+│   │   └── 96.png
+│   ├── seeder/
+│   │   ├── favicon.png
+│   │   └── logo.png
+│   ├── .htaccess
+│   ├── apple-touch-icon.png
+│   ├── favicon-16.png
+│   ├── favicon-32.png
+│   ├── favicon.ico
+│   ├── index.php
+│   ├── manifest.json
+│   ├── mstile-150x150.png
+│   ├── notification-music.mp3
+│   ├── offline.html
+│   ├── robots.txt
+│   └── service-worker.js
+├── resources/
+│   ├── css/
+│   │   └── app.css
+│   ├── js/
+│   │   ├── titan/
+│   │   │   └── operations.js
+│   │   ├── app.js
+│   │   └── bootstrap.js
+│   ├── views/
+│   │   ├── layouts/
+│   │   │   ├── partials/
+│   │   │   │   └── mini-sidebar.blade.php
+│   │   │   ├── app.blade.php
+│   │   │   └── guest.blade.php
+│   │   ├── titan/
+│   │   │   ├── company-setup.blade.php
+│   │   │   └── operations.blade.php
+│   │   ├── users/
+│   │   │   ├── create.blade.php
+│   │   │   ├── edit.blade.php
+│   │   │   └── index.blade.php
+│   │   ├── chat.blade.php
+│   │   ├── dashboard.blade.php
+│   │   ├── login.blade.php
+│   │   ├── register.blade.php
+│   │   ├── settings.blade.php
+│   │   └── system_settings.blade.php
+│   └── workcore/
+│       └── verticals/
+│           ├── accommodation_core.json
+│           ├── cleaning.json
+│           ├── electrical.json
+│           ├── facilities_management.json
+│           ├── field_services_core.json
+│           ├── gardening.json
+│           ├── handyman.json
+│           ├── hotel_management.json
+│           ├── licensed_trades_core.json
+│           ├── ndis_accommodation.json
+│           ├── ndis_service_provider.json
+│           ├── plumbing.json
+│           ├── premises_services_core.json
+│           ├── pressure_washing.json
+│           ├── property_management.json
+│           ├── real_estate_sales.json
+│           ├── regulated_care_core.json
+│           ├── rooming_house_management.json
+│           ├── short_stay_management.json
+│           └── student_accommodation.json
+├── routes/
+│   ├── api.php
+│   ├── channels.php
+│   ├── console.php
+│   ├── titan.php
+│   └── web.php
+├── storage/
+│   ├── app/
+│   │   ├── private/
+│   │   │   └── .gitignore
+│   │   ├── public/
+│   │   │   └── .gitignore
+│   │   └── .gitignore
+│   ├── framework/
+│   │   ├── cache/
+│   │   ├── sessions/
+│   │   ├── testing/
+│   │   │   └── .gitignore
+│   │   ├── views/
+│   │   └── .gitignore
+│   ├── logs/
+│   └── pail/
+│       └── .gitignore
+├── tests/
+│   ├── Architecture/
+│   │   ├── FinanceHostSurfaceTest.php
+│   │   ├── FinanceMoneyDomainContractTest.php
+│   │   ├── FinancePersistenceContractTest.php
+│   │   ├── FinanceRuntimeContractTest.php
+│   │   ├── HostTenancyContractTest.php
+│   │   ├── PlatformContractTest.php
+│   │   ├── PropertyAccommodationHostSurfaceTest.php
+│   │   ├── PropertyAccommodationPersistenceContractTest.php
+│   │   ├── PropertyAccommodationRuntimeContractTest.php
+│   │   ├── TitanIntegrationStructureTest.php
+│   │   ├── TitanIntelligenceHostSurfaceTest.php
+│   │   ├── TitanIntelligencePersistenceContractTest.php
+│   │   ├── TitanIntelligenceRuntimeContractTest.php
+│   │   ├── TitanMapsHostIntegrationContractTest.php
+│   │   ├── TitanRouteSecurityContractTest.php
+│   │   └── WorkCoreBoundaryContractTest.php
+│   ├── Feature/
+│   │   └── ExampleTest.php
+│   ├── Standalone/
+│   │   ├── Deployment/
+│   │   │   └── run.php
+│   │   ├── TitanAI/
+│   │   │   └── run.php
+│   │   ├── TitanCreative/
+│   │   │   ├── domain.php
+│   │   │   ├── host.php
+│   │   │   ├── persistence.php
+│   │   │   ├── reconciliation.php
+│   │   │   └── runtime.php
+│   │   ├── TitanIntelligence/
+│   │   │   └── domain.php
+│   │   ├── TitanMapsIntelligence/
+│   │   │   ├── Unit/
+│   │   │   │   ├── CandidateClassificationTest.php
+│   │   │   │   ├── CandidateMatchingTest.php
+│   │   │   │   ├── CandidatePromotionServiceTest.php
+│   │   │   │   ├── CandidateSearchIsolationStaticTest.php
+│   │   │   │   ├── CandidateTypeValidationTest.php
+│   │   │   │   ├── CanonicalizationTest.php
+│   │   │   │   ├── CapabilitySchemaTest.php
+│   │   │   │   ├── CapabilityToolsStaticTest.php
+│   │   │   │   ├── DatabaseSchemaStaticTest.php
+│   │   │   │   ├── DtoValidationTest.php
+│   │   │   │   ├── EventCatalogueStaticTest.php
+│   │   │   │   ├── ExportSurfaceStaticTest.php
+│   │   │   │   ├── ExportWritersTest.php
+│   │   │   │   ├── FailClosedHostContractTest.php
+│   │   │   │   ├── GeoDistanceTest.php
+│   │   │   │   ├── GooglePlacesProviderTest.php
+│   │   │   │   ├── GovernedWorkflowStaticTest.php
+│   │   │   │   ├── IntegrationSurfaceStaticTest.php
+│   │   │   │   ├── ManifestContractTest.php
+│   │   │   │   ├── ProcessingPipelineStaticTest.php
+│   │   │   │   ├── ProvenanceTest.php
+│   │   │   │   ├── ProviderRankingTest.php
+│   │   │   │   ├── ProviderResponseValidationTest.php
+│   │   │   │   ├── ProviderUsageTest.php
+│   │   │   │   ├── ResultLimitTest.php
+│   │   │   │   ├── RouteContractStaticTest.php
+│   │   │   │   ├── SearchLifecycleTest.php
+│   │   │   │   ├── SecurityStaticTest.php
+│   │   │   │   ├── ServiceProviderContractStaticTest.php
+│   │   │   │   ├── SuppressionTest.php
+│   │   │   │   ├── TerritoryAnalysisTest.php
+│   │   │   │   └── UiSurfaceStaticTest.php
+│   │   │   ├── bootstrap.php
+│   │   │   └── run.php
+│   │   └── WorkCoreAssurance/
+│   │       └── run.php
+│   ├── Unit/
+│   │   └── ExampleTest.php
+│   ├── WorkCore/
+│   │   └── property_accommodation_domain.php
+│   ├── Pest.php
+│   └── TestCase.php
+├── tools/
+│   ├── titan_migration_order.php
+│   ├── titan_namespace_scan.php
+│   ├── titan_route_provider_scan.php
+│   └── titan_verify.php
+├── .dockerignore
+├── .editorconfig
+├── .env.example
+├── .env.testing
+├── .env.verification
+├── .gitignore
+├── .htaccess
+├── APP_DIRECTORY_SUMMARY.md
+├── APP_DIRECTORY_TREE.txt
+├── artisan
+├── BUILD_REPORT.md
+├── composer.json
+├── composer.lock
+├── DEPLOYMENT.md
+├── docker-compose.yml
+├── package.json
+├── phpunit.xml
+├── README.md
+└── vite.config.js

@@ -1,0 +1,52 @@
+version: "1.0.0"
+name: "reviewer"
+role: "reviewer"
+
+description: |
+  Reviewer agent reviews code for quality, architecture, and security.
+  - Reads code changes and provides constructive feedback
+  - Checks adherence to standards and patterns
+  - Identifies potential bugs and edge cases
+  - Reviews test coverage
+  - Suggests improvements
+
+capabilities:
+  - name: "code_review"
+    description: "Review code for quality and correctness"
+    tools: ["diff_analyzer", "code_quality_checker"]
+
+  - name: "architecture_review"
+    description: "Review architectural alignment"
+    tools: ["dependency_analyzer", "architecture_checker"]
+
+  - name: "test_coverage_review"
+    description: "Review test completeness"
+    tools: ["coverage_analyzer", "test_analyzer"]
+
+  - name: "performance_review"
+    description: "Review for performance issues"
+    tools: ["performance_analyzer", "benchmark_tool"]
+
+authority:
+  risk_level: "medium"
+  file_patterns: ["**"]
+  requires_approval: []
+
+constraints:
+  max_concurrent_tasks: 4
+  max_execution_time_minutes: 20
+  max_tokens_per_task: 40000
+  rate_limit_tasks_per_hour: 20
+
+memory_access:
+  global: true
+  repository: true
+  branch: true
+  task: false
+  agent: false
+
+handoff_rules:
+  - when: "issues_found AND critical"
+    to_agent: "implementer"
+  - when: "review_approved"
+    to_agent: "tester"

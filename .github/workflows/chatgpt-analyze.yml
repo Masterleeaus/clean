@@ -1,0 +1,122 @@
+name: ChatGPT Analyze Repository
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 2 * * 0'  # Weekly on Sunday
+
+concurrency:
+  group: chatgpt-analyze
+  cancel-in-progress: false
+
+jobs:
+  analyze-structure:
+    name: Analyze Repository Structure
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Analyze Domains
+        run: |
+          mkdir -p analysis
+          echo "# Repository Structure Analysis" > analysis/structure.md
+          echo "" >> analysis/structure.md
+          echo "Generated: $(date)" >> analysis/structure.md
+          echo "" >> analysis/structure.md
+
+          echo "## Domains" >> analysis/structure.md
+          find app/Domains -maxdepth 1 -type d -not -name Domains | while read domain; do
+            name=$(basename "$domain")
+            count=$(find "$domain" -name "*.php" | wc -l)
+            echo "- **$name**: $count PHP files" >> analysis/structure.md
+          done
+
+          echo "" >> analysis/structure.md
+          echo "## Extensions" >> analysis/structure.md
+          ext_count=$(ls -d app/Extensions/*/ 2>/dev/null | wc -l)
+          echo "Total extensions: **$ext_count**" >> analysis/structure.md
+          echo "" >> analysis/structure.md
+
+          ls -d app/Extensions/*/ 2>/dev/null | head -20 | while read ext; do
+            name=$(basename "$ext")
+            echo "- $name" >> analysis/structure.md
+          done
+
+          echo "" >> analysis/structure.md
+          echo "## Packages" >> analysis/structure.md
+          find packages -maxdepth 2 -type d -not -path "*/\.*" | grep -v "^packages$" | sed 's|packages/||' | sort | head -20 | while read pkg; do
+            echo "- $pkg" >> analysis/structure.md
+          done
+
+          cat analysis/structure.md
+
+      - name: Analyze Code Statistics
+        run: |
+          mkdir -p analysis
+
+          echo "# Code Statistics" > analysis/statistics.md
+          echo "" >> analysis/statistics.md
+          echo "Generated: $(date)" >> analysis/statistics.md
+          echo "" >> analysis/statistics.md
+
+          echo "## PHP Files" >> analysis/statistics.md
+          php_count=$(find app -name "*.php" | wc -l)
+          echo "Total: **$php_count**" >> analysis/statistics.md
+          echo "" >> analysis/statistics.md
+
+          echo "## Line Counts by Domain" >> analysis/statistics.md
+          find app/Domains -maxdepth 1 -type d -not -name Domains | while read domain; do
+            name=$(basename "$domain")
+            lines=$(find "$domain" -name "*.php" -exec wc -l {} + 2>/dev/null | tail -1 | awk '{print $1}')
+            echo "- **$name**: $lines lines" >> analysis/statistics.md
+          done
+
+          echo "" >> analysis/statistics.md
+          echo "## Configuration Files" >> analysis/statistics.md
+          echo "- Routes: $(ls routes/*.php 2>/dev/null | wc -l) files" >> analysis/statistics.md
+          echo "- Migrations: $(ls database/migrations/*.php 2>/dev/null | wc -l) files" >> analysis/statistics.md
+
+          cat analysis/statistics.md
+
+      - name: Analyze Dependencies
+        run: |
+          mkdir -p analysis
+
+          echo "# Dependency Analysis" > analysis/dependencies.md
+          echo "" >> analysis/dependencies.md
+          echo "Generated: $(date)" >> analysis/dependencies.md
+          echo "" >> analysis/dependencies.md
+
+          echo "## Composer Dependencies" >> analysis/dependencies.md
+          if [ -f composer.json ]; then
+            echo "- **PHP Version**: $(grep -o '"php":"[^"]*"' composer.json || echo 'Not specified')" >> analysis/dependencies.md
+            echo "- **Laravel**: $(grep -o '"laravel/framework":"[^"]*"' composer.json || echo 'Not found')" >> analysis/dependencies.md
+          fi
+          echo "" >> analysis/dependencies.md
+
+          echo "## NPM Dependencies" >> analysis/dependencies.md
+          if [ -f package.json ]; then
+            echo "- **Node Version**: $(grep -o '"node":"[^"]*"' package.json || echo 'Not specified')" >> analysis/dependencies.md
+            echo "- **Total Packages**: $(jq '.dependencies | length' package.json 2>/dev/null || echo 'Unknown')" >> analysis/dependencies.md
+          fi
+
+          cat analysis/dependencies.md
+
+      - name: Upload Analysis
+        uses: actions/upload-artifact@v3
+        with:
+          name: structure-analysis-${{ github.run_id }}
+          path: analysis/
+          retention-days: 30
+
+      - name: Comment Results
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          echo "## Repository Analysis Complete" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "See artifacts: \`structure-analysis-${{ github.run_id }}\`" >> $GITHUB_STEP_SUMMARY

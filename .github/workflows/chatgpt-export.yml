@@ -1,0 +1,260 @@
+name: ChatGPT Export & Document
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 3 * * 1'  # Weekly on Monday
+
+concurrency:
+  group: chatgpt-export
+  cancel-in-progress: false
+
+jobs:
+  export-routes:
+    name: Export API Routes
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+
+      - name: Extract API Routes
+        run: |
+          mkdir -p export
+
+          echo "# API Routes Export" > export/api-routes.md
+          echo "" >> export/api-routes.md
+          echo "Generated: $(date)" >> export/api-routes.md
+          echo "" >> export/api-routes.md
+
+          echo "## Route File Locations" >> export/api-routes.md
+          echo '```' >> export/api-routes.md
+          ls -la routes/*.php | awk '{print $9}' >> export/api-routes.md
+          echo '```' >> export/api-routes.md
+          echo "" >> export/api-routes.md
+
+          echo "## API Endpoints (from routes/api.php)" >> export/api-routes.md
+          echo '```' >> export/api-routes.md
+          grep -E "Route::(get|post|put|patch|delete)" routes/api.php | head -30 >> export/api-routes.md || echo "See routes/api.php for endpoints" >> export/api-routes.md
+          echo '```' >> export/api-routes.md
+
+          cat export/api-routes.md
+
+      - name: Extract Web Routes
+        run: |
+          echo "## Web Endpoints" >> export/api-routes.md
+          echo '```' >> export/api-routes.md
+          grep -E "Route::(get|post|put|patch|delete)" routes/web.php | head -20 >> export/api-routes.md || echo "See routes/web.php for routes" >> export/api-routes.md
+          echo '```' >> export/api-routes.md
+
+      - name: Upload Routes Export
+        uses: actions/upload-artifact@v3
+        with:
+          name: routes-export-${{ github.run_id }}
+          path: export/
+          retention-days: 30
+
+  export-models:
+    name: Export Data Models
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Extract WorkCore Models
+        run: |
+          mkdir -p export
+
+          echo "# Data Models Export" > export/models.md
+          echo "" >> export/models.md
+          echo "Generated: $(date)" >> export/models.md
+          echo "" >> export/models.md
+
+          echo "## WorkCore Models" >> export/models.md
+          echo '```' >> export/models.md
+          if [ -d "app/Domains/WorkCore/System/Models" ]; then
+            ls -1 app/Domains/WorkCore/System/Models/*.php | xargs -I {} basename {} .php >> export/models.md
+          fi
+          echo '```' >> export/models.md
+
+          echo "## Domain Models" >> export/models.md
+          find app/Domains -name "Models" -type d | while read dir; do
+            domain=$(echo "$dir" | sed 's|app/Domains/||' | sed 's|/Models||')
+            echo "" >> export/models.md
+            echo "### $domain" >> export/models.md
+            echo '```' >> export/models.md
+            ls -1 "$dir"/*.php 2>/dev/null | xargs -I {} basename {} .php >> export/models.md || echo "No models found" >> export/models.md
+            echo '```' >> export/models.md
+          done
+
+          cat export/models.md
+
+      - name: Upload Models Export
+        uses: actions/upload-artifact@v3
+        with:
+          name: models-export-${{ github.run_id }}
+          path: export/
+          retention-days: 30
+
+  export-extensions:
+    name: Export Extensions Manifest
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Create Extensions Summary
+        run: |
+          mkdir -p export
+
+          echo "# Extensions Manifest" > export/extensions.json
+          echo "{" >> export/extensions.json
+          echo '  "exported_at": "'$(date -u +%Y-%m-%dT%H:%M:%SZ)',' >> export/extensions.json
+          echo '  "total_extensions": '$(ls -d app/Extensions/*/ 2>/dev/null | wc -l)',' >> export/extensions.json
+          echo '  "extensions": [' >> export/extensions.json
+
+          first=true
+          for ext_dir in app/Extensions/*/; do
+            ext_name=$(basename "$ext_dir")
+            if [ -f "$ext_dir/extension.json" ]; then
+              if [ "$first" = false ]; then
+                echo "," >> export/extensions.json
+              fi
+              echo -n "    {" >> export/extensions.json
+              echo -n '"name": "'$ext_name'"' >> export/extensions.json
+
+              # Try to extract version
+              if command -v jq &> /dev/null; then
+                version=$(jq -r '.version // "unknown"' "$ext_dir/extension.json" 2>/dev/null)
+                echo -n ', "version": "'$version'"' >> export/extensions.json
+              fi
+
+              echo -n "}" >> export/extensions.json
+              first=false
+            fi
+          done
+
+          echo "" >> export/extensions.json
+          echo "  ]" >> export/extensions.json
+          echo "}" >> export/extensions.json
+
+          cat export/extensions.json
+
+      - name: Create Markdown Summary
+        run: |
+          echo "# Extensions Summary" > export/extensions.md
+          echo "" >> export/extensions.md
+          echo "Generated: $(date)" >> export/extensions.md
+          echo "" >> export/extensions.md
+
+          echo "## Extensions List" >> export/extensions.md
+          echo "" >> export/extensions.md
+
+          ls -d app/Extensions/*/ 2>/dev/null | while read ext_dir; do
+            ext_name=$(basename "$ext_dir")
+            echo "### $ext_name" >> export/extensions.md
+
+            if [ -f "$ext_dir/extension.json" ]; then
+              if command -v jq &> /dev/null; then
+                version=$(jq -r '.version // "unknown"' "$ext_dir/extension.json" 2>/dev/null)
+                description=$(jq -r '.description // ""' "$ext_dir/extension.json" 2>/dev/null)
+                echo "- **Version**: $version" >> export/extensions.md
+                if [ -n "$description" ]; then
+                  echo "- **Description**: $description" >> export/extensions.md
+                fi
+              fi
+            fi
+
+            echo "" >> export/extensions.md
+          done
+
+          cat export/extensions.md
+
+      - name: Upload Extensions Export
+        uses: actions/upload-artifact@v3
+        with:
+          name: extensions-export-${{ github.run_id }}
+          path: export/
+          retention-days: 30
+
+  export-migrations:
+    name: Export Database Migrations
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Extract Migrations
+        run: |
+          mkdir -p export
+
+          echo "# Database Migrations" > export/migrations.md
+          echo "" >> export/migrations.md
+          echo "Generated: $(date)" >> export/migrations.md
+          echo "" >> export/migrations.md
+
+          if [ -d "database/migrations" ]; then
+            echo "## Migration Files" >> export/migrations.md
+            echo "" >> export/migrations.md
+            echo "Total: $(ls database/migrations/*.php 2>/dev/null | wc -l) migrations" >> export/migrations.md
+            echo "" >> export/migrations.md
+
+            ls -1 database/migrations/*.php 2>/dev/null | while read file; do
+              name=$(basename "$file" | sed 's/\.php$//')
+              echo "- $name" >> export/migrations.md
+            done
+          fi
+
+          cat export/migrations.md
+
+      - name: Upload Migrations Export
+        uses: actions/upload-artifact@v3
+        with:
+          name: migrations-export-${{ github.run_id }}
+          path: export/
+          retention-days: 30
+
+  create-summary:
+    name: Create Export Summary
+    runs-on: ubuntu-latest
+    needs: [export-routes, export-models, export-extensions, export-migrations]
+    if: always()
+
+    steps:
+      - name: Summary
+        run: |
+          cat >> $GITHUB_STEP_SUMMARY << 'EOF'
+          # Export & Documentation Summary
+
+          ## Exported Artifacts
+
+          - ✓ API Routes
+          - ✓ Data Models
+          - ✓ Extensions Manifest
+          - ✓ Database Migrations
+
+          ## Artifact Naming
+          - routes-export-${{ github.run_id }}
+          - models-export-${{ github.run_id }}
+          - extensions-export-${{ github.run_id }}
+          - migrations-export-${{ github.run_id }}
+
+          All exports are available in the Artifacts section.
+          EOF

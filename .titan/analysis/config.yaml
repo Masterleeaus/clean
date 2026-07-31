@@ -1,0 +1,294 @@
+version: "1.0.0"
+name: "Analysis Pipeline Configuration"
+description: |
+  Configuration for the static analysis pipeline that runs on every commit.
+  Tools are run in order, results are aggregated into SARIF format.
+
+# ============================================================================
+# GLOBAL SETTINGS
+# ============================================================================
+
+global:
+  output_dir: ".titan/analysis/results"
+  format: "sarif"  # Standard Results Format
+  failure_on: "error"  # fail on error, warn on warning, ignore on info
+  max_execution_time_minutes: 5
+  cache_results: true
+  cache_ttl_days: 7
+
+# ============================================================================
+# PHP ANALYSIS TOOLS
+# ============================================================================
+
+php:
+  type_checking:
+    # PHPStan - Static type checker
+    - name: "phpstan"
+      enabled: true
+      level: "max"  # 0-9, max is strictest
+      config: "phpstan.neon"
+      memory_limit: "1G"
+      parallel: true
+      threads: 4
+      output_format: "json"
+      baseline: ".phpstan-baseline.neon"  # ignore known issues
+      extensions:
+        - "phpstan-doctrine"
+        - "phpstan-laravel"
+        - "phpstan-strict-rules"
+      rules_to_enforce:
+        - "unusedVariables"
+        - "undefinedVariables"
+        - "missingPropertyTypeDeclaration"
+
+    # Psalm - Another static analyzer with security focus
+    - name: "psalm"
+      enabled: true
+      level: "1"  # 1-8, 1 is strictest
+      config: "psalm.xml"
+      plugins:
+        - "security"
+      output_format: "json"
+      taint_analysis: true
+
+  linting:
+    # PHP-CS-Fixer - Code style fixer
+    - name: "php-cs-fixer"
+      enabled: true
+      config: ".php-cs-fixer.dist.php"
+      rules:
+        - "@PSR12"
+        - "array_indentation"
+        - "multiline_whitespace_before_semicolons"
+      dry_run: true  # Don't modify files
+      allow_risky: false
+
+    # PHPCS - Code sniffer
+    - name: "phpcs"
+      enabled: true
+      standard: "PSR12"
+      severity: "3"  # 1-3, 3 is warnings
+      report: "json"
+
+  architecture:
+    # Deptrac - Dependency checker
+    - name: "deptrac"
+      enabled: true
+      config: "deptrac.yaml"
+      report_output: "json"
+
+    # PHPCPD - Copy/paste detector
+    - name: "phpcpd"
+      enabled: true
+      min_lines: 5
+      min_tokens: 70
+      output_format: "json"
+      exclude:
+        - "vendor"
+        - "tests"
+        - "node_modules"
+
+  security:
+    # Psalm security checks (already configured above)
+    # Additional security scanning tools:
+
+    # SensioLabs SecurityChecker
+    - name: "security-checker"
+      enabled: true
+      format: "json"
+
+    # Custom secret scanning
+    - name: "gitleaks"
+      enabled: true
+      redact: true
+      report_path: ".titan/analysis/results/gitleaks.json"
+
+  dead_code:
+    # Psalm's dead code detection
+    - name: "psalm-dead-code"
+      enabled: true
+      config: "psalm.xml"
+
+# ============================================================================
+# JAVASCRIPT/TYPESCRIPT ANALYSIS TOOLS
+# ============================================================================
+
+javascript:
+  linting:
+    - name: "eslint"
+      enabled: true
+      config: ".eslintrc.js"
+      format: "json"
+      fix: false  # Don't modify files
+
+    - name: "prettier"
+      enabled: true
+      check_only: true
+
+  type_checking:
+    - name: "typescript"
+      enabled: true
+      strict: true
+      noImplicitAny: true
+      noImplicitThis: true
+      strictNullChecks: true
+
+# ============================================================================
+# DEPENDENCY ANALYSIS
+# ============================================================================
+
+dependencies:
+  # Composer audit
+  - name: "composer-audit"
+    enabled: true
+    output_format: "json"
+
+  # Check for unused packages
+  - name: "composer-unused"
+    enabled: true
+    config: "composer.json"
+
+  # NPM audit (if applicable)
+  - name: "npm-audit"
+    enabled: false  # Only if package.json exists
+    severity: "moderate"  # low, moderate, high, critical
+
+  # Dependency checker for known vulnerabilities
+  - name: "symfony-security-checker"
+    enabled: true
+    output_format: "json"
+
+# ============================================================================
+# CODE METRICS
+# ============================================================================
+
+metrics:
+  enabled: true
+  tools:
+    # PhpMetrics
+    - name: "phpmetrics"
+      enabled: true
+      output: ".titan/analysis/results/phpmetrics.json"
+      reports:
+        - "metrics"
+        - "coupling"
+        - "complexity"
+
+    # Code complexity analysis
+    - name: "phploc"
+      enabled: true
+      count_tests: false
+      format: "json"
+
+# ============================================================================
+# DYNAMIC ANALYSIS (Runtime)
+# ============================================================================
+
+dynamic_analysis:
+  enabled: false  # Enable for CI/CD, not dev commits
+
+  # Run tests with coverage
+  tests:
+    enabled: true
+    framework: "phpunit"
+    coverage_threshold: 85
+    coverage_format: "json"
+
+  # Mutation testing
+  infection:
+    enabled: true
+    min_msi: 80
+    min_covered_msi: 85
+    threads: 4
+    output_format: "json"
+
+# ============================================================================
+# OUTPUT & REPORTING
+# ============================================================================
+
+reporting:
+  format: "sarif"  # OWASP Security Assurance Report Format
+  output_file: ".titan/analysis/results/analysis.sarif"
+
+  # Generate HTML report
+  html:
+    enabled: true
+    output: ".titan/analysis/results/report.html"
+    include:
+      - "issues"
+      - "metrics"
+      - "coverage"
+
+  # Send results somewhere
+  export:
+    - type: "github"
+      enabled: true  # Post to PR if running in GitHub
+    - type: "slack"
+      enabled: false
+      webhook_url: "${SLACK_WEBHOOK_URL}"
+
+  # Fail conditions
+  fail_if:
+    critical_issues: "> 0"
+    high_issues: "> 5"
+    coverage: "< 85"
+    mutation_score: "< 80"
+    unknown_vulnerabilities: "found"
+    hardcoded_secrets: "found"
+
+# ============================================================================
+# PERFORMANCE
+# ============================================================================
+
+performance:
+  max_execution_time: 300  # 5 minutes
+  parallel_execution: true
+  threads: 4
+  cache: true
+  cache_dir: ".titan/analysis/cache"
+
+# ============================================================================
+# EXCEPTIONS & BASELINES
+# ============================================================================
+
+exceptions:
+  # Files to ignore
+  ignore_files:
+    - "vendor/**"
+    - "node_modules/**"
+    - "build/**"
+    - "dist/**"
+
+  # Paths with relaxed rules
+  relaxed_paths:
+    - path: "tests/**"
+      rules:
+        - "undefinedVariables"  # OK in tests
+        - "complexCode"  # Tests can be complex
+    - path: "migrations/**"
+      rules:
+        - "importedDeadCode"  # Migrations may not use all imports
+
+# ============================================================================
+# CI/CD INTEGRATION
+# ============================================================================
+
+ci_cd:
+  # GitHub Actions
+  github_actions:
+    enabled: true
+    workflow_file: ".github/workflows/analysis.yml"
+    post_to_pr: true
+    check_runs: true
+
+  # Pre-commit hook
+  pre_commit:
+    enabled: true
+    quick_mode: true  # Run subset of checks
+    allow_bypass: false
+
+  # CI step
+  ci_step:
+    enabled: true
+    full_mode: true  # Run all checks
+    parallel_workers: 4

@@ -1,0 +1,65 @@
+{
+  "key": "rooming_house_management",
+  "label": "Rooming House Management",
+  "version": "1.0.0",
+  "type": "vertical",
+  "extends": [
+    "accommodation_core"
+  ],
+  "capabilities": [],
+  "features": {
+    "rooming_house.residents": true,
+    "rooming_house.rooms": true,
+    "rooming_house.common_areas": true,
+    "rooming_house.compliance": true,
+    "rooming_house.incidents": true
+  },
+  "terminology": {
+    "entity.customer.singular": "Resident",
+    "entity.customer.plural": "Residents",
+    "entity.premises.singular": "Rooming house",
+    "entity.premises.plural": "Rooming houses",
+    "entity.work_order.singular": "Resident request",
+    "entity.work_order.plural": "Resident requests"
+  },
+  "metadata": {},
+  "setup": {
+    "default_business_lines": [
+      {
+        "key": "rooming_house_operations",
+        "name": "Rooming House Operations"
+      }
+    ],
+    "questions": [
+      {
+        "key": "rooming_house.property_count",
+        "section": "vertical_details",
+        "prompt": "How many rooming-house properties should be configured initially?",
+        "type": "integer",
+        "required": true
+      },
+      {
+        "key": "rooming_house.room_inventory",
+        "section": "vertical_details",
+        "prompt": "Should room and bed inventory be created during setup?",
+        "type": "boolean",
+        "required": true,
+        "default": true
+      },
+      {
+        "key": "rooming_house.compliance_program",
+        "section": "compliance",
+        "prompt": "Should recurring safety and compliance inspections be generated?",
+        "type": "boolean",
+        "required": true,
+        "default": true
+      }
+    ],
+    "documents": [
+      "resident_handbook",
+      "incident_report",
+      "maintenance_report",
+      "emergency_procedure"
+    ]
+  }
+}

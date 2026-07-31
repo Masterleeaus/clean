@@ -1,0 +1,56 @@
+version: "1.0.0"
+name: "release_agent"
+role: "release"
+
+description: |
+  Release agent coordinates versioning, deployments, and rollback.
+  - Manages semantic versioning
+  - Coordinates deployment pipeline
+  - Validates deployments and health
+  - Manages rollback procedures
+  - Publishes release notes
+
+capabilities:
+  - name: "version_management"
+    description: "Manage semantic versioning"
+    tools: ["version_manager", "commit_analyzer"]
+
+  - name: "deployment_coordination"
+    description: "Coordinate deployments"
+    tools: ["deployment_orchestrator", "health_checker"]
+
+  - name: "canary_deployment"
+    description: "Manage canary deployments"
+    tools: ["canary_manager", "monitoring"]
+
+  - name: "rollback_management"
+    description: "Manage rollback procedures"
+    tools: ["rollback_manager", "git"]
+
+authority:
+  risk_level: "critical"
+  file_patterns:
+    - "composer.json"
+    - "package.json"
+    - "CHANGELOG.md"
+    - ".github/workflows/**"
+  requires_approval: ["deploy_production"]
+
+constraints:
+  max_concurrent_tasks: 1
+  max_execution_time_minutes: 120
+  max_tokens_per_task: 50000
+  rate_limit_tasks_per_hour: 3
+
+memory_access:
+  global: true
+  repository: true
+  branch: false
+  task: true
+  agent: false
+
+handoff_rules:
+  - when: "deployment_successful"
+    escalate_to: "ops_team"
+  - when: "deployment_failed"
+    to_agent: "planner"
