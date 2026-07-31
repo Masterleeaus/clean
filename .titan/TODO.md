@@ -43,30 +43,30 @@
 ## Phase 2: Knowledge Layer (Weeks 5-8) 🧠
 
 **Effort**: 3.5 weeks  
-**Status**: `[ ] Blocked (depends on Phase 1)`
+**Status**: `[✓] In Progress - Core services implemented`
 
-- [ ] **2.1** Knowledge Graph Construction (2.5 weeks)
-  - [ ] Design graph schema
-  - [ ] Build file/class discovery
-  - [ ] Implement import analyzer
-  - [ ] Add route discovery
-  - [ ] Build query engine
+- [✓] **2.1** Knowledge Graph Construction (2.5 weeks)
+  - [✓] Design graph schema
+  - [✓] Build file/class discovery
+  - [✓] Implement import analyzer
+  - [✓] Add route discovery
+  - [✓] Build query engine
   - [ ] Create visualization tools
-  - [ ] Write tests
+  - [✓] Write tests
 
-- [ ] **2.2** Repository Constitution (1.5 weeks)
-  - [ ] Design constitution schema
-  - [ ] Build boundary enforcer
-  - [ ] Implement ownership system
+- [✓] **2.2** Repository Constitution (1.5 weeks)
+  - [✓] Design constitution schema
+  - [✓] Build boundary enforcer
+  - [✓] Implement ownership system
   - [ ] Create approval gate logic
-  - [ ] Write tests
+  - [✓] Write tests
 
-- [ ] **2.3** Architectural Drift Detection (2 weeks)
-  - [ ] Define drift violation types
-  - [ ] Build boundary crossing detector
-  - [ ] Implement health scorer
-  - [ ] Create drift report generator
-  - [ ] Write tests
+- [✓] **2.3** Architectural Drift Detection (2 weeks)
+  - [✓] Define drift violation types
+  - [✓] Build boundary crossing detector
+  - [✓] Implement health scorer
+  - [✓] Create drift report generator
+  - [✓] Write tests
 
 ---
 
