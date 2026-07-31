@@ -4,6 +4,7 @@ use App\Domains\Engine\EngineServiceProvider;
 use App\Domains\Entity\EntityServiceProvider;
 use App\Domains\Marketplace\MarketplaceServiceProvider;
 use App\Providers\AppServiceProvider;
+use App\TitanOS\Foundation\Services\TitanFoundationServiceProvider;
 use App\Providers\AwsServiceProvider;
 use App\Providers\EventServiceProvider;
 use App\Providers\MacrosServiceProvider;
@@ -247,6 +248,11 @@ return [
         AwsServiceProvider::class,
         EntityServiceProvider::class,
         EngineServiceProvider::class,
+
+        /**
+         * Titan OS Foundation
+         */
+        TitanFoundationServiceProvider::class,
 
         /**
          * Laravel Json Localization Manager
