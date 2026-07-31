@@ -7,6 +7,7 @@ use App\Providers\AppServiceProvider;
 use App\TitanOS\Foundation\Services\TitanFoundationServiceProvider;
 use App\TitanOS\Knowledge\Services\TitanKnowledgeServiceProvider;
 use App\Providers\TitanExecutionServiceProvider;
+use App\Providers\TitanSafetyServiceProvider;
 use App\Providers\AwsServiceProvider;
 use App\Providers\EventServiceProvider;
 use App\Providers\MacrosServiceProvider;
@@ -265,6 +266,11 @@ return [
          * Titan OS Execution Control
          */
         TitanExecutionServiceProvider::class,
+
+        /**
+         * Titan OS Safety & Governance
+         */
+        TitanSafetyServiceProvider::class,
 
         /**
          * Laravel Json Localization Manager
