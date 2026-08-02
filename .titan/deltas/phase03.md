@@ -25,6 +25,7 @@ Replace the active 14-app shell model with five canonical Titan platform applica
 - `app/Extensions/Chatbot/System/TitanShell/PlatformApplicationRegistry.php`
 - `app/Extensions/Chatbot/resources/titan-apps/TemplateSchemas/titan-launch.json`
 - `app/Extensions/Chatbot/resources/titan-apps/TemplateSchemas/titan-desk.json`
+- `app/Extensions/Chatbot/resources/titan-apps/TemplateSchemas/legacy-index-v1.json`
 
 ## Production Files Modified
 
@@ -55,14 +56,17 @@ Replace the active 14-app shell model with five canonical Titan platform applica
 6. The operational runtime selects from five profiles.
 7. Browser events carry canonical `application` context while preserving the legacy `template` field.
 8. The extension manifest no longer advertises a 14-app shell.
+9. The previous complete schema index is retained as a migration archive rather than deleted.
 
 ## Compatibility Preserved
 
 - Existing legacy application schema files remain in place.
 - Existing vertical and industry templates remain accessible through `TitanRegistry`.
+- The former complete schema catalogue is preserved byte-for-byte in `legacy-index-v1.json`.
 - `templates` remains an API compatibility alias for the canonical application list.
 - Previous WorkCore manifests remain available under `legacy_workcore_apps`.
 - Legacy application slugs are mapped rather than abruptly rejected.
+- Browser events retain the existing `template` field alongside canonical `application` context.
 
 ## Database Changes
 
@@ -78,9 +82,20 @@ No route names or paths were changed.
 
 ## Verification Status
 
-Static contract and source verification completed through the GitHub connector. PHP, JSON and JavaScript files were reviewed after writing, and the branch diff is limited to the registry migration and documentation.
+The following independent scratch checks were executed successfully using PHP 8.4 and Node.js 22:
 
-The connector cannot execute the repository test suite. Required CI commands:
+- PHP syntax validation for `PlatformApplicationRegistry.php`;
+- PHP syntax validation for `TemplateSchema.php`;
+- PHP syntax validation for `TitanController.php`;
+- registry contract execution confirming exactly five canonical slugs;
+- legacy mapping execution for Titan Sprout and Titan Front Desk;
+- canonical schema resolution and five-schema count;
+- JavaScript syntax validation for the operational runtime;
+- JavaScript contract check confirming exactly five operational profiles;
+- JSON parsing and slug-order validation for the five-app index;
+- JSON parsing for Titan Launch and Titan Desk schemas.
+
+The GitHub connector cannot execute the complete checked-out Laravel application. Required CI commands remain:
 
 ```bash
 php artisan test tests/Feature/TitanArchitecture/FiveApplicationRegistryTest.php
