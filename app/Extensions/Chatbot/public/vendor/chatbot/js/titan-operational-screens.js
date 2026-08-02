@@ -166,20 +166,20 @@
       }
       if (action.startsWith('prompt:')) {
         const prompt = action.slice(7);
-        window.dispatchEvent(new CustomEvent('titan:prompt-requested', { detail: { prompt, application: this.template, view: this.view } }));
+        window.dispatchEvent(new CustomEvent('titan:prompt-requested', { detail: { prompt, application: this.template, template: this.template, view: this.view } }));
         const message = document.querySelector('[x-ref="message"]');
         if (message) { message.value = prompt; message.dispatchEvent(new Event('input', { bubbles: true })); message.focus(); }
         return;
       }
       if (/capture|scan|incident/i.test(action)) {
-        window.dispatchEvent(new CustomEvent('workcore:open-field-workspace', { detail: { action, application: this.template } }));
+        window.dispatchEvent(new CustomEvent('workcore:open-field-workspace', { detail: { action, application: this.template, template: this.template } }));
       }
-      window.dispatchEvent(new CustomEvent('titan:operational-action', { detail: { action, application: this.template, view: this.view, authority: 'proposal-only' } }));
+      window.dispatchEvent(new CustomEvent('titan:operational-action', { detail: { action, application: this.template, template: this.template, view: this.view, authority: 'proposal-only' } }));
     }
 
     openRecord(id) {
       const record = this.records.find(row => String(row.id ?? row.resource_id ?? row.key) === String(id));
-      window.dispatchEvent(new CustomEvent('titan:record-opened', { detail: { application: this.template, view: this.view, id, record, authority: 'local-projection' } }));
+      window.dispatchEvent(new CustomEvent('titan:record-opened', { detail: { application: this.template, template: this.template, view: this.view, id, record, authority: 'local-projection' } }));
     }
   }
 
