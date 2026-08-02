@@ -25,6 +25,8 @@ class TitanController extends Controller
             'templates' => $applications,
             'vertical_templates' => TitanRegistry::toArray(),
             'legacy_slug_map' => PlatformApplicationRegistry::legacyMap(),
+            'workcore_apps' => $this->workCoreApplications($applications),
+            'legacy_workcore_apps' => $workcore->apps(),
             'workcore_runtime_available' => $workcore->runtimeAvailable(),
         ]);
     }
@@ -126,5 +128,17 @@ class TitanController extends Controller
             'schema' => TemplateSchema::resolve($slug),
             'workcore' => $workcore->app($slug),
         ];
+    }
+
+    /** @param list<array<string, mixed>> $applications */
+    private function workCoreApplications(array $applications): array
+    {
+        $mapped = [];
+
+        foreach ($applications as $application) {
+            $mapped[$application['slug']] = $application['workcore'];
+        }
+
+        return $mapped;
     }
 }
