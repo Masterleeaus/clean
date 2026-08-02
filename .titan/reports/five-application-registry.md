@@ -82,7 +82,7 @@ New first-class schemas were added for:
 - Titan Launch;
 - Titan Desk.
 
-The published `TemplateSchemas/index.json` now identifies only the five platform applications. The original individual legacy and vertical schema files remain present for compatibility and migration work.
+The published `TemplateSchemas/index.json` now identifies only the five platform applications. The previous complete index was preserved byte-for-byte as `TemplateSchemas/legacy-index-v1.json`. Individual legacy, vertical and industry schema files also remain present for compatibility and migration work.
 
 ## WorkCore Boundary
 
@@ -98,6 +98,7 @@ This pass does not move operational records into the chatbot extension. WorkCore
 - legacy schema migration;
 - exclusion of engines/modules/templates from the application list;
 - five-entry published index;
+- preservation of the former complete template index;
 - removal of the hard-coded 14-app builder label;
 - exactly five operational runtime profiles.
 
