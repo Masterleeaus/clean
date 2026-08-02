@@ -1,7 +1,11 @@
 {
-    "name": "Chatbot",
-    "type": "extension",
-    "version": "6.9.0-unified-ai-shell",
-    "description": "Unified Titan Zero chatbot with template-aware 14-app shell, offline WorkCore PWA, shared five-tier AI convergence, 28 Tier-2 assistants, expanded Tier-3 agents, governance, generative UI, staff inbox, team chat and business channels.",
-    "support_telegram": "heew_support"
+    "name": "Titan Zero Chatbot Legacy Snapshot",
+    "slug": "titan-zero-chatbot-legacy",
+    "type": "legacy-disabled",
+    "version": "6.9.0-legacy-disabled",
+    "enabled": false,
+    "bootable": false,
+    "authoritative_extension": "app/Extensions/Chatbot",
+    "provider": null,
+    "description": "Retained compatibility snapshot only. This directory must not register providers, routes, migrations, views, assets or namespaces. The authoritative chatbot extension is app/Extensions/Chatbot."
 }
