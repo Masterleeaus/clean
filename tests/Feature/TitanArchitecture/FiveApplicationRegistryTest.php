@@ -65,8 +65,14 @@ final class FiveApplicationRegistryTest extends TestCase
 
     public function test_published_index_contains_only_the_five_platform_applications(): void
     {
+        $root = base_path('app/Extensions/Chatbot/resources/titan-apps/TemplateSchemas');
         $index = json_decode(
-            (string) file_get_contents(base_path('app/Extensions/Chatbot/resources/titan-apps/TemplateSchemas/index.json')),
+            (string) file_get_contents($root.'/index.json'),
+            true,
+            flags: JSON_THROW_ON_ERROR,
+        );
+        $legacyIndex = json_decode(
+            (string) file_get_contents($root.'/legacy-index-v1.json'),
             true,
             flags: JSON_THROW_ON_ERROR,
         );
@@ -78,6 +84,7 @@ final class FiveApplicationRegistryTest extends TestCase
         );
         self::assertSame('titan-launch', $index['legacy_slug_map']['titan-sprout']);
         self::assertSame('titan-desk', $index['legacy_slug_map']['titan-front-desk']);
+        self::assertGreaterThan(5, count($legacyIndex['templates'] ?? []));
     }
 
     public function test_builder_and_operational_runtime_no_longer_advertise_fourteen_apps(): void
