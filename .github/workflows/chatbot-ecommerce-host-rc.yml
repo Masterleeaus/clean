@@ -11,6 +11,8 @@ on:
       - app/Extensions/ChatbotEcommerce/**
       - app/Support/TitanZero/TitanZeroFeatureFlags.php
       - config/titan-zero.php
+      - composer.json
+      - composer.lock
       - scripts/install_chatbot_ecommerce_overlay.py
       - transport/chatbot-ecommerce-v4.9.0-overlay.json
       - tests/contracts/chatbot_ecommerce_host_rc_contract_test.py
@@ -129,6 +131,11 @@ jobs:
           set -euo pipefail
           cp .env.example .env
           mkdir -p storage/framework/{cache/data,sessions,testing,views} storage/logs bootstrap/cache .titan/reports
+          composer update phpoffice/phpspreadsheet \
+            --with-all-dependencies \
+            --no-interaction \
+            --no-progress \
+            --no-scripts
           composer validate --no-check-publish --no-interaction
           composer install --no-interaction --no-progress --prefer-dist --optimize-autoloader
           php artisan config:clear
@@ -152,8 +159,8 @@ jobs:
           routes = json.load(open('/tmp/chatbot-ecommerce-routes.json'))
           if len(routes) < 40:
               raise SystemExit(f'Expected at least 40 ecommerce routes, found {len(routes)}')
-          names = {route.get('name') for route in routes}
-          if len(names - {None}) != len([name for name in names if name is not None]):
+          names = [route.get('name') for route in routes if route.get('name')]
+          if len(names) != len(set(names)):
               raise SystemExit('Duplicate ecommerce route names detected')
           print(f'Host registered {len(routes)} ecommerce routes')
           PY
@@ -190,6 +197,7 @@ jobs:
           - Registered ecommerce routes: ${route_count}
           - Database: MySQL 8.4 fresh migration
           - Extension discovery: explicit allow-list (`chatbot-ecommerce`)
+          - Composer lock: PhpSpreadsheet reconciled to the declared 5.8+ constraint
           - Lifecycle disable/enable cycle: passed
           - Scheduler registration: passed
           - Laravel unit and feature suites: passed
@@ -205,7 +213,7 @@ jobs:
           set -euo pipefail
           git config user.name "Titan Zero CI"
           git config user.email "actions@users.noreply.github.com"
-          git add app/Extensions/ChatbotEcommerce .titan/reports/chatbot-ecommerce-v4.9.0-host-overlay.json .titan/reports/CHATBOT_ECOMMERCE_V4.9_HOST_RC.md
+          git add composer.lock app/Extensions/ChatbotEcommerce .titan/reports/chatbot-ecommerce-v4.9.0-host-overlay.json .titan/reports/CHATBOT_ECOMMERCE_V4.9_HOST_RC.md
           if git diff --cached --quiet; then
             echo "No materialized ecommerce changes to commit"
           else
