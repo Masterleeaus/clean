@@ -20,11 +20,13 @@ def main() -> int:
     manifest = json.loads(manifest_path.read_text(encoding="utf-8-sig"))
     require(manifest.get("version") == "4.9.0", "Host must install ChatbotEcommerce v4.9.0")
 
-    app_config = (ROOT / "config" / "app.php").read_text(encoding="utf-8")
+    feature_flags = (ROOT / "app" / "Support" / "TitanZero" / "TitanZeroFeatureFlags.php").read_text(
+        encoding="utf-8"
+    )
+    require("ExtensionServiceProvider" in feature_flags, "Extension discovery flag must register ExtensionServiceProvider")
     require(
-        "App\\Providers\\ExtensionServiceProvider::class" in app_config
-        or "ExtensionServiceProvider::class" in app_config,
-        "config/app.php must register ExtensionServiceProvider",
+        "if ($this->extensionDiscoveryEnabled)" in feature_flags,
+        "ExtensionServiceProvider must remain behind explicit feature enablement",
     )
 
     titan_config = (ROOT / "config" / "titan-zero.php").read_text(encoding="utf-8")
