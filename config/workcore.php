@@ -2,8 +2,6 @@
 
 declare(strict_types=1);
 
-use App\Domains\WorkCore\System\Outbox\NullOutboxTransport;
-
 $module = static function (string $key, array $permissions, array $extra = []): array {
     return array_replace_recursive([
         'routes_enabled' => false,
@@ -36,11 +34,8 @@ return [
     'permissions' => ['allow_platform_fallback' => false],
     'outbox' => [
         'enabled' => true,
-        'transport' => env('WORKCORE_OUTBOX_TRANSPORT', NullOutboxTransport::class),
         'max_attempts' => 10,
         'retry_seconds' => 60,
-        'max_retry_seconds' => 3600,
-        'processing_timeout_seconds' => 300,
         'consumers' => [],
     ],
     'capabilities' => [
@@ -124,18 +119,88 @@ return [
         'status' => 'workcore.operations.status', 'tasks_update' => 'workcore.operations.tasks.update',
         'time_entries_create' => 'workcore.operations.time_entries.create',
     ]),
-    'scheduling' => $module('scheduling', ['view' => 'workcore.scheduling.view', 'manage' => 'workcore.scheduling.manage']),
-    'dispatch' => $module('dispatch', ['view' => 'workcore.dispatch.view', 'manage' => 'workcore.dispatch.manage']),
-    'workforce' => $module('workforce', ['view' => 'workcore.workforce.view', 'manage' => 'workcore.workforce.manage']),
-    'rosters' => $module('rosters', ['view' => 'workcore.rosters.view', 'manage' => 'workcore.rosters.manage']),
-    'assets' => $module('assets', ['view' => 'workcore.assets.view', 'manage' => 'workcore.assets.manage']),
-    'inventory' => $module('inventory', ['view' => 'workcore.inventory.view', 'manage' => 'workcore.inventory.manage']),
-    'forms' => $module('forms', ['view' => 'workcore.forms.view', 'manage' => 'workcore.forms.manage']),
-    'attendance' => $module('attendance', ['view' => 'workcore.attendance.view', 'manage' => 'workcore.attendance.manage']),
-    'support' => $module('support', ['view' => 'workcore.support.view', 'manage' => 'workcore.support.manage']),
-    'knowledge' => $module('knowledge', ['view' => 'workcore.knowledge.view', 'manage' => 'workcore.knowledge.manage']),
-    'reviews' => $module('reviews', ['view' => 'workcore.reviews.view', 'manage' => 'workcore.reviews.manage']),
-    'supply' => $module('supply', ['view' => 'workcore.supply.view', 'manage' => 'workcore.supply.manage']),
-    'fleet' => $module('fleet', ['view' => 'workcore.fleet.view', 'manage' => 'workcore.fleet.manage']),
-    'repairs' => $module('repairs', ['view' => 'workcore.repairs.view', 'manage' => 'workcore.repairs.manage']),
+    'scheduling' => $module('scheduling', [
+        'view' => 'workcore.scheduling.view', 'create' => 'workcore.scheduling.create',
+        'update' => 'workcore.scheduling.update', 'status' => 'workcore.scheduling.status',
+    ], ['conflicts' => ['prevent_premises_overlap_by_default' => true]]),
+    'dispatch' => $module('dispatch', [
+        'view' => 'workcore.dispatch.view', 'assign' => 'workcore.dispatch.assign',
+        'reassign' => 'workcore.dispatch.reassign', 'status' => 'workcore.dispatch.status',
+    ]),
+    'workforce' => $module('workforce', [
+        'manage' => 'workcore.workforce.manage', 'skills' => 'workcore.workforce.skills',
+        'certifications' => 'workcore.workforce.certifications',
+    ]),
+    'rosters' => $module('rosters', [
+        'availability' => 'workcore.rosters.availability', 'manage' => 'workcore.rosters.manage',
+        'assign' => 'workcore.rosters.assign', 'publish' => 'workcore.rosters.publish',
+    ], ['ui_routes_enabled' => false, 'ui_route_prefix' => 'workcore/rosters', 'ui_middleware' => ['web', 'auth', 'titan.company']]),
+    'assets' => $module('assets', [
+        'view' => 'workcore.assets.view', 'manage' => 'workcore.assets.manage',
+        'custody' => 'workcore.assets.custody', 'maintenance' => 'workcore.assets.maintenance',
+        'identifiers' => 'workcore.assets.identifiers',
+    ], ['schedule_due_processing' => false, 'schedule_overdue_custody_processing' => false, 'warranty_expiry_warning_days' => 30]),
+    'inventory' => $module('inventory', [
+        'manage' => 'workcore.inventory.manage', 'locations' => 'workcore.inventory.locations',
+        'movements' => 'workcore.inventory.movements', 'reserve' => 'workcore.inventory.reserve',
+        'consume' => 'workcore.inventory.consume',
+    ]),
+    'forms' => $module('forms', [
+        'manage_templates' => 'workcore.forms.templates.manage', 'publish_templates' => 'workcore.forms.templates.publish',
+        'complete' => 'workcore.forms.complete', 'submit' => 'workcore.forms.submit',
+        'convert_failures' => 'workcore.forms.failures.convert',
+    ]),
+    'attendance' => $module('attendance', [
+        'clock' => 'workcore.attendance.clock', 'timesheets_submit' => 'workcore.attendance.timesheets.submit',
+        'timesheets_approve' => 'workcore.attendance.timesheets.approve', 'leave_manage' => 'workcore.attendance.leave.manage',
+        'leave_request' => 'workcore.attendance.leave.request', 'leave_approve' => 'workcore.attendance.leave.approve',
+    ], ['rules' => ['prevent_dispatch_during_approved_leave' => true, 'prevent_roster_assignment_during_approved_leave' => true]]),
+    'support' => $module('support', [
+        'manage_queues' => 'workcore.support.queues.manage', 'create' => 'workcore.support.create',
+        'reply' => 'workcore.support.reply', 'assign' => 'workcore.support.assign',
+        'status' => 'workcore.support.status', 'convert_to_work_order' => 'workcore.support.convert_to_work_order',
+    ]),
+    'knowledge' => $module('knowledge', [
+        'manage_categories' => 'workcore.knowledge.categories.manage', 'create' => 'workcore.knowledge.create',
+        'edit' => 'workcore.knowledge.edit', 'publish' => 'workcore.knowledge.publish',
+        'feedback' => 'workcore.knowledge.feedback',
+    ]),
+    'reviews' => $module('reviews', [
+        'request' => 'workcore.reviews.request', 'record' => 'workcore.reviews.record',
+        'publish' => 'workcore.reviews.publish',
+        'recovery' => 'workcore.reviews.recovery', 'rebook' => 'workcore.reviews.rebook',
+    ]),
+    'supply' => $module('supply', [
+        'view' => 'workcore.supply.view', 'manage_catalogue' => 'workcore.supply.catalogue.manage',
+        'manage_suppliers' => 'workcore.supply.suppliers.manage', 'purchase' => 'workcore.supply.purchase',
+        'approve' => 'workcore.supply.approve', 'receive' => 'workcore.supply.receive',
+        'transfer' => 'workcore.supply.transfer', 'count' => 'workcore.supply.count',
+        'adjust' => 'workcore.supply.adjust', 'approve_adjustment' => 'workcore.supply.adjust.approve',
+    ]),
+    'fleet' => $module('fleet', [
+        'view' => 'workcore.fleet.view', 'manage' => 'workcore.fleet.manage',
+        'mileage' => 'workcore.fleet.mileage', 'assign' => 'workcore.fleet.assign',
+    ]),
+    'repairs' => $module('repairs', [
+        'view' => 'workcore.repairs.view', 'manage_templates' => 'workcore.repairs.templates.manage',
+        'report' => 'workcore.repairs.report', 'manage' => 'workcore.repairs.manage',
+        'return_to_service' => 'workcore.repairs.return_to_service',
+    ]),
+    'documents' => $module('documents', [
+        'view' => 'workcore.documents.view', 'create' => 'workcore.documents.create',
+        'version' => 'workcore.documents.version', 'link' => 'workcore.documents.link',
+        'comment' => 'workcore.documents.comment', 'approve' => 'workcore.documents.approve',
+        'evidence' => 'workcore.documents.evidence', 'signoff' => 'workcore.documents.signoff',
+    ]),
+    'assurance' => $module('assurance', [
+        'view' => 'workcore.assurance.view', 'templates' => 'workcore.assurance.templates',
+        'inspect' => 'workcore.assurance.inspect', 'complete' => 'workcore.assurance.complete',
+        'findings' => 'workcore.assurance.findings', 'corrective_actions' => 'workcore.assurance.corrective_actions',
+        'risks' => 'workcore.assurance.risks', 'incidents' => 'workcore.assurance.incidents',
+    ]),
+    'trade_compliance' => [
+        'permissions' => ['view' => 'workcore.trade_compliance.view'],
+    ],
+    'modules' => ['crm' => ['enabled' => true]],
+    'ndis' => ['permissions' => ['view' => 'workcore.ndis.view', 'claims' => 'workcore.ndis.claims', 'restricted_notes' => 'workcore.ndis.restricted_notes']],
 ];
