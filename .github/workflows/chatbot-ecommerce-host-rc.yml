@@ -1,0 +1,33 @@
+name: ChatbotEcommerce Host RC
+
+on:
+  push:
+    branches:
+      - feature/chatbot-ecommerce-v4.9-host-rc
+  pull_request:
+    branches:
+      - main
+    paths:
+      - app/Extensions/ChatbotEcommerce/**
+      - config/app.php
+      - config/titan-zero.php
+      - scripts/install_chatbot_ecommerce_overlay.py
+      - transport/chatbot-ecommerce-v4.9.0-overlay.json
+      - tests/contracts/chatbot_ecommerce_host_rc_contract_test.py
+      - .github/workflows/chatbot-ecommerce-host-rc.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  static-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run failing host RC contract
+        run: python3 tests/contracts/chatbot_ecommerce_host_rc_contract_test.py
